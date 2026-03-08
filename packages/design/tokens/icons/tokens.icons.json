@@ -1,0 +1,426 @@
+{
+  "$themes": [
+    {
+      "name": "Global",
+      "group": "Always enabled",
+      "selectedTokenSets": {
+        "foundations/fixed": "enabled",
+        "foundations/scales": "enabled",
+        "foundations/modular-scale": "enabled",
+        "foundations/linear-scale": "enabled",
+        "primitives/amber": "enabled",
+        "primitives/base": "enabled",
+        "primitives/black-alpha": "enabled",
+        "primitives/blue": "enabled",
+        "primitives/brand": "enabled",
+        "primitives/bronze": "enabled",
+        "primitives/brown": "enabled",
+        "primitives/crimson": "enabled",
+        "primitives/cyan": "enabled",
+        "primitives/gold": "enabled",
+        "primitives/grass": "enabled",
+        "primitives/gray": "enabled",
+        "primitives/green": "enabled",
+        "primitives/indigo": "enabled",
+        "primitives/iris": "enabled",
+        "primitives/jade": "enabled",
+        "primitives/lime": "enabled",
+        "primitives/mauve": "enabled",
+        "primitives/mint": "enabled",
+        "primitives/olive": "enabled",
+        "primitives/orange": "enabled",
+        "primitives/pink": "enabled",
+        "primitives/plum": "enabled",
+        "primitives/purple": "enabled",
+        "primitives/red": "enabled",
+        "primitives/ruby": "enabled",
+        "primitives/sage": "enabled",
+        "primitives/sand": "enabled",
+        "primitives/sky": "enabled",
+        "primitives/slate": "enabled",
+        "primitives/teal": "enabled",
+        "primitives/tomato": "enabled",
+        "primitives/violet": "enabled",
+        "primitives/white-alpha": "enabled",
+        "primitives/yellow": "enabled",
+        "semantic/status-error": "enabled",
+        "semantic/status-info": "enabled",
+        "semantic/status-success": "enabled",
+        "semantic/status-warning": "enabled",
+        "spacing": "enabled",
+        "width": "enabled",
+        "container": "enabled",
+        "paragraph": "enabled",
+        "icon": "enabled",
+        "foundations/typography": "enabled",
+        "typography/roles": "enabled",
+        "typography/styles": "enabled"
+      }
+    },
+    {
+      "name": "Gray",
+      "group": "Gray flavor",
+      "selectedTokenSets": {
+        "semantic/gray-gray": "enabled"
+      }
+    },
+    {
+      "name": "Mauve",
+      "group": "Gray flavor",
+      "selectedTokenSets": {
+        "semantic/gray-mauve": "enabled"
+      }
+    },
+    {
+      "name": "Olive",
+      "group": "Gray flavor",
+      "selectedTokenSets": {
+        "semantic/gray-olive": "enabled"
+      }
+    },
+    {
+      "name": "Sage",
+      "group": "Gray flavor",
+      "selectedTokenSets": {
+        "semantic/gray-sage": "enabled"
+      }
+    },
+    {
+      "name": "Sand",
+      "group": "Gray flavor",
+      "selectedTokenSets": {
+        "semantic/gray-sand": "enabled"
+      }
+    },
+    {
+      "name": "Slate",
+      "group": "Gray flavor",
+      "selectedTokenSets": {
+        "semantic/gray-slate": "enabled"
+      }
+    },
+    {
+      "name": "Amber",
+      "group": "Accent color",
+      "selectedTokenSets": {
+        "semantic/accent-amber": "enabled"
+      }
+    },
+    {
+      "name": "Base",
+      "group": "Accent color",
+      "selectedTokenSets": {
+        "semantic/accent-base": "enabled"
+      }
+    },
+    {
+      "name": "Blue",
+      "group": "Accent color",
+      "selectedTokenSets": {
+        "semantic/accent-blue": "enabled"
+      }
+    },
+    {
+      "name": "Brand",
+      "group": "Accent color",
+      "selectedTokenSets": {
+        "semantic/accent-brand": "enabled"
+      }
+    },
+    {
+      "name": "Bronze",
+      "group": "Accent color",
+      "selectedTokenSets": {
+        "semantic/accent-bronze": "enabled"
+      }
+    },
+    {
+      "name": "Brown",
+      "group": "Accent color",
+      "selectedTokenSets": {
+        "semantic/accent-brown": "enabled"
+      }
+    },
+    {
+      "name": "Crimson",
+      "group": "Accent color",
+      "selectedTokenSets": {
+        "semantic/accent-crimson": "enabled"
+      }
+    },
+    {
+      "name": "Cyan",
+      "group": "Accent color",
+      "selectedTokenSets": {
+        "semantic/accent-cyan": "enabled"
+      }
+    },
+    {
+      "name": "Gold",
+      "group": "Accent color",
+      "selectedTokenSets": {
+        "semantic/accent-gold": "enabled"
+      }
+    },
+    {
+      "name": "Grass",
+      "group": "Accent color",
+      "selectedTokenSets": {
+        "semantic/accent-grass": "enabled"
+      }
+    },
+    {
+      "name": "Green",
+      "group": "Accent color",
+      "selectedTokenSets": {
+        "semantic/accent-green": "enabled"
+      }
+    },
+    {
+      "name": "Indigo",
+      "group": "Accent color",
+      "selectedTokenSets": {
+        "semantic/accent-indigo": "enabled"
+      }
+    },
+    {
+      "name": "Iris",
+      "group": "Accent color",
+      "selectedTokenSets": {
+        "semantic/accent-iris": "enabled"
+      }
+    },
+    {
+      "name": "Jade",
+      "group": "Accent color",
+      "selectedTokenSets": {
+        "semantic/accent-jade": "enabled"
+      }
+    },
+    {
+      "name": "Lime",
+      "group": "Accent color",
+      "selectedTokenSets": {
+        "semantic/accent-lime": "enabled"
+      }
+    },
+    {
+      "name": "Mint",
+      "group": "Accent color",
+      "selectedTokenSets": {
+        "semantic/accent-mint": "enabled"
+      }
+    },
+    {
+      "name": "Orange",
+      "group": "Accent color",
+      "selectedTokenSets": {
+        "semantic/accent-orange": "enabled"
+      }
+    },
+    {
+      "name": "Pink",
+      "group": "Accent color",
+      "selectedTokenSets": {
+        "semantic/accent-pink": "enabled"
+      }
+    },
+    {
+      "name": "Plum",
+      "group": "Accent color",
+      "selectedTokenSets": {
+        "semantic/accent-plum": "enabled"
+      }
+    },
+    {
+      "name": "Purple",
+      "group": "Accent color",
+      "selectedTokenSets": {
+        "semantic/accent-purple": "enabled"
+      }
+    },
+    {
+      "name": "Red",
+      "group": "Accent color",
+      "selectedTokenSets": {
+        "semantic/accent-red": "enabled"
+      }
+    },
+    {
+      "name": "Ruby",
+      "group": "Accent color",
+      "selectedTokenSets": {
+        "semantic/accent-ruby": "enabled"
+      }
+    },
+    {
+      "name": "Sky",
+      "group": "Accent color",
+      "selectedTokenSets": {
+        "semantic/accent-sky": "enabled"
+      }
+    },
+    {
+      "name": "Teal",
+      "group": "Accent color",
+      "selectedTokenSets": {
+        "semantic/accent-teal": "enabled"
+      }
+    },
+    {
+      "name": "Tomato",
+      "group": "Accent color",
+      "selectedTokenSets": {
+        "semantic/accent-tomato": "enabled"
+      }
+    },
+    {
+      "name": "Violet",
+      "group": "Accent color",
+      "selectedTokenSets": {
+        "semantic/accent-violet": "enabled"
+      }
+    },
+    {
+      "name": "Yellow",
+      "group": "Accent color",
+      "selectedTokenSets": {
+        "semantic/accent-yellow": "enabled"
+      }
+    },
+    {
+      "name": "Light",
+      "group": "Color mode",
+      "selectedTokenSets": {
+        "appearance/light": "enabled"
+      }
+    },
+    {
+      "name": "Dark",
+      "group": "Color mode",
+      "selectedTokenSets": {
+        "appearance/dark": "enabled"
+      }
+    },
+    {
+      "name": "Compact",
+      "group": "Density",
+      "selectedTokenSets": {
+        "density/compact": "enabled"
+      }
+    },
+    {
+      "name": "Comfortable",
+      "group": "Density",
+      "selectedTokenSets": {
+        "density/comfortable": "enabled"
+      }
+    },
+    {
+      "name": "Spacious",
+      "group": "Density",
+      "selectedTokenSets": {
+        "density/spacious": "enabled"
+      }
+    },
+    {
+      "name": "Inter",
+      "group": "Typeface",
+      "selectedTokenSets": {
+        "semantic/typeface-inter": "enabled"
+      }
+    },
+    {
+      "name": "Geist",
+      "group": "Typeface",
+      "selectedTokenSets": {
+        "semantic/typeface-geist": "enabled"
+      }
+    },
+    {
+      "name": "Roboto",
+      "group": "Typeface",
+      "selectedTokenSets": {
+        "semantic/typeface-roboto": "enabled"
+      }
+    },
+    {
+      "name": "System",
+      "group": "Typeface",
+      "selectedTokenSets": {
+        "semantic/typeface-system": "enabled"
+      }
+    }
+  ],
+  "$metadata": {},
+  "icon": {
+    "size": {
+      "1": {
+        "$value": "16px",
+        "$type": "sizing"
+      },
+      "2": {
+        "$value": "20px",
+        "$type": "sizing"
+      },
+      "3": {
+        "$value": "24px",
+        "$type": "sizing"
+      },
+      "4": {
+        "$value": "28px",
+        "$type": "sizing"
+      },
+      "5": {
+        "$value": "32px",
+        "$type": "sizing"
+      },
+      "6": {
+        "$value": "48px",
+        "$type": "sizing"
+      },
+      "7": {
+        "$value": "64px",
+        "$type": "sizing"
+      },
+      "8": {
+        "$value": "96px",
+        "$type": "sizing"
+      },
+      "9": {
+        "$value": "128px",
+        "$type": "sizing"
+      }
+    },
+    "style": {
+      "line": {
+        "$value": "line",
+        "$type": "string"
+      },
+      "duocolor": {
+        "$value": "duocolor",
+        "$type": "string"
+      },
+      "solid": {
+        "$value": "solid",
+        "$type": "string"
+      },
+      "duotone": {
+        "$value": "duotone",
+        "$type": "string"
+      }
+    },
+    "opacity": {
+      "1": {
+        "$value": 0.12,
+        "$type": "opacity",
+        "$description": "Layer pass through for duotone"
+      },
+      "2": {
+        "$value": 0.4,
+        "$type": "opacity",
+        "$description": "Layer pass through for duocolor"
+      }
+    }
+  }
+}

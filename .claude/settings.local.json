@@ -1,0 +1,17 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash",
+      "Bash(cp \"Tokens repo set up/tokens.all-in-one.json\" packages/design/tokens/all-in-one/)",
+      "Bash(cp \"Tokens repo set up/tokens.foundations.json\" packages/design/tokens/foundations/)",
+      "Bash(cp \"Tokens repo set up/tokens.primitives.json\" packages/design/tokens/primitives/)",
+      "Bash(cp \"Tokens repo set up/tokens.semantic-colors.json\" packages/design/tokens/semantic/)",
+      "Bash(cp \"Tokens repo set up/tokens.semantic-typography.json\" packages/design/tokens/semantic/)",
+      "Bash(cp \"Tokens repo set up/tokens.appearance.json\" packages/design/tokens/appearance/)",
+      "Bash(cp \"Tokens repo set up/tokens.density.json\" packages/design/tokens/density/)",
+      "Bash(cp \"Tokens repo set up/tokens.spacing.json\" packages/design/tokens/spacing/)",
+      "Bash(cp \"Tokens repo set up/tokens.icons.json\" packages/design/tokens/icons/)",
+      "Bash(cp \"Tokens repo set up/tokens.typography.json\" packages/design/tokens/typography/)"
+    ]
+  }
+}
