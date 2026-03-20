@@ -1,6 +1,7 @@
 {
   "permissions": {
     "allow": [
+      "*",
       "Bash",
       "Bash(cp \"Tokens repo set up/tokens.all-in-one.json\" packages/design/tokens/all-in-one/)",
       "Bash(cp \"Tokens repo set up/tokens.foundations.json\" packages/design/tokens/foundations/)",
