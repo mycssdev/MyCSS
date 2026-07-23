@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="en" data-gray="slate" data-accent="brand" data-mode="light" data-density="comfortable" data-typeface="inter">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MyCSS v0.1.0-alpha — tokens · compositions · utilities</title>
+<link rel="stylesheet" href="css/mycss.css">
+<style>
+  /* Demo-page blocks (my-*) — will graduate to packages/ui. */
+  @layer mycss.blocks {
+    * { margin: 0; box-sizing: border-box; }
+    body {
+      background: var(--my-bg-neutral-primary);
+      color: var(--my-text-neutral-primary);
+      font-family: var(--my-body-family);
+      font-size: var(--my-body-size);
+      line-height: var(--my-body-line-height);
+    }
+    .my-topbar {
+      position: sticky; top: 0; z-index: var(--my-z-index-sticky);
+      background: var(--my-bg-neutral-secondary);
+      border-block-end: var(--my-border-width-2) solid var(--my-border-neutral-separator);
+    }
+    .my-topbar select, .my-topbar button {
+      font: inherit; font-size: var(--my-label-size);
+      padding-block: var(--my-squish-block-sm); padding-inline: var(--my-squish-inline-sm);
+      border-radius: var(--my-border-radius-sm);
+      border: var(--my-border-width-2) solid var(--my-border-neutral-primary);
+      background: var(--my-bg-neutral-primary); color: var(--my-text-neutral-primary);
+    }
+    .my-button {
+      display: inline-flex; align-items: center; cursor: pointer; border: none;
+      padding-block: var(--my-squish-block-md); padding-inline: var(--my-squish-inline-md);
+      border-radius: var(--my-border-radius-md);
+      font-family: var(--my-label-lg-family); font-size: var(--my-label-lg-size);
+      font-weight: var(--my-label-lg-weight);
+      background: var(--my-bg-brand-solid); color: var(--my-text-on-accent);
+    }
+    .my-button:hover { background: var(--my-bg-brand-solid_hover); }
+    .my-button[data-variant="soft"] { background: var(--my-bg-brand-secondary); color: var(--my-text-brand-primary); }
+    .my-button[data-variant="outline"] {
+      background: transparent; color: var(--my-text-neutral-primary);
+      box-shadow: inset 0 0 0 var(--my-border-width-2) var(--my-border-neutral-primary);
+    }
+    .my-button[data-state="disabled"] { background: var(--my-bg-neutral-disabled); color: var(--my-text-neutral-disabled); cursor: not-allowed; }
+    .my-card {
+      background: var(--my-bg-neutral-secondary);
+      border: var(--my-border-width-2) solid var(--my-border-neutral-secondary);
+      border-radius: var(--my-border-radius-lg);
+    }
+    .my-card[data-variant="featured"] { border-color: var(--my-border-brand); background: var(--my-bg-brand-primary); }
+    .my-badge {
+      display: inline-block; border-radius: var(--my-border-radius-full);
+      padding-block: var(--my-squish-block-sm); padding-inline: var(--my-squish-inline-sm);
+      font-size: var(--my-label-sm-size); font-weight: var(--my-label-sm-weight);
+      font-family: var(--my-label-sm-family);
+      background: var(--my-bg-neutral-tertiary);
+    }
+    .my-badge[data-variant="error"]   { background: var(--my-bg-error-secondary);   color: var(--my-text-error); }
+    .my-badge[data-variant="warning"] { background: var(--my-bg-warning-secondary); color: var(--my-text-warning); }
+    .my-badge[data-variant="success"] { background: var(--my-bg-success-secondary); color: var(--my-text-success); }
+    .my-badge[data-variant="info"]    { background: var(--my-bg-info-secondary);    color: var(--my-text-info); }
+    .my-swatch { inline-size: var(--my-space-10); block-size: var(--my-space-10); border-radius: var(--my-border-radius-sm); }
+    .my-panel {
+      background: var(--my-bg-neutral-tertiary);
+      border-radius: var(--my-border-radius-md);
+      font-size: var(--my-body-sm-size);
+    }
+  }
+</style>
+</head>
+<body>
+
+<header class="my-topbar | u-inset-sm">
+  <div class="c-center | c-cluster u-inline-md">
+    <strong class="u-label-lg">MyCSS <span class="u-text-brand-primary">v0.1.0-alpha</span></strong>
+    <span class="u-label u-text-neutral-tertiary">my-* | c-* | u-* — grammar demo</span>
+    <span style="flex:1"></span>
+    <label class="u-label">accent <select id="accent"></select></label>
+    <label class="u-label">gray <select id="gray"></select></label>
+    <label class="u-label">density <select id="density"></select></label>
+    <label class="u-label">typeface <select id="typeface"></select></label>
+    <button id="mode">☾ dark</button>
+  </div>
+</header>
+
+<main class="c-center">
+  <section class="c-stack | u-region-md u-stack-lg">
+    <span class="my-badge" data-variant="info">intrinsic · CUBE · token-driven</span>
+    <h1 class="u-display-lg" style="max-inline-size: 18ch;">One grammar, from token to markup.</h1>
+    <p class="u-body-lg u-paragraph u-text-neutral-secondary">
+      Blocks are <code class="u-code">my-*</code>, compositions are <code class="u-code">c-*</code>,
+      utilities are <code class="u-code">u-*</code>, exceptions are
+      <code class="u-code">data-variant</code>/<code class="u-code">data-state</code> —
+      grouped with pipes in <em>block | composition | utilities</em> order.
+      Every value on this page is a <code class="u-code">--my-*</code> custom property.
+    </p>
+    <div class="c-cluster | u-inline-md">
+      <button class="my-button">Get started</button>
+      <button class="my-button" data-variant="soft">Documentation</button>
+      <button class="my-button" data-variant="outline">GitHub</button>
+      <button class="my-button" data-state="disabled">Coming soon</button>
+    </div>
+  </section>
+
+  <section class="c-stack | u-region-sm u-stack-lg">
+    <h2 class="u-h3">c-switcher <span class="u-body-sm u-text-neutral-tertiary">— row ≥ threshold, column below · resize me</span></h2>
+    <div class="c-switcher" id="switcher-demo">
+      <div class="my-panel | u-inset-md">flex-basis: calc((<code class="u-code">--my-threshold-comfortable</code> − 100%) × 999)</div>
+      <div class="my-panel | u-inset-md">no media queries</div>
+      <div class="my-panel | u-inset-md">no container queries</div>
+    </div>
+  </section>
+
+  <section class="c-stack | u-region-sm u-stack-lg">
+    <h2 class="u-h3">c-sidebar <span class="u-body-sm u-text-neutral-tertiary">— folds when content drops below 50%</span></h2>
+    <div class="c-sidebar" id="sidebar-demo">
+      <nav class="my-panel | c-stack u-stack-xs u-inset-md">
+        <strong class="u-label">Sidebar</strong>
+        <span class="u-body-sm">Tokens</span><span class="u-body-sm">Compositions</span><span class="u-body-sm">Utilities</span>
+      </nav>
+      <div class="my-card | c-stack u-stack-sm u-inset-lg">
+        <h3 class="u-h5">Content</h3>
+        <p class="u-body-sm u-text-neutral-secondary">Takes the remaining space; wraps under the sidebar when its share would fall below <code class="u-code">--my-sidebar-content-min</code>.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="c-stack | u-region-sm u-stack-lg">
+    <h2 class="u-h3">c-grid + my-card <span class="u-body-sm u-text-neutral-tertiary">— auto-fit, gutter tokens</span></h2>
+    <div class="c-grid" id="grid-demo">
+      <article class="my-card | c-stack u-stack-sm u-inset-lg" data-variant="featured">
+        <span class="my-badge" data-variant="success">featured</span>
+        <h3 class="u-h5">Exception grammar</h3>
+        <p class="u-body-sm u-text-neutral-secondary">This card is <code class="u-code">data-variant="featured"</code> — E of CUBE as attributes.</p>
+      </article>
+      <article class="my-card | c-stack u-stack-sm u-inset-lg">
+        <h3 class="u-h5">Subtree theming</h3>
+        <div class="c-cluster | u-inline-sm" data-accent="jade">
+          <button class="my-button">jade subtree</button>
+        </div>
+      </article>
+      <article class="my-card | c-stack u-stack-sm u-inset-lg">
+        <h3 class="u-h5">Accent 1–12</h3>
+        <div class="c-cluster | u-inline-xs" id="accent-swatches"></div>
+      </article>
+      <article class="my-card | c-stack u-stack-sm u-inset-lg">
+        <h3 class="u-h5">Type ramp <span class="u-body-sm u-text-neutral-tertiary" id="ramp-note"></span></h3>
+        <span class="u-h1">h1</span>
+        <span class="u-body">body — quick brown fox</span>
+        <span class="u-code">code · round(base * ratio)</span>
+      </article>
+    </div>
+  </section>
+
+  <section class="c-stack | u-region-sm u-stack-lg">
+    <h2 class="u-h3">Status</h2>
+    <div class="c-cluster | u-inline-md">
+      <span class="my-badge" data-variant="error">error</span>
+      <span class="my-badge" data-variant="warning">warning</span>
+      <span class="my-badge" data-variant="success">success</span>
+      <span class="my-badge" data-variant="info">info</span>
+    </div>
+  </section>
+</main>
+
+<footer class="u-region-sm u-bg-neutral-secondary">
+  <p class="c-center | u-body-sm u-text-neutral-tertiary">MyCSS — Intrinsic Web Design framework · tokens → CSS, generated</p>
+</footer>
+
+<script>
+  const root = document.documentElement;
+  const opts = {
+    accent: ["brand","amber","base","blue","bronze","brown","crimson","cyan","gold","grass","green","indigo","iris","jade","lime","mint","orange","pink","plum","purple","red","ruby","sky","teal","tomato","violet","yellow"],
+    gray: ["slate","gray","mauve","olive","sage","sand"],
+    density: ["comfortable","compact","spacious"],
+    typeface: ["inter","geist","roboto","system"],
+  };
+  for (const [attr, values] of Object.entries(opts)) {
+    const sel = document.getElementById(attr);
+    values.forEach(v => sel.add(new Option(v, v)));
+    sel.value = root.dataset[attr];
+    sel.onchange = () => { root.dataset[attr] = sel.value; note(); };
+  }
+  const modeBtn = document.getElementById("mode");
+  modeBtn.onclick = () => {
+    root.dataset.mode = root.dataset.mode === "light" ? "dark" : "light";
+    modeBtn.textContent = root.dataset.mode === "light" ? "☾ dark" : "☀ light";
+  };
+  const sw = document.getElementById("accent-swatches");
+  for (let i = 1; i <= 12; i++) {
+    const d = document.createElement("div");
+    d.className = "my-swatch";
+    d.style.background = `var(--my-accent-${i})`;
+    sw.appendChild(d);
+  }
+  function note() {
+    const px = getComputedStyle(document.querySelector(".u-h1")).fontSize;
+    document.getElementById("ramp-note").textContent = `— h1 = ${px} (${root.dataset.density})`;
+  }
+  note();
+</script>
+</body>
+</html>
