@@ -1,21 +1,10 @@
-/*! MyCSS Composition v0.1.0-alpha.1 — CUBE "C" layer.
- *  Intrinsic, query-less layout primitives (Every Layout lineage).
- *  Grammar: .c-* classes; per-instance knobs are --my-* custom properties
- *  defaulting to MyCSS semantic spacing tokens, so every composition is
- *  density-aware automatically. No breakpoints: c-switcher folds via the
- *  flex-basis threshold trick against --my-threshold-* tokens.
- */
 @layer mycss.composition {
-
-  /* ---- c-stack — vertical rhythm ------------------------------------- */
   .c-stack {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     gap: var(--my-stack-space, var(--my-stack-md));
   }
-
-  /* ---- c-cluster — wrapping horizontal group ------------------------- */
   .c-cluster {
     display: flex;
     flex-wrap: wrap;
@@ -23,15 +12,11 @@
     justify-content: var(--my-cluster-justify, flex-start);
     align-items: var(--my-cluster-align, center);
   }
-
-  /* ---- c-center — horizontally centered content column ---------------- */
   .c-center {
     max-inline-size: var(--my-center-max, var(--my-container-max-width));
     margin-inline: auto;
     padding-inline: var(--my-center-gutter, var(--my-container-padding-comfortable));
   }
-
-  /* ---- c-sidebar — sidebar + content, folds when content gets narrow -- */
   .c-sidebar {
     display: flex;
     flex-wrap: wrap;
@@ -46,17 +31,15 @@
     flex-grow: 999;
     min-inline-size: var(--my-sidebar-content-min, 50%);
   }
-  .c-sidebar[data-side="end"] > :first-child {
+  .c-sidebar[data-side=end] > :first-child {
     flex-basis: 0;
     flex-grow: 999;
     min-inline-size: var(--my-sidebar-content-min, 50%);
   }
-  .c-sidebar[data-side="end"] > :last-child {
+  .c-sidebar[data-side=end] > :last-child {
     flex-basis: var(--my-sidebar-width, var(--my-width-xxs));
     flex-grow: 1;
   }
-
-  /* ---- c-switcher — row above threshold, column below ------------------ */
   .c-switcher {
     display: flex;
     flex-wrap: wrap;
@@ -66,18 +49,11 @@
     flex-grow: 1;
     flex-basis: calc((var(--my-switcher-threshold, var(--my-threshold-comfortable)) - 100%) * 999);
   }
-
-  /* ---- c-grid — responsive card grid, no media queries ----------------- */
   .c-grid {
     display: grid;
     gap: var(--my-grid-space, var(--my-gutter-md));
-    grid-template-columns: repeat(
-      auto-fit,
-      minmax(min(var(--my-grid-min, var(--my-space-64)), 100%), 1fr)
-    );
+    grid-template-columns: repeat(auto-fit, minmax(min(var(--my-grid-min, var(--my-space-64)), 100%), 1fr));
   }
-
-  /* ---- c-cover — full-height cover with centered principal element ----- */
   .c-cover {
     display: flex;
     flex-direction: column;

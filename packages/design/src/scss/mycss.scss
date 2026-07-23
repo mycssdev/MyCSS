@@ -1,0 +1,8 @@
+// MyCSS bundle entry — compiled by `npm run build:css` to
+// packages/design/dist/css/mycss.css.
+// Generated CSS (tokens, utilities) is inlined as plain CSS; authored
+// layers (composition, later blocks) come in as SCSS modules.
+@use "layers";
+@use "../../dist/css/mycss-tokens";
+@use "../../../composition/src/scss/composition";
+@use "../../dist/css/mycss-utilities";

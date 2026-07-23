@@ -1,0 +1,16 @@
+{
+  "name": "mycss",
+  "version": "0.1.0-alpha.1",
+  "private": true,
+  "description": "MyCSS — Intrinsic Web Design framework (CUBE CSS). Tokens → CSS pipeline + SCSS authoring layer.",
+  "scripts": {
+    "build:tokens": "python packages/design/build/generate_css.py",
+    "build:css": "sass --no-source-map packages/design/src/scss/mycss.scss:packages/design/dist/css/mycss.css packages/composition/src/scss/composition.scss:packages/design/dist/css/mycss-composition.css",
+    "build": "npm run build:tokens && npm run build:css",
+    "test": "node tools/tests/verify.mjs"
+  },
+  "devDependencies": {
+    "playwright": "^1.49.0",
+    "sass": "^1.80.0"
+  }
+}

@@ -1,0 +1,96 @@
+// MyCSS Composition v0.1.0-alpha — CUBE "C" layer, authored in SCSS.
+// Intrinsic, query-less layout primitives (Every Layout lineage).
+// Knobs are --my-* custom properties (via my.knob) defaulting to semantic
+// spacing tokens, so every composition is density-aware automatically.
+@use "../../../design/src/scss/my" as my;
+
+@layer mycss.composition {
+
+  // ---- c-stack — vertical rhythm
+  .c-stack {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: my.knob(stack-space, stack-md);
+  }
+
+  // ---- c-cluster — wrapping horizontal group
+  .c-cluster {
+    display: flex;
+    flex-wrap: wrap;
+    gap: my.knob(cluster-space, inline-md);
+    justify-content: var(--my-cluster-justify, flex-start);
+    align-items: var(--my-cluster-align, center);
+  }
+
+  // ---- c-center — horizontally centered content column
+  .c-center {
+    max-inline-size: my.knob(center-max, container-max-width);
+    margin-inline: auto;
+    padding-inline: my.knob(center-gutter, container-padding-comfortable);
+  }
+
+  // ---- c-sidebar — sidebar + content, folds when content gets narrow
+  .c-sidebar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: my.knob(sidebar-space, gutter-md);
+
+    > :first-child {
+      flex-basis: my.knob(sidebar-width, width-xxs);
+      flex-grow: 1;
+    }
+    > :last-child {
+      flex-basis: 0;
+      flex-grow: 999;
+      min-inline-size: var(--my-sidebar-content-min, 50%);
+    }
+
+    &[data-side="end"] {
+      > :first-child {
+        flex-basis: 0;
+        flex-grow: 999;
+        min-inline-size: var(--my-sidebar-content-min, 50%);
+      }
+      > :last-child {
+        flex-basis: my.knob(sidebar-width, width-xxs);
+        flex-grow: 1;
+      }
+    }
+  }
+
+  // ---- c-switcher — row above threshold, column below
+  .c-switcher {
+    display: flex;
+    flex-wrap: wrap;
+    gap: my.knob(switcher-space, gutter-md);
+
+    > * {
+      flex-grow: 1;
+      flex-basis: calc((my.knob(switcher-threshold, threshold-comfortable) - 100%) * 999);
+    }
+  }
+
+  // ---- c-grid — responsive card grid, no media queries
+  .c-grid {
+    display: grid;
+    gap: my.knob(grid-space, gutter-md);
+    grid-template-columns: repeat(
+      auto-fit,
+      minmax(min(my.knob(grid-min, space-64), 100%), 1fr)
+    );
+  }
+
+  // ---- c-cover — full-height cover with centered principal element
+  .c-cover {
+    display: flex;
+    flex-direction: column;
+    min-block-size: var(--my-cover-min-height, 100dvh);
+    padding: my.knob(cover-padding, inset-lg);
+    gap: my.knob(cover-space, stack-md);
+
+    > [data-principal] {
+      margin-block: auto;
+    }
+  }
+}

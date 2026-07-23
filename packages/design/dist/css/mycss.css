@@ -1,5 +1,5 @@
+@charset "UTF-8";
 @layer mycss.tokens, mycss.composition, mycss.utilities;
-
 /*! MyCSS tokens v0.1.0-alpha.1 — generated 2026-07-23 from tokens.all-in-one.json.
  *  Do not edit by hand; run packages/design/build/generate_css.py.
  *  Requires: CSS round(), light-dark() — Baseline 2024. */
@@ -2060,9 +2060,13 @@
     --my-family-secondary: Georgia, 'Times New Roman', serif;
     --my-family-mono: 'JetBrains Mono', 'Fira Code', ui-monospace, monospace;
   }
-  [data-mode="light"] { color-scheme: light; }
-  [data-mode="dark"] { color-scheme: dark; }
-  [data-gray="gray"] {
+  [data-mode=light] {
+    color-scheme: light;
+  }
+  [data-mode=dark] {
+    color-scheme: dark;
+  }
+  [data-gray=gray] {
     --my-neutral-1: var(--my-gray-1);
     --my-neutral-2: var(--my-gray-2);
     --my-neutral-3: var(--my-gray-3);
@@ -2112,7 +2116,7 @@
     --my-neutral-dark-alpha-a11: var(--my-gray-dark-alpha-a11);
     --my-neutral-dark-alpha-a12: var(--my-gray-dark-alpha-a12);
   }
-  [data-gray="mauve"] {
+  [data-gray=mauve] {
     --my-neutral-1: var(--my-mauve-1);
     --my-neutral-2: var(--my-mauve-2);
     --my-neutral-3: var(--my-mauve-3);
@@ -2162,7 +2166,7 @@
     --my-neutral-dark-alpha-a11: var(--my-mauve-dark-alpha-a11);
     --my-neutral-dark-alpha-a12: var(--my-mauve-dark-alpha-a12);
   }
-  [data-gray="olive"] {
+  [data-gray=olive] {
     --my-neutral-1: var(--my-olive-1);
     --my-neutral-2: var(--my-olive-2);
     --my-neutral-3: var(--my-olive-3);
@@ -2212,7 +2216,7 @@
     --my-neutral-dark-alpha-a11: var(--my-olive-dark-alpha-a11);
     --my-neutral-dark-alpha-a12: var(--my-olive-dark-alpha-a12);
   }
-  [data-gray="sage"] {
+  [data-gray=sage] {
     --my-neutral-1: var(--my-sage-1);
     --my-neutral-2: var(--my-sage-2);
     --my-neutral-3: var(--my-sage-3);
@@ -2262,7 +2266,7 @@
     --my-neutral-dark-alpha-a11: var(--my-sage-dark-alpha-a11);
     --my-neutral-dark-alpha-a12: var(--my-sage-dark-alpha-a12);
   }
-  [data-gray="sand"] {
+  [data-gray=sand] {
     --my-neutral-1: var(--my-sand-1);
     --my-neutral-2: var(--my-sand-2);
     --my-neutral-3: var(--my-sand-3);
@@ -2312,7 +2316,7 @@
     --my-neutral-dark-alpha-a11: var(--my-sand-dark-alpha-a11);
     --my-neutral-dark-alpha-a12: var(--my-sand-dark-alpha-a12);
   }
-  [data-gray="slate"] {
+  [data-gray=slate] {
     --my-neutral-1: var(--my-slate-1);
     --my-neutral-2: var(--my-slate-2);
     --my-neutral-3: var(--my-slate-3);
@@ -2362,7 +2366,7 @@
     --my-neutral-dark-alpha-a11: var(--my-slate-dark-alpha-a11);
     --my-neutral-dark-alpha-a12: var(--my-slate-dark-alpha-a12);
   }
-  [data-accent="amber"] {
+  [data-accent=amber] {
     --my-accent-1: var(--my-amber-1);
     --my-accent-2: var(--my-amber-2);
     --my-accent-3: var(--my-amber-3);
@@ -2413,7 +2417,7 @@
     --my-accent-dark-alpha-a12: var(--my-amber-dark-alpha-a12);
     --my-accent-contrast: #21201c;
   }
-  [data-accent="base"] {
+  [data-accent=base] {
     --my-accent-1: var(--my-base-1);
     --my-accent-2: var(--my-base-2);
     --my-accent-3: var(--my-base-3);
@@ -2464,7 +2468,7 @@
     --my-accent-dark-alpha-a12: var(--my-base-dark-alpha-a12);
     --my-accent-contrast: #ffffff;
   }
-  [data-accent="blue"] {
+  [data-accent=blue] {
     --my-accent-1: var(--my-blue-1);
     --my-accent-2: var(--my-blue-2);
     --my-accent-3: var(--my-blue-3);
@@ -2515,7 +2519,7 @@
     --my-accent-dark-alpha-a12: var(--my-blue-dark-alpha-a12);
     --my-accent-contrast: #ffffff;
   }
-  [data-accent="brand"] {
+  [data-accent=brand] {
     --my-accent-1: var(--my-brand-1);
     --my-accent-2: var(--my-brand-2);
     --my-accent-3: var(--my-brand-3);
@@ -2566,7 +2570,7 @@
     --my-accent-dark-alpha-a12: var(--my-brand-dark-alpha-a12);
     --my-accent-contrast: #ffffff;
   }
-  [data-accent="bronze"] {
+  [data-accent=bronze] {
     --my-accent-1: var(--my-bronze-1);
     --my-accent-2: var(--my-bronze-2);
     --my-accent-3: var(--my-bronze-3);
@@ -2617,7 +2621,7 @@
     --my-accent-dark-alpha-a12: var(--my-bronze-dark-alpha-a12);
     --my-accent-contrast: #ffffff;
   }
-  [data-accent="brown"] {
+  [data-accent=brown] {
     --my-accent-1: var(--my-brown-1);
     --my-accent-2: var(--my-brown-2);
     --my-accent-3: var(--my-brown-3);
@@ -2668,7 +2672,7 @@
     --my-accent-dark-alpha-a12: var(--my-brown-dark-alpha-a12);
     --my-accent-contrast: #ffffff;
   }
-  [data-accent="crimson"] {
+  [data-accent=crimson] {
     --my-accent-1: var(--my-crimson-1);
     --my-accent-2: var(--my-crimson-2);
     --my-accent-3: var(--my-crimson-3);
@@ -2719,7 +2723,7 @@
     --my-accent-dark-alpha-a12: var(--my-crimson-dark-alpha-a12);
     --my-accent-contrast: #ffffff;
   }
-  [data-accent="cyan"] {
+  [data-accent=cyan] {
     --my-accent-1: var(--my-cyan-1);
     --my-accent-2: var(--my-cyan-2);
     --my-accent-3: var(--my-cyan-3);
@@ -2770,7 +2774,7 @@
     --my-accent-dark-alpha-a12: var(--my-cyan-dark-alpha-a12);
     --my-accent-contrast: #ffffff;
   }
-  [data-accent="gold"] {
+  [data-accent=gold] {
     --my-accent-1: var(--my-gold-1);
     --my-accent-2: var(--my-gold-2);
     --my-accent-3: var(--my-gold-3);
@@ -2821,7 +2825,7 @@
     --my-accent-dark-alpha-a12: var(--my-gold-dark-alpha-a12);
     --my-accent-contrast: #ffffff;
   }
-  [data-accent="grass"] {
+  [data-accent=grass] {
     --my-accent-1: var(--my-grass-1);
     --my-accent-2: var(--my-grass-2);
     --my-accent-3: var(--my-grass-3);
@@ -2872,7 +2876,7 @@
     --my-accent-dark-alpha-a12: var(--my-grass-dark-alpha-a12);
     --my-accent-contrast: #ffffff;
   }
-  [data-accent="green"] {
+  [data-accent=green] {
     --my-accent-1: var(--my-green-1);
     --my-accent-2: var(--my-green-2);
     --my-accent-3: var(--my-green-3);
@@ -2923,7 +2927,7 @@
     --my-accent-dark-alpha-a12: var(--my-green-dark-alpha-a12);
     --my-accent-contrast: #ffffff;
   }
-  [data-accent="indigo"] {
+  [data-accent=indigo] {
     --my-accent-1: var(--my-indigo-1);
     --my-accent-2: var(--my-indigo-2);
     --my-accent-3: var(--my-indigo-3);
@@ -2974,7 +2978,7 @@
     --my-accent-dark-alpha-a12: var(--my-indigo-dark-alpha-a12);
     --my-accent-contrast: #ffffff;
   }
-  [data-accent="iris"] {
+  [data-accent=iris] {
     --my-accent-1: var(--my-iris-1);
     --my-accent-2: var(--my-iris-2);
     --my-accent-3: var(--my-iris-3);
@@ -3025,7 +3029,7 @@
     --my-accent-dark-alpha-a12: var(--my-iris-dark-alpha-a12);
     --my-accent-contrast: #ffffff;
   }
-  [data-accent="jade"] {
+  [data-accent=jade] {
     --my-accent-1: var(--my-jade-1);
     --my-accent-2: var(--my-jade-2);
     --my-accent-3: var(--my-jade-3);
@@ -3076,7 +3080,7 @@
     --my-accent-dark-alpha-a12: var(--my-jade-dark-alpha-a12);
     --my-accent-contrast: #ffffff;
   }
-  [data-accent="lime"] {
+  [data-accent=lime] {
     --my-accent-1: var(--my-lime-1);
     --my-accent-2: var(--my-lime-2);
     --my-accent-3: var(--my-lime-3);
@@ -3127,7 +3131,7 @@
     --my-accent-dark-alpha-a12: var(--my-lime-dark-alpha-a12);
     --my-accent-contrast: #21201c;
   }
-  [data-accent="mint"] {
+  [data-accent=mint] {
     --my-accent-1: var(--my-mint-1);
     --my-accent-2: var(--my-mint-2);
     --my-accent-3: var(--my-mint-3);
@@ -3178,7 +3182,7 @@
     --my-accent-dark-alpha-a12: var(--my-mint-dark-alpha-a12);
     --my-accent-contrast: #21201c;
   }
-  [data-accent="orange"] {
+  [data-accent=orange] {
     --my-accent-1: var(--my-orange-1);
     --my-accent-2: var(--my-orange-2);
     --my-accent-3: var(--my-orange-3);
@@ -3229,7 +3233,7 @@
     --my-accent-dark-alpha-a12: var(--my-orange-dark-alpha-a12);
     --my-accent-contrast: #ffffff;
   }
-  [data-accent="pink"] {
+  [data-accent=pink] {
     --my-accent-1: var(--my-pink-1);
     --my-accent-2: var(--my-pink-2);
     --my-accent-3: var(--my-pink-3);
@@ -3280,7 +3284,7 @@
     --my-accent-dark-alpha-a12: var(--my-pink-dark-alpha-a12);
     --my-accent-contrast: #ffffff;
   }
-  [data-accent="plum"] {
+  [data-accent=plum] {
     --my-accent-1: var(--my-plum-1);
     --my-accent-2: var(--my-plum-2);
     --my-accent-3: var(--my-plum-3);
@@ -3331,7 +3335,7 @@
     --my-accent-dark-alpha-a12: var(--my-plum-dark-alpha-a12);
     --my-accent-contrast: #ffffff;
   }
-  [data-accent="purple"] {
+  [data-accent=purple] {
     --my-accent-1: var(--my-purple-1);
     --my-accent-2: var(--my-purple-2);
     --my-accent-3: var(--my-purple-3);
@@ -3382,7 +3386,7 @@
     --my-accent-dark-alpha-a12: var(--my-purple-dark-alpha-a12);
     --my-accent-contrast: #ffffff;
   }
-  [data-accent="red"] {
+  [data-accent=red] {
     --my-accent-1: var(--my-red-1);
     --my-accent-2: var(--my-red-2);
     --my-accent-3: var(--my-red-3);
@@ -3433,7 +3437,7 @@
     --my-accent-dark-alpha-a12: var(--my-red-dark-alpha-a12);
     --my-accent-contrast: #ffffff;
   }
-  [data-accent="ruby"] {
+  [data-accent=ruby] {
     --my-accent-1: var(--my-ruby-1);
     --my-accent-2: var(--my-ruby-2);
     --my-accent-3: var(--my-ruby-3);
@@ -3484,7 +3488,7 @@
     --my-accent-dark-alpha-a12: var(--my-ruby-dark-alpha-a12);
     --my-accent-contrast: #ffffff;
   }
-  [data-accent="sky"] {
+  [data-accent=sky] {
     --my-accent-1: var(--my-sky-1);
     --my-accent-2: var(--my-sky-2);
     --my-accent-3: var(--my-sky-3);
@@ -3535,7 +3539,7 @@
     --my-accent-dark-alpha-a12: var(--my-sky-dark-alpha-a12);
     --my-accent-contrast: #21201c;
   }
-  [data-accent="teal"] {
+  [data-accent=teal] {
     --my-accent-1: var(--my-teal-1);
     --my-accent-2: var(--my-teal-2);
     --my-accent-3: var(--my-teal-3);
@@ -3586,7 +3590,7 @@
     --my-accent-dark-alpha-a12: var(--my-teal-dark-alpha-a12);
     --my-accent-contrast: #ffffff;
   }
-  [data-accent="tomato"] {
+  [data-accent=tomato] {
     --my-accent-1: var(--my-tomato-1);
     --my-accent-2: var(--my-tomato-2);
     --my-accent-3: var(--my-tomato-3);
@@ -3637,7 +3641,7 @@
     --my-accent-dark-alpha-a12: var(--my-tomato-dark-alpha-a12);
     --my-accent-contrast: #ffffff;
   }
-  [data-accent="violet"] {
+  [data-accent=violet] {
     --my-accent-1: var(--my-violet-1);
     --my-accent-2: var(--my-violet-2);
     --my-accent-3: var(--my-violet-3);
@@ -3688,7 +3692,7 @@
     --my-accent-dark-alpha-a12: var(--my-violet-dark-alpha-a12);
     --my-accent-contrast: #ffffff;
   }
-  [data-accent="yellow"] {
+  [data-accent=yellow] {
     --my-accent-1: var(--my-yellow-1);
     --my-accent-2: var(--my-yellow-2);
     --my-accent-3: var(--my-yellow-3);
@@ -3739,7 +3743,7 @@
     --my-accent-dark-alpha-a12: var(--my-yellow-dark-alpha-a12);
     --my-accent-contrast: #21201c;
   }
-  [data-density="compact"] {
+  [data-density=compact] {
     --my-scale-base: 14;
     --my-scale-ratio: 1.2;
     --my-spacing-none: var(--my-space-0);
@@ -3763,7 +3767,7 @@
     --my-container-padding-comfortable: var(--my-space-4);
     --my-container-padding-spacious: var(--my-space-6);
   }
-  [data-density="comfortable"] {
+  [data-density=comfortable] {
     --my-scale-base: 16;
     --my-scale-ratio: 1.25;
     --my-spacing-none: var(--my-space-0);
@@ -3787,7 +3791,7 @@
     --my-container-padding-comfortable: var(--my-space-6);
     --my-container-padding-spacious: var(--my-space-8);
   }
-  [data-density="spacious"] {
+  [data-density=spacious] {
     --my-scale-base: 18;
     --my-scale-ratio: 1.333;
     --my-spacing-none: var(--my-space-0);
@@ -3811,22 +3815,22 @@
     --my-container-padding-comfortable: var(--my-space-8);
     --my-container-padding-spacious: var(--my-space-10);
   }
-  [data-typeface="inter"] {
+  [data-typeface=inter] {
     --my-family-primary: Inter, system-ui, -apple-system, sans-serif;
     --my-family-secondary: Georgia, 'Times New Roman', serif;
     --my-family-mono: 'JetBrains Mono', 'Fira Code', ui-monospace, monospace;
   }
-  [data-typeface="geist"] {
+  [data-typeface=geist] {
     --my-family-primary: Geist, system-ui, -apple-system, sans-serif;
     --my-family-secondary: 'Playfair Display', Georgia, serif;
     --my-family-mono: 'Fira Code', Consolas, ui-monospace, monospace;
   }
-  [data-typeface="roboto"] {
+  [data-typeface=roboto] {
     --my-family-primary: Roboto, system-ui, sans-serif;
     --my-family-secondary: Georgia, 'Times New Roman', serif;
     --my-family-mono: 'Fira Code', Consolas, ui-monospace, monospace;
   }
-  [data-typeface="system"] {
+  [data-typeface=system] {
     --my-family-primary: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     --my-family-secondary: Georgia, 'Times New Roman', serif;
     --my-family-mono: ui-monospace, 'Cascadia Code', Consolas, 'Courier New', monospace;
@@ -4059,25 +4063,13 @@
     --my-effect-inner-shadow-color: light-dark(rgba(252, 252, 253, 0.03), rgba(252, 252, 253, 0.02));
   }
 }
-
-/*! MyCSS Composition v0.1.0-alpha.1 — CUBE "C" layer.
- *  Intrinsic, query-less layout primitives (Every Layout lineage).
- *  Grammar: .c-* classes; per-instance knobs are --my-* custom properties
- *  defaulting to MyCSS semantic spacing tokens, so every composition is
- *  density-aware automatically. No breakpoints: c-switcher folds via the
- *  flex-basis threshold trick against --my-threshold-* tokens.
- */
 @layer mycss.composition {
-
-  /* ---- c-stack — vertical rhythm ------------------------------------- */
   .c-stack {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     gap: var(--my-stack-space, var(--my-stack-md));
   }
-
-  /* ---- c-cluster — wrapping horizontal group ------------------------- */
   .c-cluster {
     display: flex;
     flex-wrap: wrap;
@@ -4085,15 +4077,11 @@
     justify-content: var(--my-cluster-justify, flex-start);
     align-items: var(--my-cluster-align, center);
   }
-
-  /* ---- c-center — horizontally centered content column ---------------- */
   .c-center {
     max-inline-size: var(--my-center-max, var(--my-container-max-width));
     margin-inline: auto;
     padding-inline: var(--my-center-gutter, var(--my-container-padding-comfortable));
   }
-
-  /* ---- c-sidebar — sidebar + content, folds when content gets narrow -- */
   .c-sidebar {
     display: flex;
     flex-wrap: wrap;
@@ -4108,17 +4096,15 @@
     flex-grow: 999;
     min-inline-size: var(--my-sidebar-content-min, 50%);
   }
-  .c-sidebar[data-side="end"] > :first-child {
+  .c-sidebar[data-side=end] > :first-child {
     flex-basis: 0;
     flex-grow: 999;
     min-inline-size: var(--my-sidebar-content-min, 50%);
   }
-  .c-sidebar[data-side="end"] > :last-child {
+  .c-sidebar[data-side=end] > :last-child {
     flex-basis: var(--my-sidebar-width, var(--my-width-xxs));
     flex-grow: 1;
   }
-
-  /* ---- c-switcher — row above threshold, column below ------------------ */
   .c-switcher {
     display: flex;
     flex-wrap: wrap;
@@ -4128,18 +4114,11 @@
     flex-grow: 1;
     flex-basis: calc((var(--my-switcher-threshold, var(--my-threshold-comfortable)) - 100%) * 999);
   }
-
-  /* ---- c-grid — responsive card grid, no media queries ----------------- */
   .c-grid {
     display: grid;
     gap: var(--my-grid-space, var(--my-gutter-md));
-    grid-template-columns: repeat(
-      auto-fit,
-      minmax(min(var(--my-grid-min, var(--my-space-64)), 100%), 1fr)
-    );
+    grid-template-columns: repeat(auto-fit, minmax(min(var(--my-grid-min, var(--my-space-64)), 100%), 1fr));
   }
-
-  /* ---- c-cover — full-height cover with centered principal element ----- */
   .c-cover {
     display: flex;
     flex-direction: column;
@@ -4151,7 +4130,6 @@
     margin-block: auto;
   }
 }
-
 /*! MyCSS utilities v0.1.0-alpha.1 — u-* classes, token-symmetric names. */
 @layer mycss.utilities {
   .u-display-2xl {

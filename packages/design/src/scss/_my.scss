@@ -1,0 +1,35 @@
+// MyCSS SCSS helpers — the authoring-layer API.
+// SCSS is for structure only; all runtime values stay CSS custom properties
+// so theming (mode/accent/gray/density/typeface, incl. subtrees) keeps working.
+@use "sass:list";
+@use "sass:meta";
+@use "token-names.generated" as names;
+
+$prefix: "--my-" !default;
+
+/// Reference a MyCSS token as var(--my-<name>), validated at compile time
+/// against the generated token list. Typos fail the build.
+///   .foo { gap: my.token(stack-md); }
+@function token($name) {
+  $key: "" + $name;
+  @if not list.index(names.$all, $key) {
+    @error "Unknown MyCSS token: #{$key}. Check packages/design/src/scss/_token-names.generated.scss";
+  }
+  @return var(#{$prefix}#{$key});
+}
+
+/// Apply a full typography role (family/size/weight/line-height/tracking).
+///   .my-card h3 { @include my.type(h5); }
+@mixin type($role) {
+  font-family: token(#{$role}-family);
+  font-size: token(#{$role}-size);
+  font-weight: token(#{$role}-weight);
+  line-height: token(#{$role}-line-height);
+  letter-spacing: token(#{$role}-tracking);
+}
+
+/// Composition knob pattern: per-instance custom property with a
+/// validated token default. Emits var(--my-<knob>, var(--my-<token>)).
+@function knob($knob, $default-token) {
+  @return var(#{$prefix}#{$knob}, #{token($default-token)});
+}
