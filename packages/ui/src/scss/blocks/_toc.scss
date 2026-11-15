@@ -1,0 +1,68 @@
+// Table of Contents (+ .TOC Link) — Figma: BLOCKS › Navigation.
+// .TOC Link: Current False|True · State Default|Hover|Focus · Nested.
+//
+//   <nav class="my-toc" aria-label="On this page">
+//     <p class="my-toc-heading">On this page</p>
+//     <a class="my-toc-link" href="#a" aria-current="location">Section heading</a>
+//     <a class="my-toc-link" data-nested href="#a1">Sub-section</a>
+//   </nav>
+//
+// Translation note: in Figma the current link's 2px brand rail sits inside
+// the link, directly before the text. Here it sits on the list's own 2px
+// rule, so the current section lights up a segment of that line.
+@use "../../../../design/src/scss/my" as my;
+
+$current: '[aria-current]:not([aria-current="false"])';
+
+@layer mycss.blocks {
+  .my-toc {
+    display: flex;
+    flex-direction: column;
+    border-inline-start: 2px solid my.token(border-neutral-secondary);
+  }
+  .my-toc-heading {
+    margin: 0;
+    padding-block: my.token(spacing-xs);
+    padding-inline: my.token(spacing-md);
+    color: my.token(text-neutral-tertiary);
+    @include my.type(overline);
+    text-transform: uppercase;
+  }
+  .my-toc-link {
+    position: relative;
+    display: block;
+    padding-block: my.token(spacing-xs);
+    padding-inline: my.token(spacing-md);
+    border-radius: my.token(border-radius-crisp);
+    color: my.token(text-neutral-secondary);
+    @include my.type(body-sm);
+    text-decoration: none;
+    transition-property: background-color, color, box-shadow;
+    transition-duration: my.token(duration-fast-2);
+    transition-timing-function: my.token(ease-standard);
+
+    &[data-nested] { padding-inline-start: my.token(spacing-2xl); }
+    &:hover,
+    &[data-state="hover"] {
+      background-color: my.token(bg-neutral-primary_hover);
+      color: my.token(text-neutral-primary);
+    }
+    &:is(#{$current}) {
+      color: my.token(text-brand);
+
+      &::before {
+        content: "";
+        position: absolute;
+        inset-block: my.token(spacing-xs);
+        inset-inline-start: -2px;
+        inline-size: 2px;
+        background-color: my.token(bg-brand-solid);
+      }
+    }
+    &:focus-visible,
+    &[data-state="focus"] {
+      outline: none;
+      box-shadow: 0 0 0 3px my.token(effect-ring-brand);
+    }
+  }
+}

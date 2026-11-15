@@ -1,0 +1,148 @@
+// Nav Link · Navbar · Skip Link — Figma: BLOCKS › Navigation.
+// Nav Link: Current False|True · State Default|Hover|Focus|Open|Disabled.
+// Navbar: Viewport Desktop|Mobile · Position Static|Sticky.
+//
+//   <a class="my-skip-link" href="#main">Skip to main content</a>
+//   <header class="my-navbar" data-position="sticky">
+//     <a href="/">Logo</a>
+//     <nav class="my-navbar-links" aria-label="Main">
+//       <a class="my-nav-link" href="/" aria-current="page">Home</a>
+//       <button class="my-nav-link" aria-expanded="false">Products <svg …chevron/></button>
+//     </nav>
+//     <div class="my-navbar-actions"> …icon buttons, a Button… </div>
+//   </header>
+// Mobile is the same bar with the links hidden by the page and a menu Icon
+// Button shown; the Nav Drawer holds the links there.
+@use "../../../../design/src/scss/my" as my;
+
+$disabled: ':disabled, [aria-disabled="true"], [data-state="disabled"]';
+$current: '[aria-current]:not([aria-current="false"])';
+
+@layer mycss.blocks {
+  .my-nav-link {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: my.token(spacing-sm);
+    box-sizing: border-box;
+    margin: 0;
+    padding-block: my.token(spacing-sm);
+    padding-inline: my.token(spacing-md);
+    border: 0;
+    border-radius: my.token(border-radius-soft);
+    background-color: transparent;
+    color: my.token(text-neutral-secondary);
+    @include my.type(label);
+    text-decoration: none;
+    white-space: nowrap;
+    cursor: pointer;
+    -webkit-appearance: none;
+    appearance: none;
+    transition-property: background-color, color, box-shadow;
+    transition-duration: my.token(duration-fast-2);
+    transition-timing-function: my.token(ease-standard);
+
+    > svg,
+    > .my-icon {
+      flex: none;
+      inline-size: my.token(size-1);
+      block-size: my.token(size-1);
+      color: my.token(fg-neutral-tertiary);
+    }
+    &:where(:hover):not(#{$disabled}),
+    &[aria-expanded="true"],
+    &[data-state="hover"],
+    &[data-state="open"] {
+      background-color: my.token(bg-neutral-primary_hover);
+      color: my.token(text-neutral-primary);
+    }
+    // current page: brand label + a 2px indicator under the link
+    &:is(#{$current}) {
+      color: my.token(text-brand);
+
+      &::after {
+        content: "";
+        position: absolute;
+        inset-inline: 0;
+        inset-block-end: -2px;
+        block-size: 2px;
+        background-color: my.token(bg-brand-solid);
+      }
+    }
+    &:focus-visible,
+    &[data-state="focus"] {
+      outline: none;
+      box-shadow: 0 0 0 3px my.token(effect-ring-brand);
+    }
+    // doubled so disabled also beats the current/selected rule
+    &:is(#{$disabled}):is(#{$disabled}) {
+      background-color: transparent;
+      color: my.token(text-neutral-disabled);
+      cursor: not-allowed;
+
+      > svg, > .my-icon { color: my.token(fg-neutral-disabled); }
+    }
+  }
+
+  .my-navbar {
+    display: flex;
+    align-items: center;
+    gap: my.token(spacing-xl);
+    box-sizing: border-box;
+    padding-block: my.token(spacing-md);
+    padding-inline: my.knob(navbar-gutter, container-padding-comfortable);
+    border-block-end: 1px solid my.token(border-neutral-separator);
+    background-color: my.token(surface-secondary);
+
+    &[data-position="sticky"] {
+      position: sticky;
+      inset-block-start: 0;
+      z-index: my.token(z-index-sticky);
+      background-color: my.token(overlay-primary);
+      box-shadow: my.token(shadow-low);
+    }
+  }
+  .my-navbar-links {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    gap: my.token(spacing-xs);
+    min-inline-size: 0;
+    padding-block-end: 2px; // room for the current-page indicator
+  }
+  .my-navbar-actions {
+    display: flex;
+    align-items: center;
+    gap: my.token(spacing-sm);
+    margin-inline-start: auto;
+  }
+
+  // Visible only while focused; first focusable element on the page.
+  .my-skip-link {
+    position: absolute;
+    inset-block-start: my.token(spacing-md);
+    inset-inline-start: my.token(spacing-md);
+    z-index: my.token(z-index-sticky);
+    padding-block: my.token(spacing-md);
+    padding-inline: my.token(spacing-xl);
+    border-radius: my.token(border-radius-soft);
+    background-color: my.token(bg-brand-solid);
+    color: my.token(text-on-accent);
+    @include my.type(label);
+    text-decoration: none;
+
+    &:not(:focus, :focus-visible, [data-state="focus"]) {
+      clip-path: inset(50%);
+      inline-size: 1px;
+      block-size: 1px;
+      padding: 0;
+      overflow: hidden;
+      white-space: nowrap;
+    }
+    &:focus,
+    &[data-state="focus"] {
+      outline: none;
+      box-shadow: 0 0 0 3px my.token(effect-ring-brand);
+    }
+  }
+}

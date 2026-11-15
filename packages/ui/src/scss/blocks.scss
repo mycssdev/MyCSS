@@ -30,3 +30,13 @@
 @use "blocks/color-input";
 @use "blocks/file-input";
 @use "blocks/menu";
+
+// Navigation
+@use "blocks/nav-link";
+@use "blocks/sidebar";
+@use "blocks/disclosure";
+@use "blocks/tabs";
+@use "blocks/breadcrumb";
+@use "blocks/pagination";
+@use "blocks/stepper";
+@use "blocks/toc";

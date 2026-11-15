@@ -1,0 +1,55 @@
+// Breadcrumb (+ .Breadcrumb Item) — Figma: BLOCKS › Navigation.
+// Item: Current False|True · State Default|Hover|Focus. Chevron separators
+// are drawn between items, so the markup is a plain list.
+//
+//   <nav class="my-breadcrumb" aria-label="Breadcrumb"><ol>
+//     <li><a href="/">Home</a></li>
+//     <li><a href="/docs">Docs</a></li>
+//     <li><a href="/docs/tokens" aria-current="page">Tokens</a></li>
+//   </ol></nav>
+@use "../../../../design/src/scss/my" as my;
+@use "glyphs";
+
+@layer mycss.blocks {
+  .my-breadcrumb {
+    @include my.type(body-sm);
+
+    > ol {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: my.token(spacing-xs);
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+    li {
+      display: inline-flex;
+      align-items: center;
+      gap: my.token(spacing-xs);
+    }
+    li + li::before {
+      @include glyphs.glyph(glyphs.$chevron-right);
+      background-color: my.token(fg-neutral-tertiary);
+    }
+    li + li:dir(rtl)::before { scale: -1 1; }
+
+    a,
+    [aria-current] {
+      border-radius: my.token(border-radius-crisp);
+      color: my.token(text-neutral-secondary);
+      text-decoration: none;
+      transition: color my.token(duration-fast-2) my.token(ease-standard);
+    }
+    a:hover,
+    a[data-state="hover"],
+    [aria-current]:not([aria-current="false"]) {
+      color: my.token(text-neutral-primary);
+    }
+    a:focus-visible,
+    a[data-state="focus"] {
+      outline: none;
+      box-shadow: 0 0 0 3px my.token(effect-ring-brand);
+    }
+  }
+}

@@ -23,7 +23,7 @@ Cascade order: `mycss.tokens, mycss.composition, mycss.blocks, mycss.utilities`.
 
 ## Status
 
-Specimens: `packages/design/dist/button-spec.html`, `packages/design/dist/actions-spec.html`, `packages/design/dist/inputs-forms-spec.html`. Shared tone × variant × state recipe: `src/scss/blocks/_action-tones.scss` (Button, Icon Button, Split Button).
+Specimens: `packages/design/dist/button-spec.html`, `packages/design/dist/actions-spec.html`, `packages/design/dist/inputs-forms-spec.html`, `packages/design/dist/navigation-spec.html`. Shared tone × variant × state recipe: `src/scss/blocks/_action-tones.scss` (Button, Icon Button, Split Button).
 
 
 | Component | Figma page | CSS |
@@ -43,4 +43,12 @@ Specimens: `packages/design/dist/button-spec.html`, `packages/design/dist/action
 | Color Input | Inputs & Forms | ✅ 2026-11-14 — swatch + hex text in one control; syncing the two is the page's job |
 | File Input | Inputs & Forms | ✅ 2026-11-14 — native file button as the chip |
 | Menu Item, Menu panel | Inputs & Forms | ✅ 2026-11-14 — styling only; open/close and positioning come with Overlays |
+| Nav Link, Navbar, Skip Link | Navigation | ✅ 2026-11-15 — current page via `aria-current`; sticky via `data-position="sticky"` |
+| Sidebar Item, Sidebar (expanded, rail), Nav Drawer panel | Navigation | ✅ 2026-11-15 — drawer open/close and positioning come with Overlays |
+| Disclosure, Accordion | Navigation | ✅ 2026-11-15 — native `<details>`; shared `name` keeps one open |
+| Tabs | Navigation | ✅ 2026-11-15 — horizontal and vertical; styling only (arrow keys and panels need script) |
+| Breadcrumb | Navigation | ✅ 2026-11-15 — separators drawn by CSS |
+| Pagination | Navigation | ✅ 2026-11-15 — numbered and simple; prev/next are Icon Buttons |
+| Stepper | Navigation | ✅ 2026-11-15 — horizontal and vertical; connector stretches (Figma: fixed 48px) |
+| Table of Contents | Navigation | ✅ 2026-11-15 — current rail sits on the list's rule |
 | Everything else | — | not started |
