@@ -105,6 +105,20 @@
     line-height: var(--my-code-line-height);
     letter-spacing: var(--my-code-tracking);
   }
+  .u-label-2xl {
+    font-family: var(--my-label-2xl-family);
+    font-size: var(--my-label-2xl-size);
+    font-weight: var(--my-label-2xl-weight);
+    line-height: var(--my-label-2xl-line-height);
+    letter-spacing: var(--my-label-2xl-tracking);
+  }
+  .u-label-xl {
+    font-family: var(--my-label-xl-family);
+    font-size: var(--my-label-xl-size);
+    font-weight: var(--my-label-xl-weight);
+    line-height: var(--my-label-xl-line-height);
+    letter-spacing: var(--my-label-xl-tracking);
+  }
   .u-label-lg {
     font-family: var(--my-label-lg-family);
     font-size: var(--my-label-lg-size);
@@ -173,15 +187,6 @@
   }
   .u-text-on-neutral-solid {
     color: var(--my-text-on-neutral-solid);
-  }
-  .u-bg-overlay {
-    background-color: var(--my-bg-overlay);
-  }
-  .u-bg-surface {
-    background-color: var(--my-bg-surface);
-  }
-  .u-bg-panel {
-    background-color: var(--my-bg-panel);
   }
   .u-bg-brand-faint {
     background-color: var(--my-bg-brand-faint);
@@ -963,6 +968,48 @@
   }
   .u-shadow-high {
     box-shadow: var(--my-shadow-high);
+  }
+  .u-shadow-around-low {
+    box-shadow: var(--my-shadow-around-low);
+  }
+  .u-shadow-around-mid {
+    box-shadow: var(--my-shadow-around-mid);
+  }
+  .u-shadow-around-high {
+    box-shadow: var(--my-shadow-around-high);
+  }
+  .u-shadow-up-low {
+    box-shadow: var(--my-shadow-up-low);
+  }
+  .u-shadow-up-mid {
+    box-shadow: var(--my-shadow-up-mid);
+  }
+  .u-shadow-up-high {
+    box-shadow: var(--my-shadow-up-high);
+  }
+  .u-shadow-start-low {
+    box-shadow: var(--my-shadow-start-low);
+  }
+  .u-shadow-start-mid {
+    box-shadow: var(--my-shadow-start-mid);
+  }
+  .u-shadow-start-high {
+    box-shadow: var(--my-shadow-start-high);
+  }
+  .u-shadow-end-low {
+    box-shadow: var(--my-shadow-end-low);
+  }
+  .u-shadow-end-mid {
+    box-shadow: var(--my-shadow-end-mid);
+  }
+  .u-shadow-end-high {
+    box-shadow: var(--my-shadow-end-high);
+  }
+  .u-shadow-inset-low {
+    box-shadow: var(--my-shadow-inset-low);
+  }
+  .u-shadow-inset-mid {
+    box-shadow: var(--my-shadow-inset-mid);
   }
   .u-radius-none {
     border-radius: var(--my-border-radius-none);

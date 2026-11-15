@@ -626,7 +626,7 @@
         "primitives/base": "enabled",
         "primitives/black-alpha": "enabled",
         "primitives/blue": "enabled",
-        "primitives/brand": "enabled",
+        "primitives/rebecca": "enabled",
         "primitives/bronze": "enabled",
         "primitives/brown": "enabled",
         "primitives/crimson": "enabled",
@@ -735,10 +735,10 @@
       }
     },
     {
-      "name": "Brand",
+      "name": "Rebecca",
       "group": "Accent color",
       "selectedTokenSets": {
-        "semantic/accent-brand": "enabled"
+        "semantic/accent-rebecca": "enabled"
       }
     },
     {
@@ -1240,6 +1240,11 @@
         "spread": {
           "$value": -0.5,
           "$type": "number"
+        },
+        "reverse": {
+          "$value": -1,
+          "$type": "number",
+          "$description": "Negative of this layer's y. Lets a shadow cast up or toward the inline start. Never edit: it mirrors y."
         }
       },
       "o2": {
@@ -1254,6 +1259,11 @@
         "spread": {
           "$value": -1.5,
           "$type": "number"
+        },
+        "reverse": {
+          "$value": -3,
+          "$type": "number",
+          "$description": "Negative of this layer's y. Lets a shadow cast up or toward the inline start. Never edit: it mirrors y."
         }
       },
       "o3": {
@@ -1268,6 +1278,11 @@
         "spread": {
           "$value": -3,
           "$type": "number"
+        },
+        "reverse": {
+          "$value": -6,
+          "$type": "number",
+          "$description": "Negative of this layer's y. Lets a shadow cast up or toward the inline start. Never edit: it mirrors y."
         }
       },
       "o4": {
@@ -1282,6 +1297,11 @@
         "spread": {
           "$value": -6,
           "$type": "number"
+        },
+        "reverse": {
+          "$value": -12,
+          "$type": "number",
+          "$description": "Negative of this layer's y. Lets a shadow cast up or toward the inline start. Never edit: it mirrors y."
         }
       },
       "o5": {
@@ -1296,6 +1316,11 @@
         "spread": {
           "$value": -12,
           "$type": "number"
+        },
+        "reverse": {
+          "$value": -24,
+          "$type": "number",
+          "$description": "Negative of this layer's y. Lets a shadow cast up or toward the inline start. Never edit: it mirrors y."
         }
       },
       "o6": {
@@ -1310,6 +1335,11 @@
         "spread": {
           "$value": -24,
           "$type": "number"
+        },
+        "reverse": {
+          "$value": -48,
+          "$type": "number",
+          "$description": "Negative of this layer's y. Lets a shadow cast up or toward the inline start. Never edit: it mirrors y."
         }
       }
     }
@@ -2315,8 +2345,8 @@
       }
     }
   },
-  "primitives/brand": {
-    "brand": {
+  "primitives/rebecca": {
+    "rebecca": {
       "1": {
         "$value": "#fdfcfe",
         "$type": "color"
@@ -2366,7 +2396,7 @@
         "$type": "color"
       }
     },
-    "brand-alpha": {
+    "rebecca-alpha": {
       "a1": {
         "$value": "#5500aa03",
         "$type": "color"
@@ -2416,7 +2446,7 @@
         "$type": "color"
       }
     },
-    "brand-dark": {
+    "rebecca-dark": {
       "1": {
         "$value": "#15101d",
         "$type": "color"
@@ -2466,7 +2496,7 @@
         "$type": "color"
       }
     },
-    "brand-dark-alpha": {
+    "rebecca-dark-alpha": {
       "a1": {
         "$value": "#4400cc0d",
         "$type": "color"
@@ -8849,204 +8879,204 @@
       "$description": "Light-mode text in this accent: step 11, or step 12 where step 11 misses WCAG AA 4.5:1 on neutral 1-3 or this hue's 3-4 (v2.16.2)."
     }
   },
-  "semantic/accent-brand": {
+  "semantic/accent-rebecca": {
     "accent": {
       "1": {
-        "$value": "{brand.1}",
+        "$value": "{rebecca.1}",
         "$type": "color"
       },
       "2": {
-        "$value": "{brand.2}",
+        "$value": "{rebecca.2}",
         "$type": "color"
       },
       "3": {
-        "$value": "{brand.3}",
+        "$value": "{rebecca.3}",
         "$type": "color"
       },
       "4": {
-        "$value": "{brand.4}",
+        "$value": "{rebecca.4}",
         "$type": "color"
       },
       "5": {
-        "$value": "{brand.5}",
+        "$value": "{rebecca.5}",
         "$type": "color"
       },
       "6": {
-        "$value": "{brand.6}",
+        "$value": "{rebecca.6}",
         "$type": "color"
       },
       "7": {
-        "$value": "{brand.7}",
+        "$value": "{rebecca.7}",
         "$type": "color"
       },
       "8": {
-        "$value": "{brand.8}",
+        "$value": "{rebecca.8}",
         "$type": "color"
       },
       "9": {
-        "$value": "{brand.9}",
+        "$value": "{rebecca.9}",
         "$type": "color"
       },
       "10": {
-        "$value": "{brand.10}",
+        "$value": "{rebecca.10}",
         "$type": "color"
       },
       "11": {
-        "$value": "{brand.11}",
+        "$value": "{rebecca.11}",
         "$type": "color"
       },
       "12": {
-        "$value": "{brand.12}",
+        "$value": "{rebecca.12}",
         "$type": "color"
       }
     },
     "accent-alpha": {
       "a1": {
-        "$value": "{brand-alpha.a1}",
+        "$value": "{rebecca-alpha.a1}",
         "$type": "color"
       },
       "a2": {
-        "$value": "{brand-alpha.a2}",
+        "$value": "{rebecca-alpha.a2}",
         "$type": "color"
       },
       "a3": {
-        "$value": "{brand-alpha.a3}",
+        "$value": "{rebecca-alpha.a3}",
         "$type": "color"
       },
       "a4": {
-        "$value": "{brand-alpha.a4}",
+        "$value": "{rebecca-alpha.a4}",
         "$type": "color"
       },
       "a5": {
-        "$value": "{brand-alpha.a5}",
+        "$value": "{rebecca-alpha.a5}",
         "$type": "color"
       },
       "a6": {
-        "$value": "{brand-alpha.a6}",
+        "$value": "{rebecca-alpha.a6}",
         "$type": "color"
       },
       "a7": {
-        "$value": "{brand-alpha.a7}",
+        "$value": "{rebecca-alpha.a7}",
         "$type": "color"
       },
       "a8": {
-        "$value": "{brand-alpha.a8}",
+        "$value": "{rebecca-alpha.a8}",
         "$type": "color"
       },
       "a9": {
-        "$value": "{brand-alpha.a9}",
+        "$value": "{rebecca-alpha.a9}",
         "$type": "color"
       },
       "a10": {
-        "$value": "{brand-alpha.a10}",
+        "$value": "{rebecca-alpha.a10}",
         "$type": "color"
       },
       "a11": {
-        "$value": "{brand-alpha.a11}",
+        "$value": "{rebecca-alpha.a11}",
         "$type": "color"
       },
       "a12": {
-        "$value": "{brand-alpha.a12}",
+        "$value": "{rebecca-alpha.a12}",
         "$type": "color"
       }
     },
     "accent-dark": {
       "1": {
-        "$value": "{brand-dark.1}",
+        "$value": "{rebecca-dark.1}",
         "$type": "color"
       },
       "2": {
-        "$value": "{brand-dark.2}",
+        "$value": "{rebecca-dark.2}",
         "$type": "color"
       },
       "3": {
-        "$value": "{brand-dark.3}",
+        "$value": "{rebecca-dark.3}",
         "$type": "color"
       },
       "4": {
-        "$value": "{brand-dark.4}",
+        "$value": "{rebecca-dark.4}",
         "$type": "color"
       },
       "5": {
-        "$value": "{brand-dark.5}",
+        "$value": "{rebecca-dark.5}",
         "$type": "color"
       },
       "6": {
-        "$value": "{brand-dark.6}",
+        "$value": "{rebecca-dark.6}",
         "$type": "color"
       },
       "7": {
-        "$value": "{brand-dark.7}",
+        "$value": "{rebecca-dark.7}",
         "$type": "color"
       },
       "8": {
-        "$value": "{brand-dark.8}",
+        "$value": "{rebecca-dark.8}",
         "$type": "color"
       },
       "9": {
-        "$value": "{brand-dark.9}",
+        "$value": "{rebecca-dark.9}",
         "$type": "color"
       },
       "10": {
-        "$value": "{brand-dark.10}",
+        "$value": "{rebecca-dark.10}",
         "$type": "color"
       },
       "11": {
-        "$value": "{brand-dark.11}",
+        "$value": "{rebecca-dark.11}",
         "$type": "color"
       },
       "12": {
-        "$value": "{brand-dark.12}",
+        "$value": "{rebecca-dark.12}",
         "$type": "color"
       }
     },
     "accent-dark-alpha": {
       "a1": {
-        "$value": "{brand-dark-alpha.a1}",
+        "$value": "{rebecca-dark-alpha.a1}",
         "$type": "color"
       },
       "a2": {
-        "$value": "{brand-dark-alpha.a2}",
+        "$value": "{rebecca-dark-alpha.a2}",
         "$type": "color"
       },
       "a3": {
-        "$value": "{brand-dark-alpha.a3}",
+        "$value": "{rebecca-dark-alpha.a3}",
         "$type": "color"
       },
       "a4": {
-        "$value": "{brand-dark-alpha.a4}",
+        "$value": "{rebecca-dark-alpha.a4}",
         "$type": "color"
       },
       "a5": {
-        "$value": "{brand-dark-alpha.a5}",
+        "$value": "{rebecca-dark-alpha.a5}",
         "$type": "color"
       },
       "a6": {
-        "$value": "{brand-dark-alpha.a6}",
+        "$value": "{rebecca-dark-alpha.a6}",
         "$type": "color"
       },
       "a7": {
-        "$value": "{brand-dark-alpha.a7}",
+        "$value": "{rebecca-dark-alpha.a7}",
         "$type": "color"
       },
       "a8": {
-        "$value": "{brand-dark-alpha.a8}",
+        "$value": "{rebecca-dark-alpha.a8}",
         "$type": "color"
       },
       "a9": {
-        "$value": "{brand-dark-alpha.a9}",
+        "$value": "{rebecca-dark-alpha.a9}",
         "$type": "color"
       },
       "a10": {
-        "$value": "{brand-dark-alpha.a10}",
+        "$value": "{rebecca-dark-alpha.a10}",
         "$type": "color"
       },
       "a11": {
-        "$value": "{brand-dark-alpha.a11}",
+        "$value": "{rebecca-dark-alpha.a11}",
         "$type": "color"
       },
       "a12": {
-        "$value": "{brand-dark-alpha.a12}",
+        "$value": "{rebecca-dark-alpha.a12}",
         "$type": "color"
       }
     },
@@ -9055,7 +9085,7 @@
       "$type": "color"
     },
     "accent-text": {
-      "$value": "{brand.11}",
+      "$value": "{rebecca.11}",
       "$type": "color",
       "$description": "Light-mode text in this accent: step 11, or step 12 where step 11 misses WCAG AA 4.5:1 on neutral 1-3 or this hue's 3-4 (v2.16.2)."
     }
@@ -16091,21 +16121,6 @@
       }
     },
     "bg": {
-      "overlay": {
-        "$value": "{overlay.scrim}",
-        "$type": "color",
-        "$description": "DEPRECATED v2.15: use overlay/scrim. Removed in v2.17."
-      },
-      "surface": {
-        "$value": "{overlay.primary}",
-        "$type": "color",
-        "$description": "DEPRECATED v2.15: in-page panels → surface/secondary; floating panels → overlay/primary. Removed in v2.17 after page retrofits."
-      },
-      "panel": {
-        "$value": "rgba(255, 255, 255, 0.65)",
-        "$type": "color",
-        "$description": "DEPRECATED v2.15: rebind to surface/secondary or overlay/primary in the page retrofit. Removed in v2.17."
-      },
       "brand-faint": {
         "$value": "{accent.2}",
         "$type": "color",
@@ -16348,25 +16363,10 @@
       }
     },
     "surface": {
-      "default": {
-        "$value": "{surface.primary}",
-        "$type": "color",
-        "$description": "DEPRECATED v2.15: use surface/primary. Removed in v2.17."
-      },
-      "raised": {
-        "$value": "{surface.secondary}",
-        "$type": "color",
-        "$description": "DEPRECATED v2.15: use surface/secondary. Removed in v2.17."
-      },
       "sunken": {
         "$value": "{neutral-alpha.a3}",
         "$type": "color",
         "$description": "Recessed well: inputs, code, inline expanded groups. Translucent, so it sinks relative to its parent tier."
-      },
-      "overlay": {
-        "$value": "{overlay.primary}",
-        "$type": "color",
-        "$description": "DEPRECATED v2.15: use overlay/primary. Removed in v2.17."
       },
       "primary": {
         "$value": "{neutral.1}",
@@ -17102,22 +17102,22 @@
       },
       "rebecca-bg": {
         "$type": "color",
-        "$value": "{brand.3}",
+        "$value": "{rebecca.3}",
         "$description": "Fixed-hue decorative role (charts, tags, badges); responds to scheme only, never to Gray/Accent modes."
       },
       "rebecca-border": {
         "$type": "color",
-        "$value": "{brand.7}",
+        "$value": "{rebecca.7}",
         "$description": "Fixed-hue decorative role (charts, tags, badges); responds to scheme only, never to Gray/Accent modes."
       },
       "rebecca-solid": {
         "$type": "color",
-        "$value": "{brand.9}",
+        "$value": "{rebecca.9}",
         "$description": "Fixed-hue decorative role (charts, tags, badges); responds to scheme only, never to Gray/Accent modes."
       },
       "rebecca-text": {
         "$type": "color",
-        "$value": "{brand.11}",
+        "$value": "{rebecca.11}",
         "$description": "Fixed-hue decorative role (charts, tags, badges); responds to scheme only, never to Gray/Accent modes."
       },
       "rebecca-on-solid": {
@@ -17131,11 +17131,11 @@
         "rebecca-depth": {
           "stop-1": {
             "$type": "color",
-            "$value": "{brand.5}"
+            "$value": "{rebecca.5}"
           },
           "stop-2": {
             "$type": "color",
-            "$value": "{brand.10}"
+            "$value": "{rebecca.10}"
           },
           "angle": {
             "$type": "number",
@@ -17300,7 +17300,7 @@
         "twilight": {
           "stop-1": {
             "$type": "color",
-            "$value": "{brand.9}"
+            "$value": "{rebecca.9}"
           },
           "stop-2": {
             "$type": "color",
@@ -17315,7 +17315,7 @@
         "flare": {
           "stop-1": {
             "$type": "color",
-            "$value": "{brand.9}"
+            "$value": "{rebecca.9}"
           },
           "stop-2": {
             "$type": "color",
@@ -17330,7 +17330,7 @@
         "abyss": {
           "stop-1": {
             "$type": "color",
-            "$value": "{brand.11}"
+            "$value": "{rebecca.11}"
           },
           "stop-2": {
             "$type": "color",
@@ -17345,7 +17345,7 @@
         "dawn": {
           "stop-1": {
             "$type": "color",
-            "$value": "{brand.8}"
+            "$value": "{rebecca.8}"
           },
           "stop-2": {
             "$type": "color",
@@ -17407,7 +17407,7 @@
         "orchid": {
           "stop-1": {
             "$type": "color",
-            "$value": "{brand.3}"
+            "$value": "{rebecca.3}"
           },
           "stop-2": {
             "$type": "color",
@@ -17424,7 +17424,7 @@
         "sunset-run": {
           "stop-1": {
             "$type": "color",
-            "$value": "{brand.9}"
+            "$value": "{rebecca.9}"
           },
           "stop-2": {
             "$type": "color",
@@ -17639,21 +17639,6 @@
       }
     },
     "bg": {
-      "overlay": {
-        "$value": "{overlay.scrim}",
-        "$type": "color",
-        "$description": "DEPRECATED v2.15: use overlay/scrim. Removed in v2.17."
-      },
-      "surface": {
-        "$value": "{overlay.primary}",
-        "$type": "color",
-        "$description": "DEPRECATED v2.15: in-page panels → surface/secondary; floating panels → overlay/primary. Removed in v2.17 after page retrofits."
-      },
-      "panel": {
-        "$value": "{neutral-dark.1}",
-        "$type": "color",
-        "$description": "DEPRECATED v2.15: rebind to surface/secondary or overlay/primary in the page retrofit. Removed in v2.17."
-      },
       "brand-faint": {
         "$value": "{accent-dark.2}",
         "$type": "color",
@@ -17896,25 +17881,10 @@
       }
     },
     "surface": {
-      "default": {
-        "$value": "{surface.primary}",
-        "$type": "color",
-        "$description": "DEPRECATED v2.15: use surface/primary. Removed in v2.17."
-      },
-      "raised": {
-        "$value": "{surface.secondary}",
-        "$type": "color",
-        "$description": "DEPRECATED v2.15: use surface/secondary. Removed in v2.17."
-      },
       "sunken": {
         "$value": "{black-alpha.a6}",
         "$type": "color",
         "$description": "Recessed well: inputs, code, inline expanded groups. Translucent, so it sinks relative to its parent tier."
-      },
-      "overlay": {
-        "$value": "{overlay.primary}",
-        "$type": "color",
-        "$description": "DEPRECATED v2.15: use overlay/primary. Removed in v2.17."
       },
       "primary": {
         "$value": "{neutral-dark.1}",
@@ -18650,22 +18620,22 @@
       },
       "rebecca-bg": {
         "$type": "color",
-        "$value": "{brand-dark.3}",
+        "$value": "{rebecca-dark.3}",
         "$description": "Fixed-hue decorative role (charts, tags, badges); responds to scheme only, never to Gray/Accent modes."
       },
       "rebecca-border": {
         "$type": "color",
-        "$value": "{brand-dark.7}",
+        "$value": "{rebecca-dark.7}",
         "$description": "Fixed-hue decorative role (charts, tags, badges); responds to scheme only, never to Gray/Accent modes."
       },
       "rebecca-solid": {
         "$type": "color",
-        "$value": "{brand-dark.9}",
+        "$value": "{rebecca-dark.9}",
         "$description": "Fixed-hue decorative role (charts, tags, badges); responds to scheme only, never to Gray/Accent modes."
       },
       "rebecca-text": {
         "$type": "color",
-        "$value": "{brand-dark.11}",
+        "$value": "{rebecca-dark.11}",
         "$description": "Fixed-hue decorative role (charts, tags, badges); responds to scheme only, never to Gray/Accent modes."
       },
       "rebecca-on-solid": {
@@ -18679,11 +18649,11 @@
         "rebecca-depth": {
           "stop-1": {
             "$type": "color",
-            "$value": "{brand-dark.5}"
+            "$value": "{rebecca-dark.5}"
           },
           "stop-2": {
             "$type": "color",
-            "$value": "{brand-dark.10}"
+            "$value": "{rebecca-dark.10}"
           },
           "angle": {
             "$type": "number",
@@ -18848,7 +18818,7 @@
         "twilight": {
           "stop-1": {
             "$type": "color",
-            "$value": "{brand-dark.9}"
+            "$value": "{rebecca-dark.9}"
           },
           "stop-2": {
             "$type": "color",
@@ -18863,7 +18833,7 @@
         "flare": {
           "stop-1": {
             "$type": "color",
-            "$value": "{brand-dark.9}"
+            "$value": "{rebecca-dark.9}"
           },
           "stop-2": {
             "$type": "color",
@@ -18878,7 +18848,7 @@
         "abyss": {
           "stop-1": {
             "$type": "color",
-            "$value": "{brand-dark.11}"
+            "$value": "{rebecca-dark.11}"
           },
           "stop-2": {
             "$type": "color",
@@ -18893,7 +18863,7 @@
         "dawn": {
           "stop-1": {
             "$type": "color",
-            "$value": "{brand-dark.8}"
+            "$value": "{rebecca-dark.8}"
           },
           "stop-2": {
             "$type": "color",
@@ -18955,7 +18925,7 @@
         "orchid": {
           "stop-1": {
             "$type": "color",
-            "$value": "{brand-dark.3}"
+            "$value": "{rebecca-dark.3}"
           },
           "stop-2": {
             "$type": "color",
@@ -18972,7 +18942,7 @@
         "sunset-run": {
           "stop-1": {
             "$type": "color",
-            "$value": "{brand-dark.9}"
+            "$value": "{rebecca-dark.9}"
           },
           "stop-2": {
             "$type": "color",
@@ -20239,6 +20209,60 @@
       "tracking": {
         "$value": "{tracking-normal}",
         "$type": "letterSpacing"
+      }
+    },
+    "label-2xl": {
+      "size": {
+        "$value": "{ms-2}",
+        "$type": "fontSizes",
+        "$description": "Added in v2.17 — label role one step above label-xl (ms-2); used by Button Size XL."
+      },
+      "line-height": {
+        "$value": "{leading-normal}",
+        "$type": "number",
+        "$description": "Added in v2.17 — label role one step above label-xl (ms-2); used by Button Size XL."
+      },
+      "weight": {
+        "$value": "{font-weight.medium}",
+        "$type": "fontWeights",
+        "$description": "Added in v2.17 — label role one step above label-xl (ms-2); used by Button Size XL."
+      },
+      "family": {
+        "$value": "{family.primary}",
+        "$type": "fontFamilies",
+        "$description": "Added in v2.17 — label role one step above label-xl (ms-2); used by Button Size XL."
+      },
+      "tracking": {
+        "$value": "{tracking-normal}",
+        "$type": "letterSpacing",
+        "$description": "Added in v2.17 — label role one step above label-xl (ms-2); used by Button Size XL."
+      }
+    },
+    "label-xl": {
+      "size": {
+        "$value": "{ms-1}",
+        "$type": "fontSizes",
+        "$description": "Added in v2.17 — label role one step above label-lg (ms-1); used by Button Size LG."
+      },
+      "line-height": {
+        "$value": "{leading-normal}",
+        "$type": "number",
+        "$description": "Added in v2.17 — label role one step above label-lg (ms-1); used by Button Size LG."
+      },
+      "weight": {
+        "$value": "{font-weight.medium}",
+        "$type": "fontWeights",
+        "$description": "Added in v2.17 — label role one step above label-lg (ms-1); used by Button Size LG."
+      },
+      "family": {
+        "$value": "{family.primary}",
+        "$type": "fontFamilies",
+        "$description": "Added in v2.17 — label role one step above label-lg (ms-1); used by Button Size LG."
+      },
+      "tracking": {
+        "$value": "{tracking-normal}",
+        "$type": "letterSpacing",
+        "$description": "Added in v2.17 — label role one step above label-lg (ms-1); used by Button Size LG."
       }
     },
     "label-lg": {

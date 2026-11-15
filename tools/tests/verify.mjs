@@ -8,6 +8,9 @@ import { resolve, dirname } from "node:path";
 const demo = resolve(dirname(fileURLToPath(import.meta.url)), "../../packages/design/dist/demo.html");
 await page.goto("file://" + demo.replace(/\\/g, "/"));
 await page.waitForTimeout(300);
+// Blocks animate state changes (motion tokens); the probes read computed
+// colours right after flipping attributes, so freeze transitions for the run.
+await page.addStyleTag({ content: "*, *::before, *::after { transition: none !important; }" });
 
 const probe = () => page.evaluate(() => {
   const cs = el => getComputedStyle(el);
@@ -65,7 +68,7 @@ await page.evaluate(() => document.documentElement.dataset.accent = "iris");
 results.dark_iris = await probe();
 
 // subtree theming — reset page to light/comfortable first
-await page.evaluate(() => { const r = document.documentElement.dataset; r.mode = "light"; r.accent = "brand"; r.density = "comfortable"; });
+await page.evaluate(() => { const r = document.documentElement.dataset; r.mode = "light"; r.accent = "rebecca"; r.density = "comfortable"; });
 results.subtree = await page.evaluate(() => {
   const cs = el => getComputedStyle(el);
   const host = document.createElement("div");
@@ -85,7 +88,7 @@ results.subtree = await page.evaluate(() => {
 
 console.log(JSON.stringify(results, null, 1));
 
-await page.evaluate(() => { const r = document.documentElement.dataset; r.mode = "light"; r.accent = "brand"; r.density = "comfortable"; });
+await page.evaluate(() => { const r = document.documentElement.dataset; r.mode = "light"; r.accent = "rebecca"; r.density = "comfortable"; });
 await page.waitForTimeout(200);
 await page.screenshot({ path: "demo-light.png" });
 await page.evaluate(() => { const r = document.documentElement.dataset; r.mode = "dark"; r.accent = "iris"; });

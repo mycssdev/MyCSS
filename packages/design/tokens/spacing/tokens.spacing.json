@@ -12,7 +12,7 @@
         "primitives/base": "enabled",
         "primitives/black-alpha": "enabled",
         "primitives/blue": "enabled",
-        "primitives/brand": "enabled",
+        "primitives/rebecca": "enabled",
         "primitives/bronze": "enabled",
         "primitives/brown": "enabled",
         "primitives/crimson": "enabled",
@@ -121,10 +121,10 @@
       }
     },
     {
-      "name": "Brand",
+      "name": "Rebecca",
       "group": "Accent color",
       "selectedTokenSets": {
-        "semantic/accent-brand": "enabled"
+        "semantic/accent-rebecca": "enabled"
       }
     },
     {

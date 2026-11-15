@@ -12,7 +12,7 @@
         "primitives/base": "enabled",
         "primitives/black-alpha": "enabled",
         "primitives/blue": "enabled",
-        "primitives/brand": "enabled",
+        "primitives/rebecca": "enabled",
         "primitives/bronze": "enabled",
         "primitives/brown": "enabled",
         "primitives/crimson": "enabled",
@@ -121,10 +121,10 @@
       }
     },
     {
-      "name": "Brand",
+      "name": "Rebecca",
       "group": "Accent color",
       "selectedTokenSets": {
-        "semantic/accent-brand": "enabled"
+        "semantic/accent-rebecca": "enabled"
       }
     },
     {
@@ -511,21 +511,6 @@
       }
     },
     "bg": {
-      "overlay": {
-        "$value": "{overlay.scrim}",
-        "$type": "color",
-        "$description": "DEPRECATED v2.15: use overlay/scrim. Removed in v2.17."
-      },
-      "surface": {
-        "$value": "{overlay.primary}",
-        "$type": "color",
-        "$description": "DEPRECATED v2.15: in-page panels → surface/secondary; floating panels → overlay/primary. Removed in v2.17 after page retrofits."
-      },
-      "panel": {
-        "$value": "rgba(255, 255, 255, 0.65)",
-        "$type": "color",
-        "$description": "DEPRECATED v2.15: rebind to surface/secondary or overlay/primary in the page retrofit. Removed in v2.17."
-      },
       "brand-faint": {
         "$value": "{accent.2}",
         "$type": "color",
@@ -768,25 +753,10 @@
       }
     },
     "surface": {
-      "default": {
-        "$value": "{surface.primary}",
-        "$type": "color",
-        "$description": "DEPRECATED v2.15: use surface/primary. Removed in v2.17."
-      },
-      "raised": {
-        "$value": "{surface.secondary}",
-        "$type": "color",
-        "$description": "DEPRECATED v2.15: use surface/secondary. Removed in v2.17."
-      },
       "sunken": {
         "$value": "{neutral-alpha.a3}",
         "$type": "color",
         "$description": "Recessed well: inputs, code, inline expanded groups. Translucent, so it sinks relative to its parent tier."
-      },
-      "overlay": {
-        "$value": "{overlay.primary}",
-        "$type": "color",
-        "$description": "DEPRECATED v2.15: use overlay/primary. Removed in v2.17."
       },
       "primary": {
         "$value": "{neutral.1}",
@@ -1522,22 +1492,22 @@
       },
       "rebecca-bg": {
         "$type": "color",
-        "$value": "{brand.3}",
+        "$value": "{rebecca.3}",
         "$description": "Fixed-hue decorative role (charts, tags, badges); responds to scheme only, never to Gray/Accent modes."
       },
       "rebecca-border": {
         "$type": "color",
-        "$value": "{brand.7}",
+        "$value": "{rebecca.7}",
         "$description": "Fixed-hue decorative role (charts, tags, badges); responds to scheme only, never to Gray/Accent modes."
       },
       "rebecca-solid": {
         "$type": "color",
-        "$value": "{brand.9}",
+        "$value": "{rebecca.9}",
         "$description": "Fixed-hue decorative role (charts, tags, badges); responds to scheme only, never to Gray/Accent modes."
       },
       "rebecca-text": {
         "$type": "color",
-        "$value": "{brand.11}",
+        "$value": "{rebecca.11}",
         "$description": "Fixed-hue decorative role (charts, tags, badges); responds to scheme only, never to Gray/Accent modes."
       },
       "rebecca-on-solid": {
@@ -1551,11 +1521,11 @@
         "rebecca-depth": {
           "stop-1": {
             "$type": "color",
-            "$value": "{brand.5}"
+            "$value": "{rebecca.5}"
           },
           "stop-2": {
             "$type": "color",
-            "$value": "{brand.10}"
+            "$value": "{rebecca.10}"
           },
           "angle": {
             "$type": "number",
@@ -1720,7 +1690,7 @@
         "twilight": {
           "stop-1": {
             "$type": "color",
-            "$value": "{brand.9}"
+            "$value": "{rebecca.9}"
           },
           "stop-2": {
             "$type": "color",
@@ -1735,7 +1705,7 @@
         "flare": {
           "stop-1": {
             "$type": "color",
-            "$value": "{brand.9}"
+            "$value": "{rebecca.9}"
           },
           "stop-2": {
             "$type": "color",
@@ -1750,7 +1720,7 @@
         "abyss": {
           "stop-1": {
             "$type": "color",
-            "$value": "{brand.11}"
+            "$value": "{rebecca.11}"
           },
           "stop-2": {
             "$type": "color",
@@ -1765,7 +1735,7 @@
         "dawn": {
           "stop-1": {
             "$type": "color",
-            "$value": "{brand.8}"
+            "$value": "{rebecca.8}"
           },
           "stop-2": {
             "$type": "color",
@@ -1827,7 +1797,7 @@
         "orchid": {
           "stop-1": {
             "$type": "color",
-            "$value": "{brand.3}"
+            "$value": "{rebecca.3}"
           },
           "stop-2": {
             "$type": "color",
@@ -1844,7 +1814,7 @@
         "sunset-run": {
           "stop-1": {
             "$type": "color",
-            "$value": "{brand.9}"
+            "$value": "{rebecca.9}"
           },
           "stop-2": {
             "$type": "color",
@@ -2059,21 +2029,6 @@
       }
     },
     "bg": {
-      "overlay": {
-        "$value": "{overlay.scrim}",
-        "$type": "color",
-        "$description": "DEPRECATED v2.15: use overlay/scrim. Removed in v2.17."
-      },
-      "surface": {
-        "$value": "{overlay.primary}",
-        "$type": "color",
-        "$description": "DEPRECATED v2.15: in-page panels → surface/secondary; floating panels → overlay/primary. Removed in v2.17 after page retrofits."
-      },
-      "panel": {
-        "$value": "{neutral-dark.1}",
-        "$type": "color",
-        "$description": "DEPRECATED v2.15: rebind to surface/secondary or overlay/primary in the page retrofit. Removed in v2.17."
-      },
       "brand-faint": {
         "$value": "{accent-dark.2}",
         "$type": "color",
@@ -2316,25 +2271,10 @@
       }
     },
     "surface": {
-      "default": {
-        "$value": "{surface.primary}",
-        "$type": "color",
-        "$description": "DEPRECATED v2.15: use surface/primary. Removed in v2.17."
-      },
-      "raised": {
-        "$value": "{surface.secondary}",
-        "$type": "color",
-        "$description": "DEPRECATED v2.15: use surface/secondary. Removed in v2.17."
-      },
       "sunken": {
         "$value": "{black-alpha.a6}",
         "$type": "color",
         "$description": "Recessed well: inputs, code, inline expanded groups. Translucent, so it sinks relative to its parent tier."
-      },
-      "overlay": {
-        "$value": "{overlay.primary}",
-        "$type": "color",
-        "$description": "DEPRECATED v2.15: use overlay/primary. Removed in v2.17."
       },
       "primary": {
         "$value": "{neutral-dark.1}",
@@ -3070,22 +3010,22 @@
       },
       "rebecca-bg": {
         "$type": "color",
-        "$value": "{brand-dark.3}",
+        "$value": "{rebecca-dark.3}",
         "$description": "Fixed-hue decorative role (charts, tags, badges); responds to scheme only, never to Gray/Accent modes."
       },
       "rebecca-border": {
         "$type": "color",
-        "$value": "{brand-dark.7}",
+        "$value": "{rebecca-dark.7}",
         "$description": "Fixed-hue decorative role (charts, tags, badges); responds to scheme only, never to Gray/Accent modes."
       },
       "rebecca-solid": {
         "$type": "color",
-        "$value": "{brand-dark.9}",
+        "$value": "{rebecca-dark.9}",
         "$description": "Fixed-hue decorative role (charts, tags, badges); responds to scheme only, never to Gray/Accent modes."
       },
       "rebecca-text": {
         "$type": "color",
-        "$value": "{brand-dark.11}",
+        "$value": "{rebecca-dark.11}",
         "$description": "Fixed-hue decorative role (charts, tags, badges); responds to scheme only, never to Gray/Accent modes."
       },
       "rebecca-on-solid": {
@@ -3099,11 +3039,11 @@
         "rebecca-depth": {
           "stop-1": {
             "$type": "color",
-            "$value": "{brand-dark.5}"
+            "$value": "{rebecca-dark.5}"
           },
           "stop-2": {
             "$type": "color",
-            "$value": "{brand-dark.10}"
+            "$value": "{rebecca-dark.10}"
           },
           "angle": {
             "$type": "number",
@@ -3268,7 +3208,7 @@
         "twilight": {
           "stop-1": {
             "$type": "color",
-            "$value": "{brand-dark.9}"
+            "$value": "{rebecca-dark.9}"
           },
           "stop-2": {
             "$type": "color",
@@ -3283,7 +3223,7 @@
         "flare": {
           "stop-1": {
             "$type": "color",
-            "$value": "{brand-dark.9}"
+            "$value": "{rebecca-dark.9}"
           },
           "stop-2": {
             "$type": "color",
@@ -3298,7 +3238,7 @@
         "abyss": {
           "stop-1": {
             "$type": "color",
-            "$value": "{brand-dark.11}"
+            "$value": "{rebecca-dark.11}"
           },
           "stop-2": {
             "$type": "color",
@@ -3313,7 +3253,7 @@
         "dawn": {
           "stop-1": {
             "$type": "color",
-            "$value": "{brand-dark.8}"
+            "$value": "{rebecca-dark.8}"
           },
           "stop-2": {
             "$type": "color",
@@ -3375,7 +3315,7 @@
         "orchid": {
           "stop-1": {
             "$type": "color",
-            "$value": "{brand-dark.3}"
+            "$value": "{rebecca-dark.3}"
           },
           "stop-2": {
             "$type": "color",
@@ -3392,7 +3332,7 @@
         "sunset-run": {
           "stop-1": {
             "$type": "color",
-            "$value": "{brand-dark.9}"
+            "$value": "{rebecca-dark.9}"
           },
           "stop-2": {
             "$type": "color",

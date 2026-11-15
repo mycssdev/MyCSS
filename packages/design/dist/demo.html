@@ -1,12 +1,12 @@
 <!doctype html>
-<html lang="en" data-gray="slate" data-accent="brand" data-mode="light" data-density="comfortable" data-typeface="inter">
+<html lang="en" data-gray="slate" data-accent="rebecca" data-mode="light" data-density="comfortable" data-typeface="inter">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>MyCSS v0.1.0-alpha — tokens · compositions · utilities</title>
 <link rel="stylesheet" href="css/mycss.css">
 <style>
-  /* Demo-page blocks (my-*) — will graduate to packages/ui. */
+  /* Demo-page blocks (my-*) — will graduate to packages/ui. .my-button now ships in mycss.css (packages/ui). */
   @layer mycss.blocks {
     * { margin: 0; box-sizing: border-box; }
     body {
@@ -28,21 +28,6 @@
       border: var(--my-border-width-2) solid var(--my-border-neutral-primary);
       background: var(--my-bg-neutral-primary); color: var(--my-text-neutral-primary);
     }
-    .my-button {
-      display: inline-flex; align-items: center; cursor: pointer; border: none;
-      padding-block: var(--my-squish-block-md); padding-inline: var(--my-squish-inline-md);
-      border-radius: var(--my-border-radius-md);
-      font-family: var(--my-label-lg-family); font-size: var(--my-label-lg-size);
-      font-weight: var(--my-label-lg-weight);
-      background: var(--my-bg-brand-solid); color: var(--my-text-on-accent);
-    }
-    .my-button:hover { background: var(--my-bg-brand-solid_hover); }
-    .my-button[data-variant="soft"] { background: var(--my-bg-brand-soft); color: var(--my-text-brand); }
-    .my-button[data-variant="outline"] {
-      background: transparent; color: var(--my-text-neutral-primary);
-      box-shadow: inset 0 0 0 var(--my-border-width-2) var(--my-border-neutral-primary);
-    }
-    .my-button[data-state="disabled"] { background: var(--my-bg-neutral-disabled); color: var(--my-text-neutral-disabled); cursor: not-allowed; }
     .my-card {
       background: var(--my-bg-neutral-secondary);
       border: var(--my-border-width-2) solid var(--my-border-neutral-secondary);
@@ -171,7 +156,7 @@
 <script>
   const root = document.documentElement;
   const opts = {
-    accent: ["brand","amber","base","blue","bronze","brown","crimson","cyan","gold","grass","green","indigo","iris","jade","lime","mint","orange","pink","plum","purple","red","ruby","sky","teal","tomato","violet","yellow"],
+    accent: ["rebecca","amber","base","blue","bronze","brown","crimson","cyan","gold","grass","green","indigo","iris","jade","lime","mint","orange","pink","plum","purple","red","ruby","sky","teal","tomato","violet","yellow"],
     gray: ["slate","gray","mauve","olive","sage","sand"],
     density: ["comfortable","compact","spacious"],
     typeface: ["inter","geist","roboto","system"],

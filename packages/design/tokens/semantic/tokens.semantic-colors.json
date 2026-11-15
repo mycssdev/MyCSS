@@ -12,7 +12,7 @@
         "primitives/base": "enabled",
         "primitives/black-alpha": "enabled",
         "primitives/blue": "enabled",
-        "primitives/brand": "enabled",
+        "primitives/rebecca": "enabled",
         "primitives/bronze": "enabled",
         "primitives/brown": "enabled",
         "primitives/crimson": "enabled",
@@ -121,10 +121,10 @@
       }
     },
     {
-      "name": "Brand",
+      "name": "Rebecca",
       "group": "Accent color",
       "selectedTokenSets": {
-        "semantic/accent-brand": "enabled"
+        "semantic/accent-rebecca": "enabled"
       }
     },
     {
@@ -775,204 +775,204 @@
       "$description": "Light-mode text in this accent: step 11, or step 12 where step 11 misses WCAG AA 4.5:1 on neutral 1-3 or this hue's 3-4 (v2.16.2)."
     }
   },
-  "semantic/accent-brand": {
+  "semantic/accent-rebecca": {
     "accent": {
       "1": {
-        "$value": "{brand.1}",
+        "$value": "{rebecca.1}",
         "$type": "color"
       },
       "2": {
-        "$value": "{brand.2}",
+        "$value": "{rebecca.2}",
         "$type": "color"
       },
       "3": {
-        "$value": "{brand.3}",
+        "$value": "{rebecca.3}",
         "$type": "color"
       },
       "4": {
-        "$value": "{brand.4}",
+        "$value": "{rebecca.4}",
         "$type": "color"
       },
       "5": {
-        "$value": "{brand.5}",
+        "$value": "{rebecca.5}",
         "$type": "color"
       },
       "6": {
-        "$value": "{brand.6}",
+        "$value": "{rebecca.6}",
         "$type": "color"
       },
       "7": {
-        "$value": "{brand.7}",
+        "$value": "{rebecca.7}",
         "$type": "color"
       },
       "8": {
-        "$value": "{brand.8}",
+        "$value": "{rebecca.8}",
         "$type": "color"
       },
       "9": {
-        "$value": "{brand.9}",
+        "$value": "{rebecca.9}",
         "$type": "color"
       },
       "10": {
-        "$value": "{brand.10}",
+        "$value": "{rebecca.10}",
         "$type": "color"
       },
       "11": {
-        "$value": "{brand.11}",
+        "$value": "{rebecca.11}",
         "$type": "color"
       },
       "12": {
-        "$value": "{brand.12}",
+        "$value": "{rebecca.12}",
         "$type": "color"
       }
     },
     "accent-alpha": {
       "a1": {
-        "$value": "{brand-alpha.a1}",
+        "$value": "{rebecca-alpha.a1}",
         "$type": "color"
       },
       "a2": {
-        "$value": "{brand-alpha.a2}",
+        "$value": "{rebecca-alpha.a2}",
         "$type": "color"
       },
       "a3": {
-        "$value": "{brand-alpha.a3}",
+        "$value": "{rebecca-alpha.a3}",
         "$type": "color"
       },
       "a4": {
-        "$value": "{brand-alpha.a4}",
+        "$value": "{rebecca-alpha.a4}",
         "$type": "color"
       },
       "a5": {
-        "$value": "{brand-alpha.a5}",
+        "$value": "{rebecca-alpha.a5}",
         "$type": "color"
       },
       "a6": {
-        "$value": "{brand-alpha.a6}",
+        "$value": "{rebecca-alpha.a6}",
         "$type": "color"
       },
       "a7": {
-        "$value": "{brand-alpha.a7}",
+        "$value": "{rebecca-alpha.a7}",
         "$type": "color"
       },
       "a8": {
-        "$value": "{brand-alpha.a8}",
+        "$value": "{rebecca-alpha.a8}",
         "$type": "color"
       },
       "a9": {
-        "$value": "{brand-alpha.a9}",
+        "$value": "{rebecca-alpha.a9}",
         "$type": "color"
       },
       "a10": {
-        "$value": "{brand-alpha.a10}",
+        "$value": "{rebecca-alpha.a10}",
         "$type": "color"
       },
       "a11": {
-        "$value": "{brand-alpha.a11}",
+        "$value": "{rebecca-alpha.a11}",
         "$type": "color"
       },
       "a12": {
-        "$value": "{brand-alpha.a12}",
+        "$value": "{rebecca-alpha.a12}",
         "$type": "color"
       }
     },
     "accent-dark": {
       "1": {
-        "$value": "{brand-dark.1}",
+        "$value": "{rebecca-dark.1}",
         "$type": "color"
       },
       "2": {
-        "$value": "{brand-dark.2}",
+        "$value": "{rebecca-dark.2}",
         "$type": "color"
       },
       "3": {
-        "$value": "{brand-dark.3}",
+        "$value": "{rebecca-dark.3}",
         "$type": "color"
       },
       "4": {
-        "$value": "{brand-dark.4}",
+        "$value": "{rebecca-dark.4}",
         "$type": "color"
       },
       "5": {
-        "$value": "{brand-dark.5}",
+        "$value": "{rebecca-dark.5}",
         "$type": "color"
       },
       "6": {
-        "$value": "{brand-dark.6}",
+        "$value": "{rebecca-dark.6}",
         "$type": "color"
       },
       "7": {
-        "$value": "{brand-dark.7}",
+        "$value": "{rebecca-dark.7}",
         "$type": "color"
       },
       "8": {
-        "$value": "{brand-dark.8}",
+        "$value": "{rebecca-dark.8}",
         "$type": "color"
       },
       "9": {
-        "$value": "{brand-dark.9}",
+        "$value": "{rebecca-dark.9}",
         "$type": "color"
       },
       "10": {
-        "$value": "{brand-dark.10}",
+        "$value": "{rebecca-dark.10}",
         "$type": "color"
       },
       "11": {
-        "$value": "{brand-dark.11}",
+        "$value": "{rebecca-dark.11}",
         "$type": "color"
       },
       "12": {
-        "$value": "{brand-dark.12}",
+        "$value": "{rebecca-dark.12}",
         "$type": "color"
       }
     },
     "accent-dark-alpha": {
       "a1": {
-        "$value": "{brand-dark-alpha.a1}",
+        "$value": "{rebecca-dark-alpha.a1}",
         "$type": "color"
       },
       "a2": {
-        "$value": "{brand-dark-alpha.a2}",
+        "$value": "{rebecca-dark-alpha.a2}",
         "$type": "color"
       },
       "a3": {
-        "$value": "{brand-dark-alpha.a3}",
+        "$value": "{rebecca-dark-alpha.a3}",
         "$type": "color"
       },
       "a4": {
-        "$value": "{brand-dark-alpha.a4}",
+        "$value": "{rebecca-dark-alpha.a4}",
         "$type": "color"
       },
       "a5": {
-        "$value": "{brand-dark-alpha.a5}",
+        "$value": "{rebecca-dark-alpha.a5}",
         "$type": "color"
       },
       "a6": {
-        "$value": "{brand-dark-alpha.a6}",
+        "$value": "{rebecca-dark-alpha.a6}",
         "$type": "color"
       },
       "a7": {
-        "$value": "{brand-dark-alpha.a7}",
+        "$value": "{rebecca-dark-alpha.a7}",
         "$type": "color"
       },
       "a8": {
-        "$value": "{brand-dark-alpha.a8}",
+        "$value": "{rebecca-dark-alpha.a8}",
         "$type": "color"
       },
       "a9": {
-        "$value": "{brand-dark-alpha.a9}",
+        "$value": "{rebecca-dark-alpha.a9}",
         "$type": "color"
       },
       "a10": {
-        "$value": "{brand-dark-alpha.a10}",
+        "$value": "{rebecca-dark-alpha.a10}",
         "$type": "color"
       },
       "a11": {
-        "$value": "{brand-dark-alpha.a11}",
+        "$value": "{rebecca-dark-alpha.a11}",
         "$type": "color"
       },
       "a12": {
-        "$value": "{brand-dark-alpha.a12}",
+        "$value": "{rebecca-dark-alpha.a12}",
         "$type": "color"
       }
     },
@@ -981,7 +981,7 @@
       "$type": "color"
     },
     "accent-text": {
-      "$value": "{brand.11}",
+      "$value": "{rebecca.11}",
       "$type": "color",
       "$description": "Light-mode text in this accent: step 11, or step 12 where step 11 misses WCAG AA 4.5:1 on neutral 1-3 or this hue's 3-4 (v2.16.2)."
     }

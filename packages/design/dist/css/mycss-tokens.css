@@ -1,4 +1,4 @@
-/*! MyCSS tokens v0.1.0-alpha.1 — generated 2026-11-05 from tokens.all-in-one.json.
+/*! MyCSS tokens v0.1.0-alpha.1 — generated 2026-11-15 from tokens.all-in-one.json.
  *  Do not edit by hand; run packages/design/build/generate_css.py.
  *  Requires: CSS round(), light-dark() — Baseline 2024. */
 @layer mycss.tokens {
@@ -50,21 +50,27 @@
     --my-shadow-o1-y: 1;
     --my-shadow-o1-blur: 1;
     --my-shadow-o1-spread: -0.5;
+    --my-shadow-o1-reverse: -1;
     --my-shadow-o2-y: 3;
     --my-shadow-o2-blur: 3;
     --my-shadow-o2-spread: -1.5;
+    --my-shadow-o2-reverse: -3;
     --my-shadow-o3-y: 6;
     --my-shadow-o3-blur: 6;
     --my-shadow-o3-spread: -3;
+    --my-shadow-o3-reverse: -6;
     --my-shadow-o4-y: 12;
     --my-shadow-o4-blur: 12;
     --my-shadow-o4-spread: -6;
+    --my-shadow-o4-reverse: -12;
     --my-shadow-o5-y: 24;
     --my-shadow-o5-blur: 24;
     --my-shadow-o5-spread: -12;
+    --my-shadow-o5-reverse: -24;
     --my-shadow-o6-y: 48;
     --my-shadow-o6-blur: 48;
     --my-shadow-o6-spread: -24;
+    --my-shadow-o6-reverse: -48;
     --my-scale-base: 16;
     --my-scale-ratio: 1.25;
     --my-linear-base: 4;
@@ -282,54 +288,6 @@
     --my-blue-dark-alpha-a10: #3b9eff;
     --my-blue-dark-alpha-a11: #70b8ff;
     --my-blue-dark-alpha-a12: #c2e6ff;
-    --my-brand-1: #fdfcfe;
-    --my-brand-2: #faf5ff;
-    --my-brand-3: #f2e6ff;
-    --my-brand-4: #e9d5ff;
-    --my-brand-5: #dfc4fd;
-    --my-brand-6: #d3b0f7;
-    --my-brand-7: #c197ee;
-    --my-brand-8: #a875de;
-    --my-brand-9: #663399;
-    --my-brand-10: #5b2d8a;
-    --my-brand-11: #7744aa;
-    --my-brand-12: #2f1546;
-    --my-brand-alpha-a1: #5500aa03;
-    --my-brand-alpha-a2: #6600ff0a;
-    --my-brand-alpha-a3: #6600ee19;
-    --my-brand-alpha-a4: #6b00ff2a;
-    --my-brand-alpha-a5: #6700f53b;
-    --my-brand-alpha-a6: #5e00e64f;
-    --my-brand-alpha-a7: #5500d068;
-    --my-brand-alpha-a8: #4f00c48a;
-    --my-brand-alpha-a9: #390079cc;
-    --my-brand-alpha-a10: #3a007ad5;
-    --my-brand-alpha-a11: #4400aa88;
-    --my-brand-alpha-a12: #190040ea;
-    --my-brand-dark-1: #15101d;
-    --my-brand-dark-2: #1d1528;
-    --my-brand-dark-3: #2c1f42;
-    --my-brand-dark-4: #382755;
-    --my-brand-dark-5: #432f64;
-    --my-brand-dark-6: #503a76;
-    --my-brand-dark-7: #624b8f;
-    --my-brand-dark-8: #7d64b3;
-    --my-brand-dark-9: #663399;
-    --my-brand-dark-10: #7744aa;
-    --my-brand-dark-11: #c9a5f0;
-    --my-brand-dark-12: #ece3f8;
-    --my-brand-dark-alpha-a1: #4400cc0d;
-    --my-brand-dark-alpha-a2: #5c28e018;
-    --my-brand-dark-alpha-a3: #6b3cf434;
-    --my-brand-dark-alpha-a4: #7040f848;
-    --my-brand-dark-alpha-a5: #7647fa58;
-    --my-brand-dark-alpha-a6: #7e52fc6b;
-    --my-brand-dark-alpha-a7: #8560fe86;
-    --my-brand-dark-alpha-a8: #8d6cfeac;
-    --my-brand-dark-alpha-a9: #7040f091;
-    --my-brand-dark-alpha-a10: #8256f5a3;
-    --my-brand-dark-alpha-a11: #cba5fbef;
-    --my-brand-dark-alpha-a12: #ede5fef7;
     --my-bronze-1: #fdfcfc;
     --my-bronze-2: #fdf7f5;
     --my-bronze-3: #f6edea;
@@ -1242,6 +1200,54 @@
     --my-purple-dark-alpha-a10: #bc6fffcd;
     --my-purple-dark-alpha-a11: #d19dff;
     --my-purple-dark-alpha-a12: #f1ddfffa;
+    --my-rebecca-1: #fdfcfe;
+    --my-rebecca-2: #faf5ff;
+    --my-rebecca-3: #f2e6ff;
+    --my-rebecca-4: #e9d5ff;
+    --my-rebecca-5: #dfc4fd;
+    --my-rebecca-6: #d3b0f7;
+    --my-rebecca-7: #c197ee;
+    --my-rebecca-8: #a875de;
+    --my-rebecca-9: #663399;
+    --my-rebecca-10: #5b2d8a;
+    --my-rebecca-11: #7744aa;
+    --my-rebecca-12: #2f1546;
+    --my-rebecca-alpha-a1: #5500aa03;
+    --my-rebecca-alpha-a2: #6600ff0a;
+    --my-rebecca-alpha-a3: #6600ee19;
+    --my-rebecca-alpha-a4: #6b00ff2a;
+    --my-rebecca-alpha-a5: #6700f53b;
+    --my-rebecca-alpha-a6: #5e00e64f;
+    --my-rebecca-alpha-a7: #5500d068;
+    --my-rebecca-alpha-a8: #4f00c48a;
+    --my-rebecca-alpha-a9: #390079cc;
+    --my-rebecca-alpha-a10: #3a007ad5;
+    --my-rebecca-alpha-a11: #4400aa88;
+    --my-rebecca-alpha-a12: #190040ea;
+    --my-rebecca-dark-1: #15101d;
+    --my-rebecca-dark-2: #1d1528;
+    --my-rebecca-dark-3: #2c1f42;
+    --my-rebecca-dark-4: #382755;
+    --my-rebecca-dark-5: #432f64;
+    --my-rebecca-dark-6: #503a76;
+    --my-rebecca-dark-7: #624b8f;
+    --my-rebecca-dark-8: #7d64b3;
+    --my-rebecca-dark-9: #663399;
+    --my-rebecca-dark-10: #7744aa;
+    --my-rebecca-dark-11: #c9a5f0;
+    --my-rebecca-dark-12: #ece3f8;
+    --my-rebecca-dark-alpha-a1: #4400cc0d;
+    --my-rebecca-dark-alpha-a2: #5c28e018;
+    --my-rebecca-dark-alpha-a3: #6b3cf434;
+    --my-rebecca-dark-alpha-a4: #7040f848;
+    --my-rebecca-dark-alpha-a5: #7647fa58;
+    --my-rebecca-dark-alpha-a6: #7e52fc6b;
+    --my-rebecca-dark-alpha-a7: #8560fe86;
+    --my-rebecca-dark-alpha-a8: #8d6cfeac;
+    --my-rebecca-dark-alpha-a9: #7040f091;
+    --my-rebecca-dark-alpha-a10: #8256f5a3;
+    --my-rebecca-dark-alpha-a11: #cba5fbef;
+    --my-rebecca-dark-alpha-a12: #ede5fef7;
     --my-red-1: #fffcfc;
     --my-red-2: #fff7f7;
     --my-red-3: #feebec;
@@ -1979,7 +1985,7 @@
     --my-threshold-spacious: var(--my-width-2xl);
     --my-threshold-max: var(--my-container-max-width);
     --my-threshold: var(--my-threshold-comfortable);
-    /* default theme: slate gray, brand accent, comfortable, montserrat, soft depth */
+    /* default theme: slate gray, rebecca accent, comfortable, montserrat, soft depth */
     --my-neutral-1: var(--my-slate-1);
     --my-neutral-2: var(--my-slate-2);
     --my-neutral-3: var(--my-slate-3);
@@ -2028,59 +2034,60 @@
     --my-neutral-dark-alpha-a10: var(--my-slate-dark-alpha-a10);
     --my-neutral-dark-alpha-a11: var(--my-slate-dark-alpha-a11);
     --my-neutral-dark-alpha-a12: var(--my-slate-dark-alpha-a12);
-    --my-accent-1: var(--my-brand-1);
-    --my-accent-2: var(--my-brand-2);
-    --my-accent-3: var(--my-brand-3);
-    --my-accent-4: var(--my-brand-4);
-    --my-accent-5: var(--my-brand-5);
-    --my-accent-6: var(--my-brand-6);
-    --my-accent-7: var(--my-brand-7);
-    --my-accent-8: var(--my-brand-8);
-    --my-accent-9: var(--my-brand-9);
-    --my-accent-10: var(--my-brand-10);
-    --my-accent-11: var(--my-brand-11);
-    --my-accent-12: var(--my-brand-12);
-    --my-accent-alpha-a1: var(--my-brand-alpha-a1);
-    --my-accent-alpha-a2: var(--my-brand-alpha-a2);
-    --my-accent-alpha-a3: var(--my-brand-alpha-a3);
-    --my-accent-alpha-a4: var(--my-brand-alpha-a4);
-    --my-accent-alpha-a5: var(--my-brand-alpha-a5);
-    --my-accent-alpha-a6: var(--my-brand-alpha-a6);
-    --my-accent-alpha-a7: var(--my-brand-alpha-a7);
-    --my-accent-alpha-a8: var(--my-brand-alpha-a8);
-    --my-accent-alpha-a9: var(--my-brand-alpha-a9);
-    --my-accent-alpha-a10: var(--my-brand-alpha-a10);
-    --my-accent-alpha-a11: var(--my-brand-alpha-a11);
-    --my-accent-alpha-a12: var(--my-brand-alpha-a12);
-    --my-accent-dark-1: var(--my-brand-dark-1);
-    --my-accent-dark-2: var(--my-brand-dark-2);
-    --my-accent-dark-3: var(--my-brand-dark-3);
-    --my-accent-dark-4: var(--my-brand-dark-4);
-    --my-accent-dark-5: var(--my-brand-dark-5);
-    --my-accent-dark-6: var(--my-brand-dark-6);
-    --my-accent-dark-7: var(--my-brand-dark-7);
-    --my-accent-dark-8: var(--my-brand-dark-8);
-    --my-accent-dark-9: var(--my-brand-dark-9);
-    --my-accent-dark-10: var(--my-brand-dark-10);
-    --my-accent-dark-11: var(--my-brand-dark-11);
-    --my-accent-dark-12: var(--my-brand-dark-12);
-    --my-accent-dark-alpha-a1: var(--my-brand-dark-alpha-a1);
-    --my-accent-dark-alpha-a2: var(--my-brand-dark-alpha-a2);
-    --my-accent-dark-alpha-a3: var(--my-brand-dark-alpha-a3);
-    --my-accent-dark-alpha-a4: var(--my-brand-dark-alpha-a4);
-    --my-accent-dark-alpha-a5: var(--my-brand-dark-alpha-a5);
-    --my-accent-dark-alpha-a6: var(--my-brand-dark-alpha-a6);
-    --my-accent-dark-alpha-a7: var(--my-brand-dark-alpha-a7);
-    --my-accent-dark-alpha-a8: var(--my-brand-dark-alpha-a8);
-    --my-accent-dark-alpha-a9: var(--my-brand-dark-alpha-a9);
-    --my-accent-dark-alpha-a10: var(--my-brand-dark-alpha-a10);
-    --my-accent-dark-alpha-a11: var(--my-brand-dark-alpha-a11);
-    --my-accent-dark-alpha-a12: var(--my-brand-dark-alpha-a12);
+    --my-accent-1: var(--my-rebecca-1);
+    --my-accent-2: var(--my-rebecca-2);
+    --my-accent-3: var(--my-rebecca-3);
+    --my-accent-4: var(--my-rebecca-4);
+    --my-accent-5: var(--my-rebecca-5);
+    --my-accent-6: var(--my-rebecca-6);
+    --my-accent-7: var(--my-rebecca-7);
+    --my-accent-8: var(--my-rebecca-8);
+    --my-accent-9: var(--my-rebecca-9);
+    --my-accent-10: var(--my-rebecca-10);
+    --my-accent-11: var(--my-rebecca-11);
+    --my-accent-12: var(--my-rebecca-12);
+    --my-accent-alpha-a1: var(--my-rebecca-alpha-a1);
+    --my-accent-alpha-a2: var(--my-rebecca-alpha-a2);
+    --my-accent-alpha-a3: var(--my-rebecca-alpha-a3);
+    --my-accent-alpha-a4: var(--my-rebecca-alpha-a4);
+    --my-accent-alpha-a5: var(--my-rebecca-alpha-a5);
+    --my-accent-alpha-a6: var(--my-rebecca-alpha-a6);
+    --my-accent-alpha-a7: var(--my-rebecca-alpha-a7);
+    --my-accent-alpha-a8: var(--my-rebecca-alpha-a8);
+    --my-accent-alpha-a9: var(--my-rebecca-alpha-a9);
+    --my-accent-alpha-a10: var(--my-rebecca-alpha-a10);
+    --my-accent-alpha-a11: var(--my-rebecca-alpha-a11);
+    --my-accent-alpha-a12: var(--my-rebecca-alpha-a12);
+    --my-accent-dark-1: var(--my-rebecca-dark-1);
+    --my-accent-dark-2: var(--my-rebecca-dark-2);
+    --my-accent-dark-3: var(--my-rebecca-dark-3);
+    --my-accent-dark-4: var(--my-rebecca-dark-4);
+    --my-accent-dark-5: var(--my-rebecca-dark-5);
+    --my-accent-dark-6: var(--my-rebecca-dark-6);
+    --my-accent-dark-7: var(--my-rebecca-dark-7);
+    --my-accent-dark-8: var(--my-rebecca-dark-8);
+    --my-accent-dark-9: var(--my-rebecca-dark-9);
+    --my-accent-dark-10: var(--my-rebecca-dark-10);
+    --my-accent-dark-11: var(--my-rebecca-dark-11);
+    --my-accent-dark-12: var(--my-rebecca-dark-12);
+    --my-accent-dark-alpha-a1: var(--my-rebecca-dark-alpha-a1);
+    --my-accent-dark-alpha-a2: var(--my-rebecca-dark-alpha-a2);
+    --my-accent-dark-alpha-a3: var(--my-rebecca-dark-alpha-a3);
+    --my-accent-dark-alpha-a4: var(--my-rebecca-dark-alpha-a4);
+    --my-accent-dark-alpha-a5: var(--my-rebecca-dark-alpha-a5);
+    --my-accent-dark-alpha-a6: var(--my-rebecca-dark-alpha-a6);
+    --my-accent-dark-alpha-a7: var(--my-rebecca-dark-alpha-a7);
+    --my-accent-dark-alpha-a8: var(--my-rebecca-dark-alpha-a8);
+    --my-accent-dark-alpha-a9: var(--my-rebecca-dark-alpha-a9);
+    --my-accent-dark-alpha-a10: var(--my-rebecca-dark-alpha-a10);
+    --my-accent-dark-alpha-a11: var(--my-rebecca-dark-alpha-a11);
+    --my-accent-dark-alpha-a12: var(--my-rebecca-dark-alpha-a12);
     --my-accent-contrast: #ffffff;
-    --my-accent-text: var(--my-brand-11);
+    --my-accent-text: var(--my-rebecca-11);
     --my-family-primary: Montserrat, system-ui, -apple-system, 'Noto Sans JP', sans-serif;
     --my-family-secondary: Georgia, 'Times New Roman', 'Noto Serif JP', serif;
     --my-family-mono: 'JetBrains Mono', 'Fira Code', ui-monospace, 'Noto Sans JP', monospace;
+    --my-dir: 1;  /* v2.17: -1 under RTL; flips start/end shadows */
     /* depth: soft */
     --my-shadow-ring-color: var(--my-effect-depth-ring);
     --my-shadow-o1-color: var(--my-effect-depth-soft);
@@ -2092,6 +2099,52 @@
     --my-shadow-low: 0 3px 3px -1.5px var(--my-shadow-o2-color), 0 1px 1px -0.5px var(--my-shadow-o1-color), 0 0 0 1px var(--my-shadow-ring-color);
     --my-shadow-mid: 0 12px 12px -6px var(--my-shadow-o4-color), 0 6px 6px -3px var(--my-shadow-o3-color), 0 3px 3px -1.5px var(--my-shadow-o2-color), 0 1px 1px -0.5px var(--my-shadow-o1-color), 0 0 0 1px var(--my-shadow-ring-color);
     --my-shadow-high: 0 48px 48px -24px var(--my-shadow-o6-color), 0 24px 24px -12px var(--my-shadow-o5-color), 0 12px 12px -6px var(--my-shadow-o4-color), 0 6px 6px -3px var(--my-shadow-o3-color), 0 3px 3px -1.5px var(--my-shadow-o2-color), 0 1px 1px -0.5px var(--my-shadow-o1-color), 0 0 0 1px var(--my-shadow-ring-color);
+    --my-shadow-around-low: 0 0 3px 0 var(--my-shadow-o2-color), 0 0 1px 0 var(--my-shadow-o1-color), 0 0 0 1px var(--my-shadow-ring-color);
+    --my-shadow-around-mid: 0 3px 12px -1.5px var(--my-shadow-o4-color), 0 1px 6px -0.5px var(--my-shadow-o3-color), 0 0 3px 0 var(--my-shadow-o2-color), 0 0 1px 0 var(--my-shadow-o1-color), 0 0 0 1px var(--my-shadow-ring-color);
+    --my-shadow-around-high: 0 12px 48px -6px var(--my-shadow-o6-color), 0 6px 24px -3px var(--my-shadow-o5-color), 0 3px 12px -1.5px var(--my-shadow-o4-color), 0 1px 6px -0.5px var(--my-shadow-o3-color), 0 0 3px 0 var(--my-shadow-o2-color), 0 0 1px 0 var(--my-shadow-o1-color), 0 0 0 1px var(--my-shadow-ring-color);
+    --my-shadow-up-low: 0 -3px 3px -1.5px var(--my-shadow-o2-color), 0 -1px 1px -0.5px var(--my-shadow-o1-color), 0 0 0 1px var(--my-shadow-ring-color);
+    --my-shadow-up-mid: 0 -12px 12px -6px var(--my-shadow-o4-color), 0 -6px 6px -3px var(--my-shadow-o3-color), 0 -3px 3px -1.5px var(--my-shadow-o2-color), 0 -1px 1px -0.5px var(--my-shadow-o1-color), 0 0 0 1px var(--my-shadow-ring-color);
+    --my-shadow-up-high: 0 -48px 48px -24px var(--my-shadow-o6-color), 0 -24px 24px -12px var(--my-shadow-o5-color), 0 -12px 12px -6px var(--my-shadow-o4-color), 0 -6px 6px -3px var(--my-shadow-o3-color), 0 -3px 3px -1.5px var(--my-shadow-o2-color), 0 -1px 1px -0.5px var(--my-shadow-o1-color), 0 0 0 1px var(--my-shadow-ring-color);
+    --my-shadow-start-low: calc(-3px * var(--my-dir)) 0 3px -1.5px var(--my-shadow-o2-color), calc(-1px * var(--my-dir)) 0 1px -0.5px var(--my-shadow-o1-color), 0 0 0 1px var(--my-shadow-ring-color);
+    --my-shadow-start-mid: calc(-12px * var(--my-dir)) 0 12px -6px var(--my-shadow-o4-color), calc(-6px * var(--my-dir)) 0 6px -3px var(--my-shadow-o3-color), calc(-3px * var(--my-dir)) 0 3px -1.5px var(--my-shadow-o2-color), calc(-1px * var(--my-dir)) 0 1px -0.5px var(--my-shadow-o1-color), 0 0 0 1px var(--my-shadow-ring-color);
+    --my-shadow-start-high: calc(-48px * var(--my-dir)) 0 48px -24px var(--my-shadow-o6-color), calc(-24px * var(--my-dir)) 0 24px -12px var(--my-shadow-o5-color), calc(-12px * var(--my-dir)) 0 12px -6px var(--my-shadow-o4-color), calc(-6px * var(--my-dir)) 0 6px -3px var(--my-shadow-o3-color), calc(-3px * var(--my-dir)) 0 3px -1.5px var(--my-shadow-o2-color), calc(-1px * var(--my-dir)) 0 1px -0.5px var(--my-shadow-o1-color), 0 0 0 1px var(--my-shadow-ring-color);
+    --my-shadow-end-low: calc(3px * var(--my-dir)) 0 3px -1.5px var(--my-shadow-o2-color), calc(1px * var(--my-dir)) 0 1px -0.5px var(--my-shadow-o1-color), 0 0 0 1px var(--my-shadow-ring-color);
+    --my-shadow-end-mid: calc(12px * var(--my-dir)) 0 12px -6px var(--my-shadow-o4-color), calc(6px * var(--my-dir)) 0 6px -3px var(--my-shadow-o3-color), calc(3px * var(--my-dir)) 0 3px -1.5px var(--my-shadow-o2-color), calc(1px * var(--my-dir)) 0 1px -0.5px var(--my-shadow-o1-color), 0 0 0 1px var(--my-shadow-ring-color);
+    --my-shadow-end-high: calc(48px * var(--my-dir)) 0 48px -24px var(--my-shadow-o6-color), calc(24px * var(--my-dir)) 0 24px -12px var(--my-shadow-o5-color), calc(12px * var(--my-dir)) 0 12px -6px var(--my-shadow-o4-color), calc(6px * var(--my-dir)) 0 6px -3px var(--my-shadow-o3-color), calc(3px * var(--my-dir)) 0 3px -1.5px var(--my-shadow-o2-color), calc(1px * var(--my-dir)) 0 1px -0.5px var(--my-shadow-o1-color), 0 0 0 1px var(--my-shadow-ring-color);
+    --my-shadow-inset-low: inset 0 1px 1px 0 var(--my-shadow-o1-color), inset 0 0 0 1px var(--my-shadow-ring-color);
+    --my-shadow-inset-mid: inset 0 3px 3px 0 var(--my-shadow-o2-color), inset 0 1px 1px 0 var(--my-shadow-o1-color), inset 0 0 0 1px var(--my-shadow-ring-color);
+    /* shape: subtle */
+    --my-border-radius-none: 0;
+    --my-border-radius-sharp: 1.5px;
+    --my-border-radius-crisp: 2px;
+    --my-border-radius-soft: 3px;
+    --my-border-radius-pill: 9999px;
+    --my-border-radius-rounded: 4px;
+    --my-border-radius-smooth: 6px;
+    --my-border-radius-plush: 8px;
+    --my-border-radius-outer-spacing: 20px;
+    --my-border-radius-outer-sharp: 21.5px;
+    --my-border-radius-outer-crisp: 22px;
+    --my-border-radius-outer-soft: 23px;
+    --my-border-radius-outer-rounded: 24px;
+    --my-border-radius-outer-smooth: 26px;
+    --my-border-radius-outer-plush: 28px;
+    /* motion: full */
+    --my-duration-instant: 0ms;
+    --my-duration-fast-1: 100ms;
+    --my-duration-fast-2: 150ms;
+    --my-duration-base: 200ms;
+    --my-duration-slow-1: 300ms;
+    --my-duration-slow-2: 500ms;
+    --my-duration-deliberate: 800ms;
+    --my-stagger-1: 20ms;
+    --my-stagger-2: 40ms;
+    --my-stagger-3: 80ms;
+    --my-ease-standard: cubic-bezier(0.2, 0, 0, 1);
+    --my-ease-enter: cubic-bezier(0, 0, 0.2, 1);
+    --my-ease-exit: cubic-bezier(0.4, 0, 1, 1);
+    --my-ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+    --my-ease-linear: linear;
   }
   [data-mode="light"] { color-scheme: light; }
   [data-mode="dark"] { color-scheme: dark; }
@@ -2551,57 +2604,57 @@
     --my-accent-contrast: #ffffff;
     --my-accent-text: var(--my-blue-12);
   }
-  [data-accent="brand"] {
-    --my-accent-1: var(--my-brand-1);
-    --my-accent-2: var(--my-brand-2);
-    --my-accent-3: var(--my-brand-3);
-    --my-accent-4: var(--my-brand-4);
-    --my-accent-5: var(--my-brand-5);
-    --my-accent-6: var(--my-brand-6);
-    --my-accent-7: var(--my-brand-7);
-    --my-accent-8: var(--my-brand-8);
-    --my-accent-9: var(--my-brand-9);
-    --my-accent-10: var(--my-brand-10);
-    --my-accent-11: var(--my-brand-11);
-    --my-accent-12: var(--my-brand-12);
-    --my-accent-alpha-a1: var(--my-brand-alpha-a1);
-    --my-accent-alpha-a2: var(--my-brand-alpha-a2);
-    --my-accent-alpha-a3: var(--my-brand-alpha-a3);
-    --my-accent-alpha-a4: var(--my-brand-alpha-a4);
-    --my-accent-alpha-a5: var(--my-brand-alpha-a5);
-    --my-accent-alpha-a6: var(--my-brand-alpha-a6);
-    --my-accent-alpha-a7: var(--my-brand-alpha-a7);
-    --my-accent-alpha-a8: var(--my-brand-alpha-a8);
-    --my-accent-alpha-a9: var(--my-brand-alpha-a9);
-    --my-accent-alpha-a10: var(--my-brand-alpha-a10);
-    --my-accent-alpha-a11: var(--my-brand-alpha-a11);
-    --my-accent-alpha-a12: var(--my-brand-alpha-a12);
-    --my-accent-dark-1: var(--my-brand-dark-1);
-    --my-accent-dark-2: var(--my-brand-dark-2);
-    --my-accent-dark-3: var(--my-brand-dark-3);
-    --my-accent-dark-4: var(--my-brand-dark-4);
-    --my-accent-dark-5: var(--my-brand-dark-5);
-    --my-accent-dark-6: var(--my-brand-dark-6);
-    --my-accent-dark-7: var(--my-brand-dark-7);
-    --my-accent-dark-8: var(--my-brand-dark-8);
-    --my-accent-dark-9: var(--my-brand-dark-9);
-    --my-accent-dark-10: var(--my-brand-dark-10);
-    --my-accent-dark-11: var(--my-brand-dark-11);
-    --my-accent-dark-12: var(--my-brand-dark-12);
-    --my-accent-dark-alpha-a1: var(--my-brand-dark-alpha-a1);
-    --my-accent-dark-alpha-a2: var(--my-brand-dark-alpha-a2);
-    --my-accent-dark-alpha-a3: var(--my-brand-dark-alpha-a3);
-    --my-accent-dark-alpha-a4: var(--my-brand-dark-alpha-a4);
-    --my-accent-dark-alpha-a5: var(--my-brand-dark-alpha-a5);
-    --my-accent-dark-alpha-a6: var(--my-brand-dark-alpha-a6);
-    --my-accent-dark-alpha-a7: var(--my-brand-dark-alpha-a7);
-    --my-accent-dark-alpha-a8: var(--my-brand-dark-alpha-a8);
-    --my-accent-dark-alpha-a9: var(--my-brand-dark-alpha-a9);
-    --my-accent-dark-alpha-a10: var(--my-brand-dark-alpha-a10);
-    --my-accent-dark-alpha-a11: var(--my-brand-dark-alpha-a11);
-    --my-accent-dark-alpha-a12: var(--my-brand-dark-alpha-a12);
+  [data-accent="rebecca"], [data-accent="brand"] {
+    --my-accent-1: var(--my-rebecca-1);
+    --my-accent-2: var(--my-rebecca-2);
+    --my-accent-3: var(--my-rebecca-3);
+    --my-accent-4: var(--my-rebecca-4);
+    --my-accent-5: var(--my-rebecca-5);
+    --my-accent-6: var(--my-rebecca-6);
+    --my-accent-7: var(--my-rebecca-7);
+    --my-accent-8: var(--my-rebecca-8);
+    --my-accent-9: var(--my-rebecca-9);
+    --my-accent-10: var(--my-rebecca-10);
+    --my-accent-11: var(--my-rebecca-11);
+    --my-accent-12: var(--my-rebecca-12);
+    --my-accent-alpha-a1: var(--my-rebecca-alpha-a1);
+    --my-accent-alpha-a2: var(--my-rebecca-alpha-a2);
+    --my-accent-alpha-a3: var(--my-rebecca-alpha-a3);
+    --my-accent-alpha-a4: var(--my-rebecca-alpha-a4);
+    --my-accent-alpha-a5: var(--my-rebecca-alpha-a5);
+    --my-accent-alpha-a6: var(--my-rebecca-alpha-a6);
+    --my-accent-alpha-a7: var(--my-rebecca-alpha-a7);
+    --my-accent-alpha-a8: var(--my-rebecca-alpha-a8);
+    --my-accent-alpha-a9: var(--my-rebecca-alpha-a9);
+    --my-accent-alpha-a10: var(--my-rebecca-alpha-a10);
+    --my-accent-alpha-a11: var(--my-rebecca-alpha-a11);
+    --my-accent-alpha-a12: var(--my-rebecca-alpha-a12);
+    --my-accent-dark-1: var(--my-rebecca-dark-1);
+    --my-accent-dark-2: var(--my-rebecca-dark-2);
+    --my-accent-dark-3: var(--my-rebecca-dark-3);
+    --my-accent-dark-4: var(--my-rebecca-dark-4);
+    --my-accent-dark-5: var(--my-rebecca-dark-5);
+    --my-accent-dark-6: var(--my-rebecca-dark-6);
+    --my-accent-dark-7: var(--my-rebecca-dark-7);
+    --my-accent-dark-8: var(--my-rebecca-dark-8);
+    --my-accent-dark-9: var(--my-rebecca-dark-9);
+    --my-accent-dark-10: var(--my-rebecca-dark-10);
+    --my-accent-dark-11: var(--my-rebecca-dark-11);
+    --my-accent-dark-12: var(--my-rebecca-dark-12);
+    --my-accent-dark-alpha-a1: var(--my-rebecca-dark-alpha-a1);
+    --my-accent-dark-alpha-a2: var(--my-rebecca-dark-alpha-a2);
+    --my-accent-dark-alpha-a3: var(--my-rebecca-dark-alpha-a3);
+    --my-accent-dark-alpha-a4: var(--my-rebecca-dark-alpha-a4);
+    --my-accent-dark-alpha-a5: var(--my-rebecca-dark-alpha-a5);
+    --my-accent-dark-alpha-a6: var(--my-rebecca-dark-alpha-a6);
+    --my-accent-dark-alpha-a7: var(--my-rebecca-dark-alpha-a7);
+    --my-accent-dark-alpha-a8: var(--my-rebecca-dark-alpha-a8);
+    --my-accent-dark-alpha-a9: var(--my-rebecca-dark-alpha-a9);
+    --my-accent-dark-alpha-a10: var(--my-rebecca-dark-alpha-a10);
+    --my-accent-dark-alpha-a11: var(--my-rebecca-dark-alpha-a11);
+    --my-accent-dark-alpha-a12: var(--my-rebecca-dark-alpha-a12);
     --my-accent-contrast: #ffffff;
-    --my-accent-text: var(--my-brand-11);
+    --my-accent-text: var(--my-rebecca-11);
   }
   [data-accent="bronze"] {
     --my-accent-1: var(--my-bronze-1);
@@ -3983,6 +4036,20 @@
     --my-shadow-low: 0 3px 3px -1.5px var(--my-shadow-o2-color), 0 1px 1px -0.5px var(--my-shadow-o1-color), 0 0 0 1px var(--my-shadow-ring-color);
     --my-shadow-mid: 0 12px 12px -6px var(--my-shadow-o4-color), 0 6px 6px -3px var(--my-shadow-o3-color), 0 3px 3px -1.5px var(--my-shadow-o2-color), 0 1px 1px -0.5px var(--my-shadow-o1-color), 0 0 0 1px var(--my-shadow-ring-color);
     --my-shadow-high: 0 48px 48px -24px var(--my-shadow-o6-color), 0 24px 24px -12px var(--my-shadow-o5-color), 0 12px 12px -6px var(--my-shadow-o4-color), 0 6px 6px -3px var(--my-shadow-o3-color), 0 3px 3px -1.5px var(--my-shadow-o2-color), 0 1px 1px -0.5px var(--my-shadow-o1-color), 0 0 0 1px var(--my-shadow-ring-color);
+    --my-shadow-around-low: 0 0 3px 0 var(--my-shadow-o2-color), 0 0 1px 0 var(--my-shadow-o1-color), 0 0 0 1px var(--my-shadow-ring-color);
+    --my-shadow-around-mid: 0 3px 12px -1.5px var(--my-shadow-o4-color), 0 1px 6px -0.5px var(--my-shadow-o3-color), 0 0 3px 0 var(--my-shadow-o2-color), 0 0 1px 0 var(--my-shadow-o1-color), 0 0 0 1px var(--my-shadow-ring-color);
+    --my-shadow-around-high: 0 12px 48px -6px var(--my-shadow-o6-color), 0 6px 24px -3px var(--my-shadow-o5-color), 0 3px 12px -1.5px var(--my-shadow-o4-color), 0 1px 6px -0.5px var(--my-shadow-o3-color), 0 0 3px 0 var(--my-shadow-o2-color), 0 0 1px 0 var(--my-shadow-o1-color), 0 0 0 1px var(--my-shadow-ring-color);
+    --my-shadow-up-low: 0 -3px 3px -1.5px var(--my-shadow-o2-color), 0 -1px 1px -0.5px var(--my-shadow-o1-color), 0 0 0 1px var(--my-shadow-ring-color);
+    --my-shadow-up-mid: 0 -12px 12px -6px var(--my-shadow-o4-color), 0 -6px 6px -3px var(--my-shadow-o3-color), 0 -3px 3px -1.5px var(--my-shadow-o2-color), 0 -1px 1px -0.5px var(--my-shadow-o1-color), 0 0 0 1px var(--my-shadow-ring-color);
+    --my-shadow-up-high: 0 -48px 48px -24px var(--my-shadow-o6-color), 0 -24px 24px -12px var(--my-shadow-o5-color), 0 -12px 12px -6px var(--my-shadow-o4-color), 0 -6px 6px -3px var(--my-shadow-o3-color), 0 -3px 3px -1.5px var(--my-shadow-o2-color), 0 -1px 1px -0.5px var(--my-shadow-o1-color), 0 0 0 1px var(--my-shadow-ring-color);
+    --my-shadow-start-low: calc(-3px * var(--my-dir)) 0 3px -1.5px var(--my-shadow-o2-color), calc(-1px * var(--my-dir)) 0 1px -0.5px var(--my-shadow-o1-color), 0 0 0 1px var(--my-shadow-ring-color);
+    --my-shadow-start-mid: calc(-12px * var(--my-dir)) 0 12px -6px var(--my-shadow-o4-color), calc(-6px * var(--my-dir)) 0 6px -3px var(--my-shadow-o3-color), calc(-3px * var(--my-dir)) 0 3px -1.5px var(--my-shadow-o2-color), calc(-1px * var(--my-dir)) 0 1px -0.5px var(--my-shadow-o1-color), 0 0 0 1px var(--my-shadow-ring-color);
+    --my-shadow-start-high: calc(-48px * var(--my-dir)) 0 48px -24px var(--my-shadow-o6-color), calc(-24px * var(--my-dir)) 0 24px -12px var(--my-shadow-o5-color), calc(-12px * var(--my-dir)) 0 12px -6px var(--my-shadow-o4-color), calc(-6px * var(--my-dir)) 0 6px -3px var(--my-shadow-o3-color), calc(-3px * var(--my-dir)) 0 3px -1.5px var(--my-shadow-o2-color), calc(-1px * var(--my-dir)) 0 1px -0.5px var(--my-shadow-o1-color), 0 0 0 1px var(--my-shadow-ring-color);
+    --my-shadow-end-low: calc(3px * var(--my-dir)) 0 3px -1.5px var(--my-shadow-o2-color), calc(1px * var(--my-dir)) 0 1px -0.5px var(--my-shadow-o1-color), 0 0 0 1px var(--my-shadow-ring-color);
+    --my-shadow-end-mid: calc(12px * var(--my-dir)) 0 12px -6px var(--my-shadow-o4-color), calc(6px * var(--my-dir)) 0 6px -3px var(--my-shadow-o3-color), calc(3px * var(--my-dir)) 0 3px -1.5px var(--my-shadow-o2-color), calc(1px * var(--my-dir)) 0 1px -0.5px var(--my-shadow-o1-color), 0 0 0 1px var(--my-shadow-ring-color);
+    --my-shadow-end-high: calc(48px * var(--my-dir)) 0 48px -24px var(--my-shadow-o6-color), calc(24px * var(--my-dir)) 0 24px -12px var(--my-shadow-o5-color), calc(12px * var(--my-dir)) 0 12px -6px var(--my-shadow-o4-color), calc(6px * var(--my-dir)) 0 6px -3px var(--my-shadow-o3-color), calc(3px * var(--my-dir)) 0 3px -1.5px var(--my-shadow-o2-color), calc(1px * var(--my-dir)) 0 1px -0.5px var(--my-shadow-o1-color), 0 0 0 1px var(--my-shadow-ring-color);
+    --my-shadow-inset-low: inset 0 1px 1px 0 var(--my-shadow-o1-color), inset 0 0 0 1px var(--my-shadow-ring-color);
+    --my-shadow-inset-mid: inset 0 3px 3px 0 var(--my-shadow-o2-color), inset 0 1px 1px 0 var(--my-shadow-o1-color), inset 0 0 0 1px var(--my-shadow-ring-color);
   }
   [data-depth="flat"] {
     /* depth: flat */
@@ -3996,6 +4063,20 @@
     --my-shadow-low: 0 3px 3px -1.5px var(--my-shadow-o2-color), 0 1px 1px -0.5px var(--my-shadow-o1-color), 0 0 0 1px var(--my-shadow-ring-color);
     --my-shadow-mid: 0 12px 12px -6px var(--my-shadow-o4-color), 0 6px 6px -3px var(--my-shadow-o3-color), 0 3px 3px -1.5px var(--my-shadow-o2-color), 0 1px 1px -0.5px var(--my-shadow-o1-color), 0 0 0 1px var(--my-shadow-ring-color);
     --my-shadow-high: 0 48px 48px -24px var(--my-shadow-o6-color), 0 24px 24px -12px var(--my-shadow-o5-color), 0 12px 12px -6px var(--my-shadow-o4-color), 0 6px 6px -3px var(--my-shadow-o3-color), 0 3px 3px -1.5px var(--my-shadow-o2-color), 0 1px 1px -0.5px var(--my-shadow-o1-color), 0 0 0 1px var(--my-shadow-ring-color);
+    --my-shadow-around-low: 0 0 3px 0 var(--my-shadow-o2-color), 0 0 1px 0 var(--my-shadow-o1-color), 0 0 0 1px var(--my-shadow-ring-color);
+    --my-shadow-around-mid: 0 3px 12px -1.5px var(--my-shadow-o4-color), 0 1px 6px -0.5px var(--my-shadow-o3-color), 0 0 3px 0 var(--my-shadow-o2-color), 0 0 1px 0 var(--my-shadow-o1-color), 0 0 0 1px var(--my-shadow-ring-color);
+    --my-shadow-around-high: 0 12px 48px -6px var(--my-shadow-o6-color), 0 6px 24px -3px var(--my-shadow-o5-color), 0 3px 12px -1.5px var(--my-shadow-o4-color), 0 1px 6px -0.5px var(--my-shadow-o3-color), 0 0 3px 0 var(--my-shadow-o2-color), 0 0 1px 0 var(--my-shadow-o1-color), 0 0 0 1px var(--my-shadow-ring-color);
+    --my-shadow-up-low: 0 -3px 3px -1.5px var(--my-shadow-o2-color), 0 -1px 1px -0.5px var(--my-shadow-o1-color), 0 0 0 1px var(--my-shadow-ring-color);
+    --my-shadow-up-mid: 0 -12px 12px -6px var(--my-shadow-o4-color), 0 -6px 6px -3px var(--my-shadow-o3-color), 0 -3px 3px -1.5px var(--my-shadow-o2-color), 0 -1px 1px -0.5px var(--my-shadow-o1-color), 0 0 0 1px var(--my-shadow-ring-color);
+    --my-shadow-up-high: 0 -48px 48px -24px var(--my-shadow-o6-color), 0 -24px 24px -12px var(--my-shadow-o5-color), 0 -12px 12px -6px var(--my-shadow-o4-color), 0 -6px 6px -3px var(--my-shadow-o3-color), 0 -3px 3px -1.5px var(--my-shadow-o2-color), 0 -1px 1px -0.5px var(--my-shadow-o1-color), 0 0 0 1px var(--my-shadow-ring-color);
+    --my-shadow-start-low: calc(-3px * var(--my-dir)) 0 3px -1.5px var(--my-shadow-o2-color), calc(-1px * var(--my-dir)) 0 1px -0.5px var(--my-shadow-o1-color), 0 0 0 1px var(--my-shadow-ring-color);
+    --my-shadow-start-mid: calc(-12px * var(--my-dir)) 0 12px -6px var(--my-shadow-o4-color), calc(-6px * var(--my-dir)) 0 6px -3px var(--my-shadow-o3-color), calc(-3px * var(--my-dir)) 0 3px -1.5px var(--my-shadow-o2-color), calc(-1px * var(--my-dir)) 0 1px -0.5px var(--my-shadow-o1-color), 0 0 0 1px var(--my-shadow-ring-color);
+    --my-shadow-start-high: calc(-48px * var(--my-dir)) 0 48px -24px var(--my-shadow-o6-color), calc(-24px * var(--my-dir)) 0 24px -12px var(--my-shadow-o5-color), calc(-12px * var(--my-dir)) 0 12px -6px var(--my-shadow-o4-color), calc(-6px * var(--my-dir)) 0 6px -3px var(--my-shadow-o3-color), calc(-3px * var(--my-dir)) 0 3px -1.5px var(--my-shadow-o2-color), calc(-1px * var(--my-dir)) 0 1px -0.5px var(--my-shadow-o1-color), 0 0 0 1px var(--my-shadow-ring-color);
+    --my-shadow-end-low: calc(3px * var(--my-dir)) 0 3px -1.5px var(--my-shadow-o2-color), calc(1px * var(--my-dir)) 0 1px -0.5px var(--my-shadow-o1-color), 0 0 0 1px var(--my-shadow-ring-color);
+    --my-shadow-end-mid: calc(12px * var(--my-dir)) 0 12px -6px var(--my-shadow-o4-color), calc(6px * var(--my-dir)) 0 6px -3px var(--my-shadow-o3-color), calc(3px * var(--my-dir)) 0 3px -1.5px var(--my-shadow-o2-color), calc(1px * var(--my-dir)) 0 1px -0.5px var(--my-shadow-o1-color), 0 0 0 1px var(--my-shadow-ring-color);
+    --my-shadow-end-high: calc(48px * var(--my-dir)) 0 48px -24px var(--my-shadow-o6-color), calc(24px * var(--my-dir)) 0 24px -12px var(--my-shadow-o5-color), calc(12px * var(--my-dir)) 0 12px -6px var(--my-shadow-o4-color), calc(6px * var(--my-dir)) 0 6px -3px var(--my-shadow-o3-color), calc(3px * var(--my-dir)) 0 3px -1.5px var(--my-shadow-o2-color), calc(1px * var(--my-dir)) 0 1px -0.5px var(--my-shadow-o1-color), 0 0 0 1px var(--my-shadow-ring-color);
+    --my-shadow-inset-low: inset 0 1px 1px 0 var(--my-shadow-o1-color), inset 0 0 0 1px var(--my-shadow-ring-color);
+    --my-shadow-inset-mid: inset 0 3px 3px 0 var(--my-shadow-o2-color), inset 0 1px 1px 0 var(--my-shadow-o1-color), inset 0 0 0 1px var(--my-shadow-ring-color);
   }
   [data-depth="dramatic"] {
     /* depth: dramatic */
@@ -4009,9 +4090,180 @@
     --my-shadow-low: 0 3px 3px -1.5px var(--my-shadow-o2-color), 0 1px 1px -0.5px var(--my-shadow-o1-color), 0 0 0 1px var(--my-shadow-ring-color);
     --my-shadow-mid: 0 12px 12px -6px var(--my-shadow-o4-color), 0 6px 6px -3px var(--my-shadow-o3-color), 0 3px 3px -1.5px var(--my-shadow-o2-color), 0 1px 1px -0.5px var(--my-shadow-o1-color), 0 0 0 1px var(--my-shadow-ring-color);
     --my-shadow-high: 0 48px 48px -24px var(--my-shadow-o6-color), 0 24px 24px -12px var(--my-shadow-o5-color), 0 12px 12px -6px var(--my-shadow-o4-color), 0 6px 6px -3px var(--my-shadow-o3-color), 0 3px 3px -1.5px var(--my-shadow-o2-color), 0 1px 1px -0.5px var(--my-shadow-o1-color), 0 0 0 1px var(--my-shadow-ring-color);
+    --my-shadow-around-low: 0 0 3px 0 var(--my-shadow-o2-color), 0 0 1px 0 var(--my-shadow-o1-color), 0 0 0 1px var(--my-shadow-ring-color);
+    --my-shadow-around-mid: 0 3px 12px -1.5px var(--my-shadow-o4-color), 0 1px 6px -0.5px var(--my-shadow-o3-color), 0 0 3px 0 var(--my-shadow-o2-color), 0 0 1px 0 var(--my-shadow-o1-color), 0 0 0 1px var(--my-shadow-ring-color);
+    --my-shadow-around-high: 0 12px 48px -6px var(--my-shadow-o6-color), 0 6px 24px -3px var(--my-shadow-o5-color), 0 3px 12px -1.5px var(--my-shadow-o4-color), 0 1px 6px -0.5px var(--my-shadow-o3-color), 0 0 3px 0 var(--my-shadow-o2-color), 0 0 1px 0 var(--my-shadow-o1-color), 0 0 0 1px var(--my-shadow-ring-color);
+    --my-shadow-up-low: 0 -3px 3px -1.5px var(--my-shadow-o2-color), 0 -1px 1px -0.5px var(--my-shadow-o1-color), 0 0 0 1px var(--my-shadow-ring-color);
+    --my-shadow-up-mid: 0 -12px 12px -6px var(--my-shadow-o4-color), 0 -6px 6px -3px var(--my-shadow-o3-color), 0 -3px 3px -1.5px var(--my-shadow-o2-color), 0 -1px 1px -0.5px var(--my-shadow-o1-color), 0 0 0 1px var(--my-shadow-ring-color);
+    --my-shadow-up-high: 0 -48px 48px -24px var(--my-shadow-o6-color), 0 -24px 24px -12px var(--my-shadow-o5-color), 0 -12px 12px -6px var(--my-shadow-o4-color), 0 -6px 6px -3px var(--my-shadow-o3-color), 0 -3px 3px -1.5px var(--my-shadow-o2-color), 0 -1px 1px -0.5px var(--my-shadow-o1-color), 0 0 0 1px var(--my-shadow-ring-color);
+    --my-shadow-start-low: calc(-3px * var(--my-dir)) 0 3px -1.5px var(--my-shadow-o2-color), calc(-1px * var(--my-dir)) 0 1px -0.5px var(--my-shadow-o1-color), 0 0 0 1px var(--my-shadow-ring-color);
+    --my-shadow-start-mid: calc(-12px * var(--my-dir)) 0 12px -6px var(--my-shadow-o4-color), calc(-6px * var(--my-dir)) 0 6px -3px var(--my-shadow-o3-color), calc(-3px * var(--my-dir)) 0 3px -1.5px var(--my-shadow-o2-color), calc(-1px * var(--my-dir)) 0 1px -0.5px var(--my-shadow-o1-color), 0 0 0 1px var(--my-shadow-ring-color);
+    --my-shadow-start-high: calc(-48px * var(--my-dir)) 0 48px -24px var(--my-shadow-o6-color), calc(-24px * var(--my-dir)) 0 24px -12px var(--my-shadow-o5-color), calc(-12px * var(--my-dir)) 0 12px -6px var(--my-shadow-o4-color), calc(-6px * var(--my-dir)) 0 6px -3px var(--my-shadow-o3-color), calc(-3px * var(--my-dir)) 0 3px -1.5px var(--my-shadow-o2-color), calc(-1px * var(--my-dir)) 0 1px -0.5px var(--my-shadow-o1-color), 0 0 0 1px var(--my-shadow-ring-color);
+    --my-shadow-end-low: calc(3px * var(--my-dir)) 0 3px -1.5px var(--my-shadow-o2-color), calc(1px * var(--my-dir)) 0 1px -0.5px var(--my-shadow-o1-color), 0 0 0 1px var(--my-shadow-ring-color);
+    --my-shadow-end-mid: calc(12px * var(--my-dir)) 0 12px -6px var(--my-shadow-o4-color), calc(6px * var(--my-dir)) 0 6px -3px var(--my-shadow-o3-color), calc(3px * var(--my-dir)) 0 3px -1.5px var(--my-shadow-o2-color), calc(1px * var(--my-dir)) 0 1px -0.5px var(--my-shadow-o1-color), 0 0 0 1px var(--my-shadow-ring-color);
+    --my-shadow-end-high: calc(48px * var(--my-dir)) 0 48px -24px var(--my-shadow-o6-color), calc(24px * var(--my-dir)) 0 24px -12px var(--my-shadow-o5-color), calc(12px * var(--my-dir)) 0 12px -6px var(--my-shadow-o4-color), calc(6px * var(--my-dir)) 0 6px -3px var(--my-shadow-o3-color), calc(3px * var(--my-dir)) 0 3px -1.5px var(--my-shadow-o2-color), calc(1px * var(--my-dir)) 0 1px -0.5px var(--my-shadow-o1-color), 0 0 0 1px var(--my-shadow-ring-color);
+    --my-shadow-inset-low: inset 0 1px 1px 0 var(--my-shadow-o1-color), inset 0 0 0 1px var(--my-shadow-ring-color);
+    --my-shadow-inset-mid: inset 0 3px 3px 0 var(--my-shadow-o2-color), inset 0 1px 1px 0 var(--my-shadow-o1-color), inset 0 0 0 1px var(--my-shadow-ring-color);
+  }
+  [data-shape="subtle"] {
+    /* shape: subtle */
+    --my-border-radius-none: 0;
+    --my-border-radius-sharp: 1.5px;
+    --my-border-radius-crisp: 2px;
+    --my-border-radius-soft: 3px;
+    --my-border-radius-pill: 9999px;
+    --my-border-radius-rounded: 4px;
+    --my-border-radius-smooth: 6px;
+    --my-border-radius-plush: 8px;
+    --my-border-radius-outer-spacing: 20px;
+    --my-border-radius-outer-sharp: 21.5px;
+    --my-border-radius-outer-crisp: 22px;
+    --my-border-radius-outer-soft: 23px;
+    --my-border-radius-outer-rounded: 24px;
+    --my-border-radius-outer-smooth: 26px;
+    --my-border-radius-outer-plush: 28px;
+  }
+  [data-shape="smooth"] {
+    /* shape: smooth */
+    --my-border-radius-none: 0;
+    --my-border-radius-sharp: 4.5px;
+    --my-border-radius-crisp: 6px;
+    --my-border-radius-soft: 9px;
+    --my-border-radius-pill: 9999px;
+    --my-border-radius-rounded: 12px;
+    --my-border-radius-smooth: 18px;
+    --my-border-radius-plush: 24px;
+    --my-border-radius-outer-spacing: 20px;
+    --my-border-radius-outer-sharp: 24.5px;
+    --my-border-radius-outer-crisp: 26px;
+    --my-border-radius-outer-soft: 29px;
+    --my-border-radius-outer-rounded: 32px;
+    --my-border-radius-outer-smooth: 38px;
+    --my-border-radius-outer-plush: 44px;
+  }
+  [data-shape="sharp"] {
+    /* shape: sharp */
+    --my-border-radius-none: 0;
+    --my-border-radius-sharp: 0;
+    --my-border-radius-crisp: 0;
+    --my-border-radius-soft: 0;
+    --my-border-radius-pill: 0;
+    --my-border-radius-rounded: 0;
+    --my-border-radius-smooth: 0;
+    --my-border-radius-plush: 0;
+    --my-border-radius-outer-spacing: 20px;
+    --my-border-radius-outer-sharp: 0;
+    --my-border-radius-outer-crisp: 0;
+    --my-border-radius-outer-soft: 0;
+    --my-border-radius-outer-rounded: 0;
+    --my-border-radius-outer-smooth: 0;
+    --my-border-radius-outer-plush: 0;
+  }
+  [data-shape="round"] {
+    /* shape: round */
+    --my-border-radius-none: 0;
+    --my-border-radius-sharp: 6px;
+    --my-border-radius-crisp: 8px;
+    --my-border-radius-soft: 12px;
+    --my-border-radius-pill: 9999px;
+    --my-border-radius-rounded: 16px;
+    --my-border-radius-smooth: 24px;
+    --my-border-radius-plush: 32px;
+    --my-border-radius-outer-spacing: 20px;
+    --my-border-radius-outer-sharp: 26px;
+    --my-border-radius-outer-crisp: 28px;
+    --my-border-radius-outer-soft: 32px;
+    --my-border-radius-outer-rounded: 36px;
+    --my-border-radius-outer-smooth: 44px;
+    --my-border-radius-outer-plush: 52px;
+  }
+  [data-shape="pill"] {
+    /* shape: pill */
+    --my-border-radius-none: 0;
+    --my-border-radius-sharp: 2px;
+    --my-border-radius-crisp: 4px;
+    --my-border-radius-soft: 9999px;
+    --my-border-radius-pill: 9999px;
+    --my-border-radius-rounded: 16px;
+    --my-border-radius-smooth: 24px;
+    --my-border-radius-plush: 32px;
+    --my-border-radius-outer-spacing: 20px;
+    --my-border-radius-outer-sharp: 26px;
+    --my-border-radius-outer-crisp: 28px;
+    --my-border-radius-outer-soft: 9999px;
+    --my-border-radius-outer-rounded: 36px;
+    --my-border-radius-outer-smooth: 44px;
+    --my-border-radius-outer-plush: 52px;
+  }
+  [data-motion="full"] {
+    /* motion: full */
+    --my-duration-instant: 0ms;
+    --my-duration-fast-1: 100ms;
+    --my-duration-fast-2: 150ms;
+    --my-duration-base: 200ms;
+    --my-duration-slow-1: 300ms;
+    --my-duration-slow-2: 500ms;
+    --my-duration-deliberate: 800ms;
+    --my-stagger-1: 20ms;
+    --my-stagger-2: 40ms;
+    --my-stagger-3: 80ms;
+    --my-ease-standard: cubic-bezier(0.2, 0, 0, 1);
+    --my-ease-enter: cubic-bezier(0, 0, 0.2, 1);
+    --my-ease-exit: cubic-bezier(0.4, 0, 1, 1);
+    --my-ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+    --my-ease-linear: linear;
+  }
+  [data-motion="reduced"] {
+    /* motion: reduced */
+    --my-duration-instant: 0ms;
+    --my-duration-fast-1: 0ms;
+    --my-duration-fast-2: 0ms;
+    --my-duration-base: 100ms;
+    --my-duration-slow-1: 100ms;
+    --my-duration-slow-2: 100ms;
+    --my-duration-deliberate: 100ms;
+    --my-stagger-1: 0ms;
+    --my-stagger-2: 0ms;
+    --my-stagger-3: 0ms;
+    --my-ease-standard: cubic-bezier(0.2, 0, 0, 1);
+    --my-ease-enter: cubic-bezier(0, 0, 0.2, 1);
+    --my-ease-exit: cubic-bezier(0.4, 0, 1, 1);
+    --my-ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+    --my-ease-linear: linear;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    :root:not([data-motion="full"]) {
+      /* motion: reduced */
+      --my-duration-instant: 0ms;
+      --my-duration-fast-1: 0ms;
+      --my-duration-fast-2: 0ms;
+      --my-duration-base: 100ms;
+      --my-duration-slow-1: 100ms;
+      --my-duration-slow-2: 100ms;
+      --my-duration-deliberate: 100ms;
+      --my-stagger-1: 0ms;
+      --my-stagger-2: 0ms;
+      --my-stagger-3: 0ms;
+      --my-ease-standard: cubic-bezier(0.2, 0, 0, 1);
+      --my-ease-enter: cubic-bezier(0, 0, 0.2, 1);
+      --my-ease-exit: cubic-bezier(0.4, 0, 1, 1);
+      --my-ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+      --my-ease-linear: linear;
+    }
+  }
+  /* direction — start/end shadows follow the inline direction */
+  :dir(rtl) { --my-dir: -1; }
+  [dir="ltr"] { --my-dir: 1; }
+  :dir(rtl), [dir="ltr"] {
+    --my-shadow-start-low: calc(-3px * var(--my-dir)) 0 3px -1.5px var(--my-shadow-o2-color), calc(-1px * var(--my-dir)) 0 1px -0.5px var(--my-shadow-o1-color), 0 0 0 1px var(--my-shadow-ring-color);
+    --my-shadow-start-mid: calc(-12px * var(--my-dir)) 0 12px -6px var(--my-shadow-o4-color), calc(-6px * var(--my-dir)) 0 6px -3px var(--my-shadow-o3-color), calc(-3px * var(--my-dir)) 0 3px -1.5px var(--my-shadow-o2-color), calc(-1px * var(--my-dir)) 0 1px -0.5px var(--my-shadow-o1-color), 0 0 0 1px var(--my-shadow-ring-color);
+    --my-shadow-start-high: calc(-48px * var(--my-dir)) 0 48px -24px var(--my-shadow-o6-color), calc(-24px * var(--my-dir)) 0 24px -12px var(--my-shadow-o5-color), calc(-12px * var(--my-dir)) 0 12px -6px var(--my-shadow-o4-color), calc(-6px * var(--my-dir)) 0 6px -3px var(--my-shadow-o3-color), calc(-3px * var(--my-dir)) 0 3px -1.5px var(--my-shadow-o2-color), calc(-1px * var(--my-dir)) 0 1px -0.5px var(--my-shadow-o1-color), 0 0 0 1px var(--my-shadow-ring-color);
+    --my-shadow-end-low: calc(3px * var(--my-dir)) 0 3px -1.5px var(--my-shadow-o2-color), calc(1px * var(--my-dir)) 0 1px -0.5px var(--my-shadow-o1-color), 0 0 0 1px var(--my-shadow-ring-color);
+    --my-shadow-end-mid: calc(12px * var(--my-dir)) 0 12px -6px var(--my-shadow-o4-color), calc(6px * var(--my-dir)) 0 6px -3px var(--my-shadow-o3-color), calc(3px * var(--my-dir)) 0 3px -1.5px var(--my-shadow-o2-color), calc(1px * var(--my-dir)) 0 1px -0.5px var(--my-shadow-o1-color), 0 0 0 1px var(--my-shadow-ring-color);
+    --my-shadow-end-high: calc(48px * var(--my-dir)) 0 48px -24px var(--my-shadow-o6-color), calc(24px * var(--my-dir)) 0 24px -12px var(--my-shadow-o5-color), calc(12px * var(--my-dir)) 0 12px -6px var(--my-shadow-o4-color), calc(6px * var(--my-dir)) 0 6px -3px var(--my-shadow-o3-color), calc(3px * var(--my-dir)) 0 3px -1.5px var(--my-shadow-o2-color), calc(1px * var(--my-dir)) 0 1px -0.5px var(--my-shadow-o1-color), 0 0 0 1px var(--my-shadow-ring-color);
   }
   /* modular scale — recomputes where density changes seeds */
-  :root, [data-density] {
+  :root, [data-density], [data-brand] {
     --my-ms--3: round(var(--my-scale-base) / var(--my-scale-ratio) / var(--my-scale-ratio) / var(--my-scale-ratio) * 1px, 1px);
     --my-ms--2: round(var(--my-scale-base) / var(--my-scale-ratio) / var(--my-scale-ratio) * 1px, 1px);
     --my-ms--1: round(var(--my-scale-base) / var(--my-scale-ratio) * 1px, 1px);
@@ -4026,7 +4278,7 @@
     --my-ms-8: round(var(--my-ms-7) * var(--my-scale-ratio), 1px);
   }
   /* semantic spacing v1.0 — recomputes where density remaps spacing-* */
-  :root, [data-density] {
+  :root, [data-density], [data-brand] {
     --my-inset-none: var(--my-spacing-none);
     --my-inset-xs: var(--my-spacing-xs);
     --my-inset-sm: var(--my-spacing-md);
@@ -4059,7 +4311,7 @@
     --my-region-xl: var(--my-spacing-9xl);
   }
   /* typography roles — recompute where density or typeface change */
-  :root, [data-density], [data-typeface] {
+  :root, [data-density], [data-typeface], [data-brand] {
     --my-display-2xl-size: var(--my-ms-8);
     --my-display-2xl-line-height: var(--my-leading-none);
     --my-display-2xl-weight: var(--my-font-weight-bold);
@@ -4135,6 +4387,16 @@
     --my-code-weight: var(--my-font-weight-regular);
     --my-code-family: var(--my-family-mono);
     --my-code-tracking: var(--my-tracking-normal);
+    --my-label-2xl-size: var(--my-ms-2);
+    --my-label-2xl-line-height: var(--my-leading-normal);
+    --my-label-2xl-weight: var(--my-font-weight-medium);
+    --my-label-2xl-family: var(--my-family-primary);
+    --my-label-2xl-tracking: var(--my-tracking-normal);
+    --my-label-xl-size: var(--my-ms-1);
+    --my-label-xl-line-height: var(--my-leading-normal);
+    --my-label-xl-weight: var(--my-font-weight-medium);
+    --my-label-xl-family: var(--my-family-primary);
+    --my-label-xl-tracking: var(--my-tracking-normal);
     --my-label-lg-size: var(--my-ms-0);
     --my-label-lg-line-height: var(--my-leading-normal);
     --my-label-lg-weight: var(--my-font-weight-medium);
@@ -4152,7 +4414,7 @@
     --my-label-sm-tracking: var(--my-tracking-wide);
   }
   /* appearance — recompute where gray or accent change; mode via light-dark() */
-  :root, [data-gray], [data-accent] {
+  :root, [data-gray], [data-accent], [data-brand] {
     --my-text-white: #ffffff;
     --my-text-brand: light-dark(var(--my-accent-text), var(--my-accent-dark-11));
     --my-text-brand-primary: var(--my-text-brand);
@@ -4189,9 +4451,6 @@
     --my-fg-neutral-disabled: light-dark(var(--my-neutral-8), var(--my-neutral-dark-8));
     --my-fg-neutral-disabled_subtle: light-dark(var(--my-neutral-7), var(--my-neutral-dark-7));
     --my-fg-on-neutral-solid: light-dark(var(--my-neutral-1), var(--my-neutral-dark-1));
-    --my-bg-overlay: var(--my-overlay-scrim);
-    --my-bg-surface: var(--my-overlay-primary);
-    --my-bg-panel: light-dark(rgba(255, 255, 255, 0.65), var(--my-neutral-dark-1));
     --my-bg-brand-faint: light-dark(var(--my-accent-2), var(--my-accent-dark-2));
     --my-bg-brand-subtle: light-dark(var(--my-accent-3), var(--my-accent-dark-3));
     --my-bg-brand-primary: var(--my-bg-brand-subtle);
@@ -4249,10 +4508,7 @@
     --my-border-neutral-disabled: light-dark(var(--my-neutral-5), var(--my-neutral-dark-5));
     --my-border-neutral-disabled_subtle: light-dark(var(--my-neutral-4), var(--my-neutral-dark-4));
     --my-border-neutral-separator: light-dark(var(--my-neutral-6), var(--my-neutral-dark-6));
-    --my-surface-default: var(--my-surface-primary);
-    --my-surface-raised: var(--my-surface-secondary);
     --my-surface-sunken: light-dark(var(--my-neutral-alpha-a3), var(--my-black-alpha-a6));
-    --my-surface-overlay: var(--my-overlay-primary);
     --my-surface-primary: light-dark(var(--my-neutral-1), var(--my-neutral-dark-1));
     --my-surface-secondary: light-dark(var(--my-neutral-2), var(--my-neutral-dark-2));
     --my-surface-tertiary: light-dark(var(--my-neutral-3), var(--my-neutral-dark-3));
@@ -4401,13 +4657,13 @@
     --my-decorative-orange-solid: light-dark(var(--my-orange-9), var(--my-orange-dark-9));
     --my-decorative-orange-text: light-dark(var(--my-orange-12), var(--my-orange-dark-11));
     --my-decorative-orange-on-solid: #ffffff;
-    --my-decorative-rebecca-bg: light-dark(var(--my-brand-3), var(--my-brand-dark-3));
-    --my-decorative-rebecca-border: light-dark(var(--my-brand-7), var(--my-brand-dark-7));
-    --my-decorative-rebecca-solid: light-dark(var(--my-brand-9), var(--my-brand-dark-9));
-    --my-decorative-rebecca-text: light-dark(var(--my-brand-11), var(--my-brand-dark-11));
+    --my-decorative-rebecca-bg: light-dark(var(--my-rebecca-3), var(--my-rebecca-dark-3));
+    --my-decorative-rebecca-border: light-dark(var(--my-rebecca-7), var(--my-rebecca-dark-7));
+    --my-decorative-rebecca-solid: light-dark(var(--my-rebecca-9), var(--my-rebecca-dark-9));
+    --my-decorative-rebecca-text: light-dark(var(--my-rebecca-11), var(--my-rebecca-dark-11));
     --my-decorative-rebecca-on-solid: #ffffff;
-    --my-gradient-tonal-rebecca-depth-stop-1: light-dark(var(--my-brand-5), var(--my-brand-dark-5));
-    --my-gradient-tonal-rebecca-depth-stop-2: light-dark(var(--my-brand-10), var(--my-brand-dark-10));
+    --my-gradient-tonal-rebecca-depth-stop-1: light-dark(var(--my-rebecca-5), var(--my-rebecca-dark-5));
+    --my-gradient-tonal-rebecca-depth-stop-2: light-dark(var(--my-rebecca-10), var(--my-rebecca-dark-10));
     --my-gradient-tonal-rebecca-depth-angle: 135;
     --my-gradient-tonal-iris-depth-stop-1: light-dark(var(--my-iris-4), var(--my-iris-dark-4));
     --my-gradient-tonal-iris-depth-stop-2: light-dark(var(--my-iris-10), var(--my-iris-dark-10));
@@ -4439,16 +4695,16 @@
     --my-gradient-analogous-ember-stop-1: light-dark(var(--my-amber-9), var(--my-amber-dark-9));
     --my-gradient-analogous-ember-stop-2: light-dark(var(--my-orange-9), var(--my-orange-dark-9));
     --my-gradient-analogous-ember-angle: 120;
-    --my-gradient-signature-twilight-stop-1: light-dark(var(--my-brand-9), var(--my-brand-dark-9));
+    --my-gradient-signature-twilight-stop-1: light-dark(var(--my-rebecca-9), var(--my-rebecca-dark-9));
     --my-gradient-signature-twilight-stop-2: light-dark(var(--my-iris-9), var(--my-iris-dark-9));
     --my-gradient-signature-twilight-angle: 135;
-    --my-gradient-signature-flare-stop-1: light-dark(var(--my-brand-9), var(--my-brand-dark-9));
+    --my-gradient-signature-flare-stop-1: light-dark(var(--my-rebecca-9), var(--my-rebecca-dark-9));
     --my-gradient-signature-flare-stop-2: light-dark(var(--my-crimson-9), var(--my-crimson-dark-9));
     --my-gradient-signature-flare-angle: 135;
-    --my-gradient-signature-abyss-stop-1: light-dark(var(--my-brand-11), var(--my-brand-dark-11));
+    --my-gradient-signature-abyss-stop-1: light-dark(var(--my-rebecca-11), var(--my-rebecca-dark-11));
     --my-gradient-signature-abyss-stop-2: light-dark(var(--my-indigo-11), var(--my-indigo-dark-11));
     --my-gradient-signature-abyss-angle: 135;
-    --my-gradient-signature-dawn-stop-1: light-dark(var(--my-brand-8), var(--my-brand-dark-8));
+    --my-gradient-signature-dawn-stop-1: light-dark(var(--my-rebecca-8), var(--my-rebecca-dark-8));
     --my-gradient-signature-dawn-stop-2: light-dark(var(--my-orange-8), var(--my-orange-dark-8));
     --my-gradient-signature-dawn-angle: 135;
     --my-gradient-wash-petal-stop-1: light-dark(var(--my-iris-3), var(--my-iris-dark-3));
@@ -4460,10 +4716,10 @@
     --my-gradient-wash-sunset-stop-1: light-dark(var(--my-amber-3), var(--my-amber-dark-3));
     --my-gradient-wash-sunset-stop-2: light-dark(var(--my-tomato-3), var(--my-tomato-dark-3));
     --my-gradient-wash-sunset-angle: 160;
-    --my-gradient-wash-orchid-stop-1: light-dark(var(--my-brand-3), var(--my-brand-dark-3));
+    --my-gradient-wash-orchid-stop-1: light-dark(var(--my-rebecca-3), var(--my-rebecca-dark-3));
     --my-gradient-wash-orchid-stop-2: light-dark(var(--my-plum-3), var(--my-plum-dark-3));
     --my-gradient-wash-orchid-angle: 160;
-    --my-gradient-tri-stop-sunset-run-stop-1: light-dark(var(--my-brand-9), var(--my-brand-dark-9));
+    --my-gradient-tri-stop-sunset-run-stop-1: light-dark(var(--my-rebecca-9), var(--my-rebecca-dark-9));
     --my-gradient-tri-stop-sunset-run-stop-2: light-dark(var(--my-crimson-9), var(--my-crimson-dark-9));
     --my-gradient-tri-stop-sunset-run-stop-3: light-dark(var(--my-amber-9), var(--my-amber-dark-9));
     --my-gradient-tri-stop-sunset-run-angle: 110;
