@@ -6,7 +6,7 @@
 <title>MyCSS v0.1.0-alpha — tokens · compositions · utilities</title>
 <link rel="stylesheet" href="css/mycss.css">
 <style>
-  /* Demo-page blocks (my-*) — will graduate to packages/ui. .my-button now ships in mycss.css (packages/ui). */
+  /* Demo-page helpers (demo-*). The real components (my-*) ship in mycss.css from packages/ui. */
   @layer mycss.blocks {
     * { margin: 0; box-sizing: border-box; }
     body {
@@ -16,37 +16,37 @@
       font-size: var(--my-body-size);
       line-height: var(--my-body-line-height);
     }
-    .my-topbar {
+    .demo-topbar {
       position: sticky; top: 0; z-index: var(--my-z-index-sticky);
       background: var(--my-bg-neutral-secondary);
       border-block-end: var(--my-border-width-2) solid var(--my-border-neutral-separator);
     }
-    .my-topbar select, .my-topbar button {
+    .demo-topbar select, .demo-topbar button {
       font: inherit; font-size: var(--my-label-size);
       padding-block: var(--my-squish-block-sm); padding-inline: var(--my-squish-inline-sm);
       border-radius: var(--my-border-radius-sm);
       border: var(--my-border-width-2) solid var(--my-border-neutral-primary);
       background: var(--my-bg-neutral-primary); color: var(--my-text-neutral-primary);
     }
-    .my-card {
+    .demo-card {
       background: var(--my-bg-neutral-secondary);
       border: var(--my-border-width-2) solid var(--my-border-neutral-secondary);
       border-radius: var(--my-border-radius-lg);
     }
-    .my-card[data-variant="featured"] { border-color: var(--my-border-brand); background: var(--my-bg-brand-subtle); }
-    .my-badge {
+    .demo-card[data-variant="featured"] { border-color: var(--my-border-brand); background: var(--my-bg-brand-subtle); }
+    .demo-badge {
       display: inline-block; border-radius: var(--my-border-radius-full);
       padding-block: var(--my-squish-block-sm); padding-inline: var(--my-squish-inline-sm);
       font-size: var(--my-label-sm-size); font-weight: var(--my-label-sm-weight);
       font-family: var(--my-label-sm-family);
       background: var(--my-bg-neutral-tertiary);
     }
-    .my-badge[data-variant="error"]   { background: var(--my-bg-error-secondary);   color: var(--my-text-error); }
-    .my-badge[data-variant="warning"] { background: var(--my-bg-warning-secondary); color: var(--my-text-warning); }
-    .my-badge[data-variant="success"] { background: var(--my-bg-success-secondary); color: var(--my-text-success); }
-    .my-badge[data-variant="info"]    { background: var(--my-bg-info-secondary);    color: var(--my-text-info); }
-    .my-swatch { inline-size: var(--my-space-10); block-size: var(--my-space-10); border-radius: var(--my-border-radius-sm); }
-    .my-panel {
+    .demo-badge[data-variant="error"]   { background: var(--my-bg-error-secondary);   color: var(--my-text-error); }
+    .demo-badge[data-variant="warning"] { background: var(--my-bg-warning-secondary); color: var(--my-text-warning); }
+    .demo-badge[data-variant="success"] { background: var(--my-bg-success-secondary); color: var(--my-text-success); }
+    .demo-badge[data-variant="info"]    { background: var(--my-bg-info-secondary);    color: var(--my-text-info); }
+    .demo-swatch { inline-size: var(--my-space-10); block-size: var(--my-space-10); border-radius: var(--my-border-radius-sm); }
+    .demo-panel {
       background: var(--my-bg-neutral-tertiary);
       border-radius: var(--my-border-radius-md);
       font-size: var(--my-body-sm-size);
@@ -56,7 +56,7 @@
 </head>
 <body>
 
-<header class="my-topbar | u-inset-sm">
+<header class="demo-topbar | u-inset-sm">
   <div class="c-center | c-cluster u-inline-md">
     <strong class="u-label-lg">MyCSS <span class="u-text-brand">v0.1.0-alpha</span></strong>
     <span class="u-label u-text-neutral-tertiary">my-* | c-* | u-* — grammar demo</span>
@@ -71,7 +71,7 @@
 
 <main class="c-center">
   <section class="c-stack | u-region-md u-stack-lg">
-    <span class="my-badge" data-variant="info">intrinsic · CUBE · token-driven</span>
+    <span class="demo-badge" data-variant="info">intrinsic · CUBE · token-driven</span>
     <h1 class="u-display-lg" style="max-inline-size: 18ch;">One grammar, from token to markup.</h1>
     <p class="u-body-lg u-paragraph u-text-neutral-secondary">
       Blocks are <code class="u-code">my-*</code>, compositions are <code class="u-code">c-*</code>,
@@ -91,20 +91,20 @@
   <section class="c-stack | u-region-sm u-stack-lg">
     <h2 class="u-h3">c-switcher <span class="u-body-sm u-text-neutral-tertiary">— row ≥ threshold, column below · resize me</span></h2>
     <div class="c-switcher" id="switcher-demo">
-      <div class="my-panel | u-inset-md">flex-basis: calc((<code class="u-code">--my-threshold-comfortable</code> − 100%) × 999)</div>
-      <div class="my-panel | u-inset-md">no media queries</div>
-      <div class="my-panel | u-inset-md">no container queries</div>
+      <div class="demo-panel | u-inset-md">flex-basis: calc((<code class="u-code">--my-threshold-comfortable</code> − 100%) × 999)</div>
+      <div class="demo-panel | u-inset-md">no media queries</div>
+      <div class="demo-panel | u-inset-md">no container queries</div>
     </div>
   </section>
 
   <section class="c-stack | u-region-sm u-stack-lg">
     <h2 class="u-h3">c-sidebar <span class="u-body-sm u-text-neutral-tertiary">— folds when content drops below 50%</span></h2>
     <div class="c-sidebar" id="sidebar-demo">
-      <nav class="my-panel | c-stack u-stack-xs u-inset-md">
+      <nav class="demo-panel | c-stack u-stack-xs u-inset-md">
         <strong class="u-label">Sidebar</strong>
         <span class="u-body-sm">Tokens</span><span class="u-body-sm">Compositions</span><span class="u-body-sm">Utilities</span>
       </nav>
-      <div class="my-card | c-stack u-stack-sm u-inset-lg">
+      <div class="demo-card | c-stack u-stack-sm u-inset-lg">
         <h3 class="u-h5">Content</h3>
         <p class="u-body-sm u-text-neutral-secondary">Takes the remaining space; wraps under the sidebar when its share would fall below <code class="u-code">--my-sidebar-content-min</code>.</p>
       </div>
@@ -112,24 +112,24 @@
   </section>
 
   <section class="c-stack | u-region-sm u-stack-lg">
-    <h2 class="u-h3">c-grid + my-card <span class="u-body-sm u-text-neutral-tertiary">— auto-fit, gutter tokens</span></h2>
+    <h2 class="u-h3">c-grid + demo-card <span class="u-body-sm u-text-neutral-tertiary">— auto-fit, gutter tokens</span></h2>
     <div class="c-grid" id="grid-demo">
-      <article class="my-card | c-stack u-stack-sm u-inset-lg" data-variant="featured">
-        <span class="my-badge" data-variant="success">featured</span>
+      <article class="demo-card | c-stack u-stack-sm u-inset-lg" data-variant="featured">
+        <span class="demo-badge" data-variant="success">featured</span>
         <h3 class="u-h5">Exception grammar</h3>
         <p class="u-body-sm u-text-neutral-secondary">This card is <code class="u-code">data-variant="featured"</code> — E of CUBE as attributes.</p>
       </article>
-      <article class="my-card | c-stack u-stack-sm u-inset-lg">
+      <article class="demo-card | c-stack u-stack-sm u-inset-lg">
         <h3 class="u-h5">Subtree theming</h3>
         <div class="c-cluster | u-inline-sm" data-accent="jade">
           <button class="my-button">jade subtree</button>
         </div>
       </article>
-      <article class="my-card | c-stack u-stack-sm u-inset-lg">
+      <article class="demo-card | c-stack u-stack-sm u-inset-lg">
         <h3 class="u-h5">Accent 1–12</h3>
         <div class="c-cluster | u-inline-xs" id="accent-swatches"></div>
       </article>
-      <article class="my-card | c-stack u-stack-sm u-inset-lg">
+      <article class="demo-card | c-stack u-stack-sm u-inset-lg">
         <h3 class="u-h5">Type ramp <span class="u-body-sm u-text-neutral-tertiary" id="ramp-note"></span></h3>
         <span class="u-h1">h1</span>
         <span class="u-body">body — quick brown fox</span>
@@ -141,10 +141,10 @@
   <section class="c-stack | u-region-sm u-stack-lg">
     <h2 class="u-h3">Status</h2>
     <div class="c-cluster | u-inline-md">
-      <span class="my-badge" data-variant="error">error</span>
-      <span class="my-badge" data-variant="warning">warning</span>
-      <span class="my-badge" data-variant="success">success</span>
-      <span class="my-badge" data-variant="info">info</span>
+      <span class="demo-badge" data-variant="error">error</span>
+      <span class="demo-badge" data-variant="warning">warning</span>
+      <span class="demo-badge" data-variant="success">success</span>
+      <span class="demo-badge" data-variant="info">info</span>
     </div>
   </section>
 </main>
@@ -175,7 +175,7 @@
   const sw = document.getElementById("accent-swatches");
   for (let i = 1; i <= 12; i++) {
     const d = document.createElement("div");
-    d.className = "my-swatch";
+    d.className = "demo-swatch";
     d.style.background = `var(--my-accent-${i})`;
     sw.appendChild(d);
   }

@@ -19,10 +19,10 @@ const probe = () => page.evaluate(() => {
     bodyBg: cs(document.body).backgroundColor,
     btnBg: cs(document.querySelector(".my-button")).backgroundColor,
     jadeBtnBg: cs(document.querySelector('[data-accent="jade"] .my-button')).backgroundColor,
-    cardInset: cs(document.querySelector(".my-card")).paddingTop,
+    cardInset: cs(document.querySelector(".demo-card")).paddingTop,
     regionMd: cs(document.querySelector("main section")).paddingTop,
-    featuredBorder: cs(document.querySelector('.my-card[data-variant="featured"]')).borderTopColor,
-    plainBorder: cs(document.querySelector('.my-card:not([data-variant])')).borderTopColor,
+    featuredBorder: cs(document.querySelector('.demo-card[data-variant="featured"]')).borderTopColor,
+    plainBorder: cs(document.querySelector('.demo-card:not([data-variant])')).borderTopColor,
     disabledBtnBg: cs(document.querySelector('.my-button[data-state="disabled"]')).backgroundColor,
   };
 });

@@ -7,9 +7,10 @@
     "build:tokens": "python packages/design/build/generate_css.py",
     "build:css": "sass --no-source-map packages/design/src/scss/mycss.scss:packages/design/dist/css/mycss.css packages/composition/src/scss/composition.scss:packages/design/dist/css/mycss-composition.css packages/ui/src/scss/blocks.scss:packages/design/dist/css/mycss-blocks.css",
     "build:brandkits": "python packages/design/build/generate_brandkit.py",
-    "build": "npm run build:tokens && npm run build:css && npm run build:brandkits",
+    "build:js": "node -e \"require('fs').mkdirSync('packages/design/dist/js',{recursive:true});require('fs').copyFileSync('packages/ui/src/js/mycss.js','packages/design/dist/js/mycss.js')\"",
+    "build": "npm run build:tokens && npm run build:css && npm run build:brandkits && npm run build:js",
     "dev": "sass --watch --no-source-map packages/design/src/scss/mycss.scss:packages/design/dist/css/mycss.css packages/composition/src/scss/composition.scss:packages/design/dist/css/mycss-composition.css packages/ui/src/scss/blocks.scss:packages/design/dist/css/mycss-blocks.css",
-    "test": "node tools/tests/verify.mjs"
+    "test": "node tools/tests/verify.mjs && node tools/tests/blocks.mjs"
   },
   "devDependencies": {
     "playwright": "^1.49.0",

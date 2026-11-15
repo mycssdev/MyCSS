@@ -8654,6 +8654,21 @@
     line-height: var(--my-label-line-height);
     letter-spacing: var(--my-label-tracking);
   }
+  .my-toast-region {
+    position: fixed;
+    inset-block-end: var(--my-spacing-2xl);
+    inset-inline-end: var(--my-spacing-2xl);
+    z-index: var(--my-z-index-toast);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: var(--my-spacing-md);
+    max-inline-size: calc(100% - 2 * var(--my-spacing-2xl));
+    pointer-events: none;
+  }
+  .my-toast-region > * {
+    pointer-events: auto;
+  }
   .my-toast {
     --_soft: var(--my-bg-neutral-secondary);
     --_solid: var(--my-fg-neutral-secondary);

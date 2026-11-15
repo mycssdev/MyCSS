@@ -39,25 +39,25 @@ Specimens: `packages/design/dist/button-spec.html`, `packages/design/dist/action
 | Field, Field Label, Field Meta, Field Group | Inputs & Forms | ✅ 2026-11-14 |
 | Input, Textarea, Select | Inputs & Forms | ✅ 2026-11-14 — shared recipe in `_control.scss`; Input also works as a wrapper with icons; Select paints a caret (native select has no icon slot) |
 | Checkbox, Radio, Switch | Inputs & Forms | ✅ 2026-11-14 — native inputs inside a `.my-choice` label; error via `aria-invalid` |
-| Slider | Inputs & Forms | ✅ 2026-11-14 — fill in Chrome/Safari follows `--my-slider-fill` (set from JS); Firefox is native |
-| Color Input | Inputs & Forms | ✅ 2026-11-14 — swatch + hex text in one control; syncing the two is the page's job |
+| Slider | Inputs & Forms | ✅ 2026-11-14 — fill in Chrome/Safari follows `--my-slider-fill`, kept in step by `mycss.js`; Firefox is native |
+| Color Input | Inputs & Forms | ✅ 2026-11-14 — swatch + hex text in one control; `mycss.js` keeps the two in sync |
 | File Input | Inputs & Forms | ✅ 2026-11-14 — native file button as the chip |
 | Menu Item, Menu panel | Inputs & Forms | ✅ 2026-11-14 — styling only; open/close and positioning come with Overlays |
 | Nav Link, Navbar, Skip Link | Navigation | ✅ 2026-11-15 — current page via `aria-current`; sticky via `data-position="sticky"` |
 | Sidebar Item, Sidebar (expanded, rail), Nav Drawer panel | Navigation | ✅ 2026-11-15 — drawer open/close and positioning come with Overlays |
 | Disclosure, Accordion | Navigation | ✅ 2026-11-15 — native `<details>`; shared `name` keeps one open |
-| Tabs | Navigation | ✅ 2026-11-15 — horizontal and vertical; styling only (arrow keys and panels need script) |
+| Tabs | Navigation | ✅ 2026-11-15 — horizontal and vertical; arrow keys, Home/End and panel switching from `mycss.js` |
 | Breadcrumb | Navigation | ✅ 2026-11-15 — separators drawn by CSS |
 | Pagination | Navigation | ✅ 2026-11-15 — numbered and simple; prev/next are Icon Buttons |
 | Stepper | Navigation | ✅ 2026-11-15 — horizontal and vertical; connector stretches (Figma: fixed 48px) |
 | Table of Contents | Navigation | ✅ 2026-11-15 — current rail sits on the list's rule |
 | Badge | Feedback | ✅ 2026-11-15 — status (soft, outline), count, dot; static |
-| Alert, Toast | Feedback | ✅ 2026-11-15 — tones share `_status.scss`; toast placement and timing need script |
+| Alert, Toast | Feedback | ✅ 2026-11-15 — tones share `_status.scss`; `MyCSS.toast()` stacks and times toasts in `.my-toast-region` |
 | Progress Bar, Meter | Feedback | ✅ 2026-11-15 — native `<progress>` / `<meter>`; meter band comes from low/high/optimum |
 | Spinner, Skeleton, Empty State | Feedback | ✅ 2026-11-15 — skeleton is static, as in Figma |
 | Dialog, Alert Dialog | Overlays | ✅ 2026-11-15 — native `<dialog>` + `showModal()` (browser handles focus, Esc, scrim); also works on a `<div>` |
 | Drawer | Overlays | ✅ 2026-11-15 — left, right, bottom; left/right swap in RTL |
-| Popover, Tooltip, Menu extras | Overlays | ✅ 2026-11-15 — native `popover` attribute; anchoring to a trigger is the page's job |
+| Popover, Tooltip, Menu extras | Overlays | ✅ 2026-11-15 — native `popover` attribute; `mycss.js` places the panel by its trigger and shows `data-tooltip` tooltips |
 | Table | Data Display | ✅ 2026-11-15 — wrapper is the surface and scroll container; sort via `aria-sort`, selection via `aria-selected`, zebra via `data-striped` |
 | List, Description List | Data Display | ✅ 2026-11-15 |
 | Card, Stat | Data Display | ✅ 2026-11-15 — interactive card: the title link covers the card |
@@ -65,8 +65,31 @@ Specimens: `packages/design/dist/button-spec.html`, `packages/design/dist/action
 | Avatar, Avatar Group | Data Display | ✅ 2026-11-15 — sizes sm / md / lg |
 | Timeline, Tree, Divider | Data Display | ✅ 2026-11-15 — tree branches are native `<details>` |
 | Media Frame / Image, Figure | Media & Content | ✅ 2026-11-15 — ratio via `data-ratio`; loading and error states |
-| Media Controls, Video, Audio | Media & Content | ✅ 2026-11-15 — styling only; custom controls need script |
+| Media Controls, Video, Audio | Media & Content | ✅ 2026-11-15 — `data-media="play|mute|fullscreen"` buttons, time and scrubber wired by `mycss.js` |
 | Embed | Media & Content | ✅ 2026-11-15 — provider chip and consent facade |
 | Blockquote, inline text (`.my-prose`), Media Object | Media & Content | ✅ 2026-11-15 |
 
-All seven BLOCKS pages have CSS. Not started: script for the parts that need it (tabs keyboard, toast timing, custom media controls, slider fill in Chrome/Safari), in `src/js`.
+All seven BLOCKS pages have CSS.
+
+## Script
+
+`src/js/mycss.js` (copied to `packages/design/dist/js/mycss.js` by `npm run build:js`) is the small amount of script the components need. No dependencies, one file, about 16 KB unminified. Load it with `<script src="js/mycss.js" defer></script>`. Everything works by class or attribute through event delegation, so there is nothing to initialise; call `MyCSS.init(root)` only after inserting sliders, indeterminate checkboxes or tab lists later.
+
+| Behaviour | Markup |
+|---|---|
+| Tabs: arrow keys (RTL and vertical aware), Home/End, roving tabindex, panels | `.my-tabs[role="tablist"]` with `[role="tab"][aria-controls="panel-id"]` |
+| Slider fill | `input.my-slider` |
+| Color Input sync | `.my-color-input` with a color and a text input |
+| Indeterminate checkbox | `input.my-checkbox[data-indeterminate]` |
+| Open / close a dialog or drawer | `data-open="#id"` on a trigger, `data-close` (optionally `="value"`) inside, `data-light-dismiss` on the `<dialog>` for backdrop clicks |
+| Dismiss | `data-dismiss` on a button inside `.my-alert`, `.my-toast` or `.my-tag` |
+| Popover / Menu placement | `popovertarget="id"` on the trigger; panel opens under it, flips above near the bottom edge, sets `aria-expanded`. Menus also get arrow keys, Home/End, Enter/Space |
+| Tooltip | `data-tooltip="text"` on the trigger; hover and keyboard focus, Esc hides |
+| Media | `<video>`/`<audio>` inside `.my-video`/`.my-audio`, buttons with `data-media="play"`, `"mute"`, `"fullscreen"`, `.my-media-time`, a `.my-slider` scrubber |
+| Toast | `MyCSS.toast("Saved", { tone: "success", duration: 5000, dismissible: true })`; `duration: 0` stays until dismissed; `danger` announces as an alert, the rest as status |
+
+Not covered by the script: focus trapping (native `<dialog>` does it), sortable tables, tree keyboard navigation beyond native `<details>`, Split Button menus beyond `popovertarget`, and CSS anchor positioning (placement is computed once on open and is not updated on scroll or resize).
+
+## Tests
+
+`npm test` runs `tools/tests/verify.mjs` (tokens, theming, layout) and `tools/tests/blocks.mjs`: every `.my-*` class used in a specimen has CSS and every class in the CSS is shown in a specimen, each specimen page loads without errors, each script behaviour above, and the example brand kit reaching the accent-driven components.
