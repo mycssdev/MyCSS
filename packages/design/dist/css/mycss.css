@@ -7094,6 +7094,633 @@
     cursor: not-allowed;
   }
 }
+@layer mycss.blocks {
+  .my-field {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: var(--my-spacing-xs);
+    min-inline-size: 0;
+  }
+  .my-field-label {
+    display: block;
+    color: var(--my-text-neutral-primary);
+    font-family: var(--my-label-family);
+    font-size: var(--my-label-size);
+    font-weight: var(--my-label-weight);
+    line-height: var(--my-label-line-height);
+    letter-spacing: var(--my-label-tracking);
+  }
+  .my-field-meta {
+    display: flex;
+    align-items: center;
+    gap: var(--my-spacing-xs);
+    margin: 0;
+    color: var(--my-text-neutral-secondary);
+    font-family: var(--my-caption-family);
+    font-size: var(--my-caption-size);
+    font-weight: var(--my-caption-weight);
+    line-height: var(--my-caption-line-height);
+    letter-spacing: var(--my-caption-tracking);
+  }
+  .my-field-meta[data-kind=error] {
+    color: var(--my-text-error);
+  }
+  .my-field-meta[data-kind=error] > svg,
+  .my-field-meta[data-kind=error] > .my-icon {
+    flex: none;
+    inline-size: var(--my-size-1);
+    block-size: var(--my-size-1);
+    color: var(--my-fg-error-primary);
+  }
+  .my-field-group {
+    display: flex;
+    flex-direction: column;
+    gap: var(--my-spacing-md);
+    min-inline-size: 0;
+    margin: 0;
+    padding: var(--my-spacing-lg);
+    border: 1px solid var(--my-border-neutral-separator);
+    border-radius: var(--my-border-radius-soft);
+  }
+  .my-field-group > legend {
+    padding-inline: var(--my-spacing-xs);
+    color: var(--my-text-neutral-secondary);
+    font-family: var(--my-label-family);
+    font-size: var(--my-label-size);
+    font-weight: var(--my-label-weight);
+    line-height: var(--my-label-line-height);
+    letter-spacing: var(--my-label-tracking);
+  }
+}
+@layer mycss.blocks {
+  .my-input,
+  .my-textarea,
+  .my-select {
+    box-sizing: border-box;
+    margin: 0;
+    padding-block: var(--my-spacing-md);
+    padding-inline: var(--my-spacing-lg);
+    border: var(--my-border-width-2) solid var(--my-border-neutral-primary);
+    border-radius: var(--my-border-radius-soft);
+    background-color: var(--my-surface-secondary);
+    color: var(--my-text-neutral-primary);
+    font-family: var(--my-body-family);
+    font-size: var(--my-body-size);
+    font-weight: var(--my-body-weight);
+    line-height: var(--my-body-line-height);
+    letter-spacing: var(--my-body-tracking);
+    -webkit-appearance: none;
+    appearance: none;
+    transition-property: background-color, border-color, box-shadow;
+    transition-duration: var(--my-duration-fast-2);
+    transition-timing-function: var(--my-ease-standard);
+    inline-size: 100%;
+  }
+  .my-input::placeholder,
+  .my-textarea::placeholder,
+  .my-select::placeholder {
+    color: var(--my-text-neutral-placeholder);
+    opacity: 1;
+  }
+  .my-input:where(:hover):not(:disabled, [aria-disabled=true], [data-state=disabled], :focus, :focus-within), .my-input[data-state=hover],
+  .my-textarea:where(:hover):not(:disabled, [aria-disabled=true], [data-state=disabled], :focus, :focus-within),
+  .my-textarea[data-state=hover],
+  .my-select:where(:hover):not(:disabled, [aria-disabled=true], [data-state=disabled], :focus, :focus-within),
+  .my-select[data-state=hover] {
+    background-color: var(--my-bg-neutral-primary_hover);
+    border-color: var(--my-border-brand_subtle);
+  }
+  .my-input:is([aria-invalid=true], [data-state=error]), .my-input:has(> [aria-invalid=true]),
+  .my-textarea:is([aria-invalid=true], [data-state=error]),
+  .my-textarea:has(> [aria-invalid=true]),
+  .my-select:is([aria-invalid=true], [data-state=error]),
+  .my-select:has(> [aria-invalid=true]) {
+    border-color: var(--my-border-error);
+  }
+  .my-input:focus-visible, .my-input:focus-within, .my-input[data-state=focus],
+  .my-textarea:focus-visible,
+  .my-textarea:focus-within,
+  .my-textarea[data-state=focus],
+  .my-select:focus-visible,
+  .my-select:focus-within,
+  .my-select[data-state=focus] {
+    outline: none;
+    border-color: var(--my-border-brand);
+    box-shadow: 0 0 0 3px var(--my-effect-ring-brand);
+  }
+  .my-input:is(:disabled, [aria-disabled=true], [data-state=disabled]), .my-input:has(> :disabled),
+  .my-textarea:is(:disabled, [aria-disabled=true], [data-state=disabled]),
+  .my-textarea:has(> :disabled),
+  .my-select:is(:disabled, [aria-disabled=true], [data-state=disabled]),
+  .my-select:has(> :disabled) {
+    border-color: var(--my-border-neutral-disabled);
+    background-color: var(--my-bg-neutral-disabled_subtle);
+    color: var(--my-text-neutral-disabled);
+    cursor: not-allowed;
+  }
+  .my-input:is(:disabled, [aria-disabled=true], [data-state=disabled])::placeholder, .my-input:has(> :disabled)::placeholder,
+  .my-textarea:is(:disabled, [aria-disabled=true], [data-state=disabled])::placeholder,
+  .my-textarea:has(> :disabled)::placeholder,
+  .my-select:is(:disabled, [aria-disabled=true], [data-state=disabled])::placeholder,
+  .my-select:has(> :disabled)::placeholder {
+    color: var(--my-text-neutral-disabled);
+  }
+  .my-input:where(:not(input)) {
+    display: flex;
+    align-items: center;
+    gap: var(--my-spacing-sm);
+    cursor: text;
+  }
+  .my-input:where(:not(input)) > input {
+    flex: 1;
+    min-inline-size: 0;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: none;
+    background: none;
+    color: inherit;
+    font: inherit;
+    letter-spacing: inherit;
+  }
+  .my-input:where(:not(input)) > input::placeholder {
+    color: var(--my-text-neutral-placeholder);
+    opacity: 1;
+  }
+  .my-input:where(:not(input)) > input:disabled {
+    cursor: not-allowed;
+  }
+  .my-input:where(:not(input)) > svg,
+  .my-input:where(:not(input)) > .my-icon {
+    flex: none;
+    inline-size: var(--my-size-1);
+    block-size: var(--my-size-1);
+    color: var(--my-fg-neutral-tertiary);
+  }
+  .my-input:where(:not(input)):has(> :disabled) > :is(svg, .my-icon) {
+    color: var(--my-fg-neutral-disabled);
+  }
+  .my-textarea {
+    display: block;
+    resize: vertical;
+    min-block-size: calc(var(--my-body-size) * var(--my-body-line-height) + 2 * var(--my-spacing-md) + 2 * var(--my-border-width-2));
+  }
+  .my-select {
+    --_caret: var(--my-fg-neutral-tertiary);
+    padding-inline-end: calc(var(--my-spacing-lg) + var(--my-size-1) + var(--my-spacing-sm));
+    background-image: linear-gradient(45deg, transparent 50%, var(--_caret) 50%), linear-gradient(135deg, var(--_caret) 50%, transparent 50%);
+    background-size: 5px 5px, 5px 5px;
+    background-position: calc(100% - var(--my-spacing-lg) - 8px) 50%, calc(100% - var(--my-spacing-lg) - 3px) 50%;
+    background-repeat: no-repeat;
+    cursor: pointer;
+  }
+  .my-select:dir(rtl) {
+    background-position: calc(var(--my-spacing-lg) + 3px) 50%, calc(var(--my-spacing-lg) + 8px) 50%;
+  }
+  .my-select:has(> option[value=""]:checked) {
+    color: var(--my-text-neutral-placeholder);
+  }
+  .my-select:is(:disabled, [aria-disabled=true], [data-state=disabled]) {
+    --_caret: var(--my-fg-neutral-disabled);
+    color: var(--my-text-neutral-disabled);
+  }
+}
+@layer mycss.blocks {
+  .my-choice {
+    display: inline-flex;
+    align-items: flex-start;
+    gap: var(--my-spacing-sm);
+    color: var(--my-text-neutral-primary);
+    font-family: var(--my-body-family);
+    font-size: var(--my-body-size);
+    font-weight: var(--my-body-weight);
+    line-height: var(--my-body-line-height);
+    letter-spacing: var(--my-body-tracking);
+    cursor: pointer;
+  }
+  .my-choice > :is(.my-checkbox, .my-radio) {
+    margin-block-start: calc((var(--my-body-size) * var(--my-body-line-height) - 16px) / 2);
+  }
+  .my-choice > .my-switch {
+    margin-block-start: calc((var(--my-body-size) * var(--my-body-line-height) - 20px) / 2);
+  }
+  .my-choice:has(> :disabled), .my-choice[data-state=disabled] {
+    color: var(--my-text-neutral-disabled);
+    cursor: not-allowed;
+  }
+  .my-checkbox,
+  .my-radio {
+    --_on: var(--my-bg-brand-solid);
+    --_on-hover: var(--my-bg-brand-solid_hover);
+    --_glyph: var(--my-fg-on-accent);
+    flex: none;
+    display: inline-grid;
+    place-content: center;
+    box-sizing: border-box;
+    inline-size: 16px;
+    block-size: 16px;
+    margin: 0;
+    border: var(--my-border-width-3) solid var(--my-border-neutral-primary);
+    border-radius: var(--my-border-radius-crisp);
+    background-color: var(--my-surface-secondary);
+    cursor: pointer;
+    -webkit-appearance: none;
+    appearance: none;
+    transition-property: background-color, border-color, box-shadow;
+    transition-duration: var(--my-duration-fast-2);
+    transition-timing-function: var(--my-ease-standard);
+  }
+  .my-checkbox::before,
+  .my-radio::before {
+    content: "";
+    display: none;
+    background-color: var(--_glyph);
+  }
+  .my-checkbox:where(:hover):not(:disabled, [data-state=disabled]), .my-checkbox[data-state=hover],
+  .my-radio:where(:hover):not(:disabled, [data-state=disabled]),
+  .my-radio[data-state=hover] {
+    background-color: var(--my-bg-neutral-primary_hover);
+  }
+  .my-checkbox:is([aria-invalid=true], [data-state=error]),
+  .my-radio:is([aria-invalid=true], [data-state=error]) {
+    --_on: var(--my-bg-error-solid);
+    --_on-hover: var(--my-bg-error-solid_hover);
+    border-color: var(--my-border-error);
+  }
+  .my-checkbox:is(:checked, :indeterminate:not([type=radio]), [data-value=checked], [data-value=indeterminate], [data-value=on]),
+  .my-radio:is(:checked, :indeterminate:not([type=radio]), [data-value=checked], [data-value=indeterminate], [data-value=on]) {
+    border-color: transparent;
+    background-color: var(--_on);
+  }
+  .my-checkbox:is(:checked, :indeterminate:not([type=radio]), [data-value=checked], [data-value=indeterminate], [data-value=on])::before,
+  .my-radio:is(:checked, :indeterminate:not([type=radio]), [data-value=checked], [data-value=indeterminate], [data-value=on])::before {
+    display: block;
+  }
+  .my-checkbox:is(:checked, :indeterminate:not([type=radio]), [data-value=checked], [data-value=indeterminate], [data-value=on]):where(:hover):not(:disabled, [data-state=disabled]), .my-checkbox:is(:checked, :indeterminate:not([type=radio]), [data-value=checked], [data-value=indeterminate], [data-value=on])[data-state=hover],
+  .my-radio:is(:checked, :indeterminate:not([type=radio]), [data-value=checked], [data-value=indeterminate], [data-value=on]):where(:hover):not(:disabled, [data-state=disabled]),
+  .my-radio:is(:checked, :indeterminate:not([type=radio]), [data-value=checked], [data-value=indeterminate], [data-value=on])[data-state=hover] {
+    background-color: var(--_on-hover);
+  }
+  .my-checkbox:focus-visible, .my-checkbox[data-state=focus],
+  .my-radio:focus-visible,
+  .my-radio[data-state=focus] {
+    outline: none;
+    box-shadow: 0 0 0 3px var(--my-effect-ring-brand);
+  }
+  .my-checkbox:is(:disabled, [data-state=disabled]),
+  .my-radio:is(:disabled, [data-state=disabled]) {
+    --_glyph: var(--my-fg-neutral-disabled);
+    border-color: var(--my-border-neutral-disabled);
+    background-color: var(--my-bg-neutral-disabled_subtle);
+    cursor: not-allowed;
+  }
+  .my-checkbox:is(:disabled, [data-state=disabled]):is(:checked, :indeterminate:not([type=radio]), [data-value=checked], [data-value=indeterminate], [data-value=on]),
+  .my-radio:is(:disabled, [data-state=disabled]):is(:checked, :indeterminate:not([type=radio]), [data-value=checked], [data-value=indeterminate], [data-value=on]) {
+    border-color: transparent;
+    background-color: var(--my-bg-neutral-disabled);
+  }
+  .my-checkbox::before {
+    inline-size: 16px;
+    block-size: 16px;
+    -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M3.5 8.5l3 3 6-7' fill='none' stroke='%23000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/16px 16px no-repeat;
+    mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M3.5 8.5l3 3 6-7' fill='none' stroke='%23000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/16px 16px no-repeat;
+  }
+  .my-checkbox:is(:indeterminate, [data-value=indeterminate])::before {
+    inline-size: 8px;
+    block-size: 2px;
+    border-radius: 1px;
+    -webkit-mask: none;
+    mask: none;
+  }
+  .my-radio {
+    border-radius: var(--my-border-radius-pill);
+  }
+  .my-radio::before {
+    inline-size: 6px;
+    block-size: 6px;
+    border-radius: 50%;
+  }
+  .my-switch {
+    --_track: var(--my-bg-neutral-quaternary);
+    --_track-hover: var(--my-bg-neutral-active);
+    flex: none;
+    display: inline-flex;
+    align-items: center;
+    box-sizing: border-box;
+    inline-size: 36px;
+    block-size: 20px;
+    margin: 0;
+    padding: 2px;
+    border: 0;
+    border-radius: var(--my-border-radius-pill);
+    background-color: var(--_track);
+    cursor: pointer;
+    -webkit-appearance: none;
+    appearance: none;
+    transition: background-color var(--my-duration-fast-2) var(--my-ease-standard), box-shadow var(--my-duration-fast-2) var(--my-ease-standard);
+  }
+  .my-switch::before {
+    content: "";
+    box-sizing: border-box;
+    inline-size: 16px;
+    block-size: 16px;
+    border: 0.5px solid var(--my-border-neutral-secondary);
+    border-radius: 50%;
+    background-color: var(--my-overlay-primary);
+    box-shadow: var(--my-shadow-low);
+    transition: translate var(--my-duration-fast-2) var(--my-ease-standard);
+  }
+  .my-switch:is(:checked, [data-value=on]) {
+    --_track: var(--my-bg-brand-solid);
+    --_track-hover: var(--my-bg-brand-solid_hover);
+  }
+  .my-switch:is(:checked, [data-value=on])::before {
+    translate: calc(16px * var(--my-dir)) 0;
+  }
+  .my-switch:where(:hover):not(:disabled, [data-state=disabled]), .my-switch[data-state=hover] {
+    background-color: var(--_track-hover);
+  }
+  .my-switch:focus-visible, .my-switch[data-state=focus] {
+    outline: none;
+    box-shadow: 0 0 0 3px var(--my-effect-ring-brand);
+  }
+  .my-switch:is(:disabled, [data-state=disabled]) {
+    background-color: var(--my-bg-neutral-disabled);
+    cursor: not-allowed;
+  }
+}
+@layer mycss.blocks {
+  .my-slider {
+    --_thumb: 16px;
+    --_edge: var(--my-border-brand);
+    --_fill: var(--my-bg-brand-solid);
+    --_rest: var(--my-bg-neutral-quaternary);
+    display: block;
+    inline-size: 100%;
+    block-size: 20px;
+    margin: 0;
+    padding: 0;
+    background: none;
+    cursor: pointer;
+    -webkit-appearance: none;
+    appearance: none;
+  }
+  .my-slider::-webkit-slider-runnable-track {
+    block-size: 4px;
+    border-radius: var(--my-border-radius-pill);
+    background: linear-gradient(to right, var(--_fill) var(--my-slider-fill, 0%), var(--_rest) var(--my-slider-fill, 0%));
+  }
+  .my-slider:dir(rtl)::-webkit-slider-runnable-track {
+    background: linear-gradient(to left, var(--_fill) var(--my-slider-fill, 0%), var(--_rest) var(--my-slider-fill, 0%));
+  }
+  .my-slider::-moz-range-track {
+    block-size: 4px;
+    border-radius: var(--my-border-radius-pill);
+    background-color: var(--_rest);
+  }
+  .my-slider::-moz-range-progress {
+    block-size: 4px;
+    border-radius: var(--my-border-radius-pill);
+    background-color: var(--_fill);
+  }
+  .my-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    margin-block-start: calc((4px - var(--_thumb)) / 2);
+    box-sizing: border-box;
+    inline-size: var(--_thumb);
+    block-size: var(--_thumb);
+    border: 1.5px solid var(--_edge);
+    border-radius: 50%;
+    background-color: var(--my-overlay-primary);
+    box-shadow: var(--_ring, 0 0 0 0 transparent), var(--my-shadow-low);
+    transition: inline-size var(--my-duration-fast-2) var(--my-ease-standard), block-size var(--my-duration-fast-2) var(--my-ease-standard), box-shadow var(--my-duration-fast-2) var(--my-ease-standard);
+  }
+  .my-slider::-moz-range-thumb {
+    box-sizing: border-box;
+    inline-size: var(--_thumb);
+    block-size: var(--_thumb);
+    border: 1.5px solid var(--_edge);
+    border-radius: 50%;
+    background-color: var(--my-overlay-primary);
+    box-shadow: var(--_ring, 0 0 0 0 transparent), var(--my-shadow-low);
+    transition: inline-size var(--my-duration-fast-2) var(--my-ease-standard), block-size var(--my-duration-fast-2) var(--my-ease-standard), box-shadow var(--my-duration-fast-2) var(--my-ease-standard);
+  }
+  .my-slider:where(:hover):not(:disabled), .my-slider[data-state=hover] {
+    --_thumb: 20px;
+  }
+  .my-slider:focus-visible, .my-slider[data-state=focus] {
+    outline: none;
+    --_ring: 0 0 0 3px var(--my-effect-ring-brand);
+  }
+  .my-slider:disabled, .my-slider[data-state=disabled] {
+    --_edge: var(--my-border-neutral-disabled);
+    --_fill: var(--my-bg-neutral-disabled);
+    cursor: not-allowed;
+  }
+}
+@layer mycss.blocks {
+  .my-color-input {
+    box-sizing: border-box;
+    margin: 0;
+    padding-block: var(--my-spacing-md);
+    padding-inline: var(--my-spacing-lg);
+    border: var(--my-border-width-2) solid var(--my-border-neutral-primary);
+    border-radius: var(--my-border-radius-soft);
+    background-color: var(--my-surface-secondary);
+    color: var(--my-text-neutral-primary);
+    font-family: var(--my-body-family);
+    font-size: var(--my-body-size);
+    font-weight: var(--my-body-weight);
+    line-height: var(--my-body-line-height);
+    letter-spacing: var(--my-body-tracking);
+    -webkit-appearance: none;
+    appearance: none;
+    transition-property: background-color, border-color, box-shadow;
+    transition-duration: var(--my-duration-fast-2);
+    transition-timing-function: var(--my-ease-standard);
+    display: flex;
+    align-items: center;
+    gap: var(--my-spacing-sm);
+    inline-size: 100%;
+    font-family: var(--my-code-family);
+    font-size: var(--my-code-size);
+    font-weight: var(--my-code-weight);
+    line-height: var(--my-code-line-height);
+    letter-spacing: var(--my-code-tracking);
+    cursor: pointer;
+  }
+  .my-color-input > input[type=color] {
+    flex: none;
+    inline-size: 20px;
+    block-size: 20px;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    border-radius: var(--my-border-radius-crisp);
+    background: none;
+    cursor: inherit;
+    -webkit-appearance: none;
+    appearance: none;
+  }
+  .my-color-input > input[type=color]::-webkit-color-swatch-wrapper {
+    padding: 0;
+  }
+  .my-color-input > input[type=color]::-webkit-color-swatch {
+    border: 0;
+    border-radius: var(--my-border-radius-crisp);
+  }
+  .my-color-input > input[type=color]::-moz-color-swatch {
+    border: 0;
+    border-radius: var(--my-border-radius-crisp);
+  }
+  .my-color-input > :is(input[type=text], output) {
+    flex: 1;
+    min-inline-size: 0;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: none;
+    background: none;
+    color: inherit;
+    font: inherit;
+    letter-spacing: inherit;
+  }
+  .my-color-input:where(:hover):not(:has(> :disabled), :focus-within), .my-color-input[data-state=hover] {
+    border-color: var(--my-border-brand_subtle);
+  }
+  .my-color-input:focus-within, .my-color-input[data-state=focus] {
+    outline: none;
+    border-color: var(--my-border-brand);
+    box-shadow: 0 0 0 3px var(--my-effect-ring-brand);
+  }
+  .my-color-input:has(> :disabled), .my-color-input[data-state=disabled] {
+    border-color: var(--my-border-neutral-disabled);
+    background-color: var(--my-bg-neutral-disabled_subtle);
+    color: var(--my-text-neutral-disabled);
+    cursor: not-allowed;
+  }
+}
+@layer mycss.blocks {
+  .my-file-input {
+    max-inline-size: 100%;
+    color: var(--my-text-neutral-secondary);
+    font-family: var(--my-body-family);
+    font-size: var(--my-body-size);
+    font-weight: var(--my-body-weight);
+    line-height: var(--my-body-line-height);
+    letter-spacing: var(--my-body-tracking);
+    border-radius: var(--my-border-radius-crisp);
+    cursor: pointer;
+  }
+  .my-file-input::file-selector-button {
+    box-sizing: border-box;
+    margin: 0;
+    margin-inline-end: var(--my-spacing-sm);
+    padding-block: var(--my-spacing-sm);
+    padding-inline: var(--my-spacing-md);
+    border: var(--my-border-width-2) solid var(--my-border-neutral-primary);
+    border-radius: var(--my-border-radius-crisp);
+    background-color: var(--my-bg-neutral-secondary);
+    color: var(--my-text-neutral-primary);
+    font-family: var(--my-label-family);
+    font-size: var(--my-label-size);
+    font-weight: var(--my-label-weight);
+    line-height: var(--my-label-line-height);
+    letter-spacing: var(--my-label-tracking);
+    cursor: inherit;
+  }
+  .my-file-input:focus-visible, .my-file-input[data-state=focus] {
+    outline: none;
+    box-shadow: 0 0 0 3px var(--my-effect-ring-brand);
+  }
+  .my-file-input:disabled, .my-file-input[data-state=disabled] {
+    color: var(--my-text-neutral-disabled);
+    cursor: not-allowed;
+  }
+  .my-file-input:disabled::file-selector-button, .my-file-input[data-state=disabled]::file-selector-button {
+    border-color: var(--my-border-neutral-disabled);
+    background-color: var(--my-bg-neutral-disabled_subtle);
+    color: var(--my-text-neutral-disabled);
+  }
+}
+@layer mycss.blocks {
+  .my-menu {
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    margin: 0;
+    padding: var(--my-spacing-xs);
+    border: 1px solid var(--my-border-neutral-secondary);
+    border-radius: var(--my-border-radius-soft);
+    background-color: var(--my-overlay-primary);
+    box-shadow: var(--my-shadow-mid);
+    list-style: none;
+  }
+  .my-menu-item {
+    display: flex;
+    align-items: center;
+    gap: var(--my-spacing-sm);
+    box-sizing: border-box;
+    inline-size: 100%;
+    margin: 0;
+    padding-block: var(--my-spacing-sm);
+    padding-inline: var(--my-spacing-md);
+    border: 0;
+    border-radius: var(--my-border-radius-crisp);
+    background-color: transparent;
+    color: var(--my-text-neutral-primary);
+    font-family: var(--my-body-family);
+    font-size: var(--my-body-size);
+    font-weight: var(--my-body-weight);
+    line-height: var(--my-body-line-height);
+    letter-spacing: var(--my-body-tracking);
+    text-align: start;
+    text-decoration: none;
+    cursor: pointer;
+    -webkit-appearance: none;
+    appearance: none;
+  }
+  .my-menu-item > svg,
+  .my-menu-item > .my-icon {
+    flex: none;
+    inline-size: var(--my-size-1);
+    block-size: var(--my-size-1);
+    color: var(--my-fg-neutral-secondary);
+  }
+  .my-menu-item > span {
+    flex: 1;
+    min-inline-size: 0;
+  }
+  .my-menu-item:where(:hover, :focus-visible):not(:disabled, [aria-disabled=true], [data-state=disabled], [aria-selected=true], [aria-checked=true], [aria-current]:not([aria-current=false]), [data-state=selected]), .my-menu-item[data-state=hover] {
+    outline: none;
+    background-color: var(--my-bg-neutral-secondary_hover);
+  }
+  .my-menu-item:is([aria-selected=true], [aria-checked=true], [aria-current]:not([aria-current=false]), [data-state=selected]) {
+    background-color: var(--my-bg-brand-subtle);
+    color: var(--my-text-brand);
+  }
+  .my-menu-item:is([aria-selected=true], [aria-checked=true], [aria-current]:not([aria-current=false]), [data-state=selected]) > svg, .my-menu-item:is([aria-selected=true], [aria-checked=true], [aria-current]:not([aria-current=false]), [data-state=selected]) > .my-icon {
+    color: var(--my-fg-brand);
+  }
+  .my-menu-item[data-tone=danger] {
+    color: var(--my-text-error);
+  }
+  .my-menu-item[data-tone=danger] > svg, .my-menu-item[data-tone=danger] > .my-icon {
+    color: var(--my-fg-error-primary);
+  }
+  .my-menu-item[data-tone=danger]:where(:hover, :focus-visible):not(:disabled, [aria-disabled=true], [data-state=disabled]), .my-menu-item[data-tone=danger][data-state=hover] {
+    background-color: var(--my-bg-error-primary);
+  }
+  .my-menu-item:is(:disabled, [aria-disabled=true], [data-state=disabled]) {
+    color: var(--my-text-neutral-disabled);
+    cursor: not-allowed;
+  }
+  .my-menu-item:is(:disabled, [aria-disabled=true], [data-state=disabled]) > svg, .my-menu-item:is(:disabled, [aria-disabled=true], [data-state=disabled]) > .my-icon {
+    color: var(--my-fg-neutral-disabled);
+  }
+}
 /*! MyCSS utilities v0.1.0-alpha.1 — u-* classes, token-symmetric names. */
 @layer mycss.utilities {
   .u-display-2xl {

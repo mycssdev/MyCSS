@@ -1,0 +1,48 @@
+// File Input — Figma: BLOCKS › Inputs & Forms › File Input (4 states).
+// Native <input type="file">: the browser's button becomes the "Choose file"
+// chip (bg/neutral-secondary, crisp radius, label role); the file name sits
+// beside it in the body role. Figma shows no hover change; none is added.
+//
+//   <input type="file" class="my-file-input">
+@use "../../../../design/src/scss/my" as my;
+
+@layer mycss.blocks {
+  .my-file-input {
+    max-inline-size: 100%;
+    color: my.token(text-neutral-secondary);
+    @include my.type(body);
+    border-radius: my.token(border-radius-crisp);
+    cursor: pointer;
+
+    &::file-selector-button {
+      box-sizing: border-box;
+      margin: 0;
+      margin-inline-end: my.token(spacing-sm);
+      padding-block: my.token(spacing-sm);
+      padding-inline: my.token(spacing-md);
+      border: my.token(border-width-2) solid my.token(border-neutral-primary);
+      border-radius: my.token(border-radius-crisp);
+      background-color: my.token(bg-neutral-secondary);
+      color: my.token(text-neutral-primary);
+      @include my.type(label);
+      cursor: inherit;
+    }
+    // the ring goes on the input: a ring on the button itself gets clipped
+    &:focus-visible,
+    &[data-state="focus"] {
+      outline: none;
+      box-shadow: 0 0 0 3px my.token(effect-ring-brand);
+    }
+    &:disabled,
+    &[data-state="disabled"] {
+      color: my.token(text-neutral-disabled);
+      cursor: not-allowed;
+
+      &::file-selector-button {
+        border-color: my.token(border-neutral-disabled);
+        background-color: my.token(bg-neutral-disabled_subtle);
+        color: my.token(text-neutral-disabled);
+      }
+    }
+  }
+}

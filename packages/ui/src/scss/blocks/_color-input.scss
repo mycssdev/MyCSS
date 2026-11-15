@@ -1,0 +1,65 @@
+// Color Input — Figma: BLOCKS › Inputs & Forms › Color Input (4 states).
+// A control box holding a 20px swatch and the hex value in the code role.
+//
+//   <label class="my-color-input">
+//     <input type="color" value="#663399">
+//     <input type="text" value="#663399" aria-label="Hex colour">     (or <output>)
+//   </label>
+// Keeping the two inputs in step is the page's job (one line of JS).
+@use "../../../../design/src/scss/my" as my;
+@use "control" as ctl;
+
+@layer mycss.blocks {
+  .my-color-input {
+    @include ctl.box;
+    display: flex;
+    align-items: center;
+    gap: my.token(spacing-sm);
+    inline-size: 100%;
+    @include my.type(code);
+    cursor: pointer;
+
+    > input[type="color"] {
+      flex: none;
+      inline-size: 20px;
+      block-size: 20px;
+      margin: 0;
+      padding: 0;
+      border: 0;
+      border-radius: my.token(border-radius-crisp);
+      background: none;
+      cursor: inherit;
+      -webkit-appearance: none;
+      appearance: none;
+
+      &::-webkit-color-swatch-wrapper { padding: 0; }
+      &::-webkit-color-swatch { border: 0; border-radius: my.token(border-radius-crisp); }
+      &::-moz-color-swatch { border: 0; border-radius: my.token(border-radius-crisp); }
+    }
+    > :is(input[type="text"], output) {
+      flex: 1;
+      min-inline-size: 0;
+      margin: 0;
+      padding: 0;
+      border: 0;
+      outline: none;
+      background: none;
+      color: inherit;
+      font: inherit;
+      letter-spacing: inherit;
+    }
+
+    &:where(:hover):not(:has(> :disabled), :focus-within),
+    &[data-state="hover"] {
+      @include ctl.hover($bg: false);
+    }
+    &:focus-within,
+    &[data-state="focus"] {
+      @include ctl.focus;
+    }
+    &:has(> :disabled),
+    &[data-state="disabled"] {
+      @include ctl.disabled;
+    }
+  }
+}

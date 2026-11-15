@@ -23,7 +23,7 @@ Cascade order: `mycss.tokens, mycss.composition, mycss.blocks, mycss.utilities`.
 
 ## Status
 
-Specimens: `packages/design/dist/button-spec.html`, `packages/design/dist/actions-spec.html`. Shared tone × variant × state recipe: `src/scss/blocks/_action-tones.scss` (Button, Icon Button, Split Button).
+Specimens: `packages/design/dist/button-spec.html`, `packages/design/dist/actions-spec.html`, `packages/design/dist/inputs-forms-spec.html`. Shared tone × variant × state recipe: `src/scss/blocks/_action-tones.scss` (Button, Icon Button, Split Button).
 
 
 | Component | Figma page | CSS |
@@ -36,4 +36,11 @@ Specimens: `packages/design/dist/button-spec.html`, `packages/design/dist/action
 | Link | Actions | ✅ 2026-11-14 — inherits surrounding font; `aria-disabled` for disabled |
 | Tag | Actions | ✅ 2026-11-14 — Neutral/Brand, optional dismiss `<button>` inside |
 | Button Group | Actions | ✅ 2026-11-14 — wrapping row, gap spacing-sm |
+| Field, Field Label, Field Meta, Field Group | Inputs & Forms | ✅ 2026-11-14 |
+| Input, Textarea, Select | Inputs & Forms | ✅ 2026-11-14 — shared recipe in `_control.scss`; Input also works as a wrapper with icons; Select paints a caret (native select has no icon slot) |
+| Checkbox, Radio, Switch | Inputs & Forms | ✅ 2026-11-14 — native inputs inside a `.my-choice` label; error via `aria-invalid` |
+| Slider | Inputs & Forms | ✅ 2026-11-14 — fill in Chrome/Safari follows `--my-slider-fill` (set from JS); Firefox is native |
+| Color Input | Inputs & Forms | ✅ 2026-11-14 — swatch + hex text in one control; syncing the two is the page's job |
+| File Input | Inputs & Forms | ✅ 2026-11-14 — native file button as the chip |
+| Menu Item, Menu panel | Inputs & Forms | ✅ 2026-11-14 — styling only; open/close and positioning come with Overlays |
 | Everything else | — | not started |

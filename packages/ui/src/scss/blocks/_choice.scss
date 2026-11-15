@@ -1,0 +1,186 @@
+// Checkbox · Radio · Switch — Figma: BLOCKS › Inputs & Forms (15 / 10 / 8
+// variants). Native inputs, restyled; the label is a wrapping .my-choice.
+//
+//   <label class="my-choice"><input type="checkbox" class="my-checkbox"> Remember me</label>
+//   <label class="my-choice"><input type="radio" name="plan" class="my-radio"> Monthly</label>
+//   <label class="my-choice"><input type="checkbox" role="switch" class="my-switch"> Notifications</label>
+//   Error: aria-invalid="true" on the input. Indeterminate: set input.indeterminate in JS
+//   (data-value="indeterminate" mirrors it for static specimens).
+//
+// Figma conventions kept: Checked + Error fills bg/error-solid; Unchecked +
+// Error only changes the border; Error + Focus keeps the brand ring.
+@use "../../../../design/src/scss/my" as my;
+
+$invalid: '[aria-invalid="true"], [data-state="error"]';
+$disabled: ':disabled, [data-state="disabled"]';
+$check: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M3.5 8.5l3 3 6-7' fill='none' stroke='%23000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+
+@layer mycss.blocks {
+  .my-choice {
+    display: inline-flex;
+    align-items: flex-start;
+    gap: my.token(spacing-sm);
+    color: my.token(text-neutral-primary);
+    @include my.type(body);
+    cursor: pointer;
+
+    // centre the 16px control on the first text line
+    > :is(.my-checkbox, .my-radio) {
+      margin-block-start: calc((#{my.token(body-size)} * #{my.token(body-line-height)} - 16px) / 2);
+    }
+    > .my-switch {
+      margin-block-start: calc((#{my.token(body-size)} * #{my.token(body-line-height)} - 20px) / 2);
+    }
+    &:has(> :disabled),
+    &[data-state="disabled"] {
+      color: my.token(text-neutral-disabled);
+      cursor: not-allowed;
+    }
+  }
+
+  .my-checkbox,
+  .my-radio {
+    --_on: #{my.token(bg-brand-solid)};
+    --_on-hover: #{my.token(bg-brand-solid_hover)};
+    --_glyph: #{my.token(fg-on-accent)};
+
+    flex: none;
+    display: inline-grid;
+    place-content: center;
+    box-sizing: border-box;
+    inline-size: 16px;
+    block-size: 16px;
+    margin: 0;
+    border: my.token(border-width-3) solid my.token(border-neutral-primary);
+    border-radius: my.token(border-radius-crisp);
+    background-color: my.token(surface-secondary);
+    cursor: pointer;
+    -webkit-appearance: none;
+    appearance: none;
+    transition-property: background-color, border-color, box-shadow;
+    transition-duration: my.token(duration-fast-2);
+    transition-timing-function: my.token(ease-standard);
+
+    &::before {
+      content: "";
+      display: none;
+      background-color: var(--_glyph);
+    }
+    &:where(:hover):not(#{$disabled}),
+    &[data-state="hover"] {
+      background-color: my.token(bg-neutral-primary_hover);
+    }
+    &:is(#{$invalid}) {
+      --_on: #{my.token(bg-error-solid)};
+      --_on-hover: #{my.token(bg-error-solid_hover)};
+      border-color: my.token(border-error);
+    }
+    // on: checked, indeterminate (checkbox only: an unchecked radio group also
+    // matches :indeterminate), or the specimen mirrors
+    &:is(:checked, :indeterminate:not([type="radio"]), [data-value="checked"], [data-value="indeterminate"], [data-value="on"]) {
+      border-color: transparent;
+      background-color: var(--_on);
+
+      &::before { display: block; }
+      &:where(:hover):not(#{$disabled}),
+      &[data-state="hover"] {
+        background-color: var(--_on-hover);
+      }
+    }
+    &:focus-visible,
+    &[data-state="focus"] {
+      outline: none;
+      box-shadow: 0 0 0 3px my.token(effect-ring-brand);
+    }
+    &:is(#{$disabled}) {
+      --_glyph: #{my.token(fg-neutral-disabled)};
+      border-color: my.token(border-neutral-disabled);
+      background-color: my.token(bg-neutral-disabled_subtle);
+      cursor: not-allowed;
+
+      &:is(:checked, :indeterminate:not([type="radio"]), [data-value="checked"], [data-value="indeterminate"], [data-value="on"]) {
+        border-color: transparent;
+        background-color: my.token(bg-neutral-disabled);
+      }
+    }
+  }
+
+  .my-checkbox {
+    &::before {
+      inline-size: 16px;
+      block-size: 16px;
+      -webkit-mask: #{$check} center / 16px 16px no-repeat;
+      mask: #{$check} center / 16px 16px no-repeat;
+    }
+    &:is(:indeterminate, [data-value="indeterminate"])::before {
+      inline-size: 8px;
+      block-size: 2px;
+      border-radius: 1px;
+      -webkit-mask: none;
+      mask: none;
+    }
+  }
+
+  .my-radio {
+    border-radius: my.token(border-radius-pill);
+
+    &::before {
+      inline-size: 6px;
+      block-size: 6px;
+      border-radius: 50%;
+    }
+  }
+
+  .my-switch {
+    --_track: #{my.token(bg-neutral-quaternary)};
+    --_track-hover: #{my.token(bg-neutral-active)};
+
+    flex: none;
+    display: inline-flex;
+    align-items: center;
+    box-sizing: border-box;
+    inline-size: 36px;
+    block-size: 20px;
+    margin: 0;
+    padding: 2px;
+    border: 0;
+    border-radius: my.token(border-radius-pill);
+    background-color: var(--_track);
+    cursor: pointer;
+    -webkit-appearance: none;
+    appearance: none;
+    transition: background-color my.token(duration-fast-2) my.token(ease-standard),
+      box-shadow my.token(duration-fast-2) my.token(ease-standard);
+
+    &::before {
+      content: "";
+      box-sizing: border-box;
+      inline-size: 16px;
+      block-size: 16px;
+      border: 0.5px solid my.token(border-neutral-secondary);
+      border-radius: 50%;
+      background-color: my.token(overlay-primary);
+      box-shadow: my.token(shadow-low);
+      transition: translate my.token(duration-fast-2) my.token(ease-standard);
+    }
+    &:is(:checked, [data-value="on"]) {
+      --_track: #{my.token(bg-brand-solid)};
+      --_track-hover: #{my.token(bg-brand-solid_hover)};
+
+      &::before { translate: calc(16px * #{my.token(dir)}) 0; }
+    }
+    &:where(:hover):not(#{$disabled}),
+    &[data-state="hover"] {
+      background-color: var(--_track-hover);
+    }
+    &:focus-visible,
+    &[data-state="focus"] {
+      outline: none;
+      box-shadow: 0 0 0 3px my.token(effect-ring-brand);
+    }
+    &:is(#{$disabled}) {
+      background-color: my.token(bg-neutral-disabled);
+      cursor: not-allowed;
+    }
+  }
+}
