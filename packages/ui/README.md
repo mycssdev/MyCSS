@@ -23,7 +23,7 @@ Cascade order: `mycss.tokens, mycss.composition, mycss.blocks, mycss.utilities`.
 
 ## Status
 
-Specimens: `packages/design/dist/button-spec.html`, `packages/design/dist/actions-spec.html`, `packages/design/dist/inputs-forms-spec.html`, `packages/design/dist/navigation-spec.html`, `packages/design/dist/feedback-spec.html`, `packages/design/dist/overlays-spec.html`, `packages/design/dist/data-display-spec.html`. Shared tone × variant × state recipe: `src/scss/blocks/_action-tones.scss` (Button, Icon Button, Split Button).
+Specimens: `packages/design/dist/button-spec.html`, `packages/design/dist/actions-spec.html`, `packages/design/dist/inputs-forms-spec.html`, `packages/design/dist/navigation-spec.html`, `packages/design/dist/feedback-spec.html`, `packages/design/dist/overlays-spec.html`, `packages/design/dist/data-display-spec.html`, `packages/design/dist/media-content-spec.html`. Shared tone × variant × state recipe: `src/scss/blocks/_action-tones.scss` (Button, Icon Button, Split Button).
 
 
 | Component | Figma page | CSS |
@@ -64,4 +64,9 @@ Specimens: `packages/design/dist/button-spec.html`, `packages/design/dist/action
 | Code, Kbd | Data Display | ✅ 2026-11-15 |
 | Avatar, Avatar Group | Data Display | ✅ 2026-11-15 — sizes sm / md / lg |
 | Timeline, Tree, Divider | Data Display | ✅ 2026-11-15 — tree branches are native `<details>` |
-| Everything else | — | not started |
+| Media Frame / Image, Figure | Media & Content | ✅ 2026-11-15 — ratio via `data-ratio`; loading and error states |
+| Media Controls, Video, Audio | Media & Content | ✅ 2026-11-15 — styling only; custom controls need script |
+| Embed | Media & Content | ✅ 2026-11-15 — provider chip and consent facade |
+| Blockquote, inline text (`.my-prose`), Media Object | Media & Content | ✅ 2026-11-15 |
+
+All seven BLOCKS pages have CSS. Not started: script for the parts that need it (tabs keyboard, toast timing, custom media controls, slider fill in Chrome/Safari), in `src/js`.

@@ -3517,3 +3517,385 @@
     background-color: var(--my-border-neutral-separator);
   }
 }
+@layer mycss.blocks {
+  .my-media {
+    position: relative;
+    display: block;
+    box-sizing: border-box;
+    inline-size: 100%;
+    aspect-ratio: 16/9;
+    border: 0;
+    border-radius: var(--my-border-radius-rounded);
+    background-color: var(--my-bg-neutral-quaternary);
+    object-fit: cover;
+    overflow: clip;
+  }
+  .my-media[data-ratio="4:3"] {
+    aspect-ratio: 4/3;
+  }
+  .my-media[data-ratio="1:1"] {
+    aspect-ratio: 1;
+  }
+  .my-media[data-ratio="3:2"] {
+    aspect-ratio: 3/2;
+  }
+  .my-media > :is(img, video, iframe, picture) {
+    display: block;
+    inline-size: 100%;
+    block-size: 100%;
+    border: 0;
+    object-fit: cover;
+  }
+  .my-media[data-state=loading] {
+    background-color: var(--my-bg-neutral-secondary);
+  }
+  .my-media[data-kind=placeholder], .my-media[data-state=error] {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: var(--my-spacing-md);
+    padding: var(--my-spacing-lg);
+    background-color: var(--my-bg-neutral-tertiary);
+    color: var(--my-text-neutral-tertiary);
+    font-family: var(--my-caption-family);
+    font-size: var(--my-caption-size);
+    font-weight: var(--my-caption-weight);
+    line-height: var(--my-caption-line-height);
+    letter-spacing: var(--my-caption-tracking);
+    text-align: center;
+  }
+  .my-media[data-kind=placeholder] > svg, .my-media[data-kind=placeholder] > .my-icon, .my-media[data-state=error] > svg, .my-media[data-state=error] > .my-icon {
+    inline-size: var(--my-size-6);
+    block-size: var(--my-size-6);
+    color: var(--my-fg-neutral-quaternary);
+  }
+  .my-figure {
+    display: flex;
+    flex-direction: column;
+    gap: var(--my-spacing-md);
+    margin: 0;
+  }
+  .my-figure[data-caption=above] {
+    flex-direction: column-reverse;
+  }
+  .my-figure > figcaption {
+    display: flex;
+    justify-content: space-between;
+    gap: var(--my-spacing-lg);
+    color: var(--my-text-neutral-tertiary);
+    font-family: var(--my-caption-family);
+    font-size: var(--my-caption-size);
+    font-weight: var(--my-caption-weight);
+    line-height: var(--my-caption-line-height);
+    letter-spacing: var(--my-caption-tracking);
+  }
+  .my-media-controls {
+    display: flex;
+    align-items: center;
+    gap: var(--my-spacing-xs);
+    box-sizing: border-box;
+    padding-block: var(--my-spacing-sm);
+    padding-inline: var(--my-spacing-md);
+    border-block-start: 1px solid var(--my-border-neutral-separator);
+    background-color: var(--my-overlay-primary);
+    box-shadow: var(--my-shadow-low);
+  }
+  .my-media-controls > .my-slider {
+    flex: 1;
+    min-inline-size: 48px;
+  }
+  .my-media-time {
+    padding-inline: var(--my-spacing-xs);
+    color: var(--my-text-neutral-secondary);
+    font-family: var(--my-caption-family);
+    font-size: var(--my-caption-size);
+    font-weight: var(--my-caption-weight);
+    line-height: var(--my-caption-line-height);
+    letter-spacing: var(--my-caption-tracking);
+    font-variant-numeric: tabular-nums;
+    white-space: nowrap;
+  }
+  .my-video {
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    border: 1px solid var(--my-border-neutral-secondary);
+    border-radius: var(--my-border-radius-rounded);
+    overflow: clip;
+  }
+  .my-video .my-media {
+    border-radius: 0;
+  }
+  .my-video-frame {
+    position: relative;
+    display: grid;
+    place-items: center;
+  }
+  .my-video-frame > * {
+    grid-area: 1/1;
+  }
+  .my-video-frame > :is(.my-icon-button, .my-button) {
+    z-index: 1;
+  }
+  .my-audio {
+    display: flex;
+    align-items: center;
+    gap: var(--my-spacing-lg);
+    box-sizing: border-box;
+    padding: var(--my-spacing-lg);
+    border: 1px solid var(--my-border-neutral-secondary);
+    border-radius: var(--my-border-radius-rounded);
+    background-color: var(--my-overlay-primary);
+    box-shadow: var(--my-shadow-low);
+  }
+  .my-audio > .my-media-controls {
+    flex: 1;
+    min-inline-size: 0;
+    padding: 0;
+    border: 0;
+    background: none;
+    box-shadow: none;
+  }
+  .my-audio-artwork {
+    flex: none;
+    display: grid;
+    place-items: center;
+    inline-size: 48px;
+    block-size: 48px;
+    border-radius: var(--my-border-radius-crisp);
+    background-color: var(--my-bg-neutral-secondary);
+    color: var(--my-fg-neutral-tertiary);
+    overflow: clip;
+  }
+  .my-audio-artwork > img {
+    inline-size: 100%;
+    block-size: 100%;
+    object-fit: cover;
+  }
+  .my-audio-artwork > svg, .my-audio-artwork > .my-icon {
+    inline-size: var(--my-size-3);
+    block-size: var(--my-size-3);
+  }
+  .my-audio-copy {
+    display: flex;
+    flex-direction: column;
+    gap: var(--my-spacing-xxs);
+    min-inline-size: 0;
+  }
+  .my-audio-copy > :first-child {
+    color: var(--my-text-neutral-primary);
+    font-family: var(--my-label-family);
+    font-size: var(--my-label-size);
+    font-weight: var(--my-label-weight);
+    line-height: var(--my-label-line-height);
+    letter-spacing: var(--my-label-tracking);
+  }
+  .my-audio-copy > :not(:first-child) {
+    color: var(--my-text-neutral-tertiary);
+    font-family: var(--my-caption-family);
+    font-size: var(--my-caption-size);
+    font-weight: var(--my-caption-weight);
+    line-height: var(--my-caption-line-height);
+    letter-spacing: var(--my-caption-tracking);
+  }
+  .my-embed {
+    position: relative;
+    display: block;
+    inline-size: 100%;
+    aspect-ratio: 16/9;
+    border-radius: var(--my-border-radius-rounded);
+    background-color: var(--my-bg-neutral-tertiary);
+    overflow: clip;
+  }
+  .my-embed > iframe {
+    display: block;
+    inline-size: 100%;
+    block-size: 100%;
+    border: 0;
+  }
+  .my-embed-provider {
+    position: absolute;
+    inset-block-start: var(--my-spacing-md);
+    inset-inline-start: var(--my-spacing-md);
+    display: inline-flex;
+    align-items: center;
+    gap: var(--my-spacing-xs);
+    padding-block: var(--my-spacing-xxs);
+    padding-inline: var(--my-spacing-xs);
+    border-radius: var(--my-border-radius-crisp);
+    background-color: var(--my-surface-secondary);
+    color: var(--my-text-neutral-secondary);
+    font-family: var(--my-caption-family);
+    font-size: var(--my-caption-size);
+    font-weight: var(--my-caption-weight);
+    line-height: var(--my-caption-line-height);
+    letter-spacing: var(--my-caption-tracking);
+  }
+  .my-embed-provider > svg, .my-embed-provider > .my-icon {
+    inline-size: var(--my-size-1);
+    block-size: var(--my-size-1);
+  }
+  .my-embed-consent {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: var(--my-spacing-md);
+    padding: var(--my-spacing-2xl);
+    color: var(--my-text-neutral-secondary);
+    font-family: var(--my-body-sm-family);
+    font-size: var(--my-body-sm-size);
+    font-weight: var(--my-body-sm-weight);
+    line-height: var(--my-body-sm-line-height);
+    letter-spacing: var(--my-body-sm-tracking);
+    text-align: center;
+  }
+  .my-embed-consent > * {
+    margin: 0;
+  }
+  .my-embed-consent > p {
+    max-inline-size: 40ch;
+  }
+  .my-blockquote {
+    display: flex;
+    flex-direction: column;
+    gap: var(--my-spacing-md);
+    margin: 0;
+    padding-inline-start: var(--my-spacing-2xl);
+    border-inline-start: 2px solid var(--my-border-brand);
+    color: var(--my-text-neutral-primary);
+    font-family: var(--my-body-lg-family);
+    font-size: var(--my-body-lg-size);
+    font-weight: var(--my-body-lg-weight);
+    line-height: var(--my-body-lg-line-height);
+    letter-spacing: var(--my-body-lg-tracking);
+  }
+  .my-blockquote > * {
+    margin: 0;
+  }
+  .my-blockquote > :is(footer, figcaption) {
+    color: var(--my-text-neutral-tertiary);
+    font-family: var(--my-caption-family);
+    font-size: var(--my-caption-size);
+    font-weight: var(--my-caption-weight);
+    line-height: var(--my-caption-line-height);
+    letter-spacing: var(--my-caption-tracking);
+  }
+  .my-blockquote > :is(footer, figcaption) cite {
+    font-style: italic;
+  }
+  .my-blockquote[data-kind=pull] {
+    gap: var(--my-spacing-lg);
+    padding-block: var(--my-spacing-2xl);
+    padding-inline-start: 0;
+    border-inline-start: 0;
+    font-family: var(--my-family-secondary);
+    font-size: var(--my-h4-size);
+    line-height: var(--my-h4-line-height);
+  }
+  .my-blockquote[data-kind=pull] > :is(footer, figcaption) {
+    font-family: var(--my-caption-family);
+  }
+  .my-blockquote[data-kind=pull] > svg, .my-blockquote[data-kind=pull] > .my-icon {
+    inline-size: var(--my-size-5);
+    block-size: var(--my-size-5);
+    color: var(--my-fg-neutral-tertiary);
+  }
+  .my-prose {
+    color: var(--my-text-neutral-primary);
+    font-family: var(--my-body-family);
+    font-size: var(--my-body-size);
+    font-weight: var(--my-body-weight);
+    line-height: var(--my-body-line-height);
+    letter-spacing: var(--my-body-tracking);
+  }
+  .my-prose :where(strong, b) {
+    font-weight: var(--my-font-weight-semibold);
+  }
+  .my-prose :where(em, i) {
+    font-style: italic;
+  }
+  .my-prose :where(mark) {
+    padding-inline: var(--my-spacing-xxs);
+    border-radius: var(--my-border-radius-crisp);
+    background-color: var(--my-decorative-amber-bg);
+    color: var(--my-decorative-amber-text);
+  }
+  .my-prose :where(abbr[title]) {
+    text-decoration: underline dotted;
+    cursor: help;
+  }
+  .my-prose :where(del, s) {
+    color: var(--my-text-error);
+    text-decoration: line-through;
+  }
+  .my-prose :where(ins) {
+    color: var(--my-text-success);
+    text-decoration: underline;
+  }
+  .my-prose :where(sub, sup) {
+    font-size: var(--my-caption-size);
+    line-height: 0;
+  }
+  .my-prose :where(small) {
+    color: var(--my-text-neutral-tertiary);
+    font-family: var(--my-caption-family);
+    font-size: var(--my-caption-size);
+    font-weight: var(--my-caption-weight);
+    line-height: var(--my-caption-line-height);
+    letter-spacing: var(--my-caption-tracking);
+  }
+  .my-prose :where(cite) {
+    color: var(--my-text-neutral-secondary);
+    font-style: italic;
+  }
+  .my-prose :where(dfn) {
+    font-weight: var(--my-font-weight-medium);
+    font-style: italic;
+  }
+  .my-prose :where(time) {
+    color: var(--my-text-neutral-secondary);
+  }
+  .my-media-object {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--my-spacing-2xl);
+  }
+  .my-media-object[data-align=end] {
+    flex-direction: row-reverse;
+  }
+  .my-media-object > .my-media,
+  .my-media-object > .my-avatar {
+    flex: none;
+  }
+  .my-media-object > .my-media {
+    inline-size: var(--my-media-object-media, var(--my-space-40));
+  }
+  .my-media-object > :not(.my-media, .my-avatar) {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: var(--my-spacing-xs);
+    min-inline-size: 0;
+    color: var(--my-text-neutral-secondary);
+    font-family: var(--my-body-sm-family);
+    font-size: var(--my-body-sm-size);
+    font-weight: var(--my-body-sm-weight);
+    line-height: var(--my-body-sm-line-height);
+    letter-spacing: var(--my-body-sm-tracking);
+  }
+  .my-media-object > :not(.my-media, .my-avatar) > * {
+    margin: 0;
+  }
+  .my-media-object > :not(.my-media, .my-avatar) > :is(h1, h2, h3, h4, h5, h6) {
+    color: var(--my-text-neutral-primary);
+    font-family: var(--my-h6-family);
+    font-size: var(--my-h6-size);
+    font-weight: var(--my-h6-weight);
+    line-height: var(--my-h6-line-height);
+    letter-spacing: var(--my-h6-tracking);
+  }
+}
