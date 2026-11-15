@@ -1,0 +1,48 @@
+// Code · Kbd — Figma: BLOCKS › Data Display. Chips on bg/neutral-secondary
+// in the code (mono) role.
+//
+//   <code class="my-code">--spacing-md</code>                 inline
+//   <pre class="my-code"><code>…</code></pre>                 block (scrolls sideways)
+//   <kbd class="my-kbd">⌘</kbd> <kbd class="my-kbd">K</kbd>
+@use "../../../../design/src/scss/my" as my;
+
+@layer mycss.blocks {
+  .my-code {
+    padding-block: my.token(spacing-xxs);
+    padding-inline: my.token(spacing-xs);
+    border-radius: my.token(border-radius-crisp);
+    background-color: my.token(bg-neutral-secondary);
+    color: my.token(text-neutral-primary);
+    @include my.type(code);
+    line-height: my.token(leading-normal); // an inline chip sits in a body line
+
+    &:where(pre) {
+      display: block;
+      margin: 0;
+      padding: my.token(spacing-lg);
+      border-radius: my.token(border-radius-rounded);
+      line-height: my.token(code-line-height);
+      overflow-x: auto;
+      tab-size: 2;
+
+      > code { font: inherit; }
+    }
+  }
+
+  .my-kbd {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    min-inline-size: 24px;
+    padding-inline: my.token(spacing-xs);
+    border: 1px solid my.token(border-neutral-tertiary);
+    border-block-end-width: 2px;
+    border-radius: my.token(border-radius-crisp);
+    background-color: my.token(bg-neutral-secondary);
+    color: my.token(text-neutral-secondary);
+    @include my.type(code);
+    line-height: my.token(leading-normal); // a key cap is one line
+    white-space: nowrap;
+  }
+}

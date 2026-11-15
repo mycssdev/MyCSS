@@ -1,0 +1,102 @@
+// Table — Figma: BLOCKS › Data Display › Table (+ .Table Row, .Table Cell).
+// Hairlines, not boxes: rows divide with one separator line, columns never.
+// The wrapper is the data surface and the horizontal scroll container.
+//
+//   <div class="my-table" role="region" aria-labelledby="t1" tabindex="0">
+//     <table>
+//       <caption id="t1">Documents — 5 of 128</caption>
+//       <thead><tr><th scope="col" aria-sort="ascending"><button>Name <svg …/></button></th><th scope="col" data-align="end">Size</th></tr></thead>
+//       <tbody><tr aria-selected="true"><td>Brief.pdf</td><td data-align="end">1.2 MB</td></tr></tbody>
+//     </table>
+//   </div>
+//   Zebra rows: data-striped on the wrapper (hover wins over the stripe).
+//   Rows highlight on hover only when the table is interactive: data-hover.
+@use "../../../../design/src/scss/my" as my;
+
+@layer mycss.blocks {
+  .my-table {
+    box-sizing: border-box;
+    max-inline-size: 100%;
+    overflow-x: auto;
+    border: 1px solid my.token(border-neutral-secondary);
+    border-radius: my.token(border-radius-rounded);
+    background-color: my.token(overlay-primary);
+    box-shadow: my.token(shadow-low);
+
+    &:focus-visible {
+      outline: none;
+      box-shadow: 0 0 0 3px my.token(effect-ring-brand);
+    }
+    > table {
+      inline-size: 100%;
+      border-collapse: collapse;
+      border-spacing: 0;
+    }
+    caption {
+      padding-block: my.token(spacing-md);
+      padding-inline: my.token(spacing-lg);
+      border-block-end: my.token(border-width-2) solid my.token(border-neutral-separator);
+      color: my.token(text-neutral-secondary);
+      @include my.type(label);
+      text-align: start;
+    }
+    :is(th, td) {
+      padding-block: my.token(spacing-md);
+      padding-inline: my.token(spacing-lg);
+      text-align: start;
+      vertical-align: middle;
+
+      &[data-align="end"] {
+        text-align: end;
+        font-variant-numeric: tabular-nums;
+      }
+    }
+    th {
+      color: my.token(text-neutral-secondary);
+      @include my.type(label);
+      white-space: nowrap;
+
+      &:is([aria-sort="ascending"], [aria-sort="descending"]) { color: my.token(text-neutral-primary); }
+      // the sort control
+      > button {
+        display: inline-flex;
+        align-items: center;
+        gap: my.token(spacing-sm);
+        margin: 0;
+        padding: 0;
+        border: 0;
+        border-radius: my.token(border-radius-crisp);
+        background: none;
+        color: inherit;
+        font: inherit;
+        letter-spacing: inherit;
+        cursor: pointer;
+
+        > svg, > .my-icon { flex: none; inline-size: my.token(size-1); block-size: my.token(size-1); }
+        &:focus-visible { outline: none; box-shadow: 0 0 0 3px my.token(effect-ring-brand); }
+      }
+    }
+    td {
+      color: my.token(text-neutral-primary);
+      @include my.type(body-sm);
+    }
+    thead tr { background-color: my.token(bg-neutral-secondary); }
+    tr { border-block-end: my.token(border-width-2) solid my.token(border-neutral-separator); }
+    tbody:last-child > tr:last-child,
+    tfoot > tr:last-child { border-block-end: 0; }
+    tfoot :is(th, td) {
+      color: my.token(text-neutral-primary);
+      @include my.type(label);
+    }
+
+    &[data-striped] tbody > tr:nth-child(even) { background-color: my.token(bg-neutral-secondary); }
+    &[data-hover] tbody > tr:hover,
+    tbody > tr[data-state="hover"] { background-color: my.token(bg-neutral-primary_hover); }
+    // selected: soft brand fill + a 2px indicator on the inline-start edge
+    tbody > tr:is([aria-selected="true"], [data-state="selected"]) {
+      background-color: my.token(bg-brand-subtle);
+
+      > :first-child { box-shadow: inset calc(2px * #{my.token(dir)}) 0 0 my.token(bg-brand-solid); }
+    }
+  }
+}

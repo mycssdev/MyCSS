@@ -1,0 +1,158 @@
+// Card · Stat — Figma: BLOCKS › Data Display. Both sit on the data surface
+// (overlay/primary, 1px border, depth/low, rounded).
+// Card: Kind Static|Interactive · State Default|Hover|Focus; optional media,
+// subtitle, menu, footer. Stat: Trend Up|Down|Flat.
+//
+//   <article class="my-card">
+//     <img class="my-card-media" src="…" alt="">
+//     <div class="my-card-body">
+//       <header class="my-card-header"><h3><a href="…">Design tokens</a></h3></header>
+//       <p class="my-card-subtitle">Updated 2 Sep</p>
+//       <p>A unified set of variables…</p>
+//     </div>
+//     <footer class="my-card-footer">…</footer>
+//   </article>
+//   Interactive: data-kind="interactive". The title link covers the whole
+//   card, so the card is one click target with one accessible name.
+//
+//   <div class="my-stat"><p class="my-stat-label">Active users</p><p class="my-stat-value">12,480</p>
+//     <p class="my-stat-delta" data-trend="up"><svg …/><span>+12.4%</span><span>vs last month</span></p></div>
+//
+// Translation note: Figma's focused card switches fill to surface/secondary;
+// the CSS keeps the card's fill and only swaps the shadow for the ring.
+@use "../../../../design/src/scss/my" as my;
+
+@mixin data-surface {
+  box-sizing: border-box;
+  border: 1px solid my.token(border-neutral-secondary);
+  border-radius: my.token(border-radius-rounded);
+  background-color: my.token(overlay-primary);
+  box-shadow: my.token(shadow-low);
+}
+
+@layer mycss.blocks {
+  .my-card {
+    @include data-surface;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    overflow: clip;
+    color: my.token(text-neutral-secondary);
+    @include my.type(body-sm);
+    transition-property: border-color, box-shadow;
+    transition-duration: my.token(duration-fast-2);
+    transition-timing-function: my.token(ease-standard);
+
+    &[data-kind="interactive"] {
+      overflow: visible;
+
+      .my-card-header a {
+        color: inherit;
+        text-decoration: none;
+
+        &::after { content: ""; position: absolute; inset: 0; border-radius: inherit; }
+        &:focus-visible { outline: none; }
+      }
+      // anything else clickable stays above the stretched link
+      :is(button, a:not(.my-card-header a), input, select, textarea) { position: relative; z-index: 1; }
+
+      &:hover,
+      &[data-state="hover"] {
+        border-color: my.token(border-neutral-tertiary);
+        box-shadow: my.token(shadow-mid);
+      }
+      &:has(.my-card-header a:focus-visible),
+      &[data-state="focus"] {
+        box-shadow: 0 0 0 3px my.token(effect-ring-brand);
+      }
+    }
+  }
+  .my-card-media {
+    display: block;
+    inline-size: 100%;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    background-color: my.token(bg-neutral-tertiary);
+  }
+  .my-card-body {
+    display: flex;
+    flex-direction: column;
+    gap: my.token(spacing-md);
+    padding: my.token(spacing-2xl);
+
+    > * { margin: 0; }
+  }
+  .my-card-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: my.token(spacing-md);
+
+    > :is(h1, h2, h3, h4, h5, h6) {
+      flex: 1;
+      min-inline-size: 0;
+      margin: 0;
+      color: my.token(text-neutral-primary);
+      @include my.type(h6);
+    }
+    // a title link reads as the title, underlined on hover
+    a {
+      border-radius: my.token(border-radius-crisp);
+      color: inherit;
+      text-decoration: none;
+
+      &:hover { text-decoration: underline; }
+      &:focus-visible { outline: none; box-shadow: 0 0 0 3px my.token(effect-ring-brand); }
+    }
+  }
+  .my-card[data-kind="interactive"] .my-card-header a {
+    &:hover { text-decoration: none; }
+    &:focus-visible { box-shadow: none; }
+  }
+  .my-card-subtitle {
+    margin-block-start: calc(-1 * #{my.token(spacing-sm)});
+    color: my.token(text-neutral-tertiary);
+    @include my.type(caption);
+  }
+  .my-card-footer {
+    display: flex;
+    align-items: center;
+    gap: my.token(spacing-sm);
+    padding-block: my.token(spacing-lg);
+    padding-inline: my.token(spacing-2xl);
+    border-block-start: my.token(border-width-2) solid my.token(border-neutral-separator);
+  }
+
+  .my-stat {
+    @include data-surface;
+    display: flex;
+    flex-direction: column;
+    gap: my.token(spacing-xs);
+    padding: my.token(spacing-2xl);
+
+    > * { margin: 0; }
+  }
+  .my-stat-label {
+    color: my.token(text-neutral-tertiary);
+    @include my.type(label);
+  }
+  .my-stat-value {
+    color: my.token(text-neutral-primary);
+    @include my.type(h2);
+    font-weight: my.token(font-weight-semibold);
+    font-variant-numeric: tabular-nums;
+  }
+  .my-stat-delta {
+    display: flex;
+    align-items: center;
+    gap: my.token(spacing-xs);
+    color: my.token(text-neutral-tertiary);
+    @include my.type(caption);
+
+    > svg, > .my-icon { flex: none; inline-size: my.token(size-1); block-size: my.token(size-1); }
+    &[data-trend="up"] > :is(svg, .my-icon, span:first-of-type) { color: my.token(text-success); }
+    &[data-trend="down"] > :is(svg, .my-icon, span:first-of-type) { color: my.token(text-error); }
+    &[data-trend="up"] > :is(svg, .my-icon) { color: my.token(fg-success-primary); }
+    &[data-trend="down"] > :is(svg, .my-icon) { color: my.token(fg-error-primary); }
+  }
+}

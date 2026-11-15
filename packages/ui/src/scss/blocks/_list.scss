@@ -1,0 +1,107 @@
+// List · Description List — Figma: BLOCKS › Data Display.
+// List: Kind Unordered|Ordered|Icon|Plain (+ Divided). Markers sit in a fixed
+// 20px column so text lines up across kinds.
+// Description List: Layout Stacked|Inline.
+//
+//   <ul class="my-list"><li>List item</li></ul>
+//   <ol class="my-list"><li>List item</li></ol>
+//   <ul class="my-list" data-kind="icon"><li><svg …check/>List item</li></ul>
+//   <ul class="my-list" data-kind="plain" data-divided>…</ul>
+//   <dl class="my-description-list"><div><dt>Owner</dt><dd>A. Okafor</dd></div>…</dl>
+//   <dl class="my-description-list" data-layout="inline">…</dl>
+@use "../../../../design/src/scss/my" as my;
+
+@layer mycss.blocks {
+  .my-list {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    counter-reset: my-list;
+    color: my.token(text-neutral-primary);
+    @include my.type(body-sm);
+
+    > li {
+      position: relative;
+      padding-block: my.token(spacing-xs);
+      padding-inline-start: calc(20px + #{my.token(spacing-md)});
+      counter-increment: my-list;
+
+      &::before {
+        position: absolute;
+        inset-inline-start: 0;
+        inline-size: 20px;
+        color: my.token(text-neutral-tertiary);
+        text-align: center;
+      }
+      > :is(svg, .my-icon):first-child {
+        position: absolute;
+        inset-inline-start: 2px;
+        inset-block-start: calc(#{my.token(spacing-xs)} + (#{my.token(body-sm-size)} * #{my.token(body-sm-line-height)} - #{my.token(size-1)}) / 2);
+        inline-size: my.token(size-1);
+        block-size: my.token(size-1);
+        color: my.token(fg-success-primary);
+      }
+      > small {
+        display: block;
+        color: my.token(text-neutral-secondary);
+        @include my.type(caption);
+      }
+    }
+    &:where(ul):not([data-kind]) > li::before {
+      content: "";
+      inset-block-start: calc(#{my.token(spacing-xs)} + (#{my.token(body-sm-size)} * #{my.token(body-sm-line-height)} - 6px) / 2);
+      inset-inline-start: 7px;
+      inline-size: 6px;
+      block-size: 6px;
+      border-radius: 50%;
+      background-color: my.token(fg-neutral-tertiary);
+    }
+    &:where(ol):not([data-kind]) > li::before {
+      content: counter(my-list) ".";
+      text-align: end;
+      font-variant-numeric: tabular-nums;
+    }
+    &[data-divided] > li + li {
+      border-block-start: my.token(border-width-2) solid my.token(border-neutral-separator);
+    }
+    // nested lists
+    > li > .my-list { margin-block-start: my.token(spacing-xs); }
+  }
+
+  .my-description-list {
+    display: flex;
+    flex-direction: column;
+    gap: my.token(spacing-lg);
+    margin: 0;
+
+    > div {
+      display: flex;
+      flex-direction: column;
+      gap: my.token(spacing-xxs);
+    }
+    dt {
+      color: my.token(text-neutral-tertiary);
+      @include my.type(label);
+    }
+    dd {
+      margin: 0;
+      color: my.token(text-neutral-primary);
+      @include my.type(body-sm);
+    }
+    &[data-layout="inline"] {
+      gap: 0;
+
+      > div {
+        flex-direction: row;
+        align-items: baseline;
+        gap: my.token(spacing-lg);
+        padding-block: my.token(spacing-md);
+        border-block-end: my.token(border-width-2) solid my.token(border-neutral-separator);
+      }
+      dt { flex: none; inline-size: 160px; }
+      dd { flex: 1; min-inline-size: 0; }
+    }
+  }
+}

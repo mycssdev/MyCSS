@@ -1,0 +1,197 @@
+// Timeline · Tree · Divider — Figma: BLOCKS › Data Display.
+// Timeline is history (not a process: that is Stepper). Item Status
+// Complete|Current|Upcoming.
+// Tree: item Kind Branch Collapsed|Branch Expanded|Leaf · State Default|
+// Hover|Selected. Branches are native <details>, so they open without script.
+//
+//   <ol class="my-timeline">
+//     <li class="my-timeline-item" data-status="complete"><time>2 Sep · 14:20</time><h4>Version exported</h4><p>Token sets rebuilt.</p></li>
+//     <li class="my-timeline-item" data-status="current">…</li>
+//     <li class="my-timeline-item">…</li>                       (upcoming is the default)
+//   </ol>
+//   <div class="my-tree" role="tree">
+//     <details open><summary class="my-tree-item"><svg …folder/>Foundations</summary>
+//       <div class="my-tree-group"><a class="my-tree-item" aria-selected="true" href="…"><svg …page/>Colours</a></div>
+//     </details>
+//     <a class="my-tree-item" href="…"><svg …page/>Readme</a>
+//   </div>
+//   <hr class="my-divider">   <div class="my-divider" role="separator">or</div>
+//   <span class="my-divider" data-orientation="vertical"></span>
+@use "../../../../design/src/scss/my" as my;
+@use "glyphs";
+
+@layer mycss.blocks {
+  .my-timeline {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  .my-timeline-item {
+    --_dot: #{my.token(bg-neutral-quaternary)};
+    --_line: #{my.token(border-neutral-separator)};
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: my.token(spacing-xxs);
+    padding-block-end: my.token(spacing-2xl);
+    padding-inline-start: calc(12px + #{my.token(spacing-lg)});
+
+    > * { margin: 0; }
+    // dot
+    &::before {
+      content: "";
+      position: absolute;
+      inset-block-start: 3px;
+      inset-inline-start: 0;
+      box-sizing: border-box;
+      inline-size: 12px;
+      block-size: 12px;
+      border-radius: 50%;
+      background-color: var(--_dot);
+    }
+    // connector to the next item
+    &:not(:last-child)::after {
+      content: "";
+      position: absolute;
+      inset-block: 15px 0;
+      inset-inline-start: 5px;
+      inline-size: 2px;
+      background-color: var(--_line);
+    }
+    &:last-child { padding-block-end: 0; }
+
+    > time {
+      color: my.token(text-neutral-tertiary);
+      @include my.type(caption);
+    }
+    > :is(h1, h2, h3, h4, h5, h6) {
+      color: my.token(text-neutral-tertiary);
+      @include my.type(label);
+    }
+    > p {
+      color: my.token(text-neutral-secondary);
+      @include my.type(body-sm);
+    }
+    &[data-status="complete"] {
+      --_dot: #{my.token(bg-brand-solid)};
+      --_line: #{my.token(border-neutral-tertiary)};
+
+      > :is(h1, h2, h3, h4, h5, h6) { color: my.token(text-neutral-primary); }
+    }
+    &[data-status="current"] {
+      --_dot: #{my.token(bg-brand-subtle)};
+      --_line: #{my.token(border-neutral-tertiary)};
+
+      &::before { border: 2px solid my.token(border-brand); }
+      > :is(h1, h2, h3, h4, h5, h6) { color: my.token(text-brand); }
+    }
+  }
+
+  .my-tree {
+    display: flex;
+    flex-direction: column;
+
+    details > summary { list-style: none; }
+    details > summary::-webkit-details-marker { display: none; }
+    // toggle chevron for branches, an empty slot for leaves
+    .my-tree-item::before {
+      @include glyphs.glyph(glyphs.$chevron-right);
+      background-color: transparent;
+    }
+    summary.my-tree-item::before {
+      background-color: my.token(fg-neutral-tertiary);
+      transition: rotate my.token(duration-fast-2) my.token(ease-standard);
+    }
+    summary.my-tree-item:dir(rtl)::before { scale: -1 1; }
+    details[open] > summary.my-tree-item::before { rotate: 90deg; }
+    details[open] > summary.my-tree-item:dir(rtl)::before { rotate: -90deg; }
+  }
+  .my-tree-group {
+    display: flex;
+    flex-direction: column;
+    padding-inline-start: my.token(spacing-2xl);
+  }
+  .my-tree-item {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: my.token(spacing-sm);
+    padding-block: my.token(spacing-md);
+    padding-inline: my.token(spacing-lg);
+    border-radius: my.token(border-radius-soft);
+    color: my.token(text-neutral-primary);
+    @include my.type(body-sm);
+    text-decoration: none;
+    cursor: pointer;
+    transition-property: background-color, box-shadow;
+    transition-duration: my.token(duration-fast-2);
+    transition-timing-function: my.token(ease-standard);
+
+    > svg, > .my-icon {
+      flex: none;
+      inline-size: my.token(size-1);
+      block-size: my.token(size-1);
+      color: my.token(fg-neutral-secondary);
+    }
+    &:hover,
+    &[data-state="hover"] {
+      background-color: my.token(bg-neutral-primary_hover);
+    }
+    &:is([aria-selected="true"], [aria-current]:not([aria-current="false"]), [data-state="selected"]) {
+      background-color: my.token(bg-brand-subtle);
+      color: my.token(text-brand);
+
+      > svg, > .my-icon { color: my.token(fg-brand); }
+      &:is(summary)::before { background-color: my.token(fg-brand); }
+      // 2px selection indicator
+      &::after {
+        content: "";
+        position: absolute;
+        inset-block: my.token(spacing-sm);
+        inset-inline-start: 0;
+        inline-size: 2px;
+        background-color: my.token(bg-brand-solid);
+      }
+    }
+    &:focus-visible {
+      outline: none;
+      box-shadow: 0 0 0 3px my.token(effect-ring-brand);
+    }
+  }
+
+  .my-divider {
+    display: block;
+    block-size: 1px;
+    margin: 0;
+    border: 0;
+    background-color: my.token(border-neutral-separator);
+
+    &[data-orientation="vertical"] {
+      display: inline-block;
+      align-self: stretch;
+      inline-size: 1px;
+      block-size: auto;
+      min-block-size: 24px;
+    }
+    // with a label: the line splits around the text
+    &:where(:not(hr, :empty)) {
+      display: flex;
+      align-items: center;
+      gap: my.token(spacing-md);
+      block-size: auto;
+      background-color: transparent;
+      color: my.token(text-neutral-tertiary);
+      @include my.type(caption);
+
+      &::before,
+      &::after {
+        content: "";
+        flex: 1;
+        block-size: 1px;
+        background-color: my.token(border-neutral-separator);
+      }
+    }
+  }
+}
