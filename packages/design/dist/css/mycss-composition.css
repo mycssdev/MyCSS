@@ -52,7 +52,7 @@
   .c-grid {
     display: grid;
     gap: var(--my-grid-space, var(--my-gutter-md));
-    grid-template-columns: repeat(auto-fit, minmax(min(var(--my-grid-min, var(--my-space-64)), 100%), 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(var(--my-grid-min, var(--my-width-3xs)), 100%), 1fr));
   }
   .c-cover {
     display: flex;

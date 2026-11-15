@@ -129,6 +129,9 @@
   .u-text-white {
     color: var(--my-text-white);
   }
+  .u-text-brand {
+    color: var(--my-text-brand);
+  }
   .u-text-brand-primary {
     color: var(--my-text-brand-primary);
   }
@@ -168,6 +171,9 @@
   .u-text-neutral-disabled {
     color: var(--my-text-neutral-disabled);
   }
+  .u-text-on-neutral-solid {
+    color: var(--my-text-on-neutral-solid);
+  }
   .u-bg-overlay {
     background-color: var(--my-bg-overlay);
   }
@@ -177,8 +183,17 @@
   .u-bg-panel {
     background-color: var(--my-bg-panel);
   }
+  .u-bg-brand-faint {
+    background-color: var(--my-bg-brand-faint);
+  }
+  .u-bg-brand-subtle {
+    background-color: var(--my-bg-brand-subtle);
+  }
   .u-bg-brand-primary {
     background-color: var(--my-bg-brand-primary);
+  }
+  .u-bg-brand-soft {
+    background-color: var(--my-bg-brand-soft);
   }
   .u-bg-brand-secondary {
     background-color: var(--my-bg-brand-secondary);
@@ -188,6 +203,9 @@
   }
   .u-bg-brand-solid_hover {
     background-color: var(--my-bg-brand-solid_hover);
+  }
+  .u-bg-brand-solid_active {
+    background-color: var(--my-bg-brand-solid_active);
   }
   .u-bg-error-primary {
     background-color: var(--my-bg-error-primary);
@@ -201,6 +219,9 @@
   .u-bg-error-solid_hover {
     background-color: var(--my-bg-error-solid_hover);
   }
+  .u-bg-error-solid_active {
+    background-color: var(--my-bg-error-solid_active);
+  }
   .u-bg-warning-primary {
     background-color: var(--my-bg-warning-primary);
   }
@@ -209,6 +230,12 @@
   }
   .u-bg-warning-solid {
     background-color: var(--my-bg-warning-solid);
+  }
+  .u-bg-warning-solid_hover {
+    background-color: var(--my-bg-warning-solid_hover);
+  }
+  .u-bg-warning-solid_active {
+    background-color: var(--my-bg-warning-solid_active);
   }
   .u-bg-success-primary {
     background-color: var(--my-bg-success-primary);
@@ -219,6 +246,12 @@
   .u-bg-success-solid {
     background-color: var(--my-bg-success-solid);
   }
+  .u-bg-success-solid_hover {
+    background-color: var(--my-bg-success-solid_hover);
+  }
+  .u-bg-success-solid_active {
+    background-color: var(--my-bg-success-solid_active);
+  }
   .u-bg-info-primary {
     background-color: var(--my-bg-info-primary);
   }
@@ -227,6 +260,12 @@
   }
   .u-bg-info-solid {
     background-color: var(--my-bg-info-solid);
+  }
+  .u-bg-info-solid_hover {
+    background-color: var(--my-bg-info-solid_hover);
+  }
+  .u-bg-info-solid_active {
+    background-color: var(--my-bg-info-solid_active);
   }
   .u-bg-neutral-primary {
     background-color: var(--my-bg-neutral-primary);
@@ -249,8 +288,14 @@
   .u-bg-neutral-tertiary {
     background-color: var(--my-bg-neutral-tertiary);
   }
+  .u-bg-neutral-tertiary_hover {
+    background-color: var(--my-bg-neutral-tertiary_hover);
+  }
   .u-bg-neutral-quaternary {
     background-color: var(--my-bg-neutral-quaternary);
+  }
+  .u-bg-neutral-quaternary_hover {
+    background-color: var(--my-bg-neutral-quaternary_hover);
   }
   .u-bg-neutral-active {
     background-color: var(--my-bg-neutral-active);
@@ -260,6 +305,12 @@
   }
   .u-bg-neutral-disabled_subtle {
     background-color: var(--my-bg-neutral-disabled_subtle);
+  }
+  .u-bg-neutral-primary-solid_hover {
+    background-color: var(--my-bg-neutral-primary-solid_hover);
+  }
+  .u-bg-neutral-primary-solid_active {
+    background-color: var(--my-bg-neutral-primary-solid_active);
   }
   .u-border-brand {
     border-color: var(--my-border-brand);
@@ -302,6 +353,616 @@
   }
   .u-border-neutral-separator {
     border-color: var(--my-border-neutral-separator);
+  }
+  .u-bg-decorative-tomato {
+    background-color: var(--my-decorative-tomato-bg);
+  }
+  .u-decorative-tomato {
+    background-color: var(--my-decorative-tomato-bg);
+    color: var(--my-decorative-tomato-text);
+  }
+  .u-border-decorative-tomato {
+    border-color: var(--my-decorative-tomato-border);
+  }
+  .u-bg-decorative-tomato-solid {
+    background-color: var(--my-decorative-tomato-solid);
+  }
+  .u-decorative-tomato-solid {
+    background-color: var(--my-decorative-tomato-solid);
+    color: var(--my-decorative-tomato-on-solid);
+  }
+  .u-text-decorative-tomato {
+    color: var(--my-decorative-tomato-text);
+  }
+  .u-text-decorative-tomato-on-solid {
+    color: var(--my-decorative-tomato-on-solid);
+  }
+  .u-bg-decorative-red {
+    background-color: var(--my-decorative-red-bg);
+  }
+  .u-decorative-red {
+    background-color: var(--my-decorative-red-bg);
+    color: var(--my-decorative-red-text);
+  }
+  .u-border-decorative-red {
+    border-color: var(--my-decorative-red-border);
+  }
+  .u-bg-decorative-red-solid {
+    background-color: var(--my-decorative-red-solid);
+  }
+  .u-decorative-red-solid {
+    background-color: var(--my-decorative-red-solid);
+    color: var(--my-decorative-red-on-solid);
+  }
+  .u-text-decorative-red {
+    color: var(--my-decorative-red-text);
+  }
+  .u-text-decorative-red-on-solid {
+    color: var(--my-decorative-red-on-solid);
+  }
+  .u-bg-decorative-ruby {
+    background-color: var(--my-decorative-ruby-bg);
+  }
+  .u-decorative-ruby {
+    background-color: var(--my-decorative-ruby-bg);
+    color: var(--my-decorative-ruby-text);
+  }
+  .u-border-decorative-ruby {
+    border-color: var(--my-decorative-ruby-border);
+  }
+  .u-bg-decorative-ruby-solid {
+    background-color: var(--my-decorative-ruby-solid);
+  }
+  .u-decorative-ruby-solid {
+    background-color: var(--my-decorative-ruby-solid);
+    color: var(--my-decorative-ruby-on-solid);
+  }
+  .u-text-decorative-ruby {
+    color: var(--my-decorative-ruby-text);
+  }
+  .u-text-decorative-ruby-on-solid {
+    color: var(--my-decorative-ruby-on-solid);
+  }
+  .u-bg-decorative-crimson {
+    background-color: var(--my-decorative-crimson-bg);
+  }
+  .u-decorative-crimson {
+    background-color: var(--my-decorative-crimson-bg);
+    color: var(--my-decorative-crimson-text);
+  }
+  .u-border-decorative-crimson {
+    border-color: var(--my-decorative-crimson-border);
+  }
+  .u-bg-decorative-crimson-solid {
+    background-color: var(--my-decorative-crimson-solid);
+  }
+  .u-decorative-crimson-solid {
+    background-color: var(--my-decorative-crimson-solid);
+    color: var(--my-decorative-crimson-on-solid);
+  }
+  .u-text-decorative-crimson {
+    color: var(--my-decorative-crimson-text);
+  }
+  .u-text-decorative-crimson-on-solid {
+    color: var(--my-decorative-crimson-on-solid);
+  }
+  .u-bg-decorative-pink {
+    background-color: var(--my-decorative-pink-bg);
+  }
+  .u-decorative-pink {
+    background-color: var(--my-decorative-pink-bg);
+    color: var(--my-decorative-pink-text);
+  }
+  .u-border-decorative-pink {
+    border-color: var(--my-decorative-pink-border);
+  }
+  .u-bg-decorative-pink-solid {
+    background-color: var(--my-decorative-pink-solid);
+  }
+  .u-decorative-pink-solid {
+    background-color: var(--my-decorative-pink-solid);
+    color: var(--my-decorative-pink-on-solid);
+  }
+  .u-text-decorative-pink {
+    color: var(--my-decorative-pink-text);
+  }
+  .u-text-decorative-pink-on-solid {
+    color: var(--my-decorative-pink-on-solid);
+  }
+  .u-bg-decorative-plum {
+    background-color: var(--my-decorative-plum-bg);
+  }
+  .u-decorative-plum {
+    background-color: var(--my-decorative-plum-bg);
+    color: var(--my-decorative-plum-text);
+  }
+  .u-border-decorative-plum {
+    border-color: var(--my-decorative-plum-border);
+  }
+  .u-bg-decorative-plum-solid {
+    background-color: var(--my-decorative-plum-solid);
+  }
+  .u-decorative-plum-solid {
+    background-color: var(--my-decorative-plum-solid);
+    color: var(--my-decorative-plum-on-solid);
+  }
+  .u-text-decorative-plum {
+    color: var(--my-decorative-plum-text);
+  }
+  .u-text-decorative-plum-on-solid {
+    color: var(--my-decorative-plum-on-solid);
+  }
+  .u-bg-decorative-purple {
+    background-color: var(--my-decorative-purple-bg);
+  }
+  .u-decorative-purple {
+    background-color: var(--my-decorative-purple-bg);
+    color: var(--my-decorative-purple-text);
+  }
+  .u-border-decorative-purple {
+    border-color: var(--my-decorative-purple-border);
+  }
+  .u-bg-decorative-purple-solid {
+    background-color: var(--my-decorative-purple-solid);
+  }
+  .u-decorative-purple-solid {
+    background-color: var(--my-decorative-purple-solid);
+    color: var(--my-decorative-purple-on-solid);
+  }
+  .u-text-decorative-purple {
+    color: var(--my-decorative-purple-text);
+  }
+  .u-text-decorative-purple-on-solid {
+    color: var(--my-decorative-purple-on-solid);
+  }
+  .u-bg-decorative-violet {
+    background-color: var(--my-decorative-violet-bg);
+  }
+  .u-decorative-violet {
+    background-color: var(--my-decorative-violet-bg);
+    color: var(--my-decorative-violet-text);
+  }
+  .u-border-decorative-violet {
+    border-color: var(--my-decorative-violet-border);
+  }
+  .u-bg-decorative-violet-solid {
+    background-color: var(--my-decorative-violet-solid);
+  }
+  .u-decorative-violet-solid {
+    background-color: var(--my-decorative-violet-solid);
+    color: var(--my-decorative-violet-on-solid);
+  }
+  .u-text-decorative-violet {
+    color: var(--my-decorative-violet-text);
+  }
+  .u-text-decorative-violet-on-solid {
+    color: var(--my-decorative-violet-on-solid);
+  }
+  .u-bg-decorative-iris {
+    background-color: var(--my-decorative-iris-bg);
+  }
+  .u-decorative-iris {
+    background-color: var(--my-decorative-iris-bg);
+    color: var(--my-decorative-iris-text);
+  }
+  .u-border-decorative-iris {
+    border-color: var(--my-decorative-iris-border);
+  }
+  .u-bg-decorative-iris-solid {
+    background-color: var(--my-decorative-iris-solid);
+  }
+  .u-decorative-iris-solid {
+    background-color: var(--my-decorative-iris-solid);
+    color: var(--my-decorative-iris-on-solid);
+  }
+  .u-text-decorative-iris {
+    color: var(--my-decorative-iris-text);
+  }
+  .u-text-decorative-iris-on-solid {
+    color: var(--my-decorative-iris-on-solid);
+  }
+  .u-bg-decorative-indigo {
+    background-color: var(--my-decorative-indigo-bg);
+  }
+  .u-decorative-indigo {
+    background-color: var(--my-decorative-indigo-bg);
+    color: var(--my-decorative-indigo-text);
+  }
+  .u-border-decorative-indigo {
+    border-color: var(--my-decorative-indigo-border);
+  }
+  .u-bg-decorative-indigo-solid {
+    background-color: var(--my-decorative-indigo-solid);
+  }
+  .u-decorative-indigo-solid {
+    background-color: var(--my-decorative-indigo-solid);
+    color: var(--my-decorative-indigo-on-solid);
+  }
+  .u-text-decorative-indigo {
+    color: var(--my-decorative-indigo-text);
+  }
+  .u-text-decorative-indigo-on-solid {
+    color: var(--my-decorative-indigo-on-solid);
+  }
+  .u-bg-decorative-blue {
+    background-color: var(--my-decorative-blue-bg);
+  }
+  .u-decorative-blue {
+    background-color: var(--my-decorative-blue-bg);
+    color: var(--my-decorative-blue-text);
+  }
+  .u-border-decorative-blue {
+    border-color: var(--my-decorative-blue-border);
+  }
+  .u-bg-decorative-blue-solid {
+    background-color: var(--my-decorative-blue-solid);
+  }
+  .u-decorative-blue-solid {
+    background-color: var(--my-decorative-blue-solid);
+    color: var(--my-decorative-blue-on-solid);
+  }
+  .u-text-decorative-blue {
+    color: var(--my-decorative-blue-text);
+  }
+  .u-text-decorative-blue-on-solid {
+    color: var(--my-decorative-blue-on-solid);
+  }
+  .u-bg-decorative-cyan {
+    background-color: var(--my-decorative-cyan-bg);
+  }
+  .u-decorative-cyan {
+    background-color: var(--my-decorative-cyan-bg);
+    color: var(--my-decorative-cyan-text);
+  }
+  .u-border-decorative-cyan {
+    border-color: var(--my-decorative-cyan-border);
+  }
+  .u-bg-decorative-cyan-solid {
+    background-color: var(--my-decorative-cyan-solid);
+  }
+  .u-decorative-cyan-solid {
+    background-color: var(--my-decorative-cyan-solid);
+    color: var(--my-decorative-cyan-on-solid);
+  }
+  .u-text-decorative-cyan {
+    color: var(--my-decorative-cyan-text);
+  }
+  .u-text-decorative-cyan-on-solid {
+    color: var(--my-decorative-cyan-on-solid);
+  }
+  .u-bg-decorative-teal {
+    background-color: var(--my-decorative-teal-bg);
+  }
+  .u-decorative-teal {
+    background-color: var(--my-decorative-teal-bg);
+    color: var(--my-decorative-teal-text);
+  }
+  .u-border-decorative-teal {
+    border-color: var(--my-decorative-teal-border);
+  }
+  .u-bg-decorative-teal-solid {
+    background-color: var(--my-decorative-teal-solid);
+  }
+  .u-decorative-teal-solid {
+    background-color: var(--my-decorative-teal-solid);
+    color: var(--my-decorative-teal-on-solid);
+  }
+  .u-text-decorative-teal {
+    color: var(--my-decorative-teal-text);
+  }
+  .u-text-decorative-teal-on-solid {
+    color: var(--my-decorative-teal-on-solid);
+  }
+  .u-bg-decorative-jade {
+    background-color: var(--my-decorative-jade-bg);
+  }
+  .u-decorative-jade {
+    background-color: var(--my-decorative-jade-bg);
+    color: var(--my-decorative-jade-text);
+  }
+  .u-border-decorative-jade {
+    border-color: var(--my-decorative-jade-border);
+  }
+  .u-bg-decorative-jade-solid {
+    background-color: var(--my-decorative-jade-solid);
+  }
+  .u-decorative-jade-solid {
+    background-color: var(--my-decorative-jade-solid);
+    color: var(--my-decorative-jade-on-solid);
+  }
+  .u-text-decorative-jade {
+    color: var(--my-decorative-jade-text);
+  }
+  .u-text-decorative-jade-on-solid {
+    color: var(--my-decorative-jade-on-solid);
+  }
+  .u-bg-decorative-green {
+    background-color: var(--my-decorative-green-bg);
+  }
+  .u-decorative-green {
+    background-color: var(--my-decorative-green-bg);
+    color: var(--my-decorative-green-text);
+  }
+  .u-border-decorative-green {
+    border-color: var(--my-decorative-green-border);
+  }
+  .u-bg-decorative-green-solid {
+    background-color: var(--my-decorative-green-solid);
+  }
+  .u-decorative-green-solid {
+    background-color: var(--my-decorative-green-solid);
+    color: var(--my-decorative-green-on-solid);
+  }
+  .u-text-decorative-green {
+    color: var(--my-decorative-green-text);
+  }
+  .u-text-decorative-green-on-solid {
+    color: var(--my-decorative-green-on-solid);
+  }
+  .u-bg-decorative-grass {
+    background-color: var(--my-decorative-grass-bg);
+  }
+  .u-decorative-grass {
+    background-color: var(--my-decorative-grass-bg);
+    color: var(--my-decorative-grass-text);
+  }
+  .u-border-decorative-grass {
+    border-color: var(--my-decorative-grass-border);
+  }
+  .u-bg-decorative-grass-solid {
+    background-color: var(--my-decorative-grass-solid);
+  }
+  .u-decorative-grass-solid {
+    background-color: var(--my-decorative-grass-solid);
+    color: var(--my-decorative-grass-on-solid);
+  }
+  .u-text-decorative-grass {
+    color: var(--my-decorative-grass-text);
+  }
+  .u-text-decorative-grass-on-solid {
+    color: var(--my-decorative-grass-on-solid);
+  }
+  .u-bg-decorative-brown {
+    background-color: var(--my-decorative-brown-bg);
+  }
+  .u-decorative-brown {
+    background-color: var(--my-decorative-brown-bg);
+    color: var(--my-decorative-brown-text);
+  }
+  .u-border-decorative-brown {
+    border-color: var(--my-decorative-brown-border);
+  }
+  .u-bg-decorative-brown-solid {
+    background-color: var(--my-decorative-brown-solid);
+  }
+  .u-decorative-brown-solid {
+    background-color: var(--my-decorative-brown-solid);
+    color: var(--my-decorative-brown-on-solid);
+  }
+  .u-text-decorative-brown {
+    color: var(--my-decorative-brown-text);
+  }
+  .u-text-decorative-brown-on-solid {
+    color: var(--my-decorative-brown-on-solid);
+  }
+  .u-bg-decorative-bronze {
+    background-color: var(--my-decorative-bronze-bg);
+  }
+  .u-decorative-bronze {
+    background-color: var(--my-decorative-bronze-bg);
+    color: var(--my-decorative-bronze-text);
+  }
+  .u-border-decorative-bronze {
+    border-color: var(--my-decorative-bronze-border);
+  }
+  .u-bg-decorative-bronze-solid {
+    background-color: var(--my-decorative-bronze-solid);
+  }
+  .u-decorative-bronze-solid {
+    background-color: var(--my-decorative-bronze-solid);
+    color: var(--my-decorative-bronze-on-solid);
+  }
+  .u-text-decorative-bronze {
+    color: var(--my-decorative-bronze-text);
+  }
+  .u-text-decorative-bronze-on-solid {
+    color: var(--my-decorative-bronze-on-solid);
+  }
+  .u-bg-decorative-gold {
+    background-color: var(--my-decorative-gold-bg);
+  }
+  .u-decorative-gold {
+    background-color: var(--my-decorative-gold-bg);
+    color: var(--my-decorative-gold-text);
+  }
+  .u-border-decorative-gold {
+    border-color: var(--my-decorative-gold-border);
+  }
+  .u-bg-decorative-gold-solid {
+    background-color: var(--my-decorative-gold-solid);
+  }
+  .u-decorative-gold-solid {
+    background-color: var(--my-decorative-gold-solid);
+    color: var(--my-decorative-gold-on-solid);
+  }
+  .u-text-decorative-gold {
+    color: var(--my-decorative-gold-text);
+  }
+  .u-text-decorative-gold-on-solid {
+    color: var(--my-decorative-gold-on-solid);
+  }
+  .u-bg-decorative-sky {
+    background-color: var(--my-decorative-sky-bg);
+  }
+  .u-decorative-sky {
+    background-color: var(--my-decorative-sky-bg);
+    color: var(--my-decorative-sky-text);
+  }
+  .u-border-decorative-sky {
+    border-color: var(--my-decorative-sky-border);
+  }
+  .u-bg-decorative-sky-solid {
+    background-color: var(--my-decorative-sky-solid);
+  }
+  .u-decorative-sky-solid {
+    background-color: var(--my-decorative-sky-solid);
+    color: var(--my-decorative-sky-on-solid);
+  }
+  .u-text-decorative-sky {
+    color: var(--my-decorative-sky-text);
+  }
+  .u-text-decorative-sky-on-solid {
+    color: var(--my-decorative-sky-on-solid);
+  }
+  .u-bg-decorative-mint {
+    background-color: var(--my-decorative-mint-bg);
+  }
+  .u-decorative-mint {
+    background-color: var(--my-decorative-mint-bg);
+    color: var(--my-decorative-mint-text);
+  }
+  .u-border-decorative-mint {
+    border-color: var(--my-decorative-mint-border);
+  }
+  .u-bg-decorative-mint-solid {
+    background-color: var(--my-decorative-mint-solid);
+  }
+  .u-decorative-mint-solid {
+    background-color: var(--my-decorative-mint-solid);
+    color: var(--my-decorative-mint-on-solid);
+  }
+  .u-text-decorative-mint {
+    color: var(--my-decorative-mint-text);
+  }
+  .u-text-decorative-mint-on-solid {
+    color: var(--my-decorative-mint-on-solid);
+  }
+  .u-bg-decorative-lime {
+    background-color: var(--my-decorative-lime-bg);
+  }
+  .u-decorative-lime {
+    background-color: var(--my-decorative-lime-bg);
+    color: var(--my-decorative-lime-text);
+  }
+  .u-border-decorative-lime {
+    border-color: var(--my-decorative-lime-border);
+  }
+  .u-bg-decorative-lime-solid {
+    background-color: var(--my-decorative-lime-solid);
+  }
+  .u-decorative-lime-solid {
+    background-color: var(--my-decorative-lime-solid);
+    color: var(--my-decorative-lime-on-solid);
+  }
+  .u-text-decorative-lime {
+    color: var(--my-decorative-lime-text);
+  }
+  .u-text-decorative-lime-on-solid {
+    color: var(--my-decorative-lime-on-solid);
+  }
+  .u-bg-decorative-yellow {
+    background-color: var(--my-decorative-yellow-bg);
+  }
+  .u-decorative-yellow {
+    background-color: var(--my-decorative-yellow-bg);
+    color: var(--my-decorative-yellow-text);
+  }
+  .u-border-decorative-yellow {
+    border-color: var(--my-decorative-yellow-border);
+  }
+  .u-bg-decorative-yellow-solid {
+    background-color: var(--my-decorative-yellow-solid);
+  }
+  .u-decorative-yellow-solid {
+    background-color: var(--my-decorative-yellow-solid);
+    color: var(--my-decorative-yellow-on-solid);
+  }
+  .u-text-decorative-yellow {
+    color: var(--my-decorative-yellow-text);
+  }
+  .u-text-decorative-yellow-on-solid {
+    color: var(--my-decorative-yellow-on-solid);
+  }
+  .u-bg-decorative-amber {
+    background-color: var(--my-decorative-amber-bg);
+  }
+  .u-decorative-amber {
+    background-color: var(--my-decorative-amber-bg);
+    color: var(--my-decorative-amber-text);
+  }
+  .u-border-decorative-amber {
+    border-color: var(--my-decorative-amber-border);
+  }
+  .u-bg-decorative-amber-solid {
+    background-color: var(--my-decorative-amber-solid);
+  }
+  .u-decorative-amber-solid {
+    background-color: var(--my-decorative-amber-solid);
+    color: var(--my-decorative-amber-on-solid);
+  }
+  .u-text-decorative-amber {
+    color: var(--my-decorative-amber-text);
+  }
+  .u-text-decorative-amber-on-solid {
+    color: var(--my-decorative-amber-on-solid);
+  }
+  .u-bg-decorative-orange {
+    background-color: var(--my-decorative-orange-bg);
+  }
+  .u-decorative-orange {
+    background-color: var(--my-decorative-orange-bg);
+    color: var(--my-decorative-orange-text);
+  }
+  .u-border-decorative-orange {
+    border-color: var(--my-decorative-orange-border);
+  }
+  .u-bg-decorative-orange-solid {
+    background-color: var(--my-decorative-orange-solid);
+  }
+  .u-decorative-orange-solid {
+    background-color: var(--my-decorative-orange-solid);
+    color: var(--my-decorative-orange-on-solid);
+  }
+  .u-text-decorative-orange {
+    color: var(--my-decorative-orange-text);
+  }
+  .u-text-decorative-orange-on-solid {
+    color: var(--my-decorative-orange-on-solid);
+  }
+  .u-bg-decorative-rebecca {
+    background-color: var(--my-decorative-rebecca-bg);
+  }
+  .u-decorative-rebecca {
+    background-color: var(--my-decorative-rebecca-bg);
+    color: var(--my-decorative-rebecca-text);
+  }
+  .u-border-decorative-rebecca {
+    border-color: var(--my-decorative-rebecca-border);
+  }
+  .u-bg-decorative-rebecca-solid {
+    background-color: var(--my-decorative-rebecca-solid);
+  }
+  .u-decorative-rebecca-solid {
+    background-color: var(--my-decorative-rebecca-solid);
+    color: var(--my-decorative-rebecca-on-solid);
+  }
+  .u-text-decorative-rebecca {
+    color: var(--my-decorative-rebecca-text);
+  }
+  .u-text-decorative-rebecca-on-solid {
+    color: var(--my-decorative-rebecca-on-solid);
+  }
+  .u-shadow-none {
+    box-shadow: none;
+  }
+  .u-shadow-low {
+    box-shadow: var(--my-shadow-low);
+  }
+  .u-shadow-mid {
+    box-shadow: var(--my-shadow-mid);
+  }
+  .u-shadow-high {
+    box-shadow: var(--my-shadow-high);
   }
   .u-radius-none {
     border-radius: var(--my-border-radius-none);
@@ -419,6 +1080,9 @@
   }
   .u-region-xl {
     padding-block: var(--my-region-xl);
+  }
+  .u-width-3xs {
+    max-inline-size: var(--my-width-3xs);
   }
   .u-width-xxs {
     max-inline-size: var(--my-width-xxs);

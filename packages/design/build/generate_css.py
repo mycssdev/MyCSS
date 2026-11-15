@@ -35,7 +35,31 @@ UNIT_TYPES = {"dimension", "spacing", "sizing", "fontSizes", "borderRadius", "bo
 SKIP_TYPES = {"string", "typography"}  # icon style strings, Penpot composite styles
 
 DEFAULTS = {"gray": "slate", "accent": "brand", "mode": "light",
-            "density": "comfortable", "typeface": "inter"}
+            "density": "comfortable", "typeface": "montserrat", "depth": "soft"}
+
+# Depth v0.3 (2026-09-13): geometry is a fixed octave ladder in
+# foundations/fixed → shadow.*; a level is how many octaves it carries; a mode
+# changes only the ink (depth/<mode> → shadow.<layer>.color aliases into the
+# appearance effect.depth.* tokens, which alias the gray palette).
+DEPTH_LEVELS = {"low": ["o2", "o1", "ring"],
+                "mid": ["o4", "o3", "o2", "o1", "ring"],
+                "high": ["o6", "o5", "o4", "o3", "o2", "o1", "ring"]}
+
+def depth_shadow_lines(res, mode, indent):
+    """Per-layer ink vars for one depth mode + the composed box-shadow ladder."""
+    data = res.data
+    lines = [f"{indent}/* depth: {mode} */"]
+    lines += emit_set(res, f"depth/{mode}", indent)          # --my-shadow-<layer>-color
+    ladder = data["foundations/fixed"]["shadow"]
+    px = lambda v: "0" if v == 0 else f"{v}px"
+    for lvl, layers in DEPTH_LEVELS.items():
+        parts = []
+        for layer in layers:
+            g = ladder[layer]
+            y, blur, spread = (g[k]["$value"] for k in ("y", "blur", "spread"))
+            parts.append(f"0 {px(y)} {px(blur)} {px(spread)} var({PREFIX}shadow-{layer}-color)")
+        lines.append(f"{indent}{PREFIX}shadow-{lvl}: {', '.join(parts)};")
+    return lines
 
 # Composition thresholds (CSS-stage spec, 2026-07-23) — intrinsic layout switch
 # points, named per content behavior (not devices). Aliased to width tokens.
@@ -176,6 +200,31 @@ def emit_set(res, setname, indent="  "):
     return lines
 
 
+COMPOSITION_PREFIXES = {"stack", "inline", "gutter", "inset", "region"}
+
+
+def check_composition_aliases(data):
+    """v2.16: the stack/inline/gutter/inset/region aliases and `threshold` now
+    live in canonical (density/* sets, same value in every density) so Figma
+    and CSS build from one source. The tables above remain the CSS-side spec
+    (squish-* is CSS-only); this asserts the two can never drift."""
+    for mode in ("compact", "comfortable", "spacious"):
+        canon = {}
+        for path, (_t, val) in flatten(data[f"density/{mode}"]).items():
+            if path.split("-")[0] in COMPOSITION_PREFIXES:
+                canon[path] = str(val).strip("{}")
+        for name, ref in SEMANTIC_SPACING.items():
+            if name.split("-")[0] in COMPOSITION_PREFIXES:
+                assert canon.get(name) == ref, (
+                    f"semantic spacing drift in density/{mode}: {name} is {canon.get(name)!r} "
+                    f"in canonical but {ref!r} in SEMANTIC_SPACING")
+        extra = set(canon) - set(SEMANTIC_SPACING)
+        assert not extra, f"canonical density/{mode} has aliases unknown to SEMANTIC_SPACING: {sorted(extra)}"
+        thr = str(flatten(data[f"density/{mode}"])["threshold"][1]).strip("{}")
+        assert thr == THRESHOLDS[f"threshold-{mode}"], (
+            f"threshold drift in density/{mode}: canonical {thr!r} vs THRESHOLDS {THRESHOLDS[f'threshold-{mode}']!r}")
+
+
 def emit_semantic_spacing(indent="  "):
     return [f"{indent}{PREFIX}{name}: var({PREFIX}{ref});"
             for name, ref in SEMANTIC_SPACING.items()]
@@ -211,6 +260,7 @@ def emit_appearance_lightdark(res, indent="  "):
 
 
 def build_tokens_css(data):
+    check_composition_aliases(data)
     res = Resolver(data)
     stamp = datetime.now(timezone.utc).strftime("%Y-%m-%d")
     out = [f"/*! MyCSS tokens v{VERSION} — generated {stamp} from tokens.all-in-one.json.",
@@ -238,10 +288,14 @@ def build_tokens_css(data):
     out.append("    /* composition thresholds (intrinsic layout switch points) */")
     for name, ref in THRESHOLDS.items():
         out.append(f"    {PREFIX}{name}: var({PREFIX}{ref});")
-    out.append("    /* default theme: slate gray, brand accent, comfortable, inter */")
+    # v2.16: one mode-selected threshold (the Figma variable); [data-density]
+    # blocks re-declare it from canonical
+    out.append(f"    {PREFIX}threshold: var({PREFIX}threshold-{DEFAULTS['density']});")
+    out.append("    /* default theme: slate gray, brand accent, comfortable, montserrat, soft depth */")
     for s in [f"semantic/gray-{DEFAULTS['gray']}", f"semantic/accent-{DEFAULTS['accent']}",
               f"semantic/typeface-{DEFAULTS['typeface']}"]:
         out += emit_set(res, s, "    ")
+    out += depth_shadow_lines(res, DEFAULTS["depth"], "    ")
     out.append("  }")
 
     # ---------- orthogonal theme blocks (after :root so equal specificity wins)
@@ -259,6 +313,14 @@ def build_tokens_css(data):
             for s in theme_sets(data, group, t["name"]):
                 out += emit_set(res, s, "    ")
             out.append("  }")
+    # depth blocks — composed shadows only (components stay token-side)
+    for t in data["$themes"]:
+        if t["group"] != "Depth":
+            continue
+        key = t["name"].lower()
+        out.append(f'  [data-depth="{key}"] {{')
+        out += depth_shadow_lines(res, key, "    ")
+        out.append("  }")
 
     # ---------- alias tiers, re-declared at every theme boundary they depend on.
     # var() substitution inside a custom property happens at the DECLARING
@@ -284,8 +346,41 @@ def build_tokens_css(data):
     out += emit_appearance_lightdark(res, "    ")
     out.append("  }")
 
+    out += emit_p3_primitives(res, "  ")
+
     out.append("}")
     return "\n".join(out) + "\n", res
+
+
+P3_FILE = Path(__file__).resolve().parent.parent / "tokens" / "primitives-p3" / "tokens.primitives-p3.json"
+
+
+def emit_p3_primitives(res, indent="  "):
+    """v2.16.1: Radix Colors v3 Display-P3 overrides for the sRGB primitives.
+
+    Same delivery as @radix-ui/colors' *-p3 CSS: only browsers that support
+    color(display-p3) AND sit on a P3-capable display get them. Every P3 var
+    must already exist as an sRGB primitive (asserted), so this block can only
+    refine values, never add names."""
+    if not P3_FILE.exists():
+        return []
+    p3 = json.loads(P3_FILE.read_text(encoding="utf-8"))
+    srgb = set(res.ref_map.values())
+    lines = [f"{indent}/* Radix Colors v3 Display-P3 (CSS-only; design tools stay sRGB) */",
+             # COLOR() upper-case on purpose: CSS function names are
+             # case-insensitive, but dart-sass (1.80) rejects lower-case
+             # color() inside @supports when @use-ing this file as plain CSS.
+             f"{indent}@supports (color: COLOR(display-p3 1 1 1)) {{",
+             f"{indent}  @media (color-gamut: p3) {{",
+             f"{indent}    :root {{"]
+    for setname in sorted(k for k in p3 if k.startswith("primitives/")):
+        for path, (_typ, val) in flatten(p3[setname]).items():
+            name = var_name(setname, path)
+            if name not in srgb:
+                raise KeyError(f"P3 token {name} has no sRGB primitive")
+            lines.append(f"{indent}      {name}: {val};")
+    lines += [f"{indent}    }}", f"{indent}  }}", f"{indent}}}"]
+    return lines
 
 
 ROLE_NAMES = ["display-2xl", "display-xl", "display-lg", "h1", "h2", "h3", "h4", "h5", "h6",
@@ -323,6 +418,37 @@ def build_utilities_css(data):
             rule(f".u-{name}", [("color", f"var({PREFIX}{name})")])
         elif path.startswith("border."):
             rule(f".u-{name}", [("border-color", f"var({PREFIX}{name})")])
+        elif path.startswith("decorative."):
+            # decorative colour utilities — fixed-hue roles (26 hues x 5 roles)
+            # + contrast-safe pairs per the decorative usage guidance
+            leaf = path.split(".", 1)[1]          # e.g. tomato-bg / tomato-on-solid
+            cssvar = f"var({PREFIX}decorative-{leaf})"
+            if leaf.endswith("-on-solid"):
+                hue = leaf[:-9]
+                rule(f".u-text-decorative-{hue}-on-solid", [("color", cssvar)])
+            elif leaf.endswith("-text"):
+                hue = leaf[:-5]
+                rule(f".u-text-decorative-{hue}", [("color", cssvar)])
+            elif leaf.endswith("-border"):
+                hue = leaf[:-7]
+                rule(f".u-border-decorative-{hue}", [("border-color", cssvar)])
+            elif leaf.endswith("-solid"):
+                hue = leaf[:-6]
+                rule(f".u-bg-decorative-{hue}-solid", [("background-color", cssvar)])
+                rule(f".u-decorative-{hue}-solid", [  # pair: solid + on-solid
+                    ("background-color", cssvar),
+                    ("color", f"var({PREFIX}decorative-{hue}-on-solid)")])
+            elif leaf.endswith("-bg"):
+                hue = leaf[:-3]
+                rule(f".u-bg-decorative-{hue}", [("background-color", cssvar)])
+                rule(f".u-decorative-{hue}", [  # pair: bg + text
+                    ("background-color", cssvar),
+                    ("color", f"var({PREFIX}decorative-{hue}-text)")])
+
+    # shadow / elevation — consume the composed depth shadows; follow data-depth
+    rule(".u-shadow-none", [("box-shadow", "none")])
+    for lvl in ("low", "mid", "high"):
+        rule(f".u-shadow-{lvl}", [("box-shadow", f"var({PREFIX}shadow-{lvl})")])
 
     # radius
     for step in flatten(data["foundations/fixed"]):

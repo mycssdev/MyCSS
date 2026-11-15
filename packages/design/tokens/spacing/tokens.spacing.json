@@ -424,6 +424,11 @@
     }
   },
   "width": {
+    "width-3xs": {
+      "$value": "{64}",
+      "$type": "sizing",
+      "$description": "Smallest useful column (256): c-grid default minimum. Below width-xxs (320)."
+    },
     "width-xxs": {
       "$value": "{80}",
       "$type": "sizing"

@@ -443,6 +443,131 @@
     "container-padding-spacious": {
       "$value": "{6}",
       "$type": "spacing"
+    },
+    "stack-xs": {
+      "$value": "{spacing-xs}",
+      "$type": "spacing",
+      "$description": "Vertical rhythm, tightest: label → control, lines in a caption."
+    },
+    "stack-sm": {
+      "$value": "{spacing-md}",
+      "$type": "spacing",
+      "$description": "Vertical rhythm: items inside a card or form group."
+    },
+    "stack-md": {
+      "$value": "{spacing-xl}",
+      "$type": "spacing",
+      "$description": "Vertical rhythm, default: c-stack gap; paragraphs; form fields."
+    },
+    "stack-lg": {
+      "$value": "{spacing-3xl}",
+      "$type": "spacing",
+      "$description": "Vertical rhythm: between groups inside a section."
+    },
+    "stack-xl": {
+      "$value": "{spacing-4xl}",
+      "$type": "spacing",
+      "$description": "Vertical rhythm: between blocks inside a page column."
+    },
+    "stack-2xl": {
+      "$value": "{spacing-6xl}",
+      "$type": "spacing",
+      "$description": "Vertical rhythm, loosest: between stacked compositions."
+    },
+    "inline-xs": {
+      "$value": "{spacing-xxs}",
+      "$type": "spacing",
+      "$description": "Horizontal gap, tightest: icon ↔ label inside a control. Equals inline-sm in Compact (2 = 2), by design."
+    },
+    "inline-sm": {
+      "$value": "{spacing-xs}",
+      "$type": "spacing",
+      "$description": "Horizontal gap: tags in a cluster, icon ↔ text in running copy."
+    },
+    "inline-md": {
+      "$value": "{spacing-md}",
+      "$type": "spacing",
+      "$description": "Horizontal gap, default: c-cluster gap; buttons in a row."
+    },
+    "inline-lg": {
+      "$value": "{spacing-xl}",
+      "$type": "spacing",
+      "$description": "Horizontal gap: loose clusters, toolbar groups."
+    },
+    "gutter-sm": {
+      "$value": "{spacing-3xl}",
+      "$type": "spacing",
+      "$description": "Gap between layout regions, tight: dense grids, data layouts."
+    },
+    "gutter-md": {
+      "$value": "{spacing-4xl}",
+      "$type": "spacing",
+      "$description": "Gap between layout regions, default: c-sidebar, c-switcher, c-grid, repel."
+    },
+    "gutter-lg": {
+      "$value": "{spacing-6xl}",
+      "$type": "spacing",
+      "$description": "Gap between layout regions, loose: marketing grids, hero splits."
+    },
+    "inset-none": {
+      "$value": "{spacing-none}",
+      "$type": "spacing",
+      "$description": "Container padding: none (flush box)."
+    },
+    "inset-xs": {
+      "$value": "{spacing-xs}",
+      "$type": "spacing",
+      "$description": "Container padding, tightest: chips, table cells."
+    },
+    "inset-sm": {
+      "$value": "{spacing-md}",
+      "$type": "spacing",
+      "$description": "Container padding: compact boxes, list rows."
+    },
+    "inset-md": {
+      "$value": "{spacing-xl}",
+      "$type": "spacing",
+      "$description": "Container padding, default: box, card body."
+    },
+    "inset-lg": {
+      "$value": "{spacing-3xl}",
+      "$type": "spacing",
+      "$description": "Container padding: c-cover, dialog body, panel."
+    },
+    "inset-xl": {
+      "$value": "{spacing-4xl}",
+      "$type": "spacing",
+      "$description": "Container padding, loosest: hero boxes, empty states."
+    },
+    "region-xs": {
+      "$value": "{spacing-4xl}",
+      "$type": "spacing",
+      "$description": "Section spacing, tightest: between sub-sections."
+    },
+    "region-sm": {
+      "$value": "{spacing-6xl}",
+      "$type": "spacing",
+      "$description": "Section spacing: between sections in an app view."
+    },
+    "region-md": {
+      "$value": "{spacing-7xl}",
+      "$type": "spacing",
+      "$description": "Section spacing, default: between page sections."
+    },
+    "region-lg": {
+      "$value": "{spacing-8xl}",
+      "$type": "spacing",
+      "$description": "Section spacing: marketing sections."
+    },
+    "region-xl": {
+      "$value": "{spacing-9xl}",
+      "$type": "spacing",
+      "$description": "Section spacing, loosest: hero ↔ first section."
+    },
+    "threshold": {
+      "$value": "{width-sm}",
+      "$type": "sizing",
+      "$description": "Content width below which c-switcher stacks (and the documented fold point for c-sidebar and repel). Follows density. CSS: --my-threshold-compact / -comfortable / -spacious; this variable is the one the current mode selects."
     }
   },
   "density/comfortable": {
@@ -535,6 +660,131 @@
     "container-padding-spacious": {
       "$value": "{8}",
       "$type": "spacing"
+    },
+    "stack-xs": {
+      "$value": "{spacing-xs}",
+      "$type": "spacing",
+      "$description": "Vertical rhythm, tightest: label → control, lines in a caption."
+    },
+    "stack-sm": {
+      "$value": "{spacing-md}",
+      "$type": "spacing",
+      "$description": "Vertical rhythm: items inside a card or form group."
+    },
+    "stack-md": {
+      "$value": "{spacing-xl}",
+      "$type": "spacing",
+      "$description": "Vertical rhythm, default: c-stack gap; paragraphs; form fields."
+    },
+    "stack-lg": {
+      "$value": "{spacing-3xl}",
+      "$type": "spacing",
+      "$description": "Vertical rhythm: between groups inside a section."
+    },
+    "stack-xl": {
+      "$value": "{spacing-4xl}",
+      "$type": "spacing",
+      "$description": "Vertical rhythm: between blocks inside a page column."
+    },
+    "stack-2xl": {
+      "$value": "{spacing-6xl}",
+      "$type": "spacing",
+      "$description": "Vertical rhythm, loosest: between stacked compositions."
+    },
+    "inline-xs": {
+      "$value": "{spacing-xxs}",
+      "$type": "spacing",
+      "$description": "Horizontal gap, tightest: icon ↔ label inside a control. Equals inline-sm in Compact (2 = 2), by design."
+    },
+    "inline-sm": {
+      "$value": "{spacing-xs}",
+      "$type": "spacing",
+      "$description": "Horizontal gap: tags in a cluster, icon ↔ text in running copy."
+    },
+    "inline-md": {
+      "$value": "{spacing-md}",
+      "$type": "spacing",
+      "$description": "Horizontal gap, default: c-cluster gap; buttons in a row."
+    },
+    "inline-lg": {
+      "$value": "{spacing-xl}",
+      "$type": "spacing",
+      "$description": "Horizontal gap: loose clusters, toolbar groups."
+    },
+    "gutter-sm": {
+      "$value": "{spacing-3xl}",
+      "$type": "spacing",
+      "$description": "Gap between layout regions, tight: dense grids, data layouts."
+    },
+    "gutter-md": {
+      "$value": "{spacing-4xl}",
+      "$type": "spacing",
+      "$description": "Gap between layout regions, default: c-sidebar, c-switcher, c-grid, repel."
+    },
+    "gutter-lg": {
+      "$value": "{spacing-6xl}",
+      "$type": "spacing",
+      "$description": "Gap between layout regions, loose: marketing grids, hero splits."
+    },
+    "inset-none": {
+      "$value": "{spacing-none}",
+      "$type": "spacing",
+      "$description": "Container padding: none (flush box)."
+    },
+    "inset-xs": {
+      "$value": "{spacing-xs}",
+      "$type": "spacing",
+      "$description": "Container padding, tightest: chips, table cells."
+    },
+    "inset-sm": {
+      "$value": "{spacing-md}",
+      "$type": "spacing",
+      "$description": "Container padding: compact boxes, list rows."
+    },
+    "inset-md": {
+      "$value": "{spacing-xl}",
+      "$type": "spacing",
+      "$description": "Container padding, default: box, card body."
+    },
+    "inset-lg": {
+      "$value": "{spacing-3xl}",
+      "$type": "spacing",
+      "$description": "Container padding: c-cover, dialog body, panel."
+    },
+    "inset-xl": {
+      "$value": "{spacing-4xl}",
+      "$type": "spacing",
+      "$description": "Container padding, loosest: hero boxes, empty states."
+    },
+    "region-xs": {
+      "$value": "{spacing-4xl}",
+      "$type": "spacing",
+      "$description": "Section spacing, tightest: between sub-sections."
+    },
+    "region-sm": {
+      "$value": "{spacing-6xl}",
+      "$type": "spacing",
+      "$description": "Section spacing: between sections in an app view."
+    },
+    "region-md": {
+      "$value": "{spacing-7xl}",
+      "$type": "spacing",
+      "$description": "Section spacing, default: between page sections."
+    },
+    "region-lg": {
+      "$value": "{spacing-8xl}",
+      "$type": "spacing",
+      "$description": "Section spacing: marketing sections."
+    },
+    "region-xl": {
+      "$value": "{spacing-9xl}",
+      "$type": "spacing",
+      "$description": "Section spacing, loosest: hero ↔ first section."
+    },
+    "threshold": {
+      "$value": "{width-xl}",
+      "$type": "sizing",
+      "$description": "Content width below which c-switcher stacks (and the documented fold point for c-sidebar and repel). Follows density. CSS: --my-threshold-compact / -comfortable / -spacious; this variable is the one the current mode selects."
     }
   },
   "density/spacious": {
@@ -627,6 +877,131 @@
     "container-padding-spacious": {
       "$value": "{10}",
       "$type": "spacing"
+    },
+    "stack-xs": {
+      "$value": "{spacing-xs}",
+      "$type": "spacing",
+      "$description": "Vertical rhythm, tightest: label → control, lines in a caption."
+    },
+    "stack-sm": {
+      "$value": "{spacing-md}",
+      "$type": "spacing",
+      "$description": "Vertical rhythm: items inside a card or form group."
+    },
+    "stack-md": {
+      "$value": "{spacing-xl}",
+      "$type": "spacing",
+      "$description": "Vertical rhythm, default: c-stack gap; paragraphs; form fields."
+    },
+    "stack-lg": {
+      "$value": "{spacing-3xl}",
+      "$type": "spacing",
+      "$description": "Vertical rhythm: between groups inside a section."
+    },
+    "stack-xl": {
+      "$value": "{spacing-4xl}",
+      "$type": "spacing",
+      "$description": "Vertical rhythm: between blocks inside a page column."
+    },
+    "stack-2xl": {
+      "$value": "{spacing-6xl}",
+      "$type": "spacing",
+      "$description": "Vertical rhythm, loosest: between stacked compositions."
+    },
+    "inline-xs": {
+      "$value": "{spacing-xxs}",
+      "$type": "spacing",
+      "$description": "Horizontal gap, tightest: icon ↔ label inside a control. Equals inline-sm in Compact (2 = 2), by design."
+    },
+    "inline-sm": {
+      "$value": "{spacing-xs}",
+      "$type": "spacing",
+      "$description": "Horizontal gap: tags in a cluster, icon ↔ text in running copy."
+    },
+    "inline-md": {
+      "$value": "{spacing-md}",
+      "$type": "spacing",
+      "$description": "Horizontal gap, default: c-cluster gap; buttons in a row."
+    },
+    "inline-lg": {
+      "$value": "{spacing-xl}",
+      "$type": "spacing",
+      "$description": "Horizontal gap: loose clusters, toolbar groups."
+    },
+    "gutter-sm": {
+      "$value": "{spacing-3xl}",
+      "$type": "spacing",
+      "$description": "Gap between layout regions, tight: dense grids, data layouts."
+    },
+    "gutter-md": {
+      "$value": "{spacing-4xl}",
+      "$type": "spacing",
+      "$description": "Gap between layout regions, default: c-sidebar, c-switcher, c-grid, repel."
+    },
+    "gutter-lg": {
+      "$value": "{spacing-6xl}",
+      "$type": "spacing",
+      "$description": "Gap between layout regions, loose: marketing grids, hero splits."
+    },
+    "inset-none": {
+      "$value": "{spacing-none}",
+      "$type": "spacing",
+      "$description": "Container padding: none (flush box)."
+    },
+    "inset-xs": {
+      "$value": "{spacing-xs}",
+      "$type": "spacing",
+      "$description": "Container padding, tightest: chips, table cells."
+    },
+    "inset-sm": {
+      "$value": "{spacing-md}",
+      "$type": "spacing",
+      "$description": "Container padding: compact boxes, list rows."
+    },
+    "inset-md": {
+      "$value": "{spacing-xl}",
+      "$type": "spacing",
+      "$description": "Container padding, default: box, card body."
+    },
+    "inset-lg": {
+      "$value": "{spacing-3xl}",
+      "$type": "spacing",
+      "$description": "Container padding: c-cover, dialog body, panel."
+    },
+    "inset-xl": {
+      "$value": "{spacing-4xl}",
+      "$type": "spacing",
+      "$description": "Container padding, loosest: hero boxes, empty states."
+    },
+    "region-xs": {
+      "$value": "{spacing-4xl}",
+      "$type": "spacing",
+      "$description": "Section spacing, tightest: between sub-sections."
+    },
+    "region-sm": {
+      "$value": "{spacing-6xl}",
+      "$type": "spacing",
+      "$description": "Section spacing: between sections in an app view."
+    },
+    "region-md": {
+      "$value": "{spacing-7xl}",
+      "$type": "spacing",
+      "$description": "Section spacing, default: between page sections."
+    },
+    "region-lg": {
+      "$value": "{spacing-8xl}",
+      "$type": "spacing",
+      "$description": "Section spacing: marketing sections."
+    },
+    "region-xl": {
+      "$value": "{spacing-9xl}",
+      "$type": "spacing",
+      "$description": "Section spacing, loosest: hero ↔ first section."
+    },
+    "threshold": {
+      "$value": "{width-2xl}",
+      "$type": "sizing",
+      "$description": "Content width below which c-switcher stacks (and the documented fold point for c-sidebar and repel). Follows density. CSS: --my-threshold-compact / -comfortable / -spacious; this variable is the one the current mode selects."
     }
   }
 }

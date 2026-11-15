@@ -1,4 +1,618 @@
 {
+  "depth/soft": {
+    "shadow": {
+      "ring": {
+        "color": {
+          "$value": "{effect.depth.ring}",
+          "$type": "color"
+        }
+      },
+      "o1": {
+        "color": {
+          "$value": "{effect.depth.soft}",
+          "$type": "color"
+        }
+      },
+      "o2": {
+        "color": {
+          "$value": "{effect.depth.soft}",
+          "$type": "color"
+        }
+      },
+      "o3": {
+        "color": {
+          "$value": "{effect.depth.soft}",
+          "$type": "color"
+        }
+      },
+      "o4": {
+        "color": {
+          "$value": "{effect.depth.soft}",
+          "$type": "color"
+        }
+      },
+      "o5": {
+        "color": {
+          "$value": "{effect.depth.soft}",
+          "$type": "color"
+        }
+      },
+      "o6": {
+        "color": {
+          "$value": "{effect.depth.soft}",
+          "$type": "color"
+        }
+      }
+    }
+  },
+  "depth/flat": {
+    "shadow": {
+      "ring": {
+        "color": {
+          "$value": "{effect.depth.ring}",
+          "$type": "color"
+        }
+      },
+      "o1": {
+        "color": {
+          "$value": "{effect.depth.none}",
+          "$type": "color"
+        }
+      },
+      "o2": {
+        "color": {
+          "$value": "{effect.depth.none}",
+          "$type": "color"
+        }
+      },
+      "o3": {
+        "color": {
+          "$value": "{effect.depth.none}",
+          "$type": "color"
+        }
+      },
+      "o4": {
+        "color": {
+          "$value": "{effect.depth.none}",
+          "$type": "color"
+        }
+      },
+      "o5": {
+        "color": {
+          "$value": "{effect.depth.none}",
+          "$type": "color"
+        }
+      },
+      "o6": {
+        "color": {
+          "$value": "{effect.depth.none}",
+          "$type": "color"
+        }
+      }
+    }
+  },
+  "depth/dramatic": {
+    "shadow": {
+      "ring": {
+        "color": {
+          "$value": "{effect.depth.ring}",
+          "$type": "color"
+        }
+      },
+      "o1": {
+        "color": {
+          "$value": "{effect.depth.dramatic}",
+          "$type": "color"
+        }
+      },
+      "o2": {
+        "color": {
+          "$value": "{effect.depth.dramatic}",
+          "$type": "color"
+        }
+      },
+      "o3": {
+        "color": {
+          "$value": "{effect.depth.dramatic}",
+          "$type": "color"
+        }
+      },
+      "o4": {
+        "color": {
+          "$value": "{effect.depth.dramatic}",
+          "$type": "color"
+        }
+      },
+      "o5": {
+        "color": {
+          "$value": "{effect.depth.dramatic}",
+          "$type": "color"
+        }
+      },
+      "o6": {
+        "color": {
+          "$value": "{effect.depth.dramatic}",
+          "$type": "color"
+        }
+      }
+    }
+  },
+  "shape/subtle": {
+    "border": {
+      "radius": {
+        "none": {
+          "$value": 0,
+          "$type": "number"
+        },
+        "sharp": {
+          "$value": 1.5,
+          "$type": "number"
+        },
+        "crisp": {
+          "$value": 2,
+          "$type": "number"
+        },
+        "soft": {
+          "$value": 3,
+          "$type": "number"
+        },
+        "pill": {
+          "$value": 9999,
+          "$type": "number"
+        },
+        "rounded": {
+          "$value": 4,
+          "$type": "number"
+        },
+        "smooth": {
+          "$value": 6,
+          "$type": "number"
+        },
+        "plush": {
+          "$value": 8,
+          "$type": "number"
+        }
+      },
+      "radius-outer": {
+        "spacing": {
+          "$value": 20,
+          "$type": "number"
+        },
+        "sharp": {
+          "$value": 21.5,
+          "$type": "number"
+        },
+        "crisp": {
+          "$value": 22,
+          "$type": "number"
+        },
+        "soft": {
+          "$value": 23,
+          "$type": "number"
+        },
+        "rounded": {
+          "$value": 24,
+          "$type": "number"
+        },
+        "smooth": {
+          "$value": 26,
+          "$type": "number"
+        },
+        "plush": {
+          "$value": 28,
+          "$type": "number"
+        }
+      }
+    }
+  },
+  "shape/smooth": {
+    "border": {
+      "radius": {
+        "none": {
+          "$value": 0,
+          "$type": "number"
+        },
+        "sharp": {
+          "$value": 4.5,
+          "$type": "number"
+        },
+        "crisp": {
+          "$value": 6,
+          "$type": "number"
+        },
+        "soft": {
+          "$value": 9,
+          "$type": "number"
+        },
+        "pill": {
+          "$value": 9999,
+          "$type": "number"
+        },
+        "rounded": {
+          "$value": 12,
+          "$type": "number"
+        },
+        "smooth": {
+          "$value": 18,
+          "$type": "number"
+        },
+        "plush": {
+          "$value": 24,
+          "$type": "number"
+        }
+      },
+      "radius-outer": {
+        "spacing": {
+          "$value": 20,
+          "$type": "number"
+        },
+        "sharp": {
+          "$value": 24.5,
+          "$type": "number"
+        },
+        "crisp": {
+          "$value": 26,
+          "$type": "number"
+        },
+        "soft": {
+          "$value": 29,
+          "$type": "number"
+        },
+        "rounded": {
+          "$value": 32,
+          "$type": "number"
+        },
+        "smooth": {
+          "$value": 38,
+          "$type": "number"
+        },
+        "plush": {
+          "$value": 44,
+          "$type": "number"
+        }
+      }
+    }
+  },
+  "shape/sharp": {
+    "border": {
+      "radius": {
+        "none": {
+          "$value": 0,
+          "$type": "number"
+        },
+        "sharp": {
+          "$value": 0,
+          "$type": "number"
+        },
+        "crisp": {
+          "$value": 0,
+          "$type": "number"
+        },
+        "soft": {
+          "$value": 0,
+          "$type": "number"
+        },
+        "pill": {
+          "$value": 0,
+          "$type": "number"
+        },
+        "rounded": {
+          "$value": 0,
+          "$type": "number"
+        },
+        "smooth": {
+          "$value": 0,
+          "$type": "number"
+        },
+        "plush": {
+          "$value": 0,
+          "$type": "number"
+        }
+      },
+      "radius-outer": {
+        "spacing": {
+          "$value": 20,
+          "$type": "number"
+        },
+        "sharp": {
+          "$value": 0,
+          "$type": "number"
+        },
+        "crisp": {
+          "$value": 0,
+          "$type": "number"
+        },
+        "soft": {
+          "$value": 0,
+          "$type": "number"
+        },
+        "rounded": {
+          "$value": 0,
+          "$type": "number"
+        },
+        "smooth": {
+          "$value": 0,
+          "$type": "number"
+        },
+        "plush": {
+          "$value": 0,
+          "$type": "number"
+        }
+      }
+    }
+  },
+  "shape/round": {
+    "border": {
+      "radius": {
+        "none": {
+          "$value": 0,
+          "$type": "number"
+        },
+        "sharp": {
+          "$value": 6,
+          "$type": "number"
+        },
+        "crisp": {
+          "$value": 8,
+          "$type": "number"
+        },
+        "soft": {
+          "$value": 12,
+          "$type": "number"
+        },
+        "pill": {
+          "$value": 9999,
+          "$type": "number"
+        },
+        "rounded": {
+          "$value": 16,
+          "$type": "number"
+        },
+        "smooth": {
+          "$value": 24,
+          "$type": "number"
+        },
+        "plush": {
+          "$value": 32,
+          "$type": "number"
+        }
+      },
+      "radius-outer": {
+        "spacing": {
+          "$value": 20,
+          "$type": "number"
+        },
+        "sharp": {
+          "$value": 26,
+          "$type": "number"
+        },
+        "crisp": {
+          "$value": 28,
+          "$type": "number"
+        },
+        "soft": {
+          "$value": 32,
+          "$type": "number"
+        },
+        "rounded": {
+          "$value": 36,
+          "$type": "number"
+        },
+        "smooth": {
+          "$value": 44,
+          "$type": "number"
+        },
+        "plush": {
+          "$value": 52,
+          "$type": "number"
+        }
+      }
+    }
+  },
+  "shape/pill": {
+    "border": {
+      "radius": {
+        "none": {
+          "$value": 0,
+          "$type": "number"
+        },
+        "sharp": {
+          "$value": 2,
+          "$type": "number"
+        },
+        "crisp": {
+          "$value": 4,
+          "$type": "number"
+        },
+        "soft": {
+          "$value": 9999,
+          "$type": "number"
+        },
+        "pill": {
+          "$value": 9999,
+          "$type": "number"
+        },
+        "rounded": {
+          "$value": 16,
+          "$type": "number"
+        },
+        "smooth": {
+          "$value": 24,
+          "$type": "number"
+        },
+        "plush": {
+          "$value": 32,
+          "$type": "number"
+        }
+      },
+      "radius-outer": {
+        "spacing": {
+          "$value": 20,
+          "$type": "number"
+        },
+        "sharp": {
+          "$value": 26,
+          "$type": "number"
+        },
+        "crisp": {
+          "$value": 28,
+          "$type": "number"
+        },
+        "soft": {
+          "$value": 9999,
+          "$type": "number"
+        },
+        "rounded": {
+          "$value": 36,
+          "$type": "number"
+        },
+        "smooth": {
+          "$value": 44,
+          "$type": "number"
+        },
+        "plush": {
+          "$value": 52,
+          "$type": "number"
+        }
+      }
+    }
+  },
+  "motion/full": {
+    "duration": {
+      "instant": {
+        "$value": 0,
+        "$type": "number"
+      },
+      "fast-1": {
+        "$value": 100,
+        "$type": "number"
+      },
+      "fast-2": {
+        "$value": 150,
+        "$type": "number"
+      },
+      "base": {
+        "$value": 200,
+        "$type": "number"
+      },
+      "slow-1": {
+        "$value": 300,
+        "$type": "number"
+      },
+      "slow-2": {
+        "$value": 500,
+        "$type": "number"
+      },
+      "deliberate": {
+        "$value": 800,
+        "$type": "number"
+      }
+    },
+    "stagger": {
+      "1": {
+        "$value": 20,
+        "$type": "number"
+      },
+      "2": {
+        "$value": 40,
+        "$type": "number"
+      },
+      "3": {
+        "$value": 80,
+        "$type": "number"
+      }
+    },
+    "ease": {
+      "standard": {
+        "$value": "cubic-bezier(0.2, 0, 0, 1)",
+        "$type": "string"
+      },
+      "enter": {
+        "$value": "cubic-bezier(0, 0, 0.2, 1)",
+        "$type": "string"
+      },
+      "exit": {
+        "$value": "cubic-bezier(0.4, 0, 1, 1)",
+        "$type": "string"
+      },
+      "spring": {
+        "$value": "cubic-bezier(0.34, 1.56, 0.64, 1)",
+        "$type": "string"
+      },
+      "linear": {
+        "$value": "linear",
+        "$type": "string"
+      }
+    }
+  },
+  "motion/reduced": {
+    "duration": {
+      "instant": {
+        "$value": 0,
+        "$type": "number"
+      },
+      "fast-1": {
+        "$value": 0,
+        "$type": "number"
+      },
+      "fast-2": {
+        "$value": 0,
+        "$type": "number"
+      },
+      "base": {
+        "$value": 100,
+        "$type": "number"
+      },
+      "slow-1": {
+        "$value": 100,
+        "$type": "number"
+      },
+      "slow-2": {
+        "$value": 100,
+        "$type": "number"
+      },
+      "deliberate": {
+        "$value": 100,
+        "$type": "number"
+      }
+    },
+    "stagger": {
+      "1": {
+        "$value": 0,
+        "$type": "number"
+      },
+      "2": {
+        "$value": 0,
+        "$type": "number"
+      },
+      "3": {
+        "$value": 0,
+        "$type": "number"
+      }
+    },
+    "ease": {
+      "standard": {
+        "$value": "cubic-bezier(0.2, 0, 0, 1)",
+        "$type": "string"
+      },
+      "enter": {
+        "$value": "cubic-bezier(0, 0, 0.2, 1)",
+        "$type": "string"
+      },
+      "exit": {
+        "$value": "cubic-bezier(0.4, 0, 1, 1)",
+        "$type": "string"
+      },
+      "spring": {
+        "$value": "cubic-bezier(0.34, 1.56, 0.64, 1)",
+        "$type": "string"
+      },
+      "linear": {
+        "$value": "linear",
+        "$type": "string"
+      }
+    }
+  },
   "$themes": [
     {
       "name": "Global",
@@ -324,6 +938,13 @@
       }
     },
     {
+      "name": "Montserrat",
+      "group": "Typeface",
+      "selectedTokenSets": {
+        "semantic/typeface-montserrat": "enabled"
+      }
+    },
+    {
       "name": "Inter",
       "group": "Typeface",
       "selectedTokenSets": {
@@ -349,6 +970,76 @@
       "group": "Typeface",
       "selectedTokenSets": {
         "semantic/typeface-system": "enabled"
+      }
+    },
+    {
+      "name": "Soft",
+      "group": "Depth",
+      "selectedTokenSets": {
+        "depth/soft": "enabled"
+      }
+    },
+    {
+      "name": "Flat",
+      "group": "Depth",
+      "selectedTokenSets": {
+        "depth/flat": "enabled"
+      }
+    },
+    {
+      "name": "Dramatic",
+      "group": "Depth",
+      "selectedTokenSets": {
+        "depth/dramatic": "enabled"
+      }
+    },
+    {
+      "name": "Subtle",
+      "group": "Shape",
+      "selectedTokenSets": {
+        "shape/subtle": "enabled"
+      }
+    },
+    {
+      "name": "Smooth",
+      "group": "Shape",
+      "selectedTokenSets": {
+        "shape/smooth": "enabled"
+      }
+    },
+    {
+      "name": "Sharp",
+      "group": "Shape",
+      "selectedTokenSets": {
+        "shape/sharp": "enabled"
+      }
+    },
+    {
+      "name": "Round",
+      "group": "Shape",
+      "selectedTokenSets": {
+        "shape/round": "enabled"
+      }
+    },
+    {
+      "name": "Pill",
+      "group": "Shape",
+      "selectedTokenSets": {
+        "shape/pill": "enabled"
+      }
+    },
+    {
+      "name": "Full",
+      "group": "Motion",
+      "selectedTokenSets": {
+        "motion/full": "enabled"
+      }
+    },
+    {
+      "name": "Reduced",
+      "group": "Motion",
+      "selectedTokenSets": {
+        "motion/reduced": "enabled"
       }
     }
   ],
@@ -520,6 +1211,106 @@
       "toast": {
         "$value": "1700",
         "$type": "number"
+      }
+    },
+    "shadow": {
+      "ring": {
+        "y": {
+          "$value": 0,
+          "$type": "number"
+        },
+        "blur": {
+          "$value": 0,
+          "$type": "number"
+        },
+        "spread": {
+          "$value": 1,
+          "$type": "number"
+        }
+      },
+      "o1": {
+        "y": {
+          "$value": 1,
+          "$type": "number"
+        },
+        "blur": {
+          "$value": 1,
+          "$type": "number"
+        },
+        "spread": {
+          "$value": -0.5,
+          "$type": "number"
+        }
+      },
+      "o2": {
+        "y": {
+          "$value": 3,
+          "$type": "number"
+        },
+        "blur": {
+          "$value": 3,
+          "$type": "number"
+        },
+        "spread": {
+          "$value": -1.5,
+          "$type": "number"
+        }
+      },
+      "o3": {
+        "y": {
+          "$value": 6,
+          "$type": "number"
+        },
+        "blur": {
+          "$value": 6,
+          "$type": "number"
+        },
+        "spread": {
+          "$value": -3,
+          "$type": "number"
+        }
+      },
+      "o4": {
+        "y": {
+          "$value": 12,
+          "$type": "number"
+        },
+        "blur": {
+          "$value": 12,
+          "$type": "number"
+        },
+        "spread": {
+          "$value": -6,
+          "$type": "number"
+        }
+      },
+      "o5": {
+        "y": {
+          "$value": 24,
+          "$type": "number"
+        },
+        "blur": {
+          "$value": 24,
+          "$type": "number"
+        },
+        "spread": {
+          "$value": -12,
+          "$type": "number"
+        }
+      },
+      "o6": {
+        "y": {
+          "$value": 48,
+          "$type": "number"
+        },
+        "blur": {
+          "$value": 48,
+          "$type": "number"
+        },
+        "spread": {
+          "$value": -24,
+          "$type": "number"
+        }
       }
     }
   },
@@ -1253,7 +2044,7 @@
         "$type": "color"
       },
       "a9": {
-        "$value": "#ffffff63",
+        "$value": "#ffffff64",
         "$type": "color"
       },
       "a10": {
@@ -1261,7 +2052,7 @@
         "$type": "color"
       },
       "a11": {
-        "$value": "#ffffffab",
+        "$value": "#ffffffaf",
         "$type": "color"
       },
       "a12": {
@@ -7840,6 +8631,11 @@
     "accent-contrast": {
       "$value": "#21201c",
       "$type": "color"
+    },
+    "accent-text": {
+      "$value": "{amber.12}",
+      "$type": "color",
+      "$description": "Light-mode text in this accent: step 11, or step 12 where step 11 misses WCAG AA 4.5:1 on neutral 1-3 or this hue's 3-4 (v2.16.2)."
     }
   },
   "semantic/accent-blue": {
@@ -8046,6 +8842,11 @@
     "accent-contrast": {
       "$value": "#ffffff",
       "$type": "color"
+    },
+    "accent-text": {
+      "$value": "{blue.12}",
+      "$type": "color",
+      "$description": "Light-mode text in this accent: step 11, or step 12 where step 11 misses WCAG AA 4.5:1 on neutral 1-3 or this hue's 3-4 (v2.16.2)."
     }
   },
   "semantic/accent-brand": {
@@ -8252,6 +9053,11 @@
     "accent-contrast": {
       "$value": "#ffffff",
       "$type": "color"
+    },
+    "accent-text": {
+      "$value": "{brand.11}",
+      "$type": "color",
+      "$description": "Light-mode text in this accent: step 11, or step 12 where step 11 misses WCAG AA 4.5:1 on neutral 1-3 or this hue's 3-4 (v2.16.2)."
     }
   },
   "semantic/accent-bronze": {
@@ -8458,6 +9264,11 @@
     "accent-contrast": {
       "$value": "#ffffff",
       "$type": "color"
+    },
+    "accent-text": {
+      "$value": "{bronze.11}",
+      "$type": "color",
+      "$description": "Light-mode text in this accent: step 11, or step 12 where step 11 misses WCAG AA 4.5:1 on neutral 1-3 or this hue's 3-4 (v2.16.2)."
     }
   },
   "semantic/accent-brown": {
@@ -8664,6 +9475,11 @@
     "accent-contrast": {
       "$value": "#ffffff",
       "$type": "color"
+    },
+    "accent-text": {
+      "$value": "{brown.11}",
+      "$type": "color",
+      "$description": "Light-mode text in this accent: step 11, or step 12 where step 11 misses WCAG AA 4.5:1 on neutral 1-3 or this hue's 3-4 (v2.16.2)."
     }
   },
   "semantic/accent-crimson": {
@@ -8870,6 +9686,11 @@
     "accent-contrast": {
       "$value": "#ffffff",
       "$type": "color"
+    },
+    "accent-text": {
+      "$value": "{crimson.12}",
+      "$type": "color",
+      "$description": "Light-mode text in this accent: step 11, or step 12 where step 11 misses WCAG AA 4.5:1 on neutral 1-3 or this hue's 3-4 (v2.16.2)."
     }
   },
   "semantic/accent-cyan": {
@@ -9076,6 +9897,11 @@
     "accent-contrast": {
       "$value": "#ffffff",
       "$type": "color"
+    },
+    "accent-text": {
+      "$value": "{cyan.12}",
+      "$type": "color",
+      "$description": "Light-mode text in this accent: step 11, or step 12 where step 11 misses WCAG AA 4.5:1 on neutral 1-3 or this hue's 3-4 (v2.16.2)."
     }
   },
   "semantic/accent-gold": {
@@ -9282,6 +10108,11 @@
     "accent-contrast": {
       "$value": "#ffffff",
       "$type": "color"
+    },
+    "accent-text": {
+      "$value": "{gold.11}",
+      "$type": "color",
+      "$description": "Light-mode text in this accent: step 11, or step 12 where step 11 misses WCAG AA 4.5:1 on neutral 1-3 or this hue's 3-4 (v2.16.2)."
     }
   },
   "semantic/accent-grass": {
@@ -9488,6 +10319,11 @@
     "accent-contrast": {
       "$value": "#ffffff",
       "$type": "color"
+    },
+    "accent-text": {
+      "$value": "{grass.12}",
+      "$type": "color",
+      "$description": "Light-mode text in this accent: step 11, or step 12 where step 11 misses WCAG AA 4.5:1 on neutral 1-3 or this hue's 3-4 (v2.16.2)."
     }
   },
   "semantic/accent-green": {
@@ -9694,6 +10530,11 @@
     "accent-contrast": {
       "$value": "#ffffff",
       "$type": "color"
+    },
+    "accent-text": {
+      "$value": "{green.12}",
+      "$type": "color",
+      "$description": "Light-mode text in this accent: step 11, or step 12 where step 11 misses WCAG AA 4.5:1 on neutral 1-3 or this hue's 3-4 (v2.16.2)."
     }
   },
   "semantic/accent-indigo": {
@@ -9900,6 +10741,11 @@
     "accent-contrast": {
       "$value": "#ffffff",
       "$type": "color"
+    },
+    "accent-text": {
+      "$value": "{indigo.11}",
+      "$type": "color",
+      "$description": "Light-mode text in this accent: step 11, or step 12 where step 11 misses WCAG AA 4.5:1 on neutral 1-3 or this hue's 3-4 (v2.16.2)."
     }
   },
   "semantic/accent-iris": {
@@ -10106,6 +10952,11 @@
     "accent-contrast": {
       "$value": "#ffffff",
       "$type": "color"
+    },
+    "accent-text": {
+      "$value": "{iris.11}",
+      "$type": "color",
+      "$description": "Light-mode text in this accent: step 11, or step 12 where step 11 misses WCAG AA 4.5:1 on neutral 1-3 or this hue's 3-4 (v2.16.2)."
     }
   },
   "semantic/accent-jade": {
@@ -10312,6 +11163,11 @@
     "accent-contrast": {
       "$value": "#ffffff",
       "$type": "color"
+    },
+    "accent-text": {
+      "$value": "{jade.12}",
+      "$type": "color",
+      "$description": "Light-mode text in this accent: step 11, or step 12 where step 11 misses WCAG AA 4.5:1 on neutral 1-3 or this hue's 3-4 (v2.16.2)."
     }
   },
   "semantic/accent-lime": {
@@ -10516,8 +11372,13 @@
       }
     },
     "accent-contrast": {
-      "$value": "#21201c",
+      "$value": "#1d211c",
       "$type": "color"
+    },
+    "accent-text": {
+      "$value": "{lime.12}",
+      "$type": "color",
+      "$description": "Light-mode text in this accent: step 11, or step 12 where step 11 misses WCAG AA 4.5:1 on neutral 1-3 or this hue's 3-4 (v2.16.2)."
     }
   },
   "semantic/accent-mint": {
@@ -10722,8 +11583,13 @@
       }
     },
     "accent-contrast": {
-      "$value": "#21201c",
+      "$value": "#1a211e",
       "$type": "color"
+    },
+    "accent-text": {
+      "$value": "{mint.11}",
+      "$type": "color",
+      "$description": "Light-mode text in this accent: step 11, or step 12 where step 11 misses WCAG AA 4.5:1 on neutral 1-3 or this hue's 3-4 (v2.16.2)."
     }
   },
   "semantic/accent-orange": {
@@ -10930,6 +11796,11 @@
     "accent-contrast": {
       "$value": "#ffffff",
       "$type": "color"
+    },
+    "accent-text": {
+      "$value": "{orange.12}",
+      "$type": "color",
+      "$description": "Light-mode text in this accent: step 11, or step 12 where step 11 misses WCAG AA 4.5:1 on neutral 1-3 or this hue's 3-4 (v2.16.2)."
     }
   },
   "semantic/accent-pink": {
@@ -11136,6 +12007,11 @@
     "accent-contrast": {
       "$value": "#ffffff",
       "$type": "color"
+    },
+    "accent-text": {
+      "$value": "{pink.12}",
+      "$type": "color",
+      "$description": "Light-mode text in this accent: step 11, or step 12 where step 11 misses WCAG AA 4.5:1 on neutral 1-3 or this hue's 3-4 (v2.16.2)."
     }
   },
   "semantic/accent-plum": {
@@ -11342,6 +12218,11 @@
     "accent-contrast": {
       "$value": "#ffffff",
       "$type": "color"
+    },
+    "accent-text": {
+      "$value": "{plum.11}",
+      "$type": "color",
+      "$description": "Light-mode text in this accent: step 11, or step 12 where step 11 misses WCAG AA 4.5:1 on neutral 1-3 or this hue's 3-4 (v2.16.2)."
     }
   },
   "semantic/accent-purple": {
@@ -11548,6 +12429,11 @@
     "accent-contrast": {
       "$value": "#ffffff",
       "$type": "color"
+    },
+    "accent-text": {
+      "$value": "{purple.11}",
+      "$type": "color",
+      "$description": "Light-mode text in this accent: step 11, or step 12 where step 11 misses WCAG AA 4.5:1 on neutral 1-3 or this hue's 3-4 (v2.16.2)."
     }
   },
   "semantic/accent-red": {
@@ -11754,6 +12640,11 @@
     "accent-contrast": {
       "$value": "#ffffff",
       "$type": "color"
+    },
+    "accent-text": {
+      "$value": "{red.12}",
+      "$type": "color",
+      "$description": "Light-mode text in this accent: step 11, or step 12 where step 11 misses WCAG AA 4.5:1 on neutral 1-3 or this hue's 3-4 (v2.16.2)."
     }
   },
   "semantic/accent-ruby": {
@@ -11960,6 +12851,11 @@
     "accent-contrast": {
       "$value": "#ffffff",
       "$type": "color"
+    },
+    "accent-text": {
+      "$value": "{ruby.12}",
+      "$type": "color",
+      "$description": "Light-mode text in this accent: step 11, or step 12 where step 11 misses WCAG AA 4.5:1 on neutral 1-3 or this hue's 3-4 (v2.16.2)."
     }
   },
   "semantic/accent-sky": {
@@ -12164,8 +13060,13 @@
       }
     },
     "accent-contrast": {
-      "$value": "#21201c",
+      "$value": "#1c2024",
       "$type": "color"
+    },
+    "accent-text": {
+      "$value": "{sky.12}",
+      "$type": "color",
+      "$description": "Light-mode text in this accent: step 11, or step 12 where step 11 misses WCAG AA 4.5:1 on neutral 1-3 or this hue's 3-4 (v2.16.2)."
     }
   },
   "semantic/accent-teal": {
@@ -12372,6 +13273,11 @@
     "accent-contrast": {
       "$value": "#ffffff",
       "$type": "color"
+    },
+    "accent-text": {
+      "$value": "{teal.12}",
+      "$type": "color",
+      "$description": "Light-mode text in this accent: step 11, or step 12 where step 11 misses WCAG AA 4.5:1 on neutral 1-3 or this hue's 3-4 (v2.16.2)."
     }
   },
   "semantic/accent-tomato": {
@@ -12578,6 +13484,11 @@
     "accent-contrast": {
       "$value": "#ffffff",
       "$type": "color"
+    },
+    "accent-text": {
+      "$value": "{tomato.12}",
+      "$type": "color",
+      "$description": "Light-mode text in this accent: step 11, or step 12 where step 11 misses WCAG AA 4.5:1 on neutral 1-3 or this hue's 3-4 (v2.16.2)."
     }
   },
   "semantic/accent-violet": {
@@ -12784,6 +13695,11 @@
     "accent-contrast": {
       "$value": "#ffffff",
       "$type": "color"
+    },
+    "accent-text": {
+      "$value": "{violet.11}",
+      "$type": "color",
+      "$description": "Light-mode text in this accent: step 11, or step 12 where step 11 misses WCAG AA 4.5:1 on neutral 1-3 or this hue's 3-4 (v2.16.2)."
     }
   },
   "semantic/accent-yellow": {
@@ -12990,6 +13906,11 @@
     "accent-contrast": {
       "$value": "#21201c",
       "$type": "color"
+    },
+    "accent-text": {
+      "$value": "{yellow.12}",
+      "$type": "color",
+      "$description": "Light-mode text in this accent: step 11, or step 12 where step 11 misses WCAG AA 4.5:1 on neutral 1-3 or this hue's 3-4 (v2.16.2)."
     }
   },
   "semantic/gray-gray": {
@@ -15018,32 +15939,39 @@
         "$value": "#ffffff",
         "$type": "color"
       },
+      "brand": {
+        "$value": "{accent-text}",
+        "$type": "color",
+        "$description": "Brand-hued text, readable on surfaces and brand tints in both modes (WCAG AA 4.5:1). A deeper shade of the brand colour where the brand colour itself is too light for text."
+      },
       "brand-primary": {
-        "$value": "{accent.11}",
-        "$type": "color"
+        "$value": "{text.brand}",
+        "$type": "color",
+        "$description": "Deprecated in v2.16.3: renamed to text/brand. Same value. Removed in v2.18."
       },
       "brand-secondary": {
         "$value": "{accent.9}",
-        "$type": "color"
+        "$type": "color",
+        "$description": "Deprecated in v2.16.3: use text/brand. Step 9 is the brand fill colour and is not readable as text for most accents. Removed in v2.18."
       },
       "on-accent": {
         "$value": "{accent-contrast}",
         "$type": "color"
       },
       "error": {
-        "$value": "{status-error.11}",
+        "$value": "{status-error.12}",
         "$type": "color"
       },
       "warning": {
-        "$value": "{status-warning.11}",
+        "$value": "{status-warning.12}",
         "$type": "color"
       },
       "success": {
-        "$value": "{status-success.11}",
+        "$value": "{status-success.12}",
         "$type": "color"
       },
       "info": {
-        "$value": "{status-info.11}",
+        "$value": "{status-info.12}",
         "$type": "color"
       },
       "neutral-primary": {
@@ -15069,6 +15997,11 @@
       "neutral-disabled": {
         "$value": "{neutral.8}",
         "$type": "color"
+      },
+      "on-neutral-solid": {
+        "$value": "{neutral.1}",
+        "$type": "color",
+        "$description": "Text on background/neutral-primary-solid or neutral-secondary-solid (inverse surfaces)."
       }
     },
     "fg": {
@@ -15076,13 +16009,20 @@
         "$value": "#ffffff",
         "$type": "color"
       },
-      "brand-primary": {
+      "brand": {
         "$value": "{accent.11}",
-        "$type": "color"
+        "$type": "color",
+        "$description": "Brand-hued icons (step 11 of the selected accent)."
+      },
+      "brand-primary": {
+        "$value": "{fg.brand}",
+        "$type": "color",
+        "$description": "Deprecated in v2.16.3: renamed to fg/brand. Same value. Removed in v2.18."
       },
       "brand-secondary": {
         "$value": "{accent.9}",
-        "$type": "color"
+        "$type": "color",
+        "$description": "Deprecated in v2.16.3: use fg/brand. Step 9 is the brand fill colour and is not readable as text for most accents. Removed in v2.18."
       },
       "on-accent": {
         "$value": "{accent-contrast}",
@@ -15143,35 +16083,65 @@
       "neutral-disabled_subtle": {
         "$value": "{neutral.7}",
         "$type": "color"
+      },
+      "on-neutral-solid": {
+        "$value": "{neutral.1}",
+        "$type": "color",
+        "$description": "Icon on background/neutral-primary-solid or neutral-secondary-solid (inverse surfaces)."
       }
     },
     "bg": {
       "overlay": {
-        "$value": "{black-alpha.a9}",
-        "$type": "color"
+        "$value": "{overlay.scrim}",
+        "$type": "color",
+        "$description": "DEPRECATED v2.15: use overlay/scrim. Removed in v2.17."
       },
       "surface": {
-        "$value": "rgba(255, 255, 255, 0.936)",
-        "$type": "color"
+        "$value": "{overlay.primary}",
+        "$type": "color",
+        "$description": "DEPRECATED v2.15: in-page panels → surface/secondary; floating panels → overlay/primary. Removed in v2.17 after page retrofits."
       },
       "panel": {
         "$value": "rgba(255, 255, 255, 0.65)",
-        "$type": "color"
+        "$type": "color",
+        "$description": "DEPRECATED v2.15: rebind to surface/secondary or overlay/primary in the page retrofit. Removed in v2.17."
+      },
+      "brand-faint": {
+        "$value": "{accent.2}",
+        "$type": "color",
+        "$description": "Faintest brand wash (step 2 of the selected accent): page-section and large-area backgrounds that should read as a hint of the brand. One step lighter than background/brand-subtle (--my-bg-brand-subtle); cards on it use surface/primary or brand-subtle to separate."
+      },
+      "brand-subtle": {
+        "$value": "{accent.3}",
+        "$type": "color",
+        "$description": "Subtle brand tint (step 3 of the selected accent): selected rows, tags, subtle highlights. Not the brand colour itself; that is background/brand-solid (--my-bg-brand-solid)."
       },
       "brand-primary": {
-        "$value": "{accent.3}",
-        "$type": "color"
+        "$value": "{bg.brand-subtle}",
+        "$type": "color",
+        "$description": "Deprecated in v2.16.3: renamed to background/brand-subtle. Same value. Removed in v2.18."
+      },
+      "brand-soft": {
+        "$value": "{accent.4}",
+        "$type": "color",
+        "$description": "Stronger brand tint (step 4 of the selected accent): soft buttons, hover on bg/brand-subtle."
       },
       "brand-secondary": {
-        "$value": "{accent.4}",
-        "$type": "color"
+        "$value": "{bg.brand-soft}",
+        "$type": "color",
+        "$description": "Deprecated in v2.16.3: renamed to background/brand-soft. Same value. Removed in v2.18."
       },
       "brand-solid": {
         "$value": "{accent.9}",
-        "$type": "color"
+        "$type": "color",
+        "$description": "Your brand colour: step 9 of the selected accent (Rebecca = #663399). Filled buttons and brand fills; put text/on-accent on it."
       },
       "brand-solid_hover": {
         "$value": "{accent.10}",
+        "$type": "color"
+      },
+      "brand-solid_active": {
+        "$value": "{accent.12}",
         "$type": "color"
       },
       "error-primary": {
@@ -15190,6 +16160,10 @@
         "$value": "{status-error.10}",
         "$type": "color"
       },
+      "error-solid_active": {
+        "$value": "{status-error.11}",
+        "$type": "color"
+      },
       "warning-primary": {
         "$value": "{status-warning.3}",
         "$type": "color"
@@ -15200,6 +16174,14 @@
       },
       "warning-solid": {
         "$value": "{status-warning.9}",
+        "$type": "color"
+      },
+      "warning-solid_hover": {
+        "$value": "{status-warning.10}",
+        "$type": "color"
+      },
+      "warning-solid_active": {
+        "$value": "{status-warning.11}",
         "$type": "color"
       },
       "success-primary": {
@@ -15214,6 +16196,14 @@
         "$value": "{status-success.9}",
         "$type": "color"
       },
+      "success-solid_hover": {
+        "$value": "{status-success.10}",
+        "$type": "color"
+      },
+      "success-solid_active": {
+        "$value": "{status-success.11}",
+        "$type": "color"
+      },
       "info-primary": {
         "$value": "{status-info.3}",
         "$type": "color"
@@ -15224,6 +16214,14 @@
       },
       "info-solid": {
         "$value": "{status-info.9}",
+        "$type": "color"
+      },
+      "info-solid_hover": {
+        "$value": "{status-info.10}",
+        "$type": "color"
+      },
+      "info-solid_active": {
+        "$value": "{status-info.11}",
         "$type": "color"
       },
       "neutral-primary": {
@@ -15254,9 +16252,19 @@
         "$value": "{neutral.3}",
         "$type": "color"
       },
+      "neutral-tertiary_hover": {
+        "$value": "{neutral.4}",
+        "$type": "color",
+        "$description": "Hover on a neutral-tertiary fill, or on surface/tertiary and overlay/secondary."
+      },
       "neutral-quaternary": {
         "$value": "{neutral.4}",
         "$type": "color"
+      },
+      "neutral-quaternary_hover": {
+        "$value": "{neutral.5}",
+        "$type": "color",
+        "$description": "Hover on a neutral-quaternary fill, or on overlay/tertiary."
       },
       "neutral-active": {
         "$value": "{neutral.3}",
@@ -15269,6 +16277,16 @@
       "neutral-disabled_subtle": {
         "$value": "{neutral.2}",
         "$type": "color"
+      },
+      "neutral-primary-solid_hover": {
+        "$value": "{neutral.11}",
+        "$type": "color",
+        "$description": "Hover on background/neutral-primary-solid (inverse chips, Button Neutral Solid, inverse tooltip)."
+      },
+      "neutral-primary-solid_active": {
+        "$value": "{neutral.10}",
+        "$type": "color",
+        "$description": "Pressed on background/neutral-primary-solid."
       }
     },
     "border": {
@@ -15331,20 +16349,61 @@
     },
     "surface": {
       "default": {
-        "$value": "#ffffff",
-        "$type": "color"
+        "$value": "{surface.primary}",
+        "$type": "color",
+        "$description": "DEPRECATED v2.15: use surface/primary. Removed in v2.17."
       },
       "raised": {
-        "$value": "{neutral.2}",
-        "$type": "color"
+        "$value": "{surface.secondary}",
+        "$type": "color",
+        "$description": "DEPRECATED v2.15: use surface/secondary. Removed in v2.17."
       },
       "sunken": {
-        "$value": "{neutral.1}",
-        "$type": "color"
+        "$value": "{neutral-alpha.a3}",
+        "$type": "color",
+        "$description": "Recessed well: inputs, code, inline expanded groups. Translucent, so it sinks relative to its parent tier."
       },
       "overlay": {
-        "$value": "rgba(255, 255, 255, 0.936)",
-        "$type": "color"
+        "$value": "{overlay.primary}",
+        "$type": "color",
+        "$description": "DEPRECATED v2.15: use overlay/primary. Removed in v2.17."
+      },
+      "primary": {
+        "$value": "{neutral.1}",
+        "$type": "color",
+        "$description": "Tier 1: app canvas. Items on it hover with background/neutral-primary_hover."
+      },
+      "secondary": {
+        "$value": "{neutral.2}",
+        "$type": "color",
+        "$description": "Tier 2: sidebar, card, panel on the canvas. Items hover with background/neutral-secondary_hover."
+      },
+      "tertiary": {
+        "$value": "{neutral.3}",
+        "$type": "color",
+        "$description": "Tier 3: container nested in a tier-2 container. Items hover with background/neutral-tertiary_hover (never secondary_hover: it equals this fill)."
+      }
+    },
+    "overlay": {
+      "primary": {
+        "$value": "{neutral.1}",
+        "$type": "color",
+        "$description": "Floating panel on the page: menu, popover, tooltip, dialog, drawer. Items hover with background/neutral-secondary_hover."
+      },
+      "secondary": {
+        "$value": "{neutral.2}",
+        "$type": "color",
+        "$description": "Floating panel opened from inside another overlay: submenu, popover in a dialog. Items hover with background/neutral-tertiary_hover."
+      },
+      "tertiary": {
+        "$value": "{neutral.3}",
+        "$type": "color",
+        "$description": "Third-level floating panel. Items hover with background/neutral-quaternary_hover."
+      },
+      "scrim": {
+        "$value": "{black-alpha.a9}",
+        "$type": "color",
+        "$description": "Modal backdrop (::backdrop). Replaces background/overlay."
       }
     },
     "effect": {
@@ -15355,6 +16414,1070 @@
       "inner-shadow-color": {
         "$value": "rgba(252, 252, 253, 0.03)",
         "$type": "color"
+      },
+      "ring-brand": {
+        "$value": "{accent-alpha.a5}",
+        "$type": "color"
+      },
+      "shadow-brand": {
+        "$value": "{accent-alpha.a4}",
+        "$type": "color"
+      },
+      "ring-error": {
+        "$value": "{status-error-alpha.a5}",
+        "$type": "color"
+      },
+      "shadow-error": {
+        "$value": "{status-error-alpha.a4}",
+        "$type": "color"
+      },
+      "ring-warning": {
+        "$value": "{status-warning-alpha.a5}",
+        "$type": "color"
+      },
+      "shadow-warning": {
+        "$value": "{status-warning-alpha.a4}",
+        "$type": "color"
+      },
+      "ring-success": {
+        "$value": "{status-success-alpha.a5}",
+        "$type": "color"
+      },
+      "shadow-success": {
+        "$value": "{status-success-alpha.a4}",
+        "$type": "color"
+      },
+      "ring-info": {
+        "$value": "{status-info-alpha.a5}",
+        "$type": "color"
+      },
+      "shadow-info": {
+        "$value": "{status-info-alpha.a4}",
+        "$type": "color"
+      },
+      "depth": {
+        "ring": {
+          "$value": "{neutral-alpha.a3}",
+          "$type": "color"
+        },
+        "soft": {
+          "$value": "{neutral-alpha.a2}",
+          "$type": "color"
+        },
+        "dramatic": {
+          "$value": "{neutral-alpha.a3}",
+          "$type": "color"
+        },
+        "none": {
+          "$value": "rgba(0, 0, 0, 0)",
+          "$type": "color"
+        }
+      }
+    },
+    "decorative": {
+      "tomato-bg": {
+        "$type": "color",
+        "$value": "{tomato.3}",
+        "$description": "Fixed-hue decorative role (charts, tags, badges); responds to scheme only, never to Gray/Accent modes."
+      },
+      "tomato-border": {
+        "$type": "color",
+        "$value": "{tomato.7}",
+        "$description": "Fixed-hue decorative role (charts, tags, badges); responds to scheme only, never to Gray/Accent modes."
+      },
+      "tomato-solid": {
+        "$type": "color",
+        "$value": "{tomato.9}",
+        "$description": "Fixed-hue decorative role (charts, tags, badges); responds to scheme only, never to Gray/Accent modes."
+      },
+      "tomato-text": {
+        "$type": "color",
+        "$value": "{tomato.12}",
+        "$description": "Fixed-hue decorative role (charts, tags, badges); responds to scheme only, never to Gray/Accent modes."
+      },
+      "tomato-on-solid": {
+        "$type": "color",
+        "$value": "#ffffff",
+        "$description": "Fixed-hue decorative role (charts, tags, badges); responds to scheme only, never to Gray/Accent modes."
+      },
+      "red-bg": {
+        "$type": "color",
+        "$value": "{red.3}",
+        "$description": "Fixed-hue decorative role (charts, tags, badges); responds to scheme only, never to Gray/Accent modes."
+      },
+      "red-border": {
+        "$type": "color",
+        "$value": "{red.7}",
+        "$description": "Fixed-hue decorative role (charts, tags, badges); responds to scheme only, never to Gray/Accent modes."
+      },
+      "red-solid": {
+        "$type": "color",
+        "$value": "{red.9}",
+        "$description": "Fixed-hue decorative role (charts, tags, badges); responds to scheme only, never to Gray/Accent modes."
+      },
+      "red-text": {
+        "$type": "color",
+        "$value": "{red.12}",
+        "$description": "Fixed-hue decorative role (charts, tags, badges); responds to scheme only, never to Gray/Accent modes."
+      },
+      "red-on-solid": {
+        "$type": "color",
+        "$value": "#ffffff",
+        "$description": "Fixed-hue decorative role (charts, tags, badges); responds to scheme only, never to Gray/Accent modes."
+      },
+      "ruby-bg": {
+        "$type": "color",
+        "$value": "{ruby.3}",
+        "$description": "Fixed-hue decorative role (charts, tags, badges); responds to scheme only, never to Gray/Accent modes."
+      },
+      "ruby-border": {
+        "$type": "color",
+        "$value": "{ruby.7}",
+        "$description": "Fixed-hue decorative role (charts, tags, badges); responds to scheme only, never to Gray/Accent modes."
+      },
+      "ruby-solid": {
+        "$type": "color",
+        "$value": "{ruby.9}",
+        "$description": "Fixed-hue decorative role (charts, tags, badges); responds to scheme only, never to Gray/Accent modes."
+      },
+      "ruby-text": {
+        "$type": "color",
+        "$value": "{ruby.12}",
+        "$description": "Fixed-hue decorative role (charts, tags, badges); responds to scheme only, never to Gray/Accent modes."
+      },
+      "ruby-on-solid": {
+        "$type": "color",
+        "$value": "#ffffff",
+        "$description": "Fixed-hue decorative role (charts, tags, badges); responds to scheme only, never to Gray/Accent modes."
+      },
+      "crimson-bg": {
+        "$type": "color",
+        "$value": "{crimson.3}",
+        "$description": "Fixed-hue decorative role (charts, tags, badges); responds to scheme only, never to Gray/Accent modes."
+      },
+      "crimson-border": {
+        "$type": "color",
+        "$value": "{crimson.7}",
+        "$description": "Fixed-hue decorative role (charts, tags, badges); responds to scheme only, never to Gray/Accent modes."
+      },
+      "crimson-solid": {
+        "$type": "color",
+        "$value": "{crimson.9}",
+        "$description": "Fixed-hue decorative role (charts, tags, badges); responds to scheme only, never to Gray/Accent modes."
+      },
+      "crimson-text": {
+        "$type": "color",
+        "$value": "{crimson.12}",
+        "$description": "Fixed-hue decorative role (charts, tags, badges); responds to scheme only, never to Gray/Accent modes."
+      },
+      "crimson-on-solid": {
+        "$type": "color",
+        "$value": "#ffffff",
+        "$description": "Fixed-hue decorative role (charts, tags, badges); responds to scheme only, never to Gray/Accent modes."
+      },
+      "pink-bg": {
+        "$type": "color",
+        "$value": "{pink.3}",
+        "$description": "Fixed-hue decorative role (charts, tags, badges); responds to scheme only, never to Gray/Accent modes."
+      },
+      "pink-border": {
+        "$type": "color",
+        "$value": "{pink.7}",
+        "$description": "Fixed-hue decorative role (charts, tags, badges); responds to scheme only, never to Gray/Accent modes."
+      },
+      "pink-solid": {
+        "$type": "color",
+        "$value": "{pink.9}",
+        "$description": "Fixed-hue decorative role (charts, tags, badges); responds to scheme only, never to Gray/Accent modes."
+      },
+      "pink-text": {
+        "$type": "color",
+        "$value": "{pink.12}",
+        "$description": "Fixed-hue decorative role (charts, tags, badges); responds to scheme only, never to Gray/Accent modes."
+      },
+      "pink-on-solid": {
+        "$type": "color",
+        "$value": "#ffffff",
+        "$description": "Fixed-hue decorative role (charts, tags, badges); responds to scheme only, never to Gray/Accent modes."
+      },
+      "plum-bg": {
+        "$type": "color",
+        "$value": "{plum.3}",
+        "$description": "Fixed-hue decorative role (charts, tags, badges); responds to scheme only, never to Gray/Accent modes."
+      },
+      "plum-border": {
+        "$type": "color",
+        "$value": "{plum.7}",
+        "$description": "Fixed-hue decorative role (charts, tags, badges); responds to scheme only, never to Gray/Accent modes."
+      },
+      "plum-solid": {
+        "$type": "color",
+        "$value": "{plum.9}",
+        "$description": "Fixed-hue decorative role (charts, tags, badges); responds to scheme only, never to Gray/Accent modes."
+      },
+      "plum-text": {
+        "$type": "color",
+        "$value": "{plum.11}",
+        "$description": "Fixed-hue decorative role (charts, tags, badges); responds to scheme only, never to Gray/Accent modes."
+      },
+      "plum-on-solid": {
+        "$type": "color",
+        "$value": "#ffffff",
+        "$description": "Fixed-hue decorative role (charts, tags, badges); responds to scheme only, never to Gray/Accent modes."
+      },
+      "purple-bg": {
+        "$type": "color",
+        "$value": "{purple.3}",
+        "$description": "Fixed-hue decorative role (charts, tags, badges); responds to scheme only, never to Gray/Accent modes."
+      },
+      "purple-border": {
+        "$type": "color",
+        "$value": "{purple.7}",
+        "$description": "Fixed-hue decorative role (charts, tags, badges); responds to scheme only, never to Gray/Accent modes."
+      },
+      "purple-solid": {
+        "$type": "color",
+        "$value": "{purple.9}",
+        "$description": "Fixed-hue decorative role (charts, tags, badges); responds to scheme only, never to Gray/Accent modes."
+      },
+      "purple-text": {
+        "$type": "color",
+        "$value": "{purple.11}",
+        "$description": "Fixed-hue decorative role (charts, tags, badges); responds to scheme only, never to Gray/Accent modes."
+      },
+      "purple-on-solid": {
+        "$type": "color",
+        "$value": "#ffffff",
+        "$description": "Fixed-hue decorative role (charts, tags, badges); responds to scheme only, never to Gray/Accent modes."
+      },
+      "violet-bg": {
+        "$type": "color",
+        "$value": "{violet.3}",
+        "$description": "Fixed-hue decorative role (charts, tags, badges); responds to scheme only, never to Gray/Accent modes."
+      },
+      "violet-border": {
+        "$type": "color",
+        "$value": "{violet.7}",
+        "$description": "Fixed-hue decorative role (charts, tags, badges); responds to scheme only, never to Gray/Accent modes."
+      },
+      "violet-solid": {
+        "$type": "color",
+        "$value": "{violet.9}",
+        "$description": "Fixed-hue decorative role (charts, tags, badges); responds to scheme only, never to Gray/Accent modes."
+      },
+      "violet-text": {
+        "$type": "color",
+        "$value": "{violet.11}",
+        "$description": "Fixed-hue decorative role (charts, tags, badges); responds to scheme only, never to Gray/Accent modes."
+      },
+      "violet-on-solid": {
+        "$type": "color",
+        "$value": "#ffffff",
+        "$description": "Fixed-hue decorative role (charts, tags, badges); responds to scheme only, never to Gray/Accent modes."
+      },
+      "iris-bg": {
+        "$type": "color",
+        "$value": "{iris.3}",
+        "$description": "Fixed-hue decorative role (charts, tags, badges); responds to scheme only, never to Gray/Accent modes."
+      },
+      "iris-border": {
+        "$type": "color",
+        "$value": "{iris.7}",
+        "$description": "Fixed-hue decorative role (charts, tags, badges); responds to scheme only, never to Gray/Accent modes."
+      },
+      "iris-solid": {
+        "$type": "color",
+        "$value": "{iris.9}",
+        "$description": "Fixed-hue decorative role (charts, tags, badges); responds to scheme only, never to Gray/Accent modes."
+      },
+      "iris-text": {
+        "$type": "color",
+        "$value": "{iris.11}",
+        "$description": "Fixed-hue decorative role (charts, tags, badges); responds to scheme only, never to Gray/Accent modes."
+      },
+      "iris-on-solid": {
+        "$type": "color",
+        "$value": "#ffffff",
+        "$description": "Fixed-hue decorative role (charts, tags, badges); responds to scheme only, never to Gray/Accent modes."
+      },
+      "indigo-bg": {
+        "$type": "color",
+        "$value": "{indigo.3}",
+        "$description": "Fixed-hue decorative role (charts, tags, badges); responds to scheme only, never to Gray/Accent modes."
+      },
+      "indigo-border": {
+        "$type": "color",
+        "$value": "{indigo.7}",
+        "$description": "Fixed-hue decorative role (charts, tags, badges); responds to scheme only, never to Gray/Accent modes."
+      },
+      "indigo-solid": {
+        "$type": "color",
+        "$value": "{indigo.9}",
+        "$description": "Fixed-hue decorative role (charts, tags, badges); responds to scheme only, never to Gray/Accent modes."
+      },
+      "indigo-text": {
+        "$type": "color",
+        "$value": "{indigo.11}",
+        "$description": "Fixed-hue decorative role (charts, tags, badges); responds to scheme only, never to Gray/Accent modes."
+      },
+      "indigo-on-solid": {
+        "$type": "color",
+        "$value": "#ffffff",
+        "$description": "Fixed-hue decorative role (charts, tags, badges); responds to scheme only, never to Gray/Accent modes."
+      },
+      "blue-bg": {
+        "$type": "color",
+        "$value": "{blue.3}",
+        "$description": "Fixed-hue decorative role (charts, tags, badges); responds to scheme only, never to Gray/Accent modes."
+      },
+      "blue-border": {
+        "$type": "color",
+        "$value": "{blue.7}",
+        "$description": "Fixed-hue decorative role (charts, tags, badges); responds to scheme only, never to Gray/Accent modes."
+      },
+      "blue-solid": {
+        "$type": "color",
+        "$value": "{blue.9}",
+        "$description": "Fixed-hue decorative role (charts, tags, badges); responds to scheme only, never to Gray/Accent modes."
+      },
+      "blue-text": {
+        "$type": "color",
+        "$value": "{blue.12}",
+        "$description": "Fixed-hue decorative role (charts, tags, badges); responds to scheme only, never to Gray/Accent modes."
+      },
+      "blue-on-solid": {
+        "$type": "color",
+        "$value": "#ffffff",
+        "$description": "Fixed-hue decorative role (charts, tags, badges); responds to scheme only, never to Gray/Accent modes."
+      },
+      "cyan-bg": {
+        "$type": "color",
+        "$value": "{cyan.3}",
+        "$description": "Fixed-hue decorative role (charts, tags, badges); responds to scheme only, never to Gray/Accent modes."
+      },
+      "cyan-border": {
+        "$type": "color",
+        "$value": "{cyan.7}",
+        "$description": "Fixed-hue decorative role (charts, tags, badges); responds to scheme only, never to Gray/Accent modes."
+      },
+      "cyan-solid": {
+        "$type": "color",
+        "$value": "{cyan.9}",
+        "$description": "Fixed-hue decorative role (charts, tags, badges); responds to scheme only, never to Gray/Accent modes."
+      },
+      "cyan-text": {
+        "$type": "color",
+        "$value": "{cyan.12}",
+        "$description": "Fixed-hue decorative role (charts, tags, badges); responds to scheme only, never to Gray/Accent modes."
+      },
+      "cyan-on-solid": {
+        "$type": "color",
+        "$value": "#ffffff",
+        "$description": "Fixed-hue decorative role (charts, tags, badges); responds to scheme only, never to Gray/Accent modes."
+      },
+      "teal-bg": {
+        "$type": "color",
+        "$value": "{teal.3}",
+        "$description": "Fixed-hue decorative role (charts, tags, badges); responds to scheme only, never to Gray/Accent modes."
+      },
+      "teal-border": {
+        "$type": "color",
+        "$value": "{teal.7}",
+        "$description": "Fixed-hue decorative role (charts, tags, badges); responds to scheme only, never to Gray/Accent modes."
+      },
+      "teal-solid": {
+        "$type": "color",
+        "$value": "{teal.9}",
+        "$description": "Fixed-hue decorative role (charts, tags, badges); responds to scheme only, never to Gray/Accent modes."
+      },
+      "teal-text": {
+        "$type": "color",
+        "$value": "{teal.12}",
+        "$description": "Fixed-hue decorative role (charts, tags, badges); responds to scheme only, never to Gray/Accent modes."
+      },
+      "teal-on-solid": {
+        "$type": "color",
+        "$value": "#ffffff",
+        "$description": "Fixed-hue decorative role (charts, tags, badges); responds to scheme only, never to Gray/Accent modes."
+      },
+      "jade-bg": {
+        "$type": "color",
+        "$value": "{jade.3}",
+        "$description": "Fixed-hue decorative role (charts, tags, badges); responds to scheme only, never to Gray/Accent modes."
+      },
+      "jade-border": {
+        "$type": "color",
+        "$value": "{jade.7}",
+        "$description": "Fixed-hue decorative role (charts, tags, badges); responds to scheme only, never to Gray/Accent modes."
+      },
+      "jade-solid": {
+        "$type": "color",
+        "$value": "{jade.9}",
+        "$description": "Fixed-hue decorative role (charts, tags, badges); responds to scheme only, never to Gray/Accent modes."
+      },
+      "jade-text": {
+        "$type": "color",
+        "$value": "{jade.12}",
+        "$description": "Fixed-hue decorative role (charts, tags, badges); responds to scheme only, never to Gray/Accent modes."
+      },
+      "jade-on-solid": {
+        "$type": "color",
+        "$value": "#ffffff",
+        "$description": "Fixed-hue decorative role (charts, tags, badges); responds to scheme only, never to Gray/Accent modes."
+      },
+      "green-bg": {
+        "$type": "color",
+        "$value": "{green.3}",
+        "$description": "Fixed-hue decorative role (charts, tags, badges); responds to scheme only, never to Gray/Accent modes."
+      },
+      "green-border": {
+        "$type": "color",
+        "$value": "{green.7}",
+        "$description": "Fixed-hue decorative role (charts, tags, badges); responds to scheme only, never to Gray/Accent modes."
+      },
+      "green-solid": {
+        "$type": "color",
+        "$value": "{green.9}",
+        "$description": "Fixed-hue decorative role (charts, tags, badges); responds to scheme only, never to Gray/Accent modes."
+      },
+      "green-text": {
+        "$type": "color",
+        "$value": "{green.12}",
+        "$description": "Fixed-hue decorative role (charts, tags, badges); responds to scheme only, never to Gray/Accent modes."
+      },
+      "green-on-solid": {
+        "$type": "color",
+        "$value": "#ffffff",
+        "$description": "Fixed-hue decorative role (charts, tags, badges); responds to scheme only, never to Gray/Accent modes."
+      },
+      "grass-bg": {
+        "$type": "color",
+        "$value": "{grass.3}",
+        "$description": "Fixed-hue decorative role (charts, tags, badges); responds to scheme only, never to Gray/Accent modes."
+      },
+      "grass-border": {
+        "$type": "color",
+        "$value": "{grass.7}",
+        "$description": "Fixed-hue decorative role (charts, tags, badges); responds to scheme only, never to Gray/Accent modes."
+      },
+      "grass-solid": {
+        "$type": "color",
+        "$value": "{grass.9}",
+        "$description": "Fixed-hue decorative role (charts, tags, badges); responds to scheme only, never to Gray/Accent modes."
+      },
+      "grass-text": {
+        "$type": "color",
+        "$value": "{grass.12}",
+        "$description": "Fixed-hue decorative role (charts, tags, badges); responds to scheme only, never to Gray/Accent modes."
+      },
+      "grass-on-solid": {
+        "$type": "color",
+        "$value": "#ffffff",
+        "$description": "Fixed-hue decorative role (charts, tags, badges); responds to scheme only, never to Gray/Accent modes."
+      },
+      "brown-bg": {
+        "$type": "color",
+        "$value": "{brown.3}",
+        "$description": "Fixed-hue decorative role (charts, tags, badges); responds to scheme only, never to Gray/Accent modes."
+      },
+      "brown-border": {
+        "$type": "color",
+        "$value": "{brown.7}",
+        "$description": "Fixed-hue decorative role (charts, tags, badges); responds to scheme only, never to Gray/Accent modes."
+      },
+      "brown-solid": {
+        "$type": "color",
+        "$value": "{brown.9}",
+        "$description": "Fixed-hue decorative role (charts, tags, badges); responds to scheme only, never to Gray/Accent modes."
+      },
+      "brown-text": {
+        "$type": "color",
+        "$value": "{brown.11}",
+        "$description": "Fixed-hue decorative role (charts, tags, badges); responds to scheme only, never to Gray/Accent modes."
+      },
+      "brown-on-solid": {
+        "$type": "color",
+        "$value": "#ffffff",
+        "$description": "Fixed-hue decorative role (charts, tags, badges); responds to scheme only, never to Gray/Accent modes."
+      },
+      "bronze-bg": {
+        "$type": "color",
+        "$value": "{bronze.3}",
+        "$description": "Fixed-hue decorative role (charts, tags, badges); responds to scheme only, never to Gray/Accent modes."
+      },
+      "bronze-border": {
+        "$type": "color",
+        "$value": "{bronze.7}",
+        "$description": "Fixed-hue decorative role (charts, tags, badges); responds to scheme only, never to Gray/Accent modes."
+      },
+      "bronze-solid": {
+        "$type": "color",
+        "$value": "{bronze.9}",
+        "$description": "Fixed-hue decorative role (charts, tags, badges); responds to scheme only, never to Gray/Accent modes."
+      },
+      "bronze-text": {
+        "$type": "color",
+        "$value": "{bronze.11}",
+        "$description": "Fixed-hue decorative role (charts, tags, badges); responds to scheme only, never to Gray/Accent modes."
+      },
+      "bronze-on-solid": {
+        "$type": "color",
+        "$value": "#ffffff",
+        "$description": "Fixed-hue decorative role (charts, tags, badges); responds to scheme only, never to Gray/Accent modes."
+      },
+      "gold-bg": {
+        "$type": "color",
+        "$value": "{gold.3}",
+        "$description": "Fixed-hue decorative role (charts, tags, badges); responds to scheme only, never to Gray/Accent modes."
+      },
+      "gold-border": {
+        "$type": "color",
+        "$value": "{gold.7}",
+        "$description": "Fixed-hue decorative role (charts, tags, badges); responds to scheme only, never to Gray/Accent modes."
+      },
+      "gold-solid": {
+        "$type": "color",
+        "$value": "{gold.9}",
+        "$description": "Fixed-hue decorative role (charts, tags, badges); responds to scheme only, never to Gray/Accent modes."
+      },
+      "gold-text": {
+        "$type": "color",
+        "$value": "{gold.11}",
+        "$description": "Fixed-hue decorative role (charts, tags, badges); responds to scheme only, never to Gray/Accent modes."
+      },
+      "gold-on-solid": {
+        "$type": "color",
+        "$value": "#ffffff",
+        "$description": "Fixed-hue decorative role (charts, tags, badges); responds to scheme only, never to Gray/Accent modes."
+      },
+      "sky-bg": {
+        "$type": "color",
+        "$value": "{sky.3}",
+        "$description": "Fixed-hue decorative role (charts, tags, badges); responds to scheme only, never to Gray/Accent modes."
+      },
+      "sky-border": {
+        "$type": "color",
+        "$value": "{sky.7}",
+        "$description": "Fixed-hue decorative role (charts, tags, badges); responds to scheme only, never to Gray/Accent modes."
+      },
+      "sky-solid": {
+        "$type": "color",
+        "$value": "{sky.9}",
+        "$description": "Fixed-hue decorative role (charts, tags, badges); responds to scheme only, never to Gray/Accent modes."
+      },
+      "sky-text": {
+        "$type": "color",
+        "$value": "{sky.12}",
+        "$description": "Fixed-hue decorative role (charts, tags, badges); responds to scheme only, never to Gray/Accent modes."
+      },
+      "sky-on-solid": {
+        "$type": "color",
+        "$value": "{sky.12}",
+        "$description": "Fixed-hue decorative role (charts, tags, badges); responds to scheme only, never to Gray/Accent modes."
+      },
+      "mint-bg": {
+        "$type": "color",
+        "$value": "{mint.3}",
+        "$description": "Fixed-hue decorative role (charts, tags, badges); responds to scheme only, never to Gray/Accent modes."
+      },
+      "mint-border": {
+        "$type": "color",
+        "$value": "{mint.7}",
+        "$description": "Fixed-hue decorative role (charts, tags, badges); responds to scheme only, never to Gray/Accent modes."
+      },
+      "mint-solid": {
+        "$type": "color",
+        "$value": "{mint.9}",
+        "$description": "Fixed-hue decorative role (charts, tags, badges); responds to scheme only, never to Gray/Accent modes."
+      },
+      "mint-text": {
+        "$type": "color",
+        "$value": "{mint.11}",
+        "$description": "Fixed-hue decorative role (charts, tags, badges); responds to scheme only, never to Gray/Accent modes."
+      },
+      "mint-on-solid": {
+        "$type": "color",
+        "$value": "{mint.12}",
+        "$description": "Fixed-hue decorative role (charts, tags, badges); responds to scheme only, never to Gray/Accent modes."
+      },
+      "lime-bg": {
+        "$type": "color",
+        "$value": "{lime.3}",
+        "$description": "Fixed-hue decorative role (charts, tags, badges); responds to scheme only, never to Gray/Accent modes."
+      },
+      "lime-border": {
+        "$type": "color",
+        "$value": "{lime.7}",
+        "$description": "Fixed-hue decorative role (charts, tags, badges); responds to scheme only, never to Gray/Accent modes."
+      },
+      "lime-solid": {
+        "$type": "color",
+        "$value": "{lime.9}",
+        "$description": "Fixed-hue decorative role (charts, tags, badges); responds to scheme only, never to Gray/Accent modes."
+      },
+      "lime-text": {
+        "$type": "color",
+        "$value": "{lime.12}",
+        "$description": "Fixed-hue decorative role (charts, tags, badges); responds to scheme only, never to Gray/Accent modes."
+      },
+      "lime-on-solid": {
+        "$type": "color",
+        "$value": "{lime.12}",
+        "$description": "Fixed-hue decorative role (charts, tags, badges); responds to scheme only, never to Gray/Accent modes."
+      },
+      "yellow-bg": {
+        "$type": "color",
+        "$value": "{yellow.3}",
+        "$description": "Fixed-hue decorative role (charts, tags, badges); responds to scheme only, never to Gray/Accent modes."
+      },
+      "yellow-border": {
+        "$type": "color",
+        "$value": "{yellow.7}",
+        "$description": "Fixed-hue decorative role (charts, tags, badges); responds to scheme only, never to Gray/Accent modes."
+      },
+      "yellow-solid": {
+        "$type": "color",
+        "$value": "{yellow.9}",
+        "$description": "Fixed-hue decorative role (charts, tags, badges); responds to scheme only, never to Gray/Accent modes."
+      },
+      "yellow-text": {
+        "$type": "color",
+        "$value": "{yellow.12}",
+        "$description": "Fixed-hue decorative role (charts, tags, badges); responds to scheme only, never to Gray/Accent modes."
+      },
+      "yellow-on-solid": {
+        "$type": "color",
+        "$value": "{yellow.12}",
+        "$description": "Fixed-hue decorative role (charts, tags, badges); responds to scheme only, never to Gray/Accent modes."
+      },
+      "amber-bg": {
+        "$type": "color",
+        "$value": "{amber.3}",
+        "$description": "Fixed-hue decorative role (charts, tags, badges); responds to scheme only, never to Gray/Accent modes."
+      },
+      "amber-border": {
+        "$type": "color",
+        "$value": "{amber.7}",
+        "$description": "Fixed-hue decorative role (charts, tags, badges); responds to scheme only, never to Gray/Accent modes."
+      },
+      "amber-solid": {
+        "$type": "color",
+        "$value": "{amber.9}",
+        "$description": "Fixed-hue decorative role (charts, tags, badges); responds to scheme only, never to Gray/Accent modes."
+      },
+      "amber-text": {
+        "$type": "color",
+        "$value": "{amber.12}",
+        "$description": "Fixed-hue decorative role (charts, tags, badges); responds to scheme only, never to Gray/Accent modes."
+      },
+      "amber-on-solid": {
+        "$type": "color",
+        "$value": "{amber.12}",
+        "$description": "Fixed-hue decorative role (charts, tags, badges); responds to scheme only, never to Gray/Accent modes."
+      },
+      "orange-bg": {
+        "$type": "color",
+        "$value": "{orange.3}",
+        "$description": "Fixed-hue decorative role (charts, tags, badges); responds to scheme only, never to Gray/Accent modes."
+      },
+      "orange-border": {
+        "$type": "color",
+        "$value": "{orange.7}",
+        "$description": "Fixed-hue decorative role (charts, tags, badges); responds to scheme only, never to Gray/Accent modes."
+      },
+      "orange-solid": {
+        "$type": "color",
+        "$value": "{orange.9}",
+        "$description": "Fixed-hue decorative role (charts, tags, badges); responds to scheme only, never to Gray/Accent modes."
+      },
+      "orange-text": {
+        "$type": "color",
+        "$value": "{orange.12}",
+        "$description": "Fixed-hue decorative role (charts, tags, badges); responds to scheme only, never to Gray/Accent modes."
+      },
+      "orange-on-solid": {
+        "$type": "color",
+        "$value": "#ffffff",
+        "$description": "Fixed-hue decorative role (charts, tags, badges); responds to scheme only, never to Gray/Accent modes."
+      },
+      "rebecca-bg": {
+        "$type": "color",
+        "$value": "{brand.3}",
+        "$description": "Fixed-hue decorative role (charts, tags, badges); responds to scheme only, never to Gray/Accent modes."
+      },
+      "rebecca-border": {
+        "$type": "color",
+        "$value": "{brand.7}",
+        "$description": "Fixed-hue decorative role (charts, tags, badges); responds to scheme only, never to Gray/Accent modes."
+      },
+      "rebecca-solid": {
+        "$type": "color",
+        "$value": "{brand.9}",
+        "$description": "Fixed-hue decorative role (charts, tags, badges); responds to scheme only, never to Gray/Accent modes."
+      },
+      "rebecca-text": {
+        "$type": "color",
+        "$value": "{brand.11}",
+        "$description": "Fixed-hue decorative role (charts, tags, badges); responds to scheme only, never to Gray/Accent modes."
+      },
+      "rebecca-on-solid": {
+        "$type": "color",
+        "$value": "#ffffff",
+        "$description": "Fixed-hue decorative role (charts, tags, badges); responds to scheme only, never to Gray/Accent modes."
+      }
+    },
+    "gradient": {
+      "tonal": {
+        "rebecca-depth": {
+          "stop-1": {
+            "$type": "color",
+            "$value": "{brand.5}"
+          },
+          "stop-2": {
+            "$type": "color",
+            "$value": "{brand.10}"
+          },
+          "angle": {
+            "$type": "number",
+            "$value": 135,
+            "$description": "Angle in degrees; linear-gradient() composition lives in the CSS layer."
+          }
+        },
+        "iris-depth": {
+          "stop-1": {
+            "$type": "color",
+            "$value": "{iris.4}"
+          },
+          "stop-2": {
+            "$type": "color",
+            "$value": "{iris.10}"
+          },
+          "angle": {
+            "$type": "number",
+            "$value": 135,
+            "$description": "Angle in degrees; linear-gradient() composition lives in the CSS layer."
+          }
+        },
+        "teal-depth": {
+          "stop-1": {
+            "$type": "color",
+            "$value": "{teal.4}"
+          },
+          "stop-2": {
+            "$type": "color",
+            "$value": "{teal.10}"
+          },
+          "angle": {
+            "$type": "number",
+            "$value": 135,
+            "$description": "Angle in degrees; linear-gradient() composition lives in the CSS layer."
+          }
+        },
+        "amber-depth": {
+          "stop-1": {
+            "$type": "color",
+            "$value": "{amber.4}"
+          },
+          "stop-2": {
+            "$type": "color",
+            "$value": "{amber.10}"
+          },
+          "angle": {
+            "$type": "number",
+            "$value": 135,
+            "$description": "Angle in degrees; linear-gradient() composition lives in the CSS layer."
+          }
+        },
+        "slate-depth": {
+          "stop-1": {
+            "$type": "color",
+            "$value": "{slate.3}"
+          },
+          "stop-2": {
+            "$type": "color",
+            "$value": "{slate.8}"
+          },
+          "angle": {
+            "$type": "number",
+            "$value": 135,
+            "$description": "Angle in degrees; linear-gradient() composition lives in the CSS layer."
+          }
+        }
+      },
+      "analogous": {
+        "violet-hour": {
+          "stop-1": {
+            "$type": "color",
+            "$value": "{violet.9}"
+          },
+          "stop-2": {
+            "$type": "color",
+            "$value": "{iris.9}"
+          },
+          "angle": {
+            "$type": "number",
+            "$value": 120,
+            "$description": "Angle in degrees; linear-gradient() composition lives in the CSS layer."
+          }
+        },
+        "deep-sea": {
+          "stop-1": {
+            "$type": "color",
+            "$value": "{indigo.9}"
+          },
+          "stop-2": {
+            "$type": "color",
+            "$value": "{blue.9}"
+          },
+          "angle": {
+            "$type": "number",
+            "$value": 120,
+            "$description": "Angle in degrees; linear-gradient() composition lives in the CSS layer."
+          }
+        },
+        "lagoon": {
+          "stop-1": {
+            "$type": "color",
+            "$value": "{cyan.9}"
+          },
+          "stop-2": {
+            "$type": "color",
+            "$value": "{teal.9}"
+          },
+          "angle": {
+            "$type": "number",
+            "$value": 120,
+            "$description": "Angle in degrees; linear-gradient() composition lives in the CSS layer."
+          }
+        },
+        "meadow": {
+          "stop-1": {
+            "$type": "color",
+            "$value": "{jade.9}"
+          },
+          "stop-2": {
+            "$type": "color",
+            "$value": "{grass.9}"
+          },
+          "angle": {
+            "$type": "number",
+            "$value": 120,
+            "$description": "Angle in degrees; linear-gradient() composition lives in the CSS layer."
+          }
+        },
+        "rosebud": {
+          "stop-1": {
+            "$type": "color",
+            "$value": "{crimson.9}"
+          },
+          "stop-2": {
+            "$type": "color",
+            "$value": "{pink.9}"
+          },
+          "angle": {
+            "$type": "number",
+            "$value": 120,
+            "$description": "Angle in degrees; linear-gradient() composition lives in the CSS layer."
+          }
+        },
+        "ember": {
+          "stop-1": {
+            "$type": "color",
+            "$value": "{amber.9}"
+          },
+          "stop-2": {
+            "$type": "color",
+            "$value": "{orange.9}"
+          },
+          "angle": {
+            "$type": "number",
+            "$value": 120,
+            "$description": "Angle in degrees; linear-gradient() composition lives in the CSS layer."
+          }
+        }
+      },
+      "signature": {
+        "twilight": {
+          "stop-1": {
+            "$type": "color",
+            "$value": "{brand.9}"
+          },
+          "stop-2": {
+            "$type": "color",
+            "$value": "{iris.9}"
+          },
+          "angle": {
+            "$type": "number",
+            "$value": 135,
+            "$description": "Angle in degrees; linear-gradient() composition lives in the CSS layer."
+          }
+        },
+        "flare": {
+          "stop-1": {
+            "$type": "color",
+            "$value": "{brand.9}"
+          },
+          "stop-2": {
+            "$type": "color",
+            "$value": "{crimson.9}"
+          },
+          "angle": {
+            "$type": "number",
+            "$value": 135,
+            "$description": "Angle in degrees; linear-gradient() composition lives in the CSS layer."
+          }
+        },
+        "abyss": {
+          "stop-1": {
+            "$type": "color",
+            "$value": "{brand.11}"
+          },
+          "stop-2": {
+            "$type": "color",
+            "$value": "{indigo.11}"
+          },
+          "angle": {
+            "$type": "number",
+            "$value": 135,
+            "$description": "Angle in degrees; linear-gradient() composition lives in the CSS layer."
+          }
+        },
+        "dawn": {
+          "stop-1": {
+            "$type": "color",
+            "$value": "{brand.8}"
+          },
+          "stop-2": {
+            "$type": "color",
+            "$value": "{orange.8}"
+          },
+          "angle": {
+            "$type": "number",
+            "$value": 135,
+            "$description": "Angle in degrees; linear-gradient() composition lives in the CSS layer."
+          }
+        }
+      },
+      "wash": {
+        "petal": {
+          "stop-1": {
+            "$type": "color",
+            "$value": "{iris.3}"
+          },
+          "stop-2": {
+            "$type": "color",
+            "$value": "{pink.3}"
+          },
+          "angle": {
+            "$type": "number",
+            "$value": 160,
+            "$description": "Angle in degrees; linear-gradient() composition lives in the CSS layer."
+          }
+        },
+        "coast": {
+          "stop-1": {
+            "$type": "color",
+            "$value": "{sky.3}"
+          },
+          "stop-2": {
+            "$type": "color",
+            "$value": "{mint.3}"
+          },
+          "angle": {
+            "$type": "number",
+            "$value": 160,
+            "$description": "Angle in degrees; linear-gradient() composition lives in the CSS layer."
+          }
+        },
+        "sunset": {
+          "stop-1": {
+            "$type": "color",
+            "$value": "{amber.3}"
+          },
+          "stop-2": {
+            "$type": "color",
+            "$value": "{tomato.3}"
+          },
+          "angle": {
+            "$type": "number",
+            "$value": 160,
+            "$description": "Angle in degrees; linear-gradient() composition lives in the CSS layer."
+          }
+        },
+        "orchid": {
+          "stop-1": {
+            "$type": "color",
+            "$value": "{brand.3}"
+          },
+          "stop-2": {
+            "$type": "color",
+            "$value": "{plum.3}"
+          },
+          "angle": {
+            "$type": "number",
+            "$value": 160,
+            "$description": "Angle in degrees; linear-gradient() composition lives in the CSS layer."
+          }
+        }
+      },
+      "tri-stop": {
+        "sunset-run": {
+          "stop-1": {
+            "$type": "color",
+            "$value": "{brand.9}"
+          },
+          "stop-2": {
+            "$type": "color",
+            "$value": "{crimson.9}"
+          },
+          "stop-3": {
+            "$type": "color",
+            "$value": "{amber.9}"
+          },
+          "angle": {
+            "$type": "number",
+            "$value": 110,
+            "$description": "Angle in degrees; linear-gradient() composition lives in the CSS layer."
+          }
+        },
+        "ocean-run": {
+          "stop-1": {
+            "$type": "color",
+            "$value": "{indigo.9}"
+          },
+          "stop-2": {
+            "$type": "color",
+            "$value": "{cyan.9}"
+          },
+          "stop-3": {
+            "$type": "color",
+            "$value": "{mint.9}"
+          },
+          "angle": {
+            "$type": "number",
+            "$value": 110,
+            "$description": "Angle in degrees; linear-gradient() composition lives in the CSS layer."
+          }
+        },
+        "aurora-run": {
+          "stop-1": {
+            "$type": "color",
+            "$value": "{teal.9}"
+          },
+          "stop-2": {
+            "$type": "color",
+            "$value": "{iris.9}"
+          },
+          "stop-3": {
+            "$type": "color",
+            "$value": "{pink.9}"
+          },
+          "angle": {
+            "$type": "number",
+            "$value": 110,
+            "$description": "Angle in degrees; linear-gradient() composition lives in the CSS layer."
+          }
+        }
       }
     }
   },
@@ -15364,13 +17487,20 @@
         "$value": "#ffffff",
         "$type": "color"
       },
-      "brand-primary": {
+      "brand": {
         "$value": "{accent-dark.11}",
-        "$type": "color"
+        "$type": "color",
+        "$description": "Brand-hued text, readable on surfaces and brand tints in both modes (WCAG AA 4.5:1). A deeper shade of the brand colour where the brand colour itself is too light for text."
+      },
+      "brand-primary": {
+        "$value": "{text.brand}",
+        "$type": "color",
+        "$description": "Deprecated in v2.16.3: renamed to text/brand. Same value. Removed in v2.18."
       },
       "brand-secondary": {
         "$value": "{accent-dark.9}",
-        "$type": "color"
+        "$type": "color",
+        "$description": "Deprecated in v2.16.3: use text/brand. Step 9 is the brand fill colour and is not readable as text for most accents. Removed in v2.18."
       },
       "on-accent": {
         "$value": "{accent-contrast}",
@@ -15415,6 +17545,11 @@
       "neutral-disabled": {
         "$value": "{neutral-dark.8}",
         "$type": "color"
+      },
+      "on-neutral-solid": {
+        "$value": "{neutral-dark.1}",
+        "$type": "color",
+        "$description": "Text on background/neutral-primary-solid or neutral-secondary-solid (inverse surfaces)."
       }
     },
     "fg": {
@@ -15422,13 +17557,20 @@
         "$value": "#ffffff",
         "$type": "color"
       },
-      "brand-primary": {
+      "brand": {
         "$value": "{accent-dark.11}",
-        "$type": "color"
+        "$type": "color",
+        "$description": "Brand-hued icons (step 11 of the selected accent)."
+      },
+      "brand-primary": {
+        "$value": "{fg.brand}",
+        "$type": "color",
+        "$description": "Deprecated in v2.16.3: renamed to fg/brand. Same value. Removed in v2.18."
       },
       "brand-secondary": {
         "$value": "{accent-dark.9}",
-        "$type": "color"
+        "$type": "color",
+        "$description": "Deprecated in v2.16.3: use fg/brand. Step 9 is the brand fill colour and is not readable as text for most accents. Removed in v2.18."
       },
       "on-accent": {
         "$value": "{accent-contrast}",
@@ -15489,35 +17631,65 @@
       "neutral-disabled_subtle": {
         "$value": "{neutral-dark.7}",
         "$type": "color"
+      },
+      "on-neutral-solid": {
+        "$value": "{neutral-dark.1}",
+        "$type": "color",
+        "$description": "Icon on background/neutral-primary-solid or neutral-secondary-solid (inverse surfaces)."
       }
     },
     "bg": {
       "overlay": {
-        "$value": "{black-alpha.a9}",
-        "$type": "color"
+        "$value": "{overlay.scrim}",
+        "$type": "color",
+        "$description": "DEPRECATED v2.15: use overlay/scrim. Removed in v2.17."
       },
       "surface": {
-        "$value": "rgba(0, 0, 0, 0.891)",
-        "$type": "color"
+        "$value": "{overlay.primary}",
+        "$type": "color",
+        "$description": "DEPRECATED v2.15: in-page panels → surface/secondary; floating panels → overlay/primary. Removed in v2.17 after page retrofits."
       },
       "panel": {
         "$value": "{neutral-dark.1}",
-        "$type": "color"
+        "$type": "color",
+        "$description": "DEPRECATED v2.15: rebind to surface/secondary or overlay/primary in the page retrofit. Removed in v2.17."
+      },
+      "brand-faint": {
+        "$value": "{accent-dark.2}",
+        "$type": "color",
+        "$description": "Faintest brand wash (step 2 of the selected accent): page-section and large-area backgrounds that should read as a hint of the brand. One step lighter than background/brand-subtle (--my-bg-brand-subtle); cards on it use surface/primary or brand-subtle to separate."
+      },
+      "brand-subtle": {
+        "$value": "{accent-dark.3}",
+        "$type": "color",
+        "$description": "Subtle brand tint (step 3 of the selected accent): selected rows, tags, subtle highlights. Not the brand colour itself; that is background/brand-solid (--my-bg-brand-solid)."
       },
       "brand-primary": {
-        "$value": "{accent-dark.3}",
-        "$type": "color"
+        "$value": "{bg.brand-subtle}",
+        "$type": "color",
+        "$description": "Deprecated in v2.16.3: renamed to background/brand-subtle. Same value. Removed in v2.18."
+      },
+      "brand-soft": {
+        "$value": "{accent-dark.4}",
+        "$type": "color",
+        "$description": "Stronger brand tint (step 4 of the selected accent): soft buttons, hover on bg/brand-subtle."
       },
       "brand-secondary": {
-        "$value": "{accent-dark.4}",
-        "$type": "color"
+        "$value": "{bg.brand-soft}",
+        "$type": "color",
+        "$description": "Deprecated in v2.16.3: renamed to background/brand-soft. Same value. Removed in v2.18."
       },
       "brand-solid": {
         "$value": "{accent-dark.9}",
-        "$type": "color"
+        "$type": "color",
+        "$description": "Your brand colour: step 9 of the selected accent (Rebecca = #663399). Filled buttons and brand fills; put text/on-accent on it."
       },
       "brand-solid_hover": {
         "$value": "{accent-dark.10}",
+        "$type": "color"
+      },
+      "brand-solid_active": {
+        "$value": "{accent-dark.8}",
         "$type": "color"
       },
       "error-primary": {
@@ -15536,6 +17708,10 @@
         "$value": "{status-error-dark.10}",
         "$type": "color"
       },
+      "error-solid_active": {
+        "$value": "{status-error-dark.11}",
+        "$type": "color"
+      },
       "warning-primary": {
         "$value": "{status-warning-dark.3}",
         "$type": "color"
@@ -15546,6 +17722,14 @@
       },
       "warning-solid": {
         "$value": "{status-warning-dark.9}",
+        "$type": "color"
+      },
+      "warning-solid_hover": {
+        "$value": "{status-warning-dark.10}",
+        "$type": "color"
+      },
+      "warning-solid_active": {
+        "$value": "{status-warning-dark.11}",
         "$type": "color"
       },
       "success-primary": {
@@ -15560,6 +17744,14 @@
         "$value": "{status-success-dark.9}",
         "$type": "color"
       },
+      "success-solid_hover": {
+        "$value": "{status-success-dark.10}",
+        "$type": "color"
+      },
+      "success-solid_active": {
+        "$value": "{status-success-dark.11}",
+        "$type": "color"
+      },
       "info-primary": {
         "$value": "{status-info-dark.3}",
         "$type": "color"
@@ -15570,6 +17762,14 @@
       },
       "info-solid": {
         "$value": "{status-info-dark.9}",
+        "$type": "color"
+      },
+      "info-solid_hover": {
+        "$value": "{status-info-dark.10}",
+        "$type": "color"
+      },
+      "info-solid_active": {
+        "$value": "{status-info-dark.11}",
         "$type": "color"
       },
       "neutral-primary": {
@@ -15600,9 +17800,19 @@
         "$value": "{neutral-dark.3}",
         "$type": "color"
       },
+      "neutral-tertiary_hover": {
+        "$value": "{neutral-dark.4}",
+        "$type": "color",
+        "$description": "Hover on a neutral-tertiary fill, or on surface/tertiary and overlay/secondary."
+      },
       "neutral-quaternary": {
         "$value": "{neutral-dark.4}",
         "$type": "color"
+      },
+      "neutral-quaternary_hover": {
+        "$value": "{neutral-dark.5}",
+        "$type": "color",
+        "$description": "Hover on a neutral-quaternary fill, or on overlay/tertiary."
       },
       "neutral-active": {
         "$value": "{neutral-dark.3}",
@@ -15615,6 +17825,16 @@
       "neutral-disabled_subtle": {
         "$value": "{neutral-dark.2}",
         "$type": "color"
+      },
+      "neutral-primary-solid_hover": {
+        "$value": "{neutral-dark.11}",
+        "$type": "color",
+        "$description": "Hover on background/neutral-primary-solid (inverse chips, Button Neutral Solid, inverse tooltip)."
+      },
+      "neutral-primary-solid_active": {
+        "$value": "{neutral-dark.10}",
+        "$type": "color",
+        "$description": "Pressed on background/neutral-primary-solid."
       }
     },
     "border": {
@@ -15677,20 +17897,61 @@
     },
     "surface": {
       "default": {
-        "$value": "{neutral-dark.1}",
-        "$type": "color"
+        "$value": "{surface.primary}",
+        "$type": "color",
+        "$description": "DEPRECATED v2.15: use surface/primary. Removed in v2.17."
       },
       "raised": {
-        "$value": "{neutral-dark.2}",
-        "$type": "color"
+        "$value": "{surface.secondary}",
+        "$type": "color",
+        "$description": "DEPRECATED v2.15: use surface/secondary. Removed in v2.17."
       },
       "sunken": {
-        "$value": "{neutral-dark.1}",
-        "$type": "color"
+        "$value": "{black-alpha.a6}",
+        "$type": "color",
+        "$description": "Recessed well: inputs, code, inline expanded groups. Translucent, so it sinks relative to its parent tier."
       },
       "overlay": {
-        "$value": "rgba(0, 0, 0, 0.891)",
-        "$type": "color"
+        "$value": "{overlay.primary}",
+        "$type": "color",
+        "$description": "DEPRECATED v2.15: use overlay/primary. Removed in v2.17."
+      },
+      "primary": {
+        "$value": "{neutral-dark.1}",
+        "$type": "color",
+        "$description": "Tier 1: app canvas. Items on it hover with background/neutral-primary_hover."
+      },
+      "secondary": {
+        "$value": "{neutral-dark.2}",
+        "$type": "color",
+        "$description": "Tier 2: sidebar, card, panel on the canvas. Items hover with background/neutral-secondary_hover."
+      },
+      "tertiary": {
+        "$value": "{neutral-dark.3}",
+        "$type": "color",
+        "$description": "Tier 3: container nested in a tier-2 container. Items hover with background/neutral-tertiary_hover (never secondary_hover: it equals this fill)."
+      }
+    },
+    "overlay": {
+      "primary": {
+        "$value": "{neutral-dark.2}",
+        "$type": "color",
+        "$description": "Floating panel on the page: menu, popover, tooltip, dialog, drawer. Items hover with background/neutral-secondary_hover."
+      },
+      "secondary": {
+        "$value": "{neutral-dark.3}",
+        "$type": "color",
+        "$description": "Floating panel opened from inside another overlay: submenu, popover in a dialog. Items hover with background/neutral-tertiary_hover."
+      },
+      "tertiary": {
+        "$value": "{neutral-dark.4}",
+        "$type": "color",
+        "$description": "Third-level floating panel. Items hover with background/neutral-quaternary_hover."
+      },
+      "scrim": {
+        "$value": "{black-alpha.a9}",
+        "$type": "color",
+        "$description": "Modal backdrop (::backdrop). Replaces background/overlay."
       }
     },
     "effect": {
@@ -15701,6 +17962,1070 @@
       "inner-shadow-color": {
         "$value": "rgba(252, 252, 253, 0.02)",
         "$type": "color"
+      },
+      "ring-brand": {
+        "$value": "{accent-dark-alpha.a5}",
+        "$type": "color"
+      },
+      "shadow-brand": {
+        "$value": "{accent-dark-alpha.a4}",
+        "$type": "color"
+      },
+      "ring-error": {
+        "$value": "{status-error-dark-alpha.a5}",
+        "$type": "color"
+      },
+      "shadow-error": {
+        "$value": "{status-error-dark-alpha.a4}",
+        "$type": "color"
+      },
+      "ring-warning": {
+        "$value": "{status-warning-dark-alpha.a5}",
+        "$type": "color"
+      },
+      "shadow-warning": {
+        "$value": "{status-warning-dark-alpha.a4}",
+        "$type": "color"
+      },
+      "ring-success": {
+        "$value": "{status-success-dark-alpha.a5}",
+        "$type": "color"
+      },
+      "shadow-success": {
+        "$value": "{status-success-dark-alpha.a4}",
+        "$type": "color"
+      },
+      "ring-info": {
+        "$value": "{status-info-dark-alpha.a5}",
+        "$type": "color"
+      },
+      "shadow-info": {
+        "$value": "{status-info-dark-alpha.a4}",
+        "$type": "color"
+      },
+      "depth": {
+        "ring": {
+          "$value": "{neutral-dark-alpha.a3}",
+          "$type": "color"
+        },
+        "soft": {
+          "$value": "{neutral-alpha.a5}",
+          "$type": "color"
+        },
+        "dramatic": {
+          "$value": "{neutral-alpha.a7}",
+          "$type": "color"
+        },
+        "none": {
+          "$value": "rgba(0, 0, 0, 0)",
+          "$type": "color"
+        }
+      }
+    },
+    "decorative": {
+      "tomato-bg": {
+        "$type": "color",
+        "$value": "{tomato-dark.3}",
+        "$description": "Fixed-hue decorative role (charts, tags, badges); responds to scheme only, never to Gray/Accent modes."
+      },
+      "tomato-border": {
+        "$type": "color",
+        "$value": "{tomato-dark.7}",
+        "$description": "Fixed-hue decorative role (charts, tags, badges); responds to scheme only, never to Gray/Accent modes."
+      },
+      "tomato-solid": {
+        "$type": "color",
+        "$value": "{tomato-dark.9}",
+        "$description": "Fixed-hue decorative role (charts, tags, badges); responds to scheme only, never to Gray/Accent modes."
+      },
+      "tomato-text": {
+        "$type": "color",
+        "$value": "{tomato-dark.11}",
+        "$description": "Fixed-hue decorative role (charts, tags, badges); responds to scheme only, never to Gray/Accent modes."
+      },
+      "tomato-on-solid": {
+        "$type": "color",
+        "$value": "#ffffff",
+        "$description": "Fixed-hue decorative role (charts, tags, badges); responds to scheme only, never to Gray/Accent modes."
+      },
+      "red-bg": {
+        "$type": "color",
+        "$value": "{red-dark.3}",
+        "$description": "Fixed-hue decorative role (charts, tags, badges); responds to scheme only, never to Gray/Accent modes."
+      },
+      "red-border": {
+        "$type": "color",
+        "$value": "{red-dark.7}",
+        "$description": "Fixed-hue decorative role (charts, tags, badges); responds to scheme only, never to Gray/Accent modes."
+      },
+      "red-solid": {
+        "$type": "color",
+        "$value": "{red-dark.9}",
+        "$description": "Fixed-hue decorative role (charts, tags, badges); responds to scheme only, never to Gray/Accent modes."
+      },
+      "red-text": {
+        "$type": "color",
+        "$value": "{red-dark.11}",
+        "$description": "Fixed-hue decorative role (charts, tags, badges); responds to scheme only, never to Gray/Accent modes."
+      },
+      "red-on-solid": {
+        "$type": "color",
+        "$value": "#ffffff",
+        "$description": "Fixed-hue decorative role (charts, tags, badges); responds to scheme only, never to Gray/Accent modes."
+      },
+      "ruby-bg": {
+        "$type": "color",
+        "$value": "{ruby-dark.3}",
+        "$description": "Fixed-hue decorative role (charts, tags, badges); responds to scheme only, never to Gray/Accent modes."
+      },
+      "ruby-border": {
+        "$type": "color",
+        "$value": "{ruby-dark.7}",
+        "$description": "Fixed-hue decorative role (charts, tags, badges); responds to scheme only, never to Gray/Accent modes."
+      },
+      "ruby-solid": {
+        "$type": "color",
+        "$value": "{ruby-dark.9}",
+        "$description": "Fixed-hue decorative role (charts, tags, badges); responds to scheme only, never to Gray/Accent modes."
+      },
+      "ruby-text": {
+        "$type": "color",
+        "$value": "{ruby-dark.11}",
+        "$description": "Fixed-hue decorative role (charts, tags, badges); responds to scheme only, never to Gray/Accent modes."
+      },
+      "ruby-on-solid": {
+        "$type": "color",
+        "$value": "#ffffff",
+        "$description": "Fixed-hue decorative role (charts, tags, badges); responds to scheme only, never to Gray/Accent modes."
+      },
+      "crimson-bg": {
+        "$type": "color",
+        "$value": "{crimson-dark.3}",
+        "$description": "Fixed-hue decorative role (charts, tags, badges); responds to scheme only, never to Gray/Accent modes."
+      },
+      "crimson-border": {
+        "$type": "color",
+        "$value": "{crimson-dark.7}",
+        "$description": "Fixed-hue decorative role (charts, tags, badges); responds to scheme only, never to Gray/Accent modes."
+      },
+      "crimson-solid": {
+        "$type": "color",
+        "$value": "{crimson-dark.9}",
+        "$description": "Fixed-hue decorative role (charts, tags, badges); responds to scheme only, never to Gray/Accent modes."
+      },
+      "crimson-text": {
+        "$type": "color",
+        "$value": "{crimson-dark.11}",
+        "$description": "Fixed-hue decorative role (charts, tags, badges); responds to scheme only, never to Gray/Accent modes."
+      },
+      "crimson-on-solid": {
+        "$type": "color",
+        "$value": "#ffffff",
+        "$description": "Fixed-hue decorative role (charts, tags, badges); responds to scheme only, never to Gray/Accent modes."
+      },
+      "pink-bg": {
+        "$type": "color",
+        "$value": "{pink-dark.3}",
+        "$description": "Fixed-hue decorative role (charts, tags, badges); responds to scheme only, never to Gray/Accent modes."
+      },
+      "pink-border": {
+        "$type": "color",
+        "$value": "{pink-dark.7}",
+        "$description": "Fixed-hue decorative role (charts, tags, badges); responds to scheme only, never to Gray/Accent modes."
+      },
+      "pink-solid": {
+        "$type": "color",
+        "$value": "{pink-dark.9}",
+        "$description": "Fixed-hue decorative role (charts, tags, badges); responds to scheme only, never to Gray/Accent modes."
+      },
+      "pink-text": {
+        "$type": "color",
+        "$value": "{pink-dark.11}",
+        "$description": "Fixed-hue decorative role (charts, tags, badges); responds to scheme only, never to Gray/Accent modes."
+      },
+      "pink-on-solid": {
+        "$type": "color",
+        "$value": "#ffffff",
+        "$description": "Fixed-hue decorative role (charts, tags, badges); responds to scheme only, never to Gray/Accent modes."
+      },
+      "plum-bg": {
+        "$type": "color",
+        "$value": "{plum-dark.3}",
+        "$description": "Fixed-hue decorative role (charts, tags, badges); responds to scheme only, never to Gray/Accent modes."
+      },
+      "plum-border": {
+        "$type": "color",
+        "$value": "{plum-dark.7}",
+        "$description": "Fixed-hue decorative role (charts, tags, badges); responds to scheme only, never to Gray/Accent modes."
+      },
+      "plum-solid": {
+        "$type": "color",
+        "$value": "{plum-dark.9}",
+        "$description": "Fixed-hue decorative role (charts, tags, badges); responds to scheme only, never to Gray/Accent modes."
+      },
+      "plum-text": {
+        "$type": "color",
+        "$value": "{plum-dark.11}",
+        "$description": "Fixed-hue decorative role (charts, tags, badges); responds to scheme only, never to Gray/Accent modes."
+      },
+      "plum-on-solid": {
+        "$type": "color",
+        "$value": "#ffffff",
+        "$description": "Fixed-hue decorative role (charts, tags, badges); responds to scheme only, never to Gray/Accent modes."
+      },
+      "purple-bg": {
+        "$type": "color",
+        "$value": "{purple-dark.3}",
+        "$description": "Fixed-hue decorative role (charts, tags, badges); responds to scheme only, never to Gray/Accent modes."
+      },
+      "purple-border": {
+        "$type": "color",
+        "$value": "{purple-dark.7}",
+        "$description": "Fixed-hue decorative role (charts, tags, badges); responds to scheme only, never to Gray/Accent modes."
+      },
+      "purple-solid": {
+        "$type": "color",
+        "$value": "{purple-dark.9}",
+        "$description": "Fixed-hue decorative role (charts, tags, badges); responds to scheme only, never to Gray/Accent modes."
+      },
+      "purple-text": {
+        "$type": "color",
+        "$value": "{purple-dark.11}",
+        "$description": "Fixed-hue decorative role (charts, tags, badges); responds to scheme only, never to Gray/Accent modes."
+      },
+      "purple-on-solid": {
+        "$type": "color",
+        "$value": "#ffffff",
+        "$description": "Fixed-hue decorative role (charts, tags, badges); responds to scheme only, never to Gray/Accent modes."
+      },
+      "violet-bg": {
+        "$type": "color",
+        "$value": "{violet-dark.3}",
+        "$description": "Fixed-hue decorative role (charts, tags, badges); responds to scheme only, never to Gray/Accent modes."
+      },
+      "violet-border": {
+        "$type": "color",
+        "$value": "{violet-dark.7}",
+        "$description": "Fixed-hue decorative role (charts, tags, badges); responds to scheme only, never to Gray/Accent modes."
+      },
+      "violet-solid": {
+        "$type": "color",
+        "$value": "{violet-dark.9}",
+        "$description": "Fixed-hue decorative role (charts, tags, badges); responds to scheme only, never to Gray/Accent modes."
+      },
+      "violet-text": {
+        "$type": "color",
+        "$value": "{violet-dark.11}",
+        "$description": "Fixed-hue decorative role (charts, tags, badges); responds to scheme only, never to Gray/Accent modes."
+      },
+      "violet-on-solid": {
+        "$type": "color",
+        "$value": "#ffffff",
+        "$description": "Fixed-hue decorative role (charts, tags, badges); responds to scheme only, never to Gray/Accent modes."
+      },
+      "iris-bg": {
+        "$type": "color",
+        "$value": "{iris-dark.3}",
+        "$description": "Fixed-hue decorative role (charts, tags, badges); responds to scheme only, never to Gray/Accent modes."
+      },
+      "iris-border": {
+        "$type": "color",
+        "$value": "{iris-dark.7}",
+        "$description": "Fixed-hue decorative role (charts, tags, badges); responds to scheme only, never to Gray/Accent modes."
+      },
+      "iris-solid": {
+        "$type": "color",
+        "$value": "{iris-dark.9}",
+        "$description": "Fixed-hue decorative role (charts, tags, badges); responds to scheme only, never to Gray/Accent modes."
+      },
+      "iris-text": {
+        "$type": "color",
+        "$value": "{iris-dark.11}",
+        "$description": "Fixed-hue decorative role (charts, tags, badges); responds to scheme only, never to Gray/Accent modes."
+      },
+      "iris-on-solid": {
+        "$type": "color",
+        "$value": "#ffffff",
+        "$description": "Fixed-hue decorative role (charts, tags, badges); responds to scheme only, never to Gray/Accent modes."
+      },
+      "indigo-bg": {
+        "$type": "color",
+        "$value": "{indigo-dark.3}",
+        "$description": "Fixed-hue decorative role (charts, tags, badges); responds to scheme only, never to Gray/Accent modes."
+      },
+      "indigo-border": {
+        "$type": "color",
+        "$value": "{indigo-dark.7}",
+        "$description": "Fixed-hue decorative role (charts, tags, badges); responds to scheme only, never to Gray/Accent modes."
+      },
+      "indigo-solid": {
+        "$type": "color",
+        "$value": "{indigo-dark.9}",
+        "$description": "Fixed-hue decorative role (charts, tags, badges); responds to scheme only, never to Gray/Accent modes."
+      },
+      "indigo-text": {
+        "$type": "color",
+        "$value": "{indigo-dark.11}",
+        "$description": "Fixed-hue decorative role (charts, tags, badges); responds to scheme only, never to Gray/Accent modes."
+      },
+      "indigo-on-solid": {
+        "$type": "color",
+        "$value": "#ffffff",
+        "$description": "Fixed-hue decorative role (charts, tags, badges); responds to scheme only, never to Gray/Accent modes."
+      },
+      "blue-bg": {
+        "$type": "color",
+        "$value": "{blue-dark.3}",
+        "$description": "Fixed-hue decorative role (charts, tags, badges); responds to scheme only, never to Gray/Accent modes."
+      },
+      "blue-border": {
+        "$type": "color",
+        "$value": "{blue-dark.7}",
+        "$description": "Fixed-hue decorative role (charts, tags, badges); responds to scheme only, never to Gray/Accent modes."
+      },
+      "blue-solid": {
+        "$type": "color",
+        "$value": "{blue-dark.9}",
+        "$description": "Fixed-hue decorative role (charts, tags, badges); responds to scheme only, never to Gray/Accent modes."
+      },
+      "blue-text": {
+        "$type": "color",
+        "$value": "{blue-dark.11}",
+        "$description": "Fixed-hue decorative role (charts, tags, badges); responds to scheme only, never to Gray/Accent modes."
+      },
+      "blue-on-solid": {
+        "$type": "color",
+        "$value": "#ffffff",
+        "$description": "Fixed-hue decorative role (charts, tags, badges); responds to scheme only, never to Gray/Accent modes."
+      },
+      "cyan-bg": {
+        "$type": "color",
+        "$value": "{cyan-dark.3}",
+        "$description": "Fixed-hue decorative role (charts, tags, badges); responds to scheme only, never to Gray/Accent modes."
+      },
+      "cyan-border": {
+        "$type": "color",
+        "$value": "{cyan-dark.7}",
+        "$description": "Fixed-hue decorative role (charts, tags, badges); responds to scheme only, never to Gray/Accent modes."
+      },
+      "cyan-solid": {
+        "$type": "color",
+        "$value": "{cyan-dark.9}",
+        "$description": "Fixed-hue decorative role (charts, tags, badges); responds to scheme only, never to Gray/Accent modes."
+      },
+      "cyan-text": {
+        "$type": "color",
+        "$value": "{cyan-dark.11}",
+        "$description": "Fixed-hue decorative role (charts, tags, badges); responds to scheme only, never to Gray/Accent modes."
+      },
+      "cyan-on-solid": {
+        "$type": "color",
+        "$value": "#ffffff",
+        "$description": "Fixed-hue decorative role (charts, tags, badges); responds to scheme only, never to Gray/Accent modes."
+      },
+      "teal-bg": {
+        "$type": "color",
+        "$value": "{teal-dark.3}",
+        "$description": "Fixed-hue decorative role (charts, tags, badges); responds to scheme only, never to Gray/Accent modes."
+      },
+      "teal-border": {
+        "$type": "color",
+        "$value": "{teal-dark.7}",
+        "$description": "Fixed-hue decorative role (charts, tags, badges); responds to scheme only, never to Gray/Accent modes."
+      },
+      "teal-solid": {
+        "$type": "color",
+        "$value": "{teal-dark.9}",
+        "$description": "Fixed-hue decorative role (charts, tags, badges); responds to scheme only, never to Gray/Accent modes."
+      },
+      "teal-text": {
+        "$type": "color",
+        "$value": "{teal-dark.11}",
+        "$description": "Fixed-hue decorative role (charts, tags, badges); responds to scheme only, never to Gray/Accent modes."
+      },
+      "teal-on-solid": {
+        "$type": "color",
+        "$value": "#ffffff",
+        "$description": "Fixed-hue decorative role (charts, tags, badges); responds to scheme only, never to Gray/Accent modes."
+      },
+      "jade-bg": {
+        "$type": "color",
+        "$value": "{jade-dark.3}",
+        "$description": "Fixed-hue decorative role (charts, tags, badges); responds to scheme only, never to Gray/Accent modes."
+      },
+      "jade-border": {
+        "$type": "color",
+        "$value": "{jade-dark.7}",
+        "$description": "Fixed-hue decorative role (charts, tags, badges); responds to scheme only, never to Gray/Accent modes."
+      },
+      "jade-solid": {
+        "$type": "color",
+        "$value": "{jade-dark.9}",
+        "$description": "Fixed-hue decorative role (charts, tags, badges); responds to scheme only, never to Gray/Accent modes."
+      },
+      "jade-text": {
+        "$type": "color",
+        "$value": "{jade-dark.11}",
+        "$description": "Fixed-hue decorative role (charts, tags, badges); responds to scheme only, never to Gray/Accent modes."
+      },
+      "jade-on-solid": {
+        "$type": "color",
+        "$value": "#ffffff",
+        "$description": "Fixed-hue decorative role (charts, tags, badges); responds to scheme only, never to Gray/Accent modes."
+      },
+      "green-bg": {
+        "$type": "color",
+        "$value": "{green-dark.3}",
+        "$description": "Fixed-hue decorative role (charts, tags, badges); responds to scheme only, never to Gray/Accent modes."
+      },
+      "green-border": {
+        "$type": "color",
+        "$value": "{green-dark.7}",
+        "$description": "Fixed-hue decorative role (charts, tags, badges); responds to scheme only, never to Gray/Accent modes."
+      },
+      "green-solid": {
+        "$type": "color",
+        "$value": "{green-dark.9}",
+        "$description": "Fixed-hue decorative role (charts, tags, badges); responds to scheme only, never to Gray/Accent modes."
+      },
+      "green-text": {
+        "$type": "color",
+        "$value": "{green-dark.11}",
+        "$description": "Fixed-hue decorative role (charts, tags, badges); responds to scheme only, never to Gray/Accent modes."
+      },
+      "green-on-solid": {
+        "$type": "color",
+        "$value": "#ffffff",
+        "$description": "Fixed-hue decorative role (charts, tags, badges); responds to scheme only, never to Gray/Accent modes."
+      },
+      "grass-bg": {
+        "$type": "color",
+        "$value": "{grass-dark.3}",
+        "$description": "Fixed-hue decorative role (charts, tags, badges); responds to scheme only, never to Gray/Accent modes."
+      },
+      "grass-border": {
+        "$type": "color",
+        "$value": "{grass-dark.7}",
+        "$description": "Fixed-hue decorative role (charts, tags, badges); responds to scheme only, never to Gray/Accent modes."
+      },
+      "grass-solid": {
+        "$type": "color",
+        "$value": "{grass-dark.9}",
+        "$description": "Fixed-hue decorative role (charts, tags, badges); responds to scheme only, never to Gray/Accent modes."
+      },
+      "grass-text": {
+        "$type": "color",
+        "$value": "{grass-dark.11}",
+        "$description": "Fixed-hue decorative role (charts, tags, badges); responds to scheme only, never to Gray/Accent modes."
+      },
+      "grass-on-solid": {
+        "$type": "color",
+        "$value": "#ffffff",
+        "$description": "Fixed-hue decorative role (charts, tags, badges); responds to scheme only, never to Gray/Accent modes."
+      },
+      "brown-bg": {
+        "$type": "color",
+        "$value": "{brown-dark.3}",
+        "$description": "Fixed-hue decorative role (charts, tags, badges); responds to scheme only, never to Gray/Accent modes."
+      },
+      "brown-border": {
+        "$type": "color",
+        "$value": "{brown-dark.7}",
+        "$description": "Fixed-hue decorative role (charts, tags, badges); responds to scheme only, never to Gray/Accent modes."
+      },
+      "brown-solid": {
+        "$type": "color",
+        "$value": "{brown-dark.9}",
+        "$description": "Fixed-hue decorative role (charts, tags, badges); responds to scheme only, never to Gray/Accent modes."
+      },
+      "brown-text": {
+        "$type": "color",
+        "$value": "{brown-dark.11}",
+        "$description": "Fixed-hue decorative role (charts, tags, badges); responds to scheme only, never to Gray/Accent modes."
+      },
+      "brown-on-solid": {
+        "$type": "color",
+        "$value": "#ffffff",
+        "$description": "Fixed-hue decorative role (charts, tags, badges); responds to scheme only, never to Gray/Accent modes."
+      },
+      "bronze-bg": {
+        "$type": "color",
+        "$value": "{bronze-dark.3}",
+        "$description": "Fixed-hue decorative role (charts, tags, badges); responds to scheme only, never to Gray/Accent modes."
+      },
+      "bronze-border": {
+        "$type": "color",
+        "$value": "{bronze-dark.7}",
+        "$description": "Fixed-hue decorative role (charts, tags, badges); responds to scheme only, never to Gray/Accent modes."
+      },
+      "bronze-solid": {
+        "$type": "color",
+        "$value": "{bronze-dark.9}",
+        "$description": "Fixed-hue decorative role (charts, tags, badges); responds to scheme only, never to Gray/Accent modes."
+      },
+      "bronze-text": {
+        "$type": "color",
+        "$value": "{bronze-dark.11}",
+        "$description": "Fixed-hue decorative role (charts, tags, badges); responds to scheme only, never to Gray/Accent modes."
+      },
+      "bronze-on-solid": {
+        "$type": "color",
+        "$value": "#ffffff",
+        "$description": "Fixed-hue decorative role (charts, tags, badges); responds to scheme only, never to Gray/Accent modes."
+      },
+      "gold-bg": {
+        "$type": "color",
+        "$value": "{gold-dark.3}",
+        "$description": "Fixed-hue decorative role (charts, tags, badges); responds to scheme only, never to Gray/Accent modes."
+      },
+      "gold-border": {
+        "$type": "color",
+        "$value": "{gold-dark.7}",
+        "$description": "Fixed-hue decorative role (charts, tags, badges); responds to scheme only, never to Gray/Accent modes."
+      },
+      "gold-solid": {
+        "$type": "color",
+        "$value": "{gold-dark.9}",
+        "$description": "Fixed-hue decorative role (charts, tags, badges); responds to scheme only, never to Gray/Accent modes."
+      },
+      "gold-text": {
+        "$type": "color",
+        "$value": "{gold-dark.11}",
+        "$description": "Fixed-hue decorative role (charts, tags, badges); responds to scheme only, never to Gray/Accent modes."
+      },
+      "gold-on-solid": {
+        "$type": "color",
+        "$value": "#ffffff",
+        "$description": "Fixed-hue decorative role (charts, tags, badges); responds to scheme only, never to Gray/Accent modes."
+      },
+      "sky-bg": {
+        "$type": "color",
+        "$value": "{sky-dark.3}",
+        "$description": "Fixed-hue decorative role (charts, tags, badges); responds to scheme only, never to Gray/Accent modes."
+      },
+      "sky-border": {
+        "$type": "color",
+        "$value": "{sky-dark.7}",
+        "$description": "Fixed-hue decorative role (charts, tags, badges); responds to scheme only, never to Gray/Accent modes."
+      },
+      "sky-solid": {
+        "$type": "color",
+        "$value": "{sky-dark.9}",
+        "$description": "Fixed-hue decorative role (charts, tags, badges); responds to scheme only, never to Gray/Accent modes."
+      },
+      "sky-text": {
+        "$type": "color",
+        "$value": "{sky-dark.11}",
+        "$description": "Fixed-hue decorative role (charts, tags, badges); responds to scheme only, never to Gray/Accent modes."
+      },
+      "sky-on-solid": {
+        "$type": "color",
+        "$value": "{sky.12}",
+        "$description": "Fixed-hue decorative role (charts, tags, badges); responds to scheme only, never to Gray/Accent modes."
+      },
+      "mint-bg": {
+        "$type": "color",
+        "$value": "{mint-dark.3}",
+        "$description": "Fixed-hue decorative role (charts, tags, badges); responds to scheme only, never to Gray/Accent modes."
+      },
+      "mint-border": {
+        "$type": "color",
+        "$value": "{mint-dark.7}",
+        "$description": "Fixed-hue decorative role (charts, tags, badges); responds to scheme only, never to Gray/Accent modes."
+      },
+      "mint-solid": {
+        "$type": "color",
+        "$value": "{mint-dark.9}",
+        "$description": "Fixed-hue decorative role (charts, tags, badges); responds to scheme only, never to Gray/Accent modes."
+      },
+      "mint-text": {
+        "$type": "color",
+        "$value": "{mint-dark.11}",
+        "$description": "Fixed-hue decorative role (charts, tags, badges); responds to scheme only, never to Gray/Accent modes."
+      },
+      "mint-on-solid": {
+        "$type": "color",
+        "$value": "{mint.12}",
+        "$description": "Fixed-hue decorative role (charts, tags, badges); responds to scheme only, never to Gray/Accent modes."
+      },
+      "lime-bg": {
+        "$type": "color",
+        "$value": "{lime-dark.3}",
+        "$description": "Fixed-hue decorative role (charts, tags, badges); responds to scheme only, never to Gray/Accent modes."
+      },
+      "lime-border": {
+        "$type": "color",
+        "$value": "{lime-dark.7}",
+        "$description": "Fixed-hue decorative role (charts, tags, badges); responds to scheme only, never to Gray/Accent modes."
+      },
+      "lime-solid": {
+        "$type": "color",
+        "$value": "{lime-dark.9}",
+        "$description": "Fixed-hue decorative role (charts, tags, badges); responds to scheme only, never to Gray/Accent modes."
+      },
+      "lime-text": {
+        "$type": "color",
+        "$value": "{lime-dark.11}",
+        "$description": "Fixed-hue decorative role (charts, tags, badges); responds to scheme only, never to Gray/Accent modes."
+      },
+      "lime-on-solid": {
+        "$type": "color",
+        "$value": "{lime.12}",
+        "$description": "Fixed-hue decorative role (charts, tags, badges); responds to scheme only, never to Gray/Accent modes."
+      },
+      "yellow-bg": {
+        "$type": "color",
+        "$value": "{yellow-dark.3}",
+        "$description": "Fixed-hue decorative role (charts, tags, badges); responds to scheme only, never to Gray/Accent modes."
+      },
+      "yellow-border": {
+        "$type": "color",
+        "$value": "{yellow-dark.7}",
+        "$description": "Fixed-hue decorative role (charts, tags, badges); responds to scheme only, never to Gray/Accent modes."
+      },
+      "yellow-solid": {
+        "$type": "color",
+        "$value": "{yellow-dark.9}",
+        "$description": "Fixed-hue decorative role (charts, tags, badges); responds to scheme only, never to Gray/Accent modes."
+      },
+      "yellow-text": {
+        "$type": "color",
+        "$value": "{yellow-dark.11}",
+        "$description": "Fixed-hue decorative role (charts, tags, badges); responds to scheme only, never to Gray/Accent modes."
+      },
+      "yellow-on-solid": {
+        "$type": "color",
+        "$value": "{yellow.12}",
+        "$description": "Fixed-hue decorative role (charts, tags, badges); responds to scheme only, never to Gray/Accent modes."
+      },
+      "amber-bg": {
+        "$type": "color",
+        "$value": "{amber-dark.3}",
+        "$description": "Fixed-hue decorative role (charts, tags, badges); responds to scheme only, never to Gray/Accent modes."
+      },
+      "amber-border": {
+        "$type": "color",
+        "$value": "{amber-dark.7}",
+        "$description": "Fixed-hue decorative role (charts, tags, badges); responds to scheme only, never to Gray/Accent modes."
+      },
+      "amber-solid": {
+        "$type": "color",
+        "$value": "{amber-dark.9}",
+        "$description": "Fixed-hue decorative role (charts, tags, badges); responds to scheme only, never to Gray/Accent modes."
+      },
+      "amber-text": {
+        "$type": "color",
+        "$value": "{amber-dark.11}",
+        "$description": "Fixed-hue decorative role (charts, tags, badges); responds to scheme only, never to Gray/Accent modes."
+      },
+      "amber-on-solid": {
+        "$type": "color",
+        "$value": "{amber.12}",
+        "$description": "Fixed-hue decorative role (charts, tags, badges); responds to scheme only, never to Gray/Accent modes."
+      },
+      "orange-bg": {
+        "$type": "color",
+        "$value": "{orange-dark.3}",
+        "$description": "Fixed-hue decorative role (charts, tags, badges); responds to scheme only, never to Gray/Accent modes."
+      },
+      "orange-border": {
+        "$type": "color",
+        "$value": "{orange-dark.7}",
+        "$description": "Fixed-hue decorative role (charts, tags, badges); responds to scheme only, never to Gray/Accent modes."
+      },
+      "orange-solid": {
+        "$type": "color",
+        "$value": "{orange-dark.9}",
+        "$description": "Fixed-hue decorative role (charts, tags, badges); responds to scheme only, never to Gray/Accent modes."
+      },
+      "orange-text": {
+        "$type": "color",
+        "$value": "{orange-dark.11}",
+        "$description": "Fixed-hue decorative role (charts, tags, badges); responds to scheme only, never to Gray/Accent modes."
+      },
+      "orange-on-solid": {
+        "$type": "color",
+        "$value": "#ffffff",
+        "$description": "Fixed-hue decorative role (charts, tags, badges); responds to scheme only, never to Gray/Accent modes."
+      },
+      "rebecca-bg": {
+        "$type": "color",
+        "$value": "{brand-dark.3}",
+        "$description": "Fixed-hue decorative role (charts, tags, badges); responds to scheme only, never to Gray/Accent modes."
+      },
+      "rebecca-border": {
+        "$type": "color",
+        "$value": "{brand-dark.7}",
+        "$description": "Fixed-hue decorative role (charts, tags, badges); responds to scheme only, never to Gray/Accent modes."
+      },
+      "rebecca-solid": {
+        "$type": "color",
+        "$value": "{brand-dark.9}",
+        "$description": "Fixed-hue decorative role (charts, tags, badges); responds to scheme only, never to Gray/Accent modes."
+      },
+      "rebecca-text": {
+        "$type": "color",
+        "$value": "{brand-dark.11}",
+        "$description": "Fixed-hue decorative role (charts, tags, badges); responds to scheme only, never to Gray/Accent modes."
+      },
+      "rebecca-on-solid": {
+        "$type": "color",
+        "$value": "#ffffff",
+        "$description": "Fixed-hue decorative role (charts, tags, badges); responds to scheme only, never to Gray/Accent modes."
+      }
+    },
+    "gradient": {
+      "tonal": {
+        "rebecca-depth": {
+          "stop-1": {
+            "$type": "color",
+            "$value": "{brand-dark.5}"
+          },
+          "stop-2": {
+            "$type": "color",
+            "$value": "{brand-dark.10}"
+          },
+          "angle": {
+            "$type": "number",
+            "$value": 135,
+            "$description": "Angle in degrees; linear-gradient() composition lives in the CSS layer."
+          }
+        },
+        "iris-depth": {
+          "stop-1": {
+            "$type": "color",
+            "$value": "{iris-dark.4}"
+          },
+          "stop-2": {
+            "$type": "color",
+            "$value": "{iris-dark.10}"
+          },
+          "angle": {
+            "$type": "number",
+            "$value": 135,
+            "$description": "Angle in degrees; linear-gradient() composition lives in the CSS layer."
+          }
+        },
+        "teal-depth": {
+          "stop-1": {
+            "$type": "color",
+            "$value": "{teal-dark.4}"
+          },
+          "stop-2": {
+            "$type": "color",
+            "$value": "{teal-dark.10}"
+          },
+          "angle": {
+            "$type": "number",
+            "$value": 135,
+            "$description": "Angle in degrees; linear-gradient() composition lives in the CSS layer."
+          }
+        },
+        "amber-depth": {
+          "stop-1": {
+            "$type": "color",
+            "$value": "{amber-dark.4}"
+          },
+          "stop-2": {
+            "$type": "color",
+            "$value": "{amber-dark.10}"
+          },
+          "angle": {
+            "$type": "number",
+            "$value": 135,
+            "$description": "Angle in degrees; linear-gradient() composition lives in the CSS layer."
+          }
+        },
+        "slate-depth": {
+          "stop-1": {
+            "$type": "color",
+            "$value": "{slate-dark.3}"
+          },
+          "stop-2": {
+            "$type": "color",
+            "$value": "{slate-dark.8}"
+          },
+          "angle": {
+            "$type": "number",
+            "$value": 135,
+            "$description": "Angle in degrees; linear-gradient() composition lives in the CSS layer."
+          }
+        }
+      },
+      "analogous": {
+        "violet-hour": {
+          "stop-1": {
+            "$type": "color",
+            "$value": "{violet-dark.9}"
+          },
+          "stop-2": {
+            "$type": "color",
+            "$value": "{iris-dark.9}"
+          },
+          "angle": {
+            "$type": "number",
+            "$value": 120,
+            "$description": "Angle in degrees; linear-gradient() composition lives in the CSS layer."
+          }
+        },
+        "deep-sea": {
+          "stop-1": {
+            "$type": "color",
+            "$value": "{indigo-dark.9}"
+          },
+          "stop-2": {
+            "$type": "color",
+            "$value": "{blue-dark.9}"
+          },
+          "angle": {
+            "$type": "number",
+            "$value": 120,
+            "$description": "Angle in degrees; linear-gradient() composition lives in the CSS layer."
+          }
+        },
+        "lagoon": {
+          "stop-1": {
+            "$type": "color",
+            "$value": "{cyan-dark.9}"
+          },
+          "stop-2": {
+            "$type": "color",
+            "$value": "{teal-dark.9}"
+          },
+          "angle": {
+            "$type": "number",
+            "$value": 120,
+            "$description": "Angle in degrees; linear-gradient() composition lives in the CSS layer."
+          }
+        },
+        "meadow": {
+          "stop-1": {
+            "$type": "color",
+            "$value": "{jade-dark.9}"
+          },
+          "stop-2": {
+            "$type": "color",
+            "$value": "{grass-dark.9}"
+          },
+          "angle": {
+            "$type": "number",
+            "$value": 120,
+            "$description": "Angle in degrees; linear-gradient() composition lives in the CSS layer."
+          }
+        },
+        "rosebud": {
+          "stop-1": {
+            "$type": "color",
+            "$value": "{crimson-dark.9}"
+          },
+          "stop-2": {
+            "$type": "color",
+            "$value": "{pink-dark.9}"
+          },
+          "angle": {
+            "$type": "number",
+            "$value": 120,
+            "$description": "Angle in degrees; linear-gradient() composition lives in the CSS layer."
+          }
+        },
+        "ember": {
+          "stop-1": {
+            "$type": "color",
+            "$value": "{amber-dark.9}"
+          },
+          "stop-2": {
+            "$type": "color",
+            "$value": "{orange-dark.9}"
+          },
+          "angle": {
+            "$type": "number",
+            "$value": 120,
+            "$description": "Angle in degrees; linear-gradient() composition lives in the CSS layer."
+          }
+        }
+      },
+      "signature": {
+        "twilight": {
+          "stop-1": {
+            "$type": "color",
+            "$value": "{brand-dark.9}"
+          },
+          "stop-2": {
+            "$type": "color",
+            "$value": "{iris-dark.9}"
+          },
+          "angle": {
+            "$type": "number",
+            "$value": 135,
+            "$description": "Angle in degrees; linear-gradient() composition lives in the CSS layer."
+          }
+        },
+        "flare": {
+          "stop-1": {
+            "$type": "color",
+            "$value": "{brand-dark.9}"
+          },
+          "stop-2": {
+            "$type": "color",
+            "$value": "{crimson-dark.9}"
+          },
+          "angle": {
+            "$type": "number",
+            "$value": 135,
+            "$description": "Angle in degrees; linear-gradient() composition lives in the CSS layer."
+          }
+        },
+        "abyss": {
+          "stop-1": {
+            "$type": "color",
+            "$value": "{brand-dark.11}"
+          },
+          "stop-2": {
+            "$type": "color",
+            "$value": "{indigo-dark.11}"
+          },
+          "angle": {
+            "$type": "number",
+            "$value": 135,
+            "$description": "Angle in degrees; linear-gradient() composition lives in the CSS layer."
+          }
+        },
+        "dawn": {
+          "stop-1": {
+            "$type": "color",
+            "$value": "{brand-dark.8}"
+          },
+          "stop-2": {
+            "$type": "color",
+            "$value": "{orange-dark.8}"
+          },
+          "angle": {
+            "$type": "number",
+            "$value": 135,
+            "$description": "Angle in degrees; linear-gradient() composition lives in the CSS layer."
+          }
+        }
+      },
+      "wash": {
+        "petal": {
+          "stop-1": {
+            "$type": "color",
+            "$value": "{iris-dark.3}"
+          },
+          "stop-2": {
+            "$type": "color",
+            "$value": "{pink-dark.3}"
+          },
+          "angle": {
+            "$type": "number",
+            "$value": 160,
+            "$description": "Angle in degrees; linear-gradient() composition lives in the CSS layer."
+          }
+        },
+        "coast": {
+          "stop-1": {
+            "$type": "color",
+            "$value": "{sky-dark.3}"
+          },
+          "stop-2": {
+            "$type": "color",
+            "$value": "{mint-dark.3}"
+          },
+          "angle": {
+            "$type": "number",
+            "$value": 160,
+            "$description": "Angle in degrees; linear-gradient() composition lives in the CSS layer."
+          }
+        },
+        "sunset": {
+          "stop-1": {
+            "$type": "color",
+            "$value": "{amber-dark.3}"
+          },
+          "stop-2": {
+            "$type": "color",
+            "$value": "{tomato-dark.3}"
+          },
+          "angle": {
+            "$type": "number",
+            "$value": 160,
+            "$description": "Angle in degrees; linear-gradient() composition lives in the CSS layer."
+          }
+        },
+        "orchid": {
+          "stop-1": {
+            "$type": "color",
+            "$value": "{brand-dark.3}"
+          },
+          "stop-2": {
+            "$type": "color",
+            "$value": "{plum-dark.3}"
+          },
+          "angle": {
+            "$type": "number",
+            "$value": 160,
+            "$description": "Angle in degrees; linear-gradient() composition lives in the CSS layer."
+          }
+        }
+      },
+      "tri-stop": {
+        "sunset-run": {
+          "stop-1": {
+            "$type": "color",
+            "$value": "{brand-dark.9}"
+          },
+          "stop-2": {
+            "$type": "color",
+            "$value": "{crimson-dark.9}"
+          },
+          "stop-3": {
+            "$type": "color",
+            "$value": "{amber-dark.9}"
+          },
+          "angle": {
+            "$type": "number",
+            "$value": 110,
+            "$description": "Angle in degrees; linear-gradient() composition lives in the CSS layer."
+          }
+        },
+        "ocean-run": {
+          "stop-1": {
+            "$type": "color",
+            "$value": "{indigo-dark.9}"
+          },
+          "stop-2": {
+            "$type": "color",
+            "$value": "{cyan-dark.9}"
+          },
+          "stop-3": {
+            "$type": "color",
+            "$value": "{mint-dark.9}"
+          },
+          "angle": {
+            "$type": "number",
+            "$value": 110,
+            "$description": "Angle in degrees; linear-gradient() composition lives in the CSS layer."
+          }
+        },
+        "aurora-run": {
+          "stop-1": {
+            "$type": "color",
+            "$value": "{teal-dark.9}"
+          },
+          "stop-2": {
+            "$type": "color",
+            "$value": "{iris-dark.9}"
+          },
+          "stop-3": {
+            "$type": "color",
+            "$value": "{pink-dark.9}"
+          },
+          "angle": {
+            "$type": "number",
+            "$value": 110,
+            "$description": "Angle in degrees; linear-gradient() composition lives in the CSS layer."
+          }
+        }
       }
     }
   },
@@ -15794,6 +19119,131 @@
     "container-padding-spacious": {
       "$value": "{6}",
       "$type": "spacing"
+    },
+    "stack-xs": {
+      "$value": "{spacing-xs}",
+      "$type": "spacing",
+      "$description": "Vertical rhythm, tightest: label → control, lines in a caption."
+    },
+    "stack-sm": {
+      "$value": "{spacing-md}",
+      "$type": "spacing",
+      "$description": "Vertical rhythm: items inside a card or form group."
+    },
+    "stack-md": {
+      "$value": "{spacing-xl}",
+      "$type": "spacing",
+      "$description": "Vertical rhythm, default: c-stack gap; paragraphs; form fields."
+    },
+    "stack-lg": {
+      "$value": "{spacing-3xl}",
+      "$type": "spacing",
+      "$description": "Vertical rhythm: between groups inside a section."
+    },
+    "stack-xl": {
+      "$value": "{spacing-4xl}",
+      "$type": "spacing",
+      "$description": "Vertical rhythm: between blocks inside a page column."
+    },
+    "stack-2xl": {
+      "$value": "{spacing-6xl}",
+      "$type": "spacing",
+      "$description": "Vertical rhythm, loosest: between stacked compositions."
+    },
+    "inline-xs": {
+      "$value": "{spacing-xxs}",
+      "$type": "spacing",
+      "$description": "Horizontal gap, tightest: icon ↔ label inside a control. Equals inline-sm in Compact (2 = 2), by design."
+    },
+    "inline-sm": {
+      "$value": "{spacing-xs}",
+      "$type": "spacing",
+      "$description": "Horizontal gap: tags in a cluster, icon ↔ text in running copy."
+    },
+    "inline-md": {
+      "$value": "{spacing-md}",
+      "$type": "spacing",
+      "$description": "Horizontal gap, default: c-cluster gap; buttons in a row."
+    },
+    "inline-lg": {
+      "$value": "{spacing-xl}",
+      "$type": "spacing",
+      "$description": "Horizontal gap: loose clusters, toolbar groups."
+    },
+    "gutter-sm": {
+      "$value": "{spacing-3xl}",
+      "$type": "spacing",
+      "$description": "Gap between layout regions, tight: dense grids, data layouts."
+    },
+    "gutter-md": {
+      "$value": "{spacing-4xl}",
+      "$type": "spacing",
+      "$description": "Gap between layout regions, default: c-sidebar, c-switcher, c-grid, repel."
+    },
+    "gutter-lg": {
+      "$value": "{spacing-6xl}",
+      "$type": "spacing",
+      "$description": "Gap between layout regions, loose: marketing grids, hero splits."
+    },
+    "inset-none": {
+      "$value": "{spacing-none}",
+      "$type": "spacing",
+      "$description": "Container padding: none (flush box)."
+    },
+    "inset-xs": {
+      "$value": "{spacing-xs}",
+      "$type": "spacing",
+      "$description": "Container padding, tightest: chips, table cells."
+    },
+    "inset-sm": {
+      "$value": "{spacing-md}",
+      "$type": "spacing",
+      "$description": "Container padding: compact boxes, list rows."
+    },
+    "inset-md": {
+      "$value": "{spacing-xl}",
+      "$type": "spacing",
+      "$description": "Container padding, default: box, card body."
+    },
+    "inset-lg": {
+      "$value": "{spacing-3xl}",
+      "$type": "spacing",
+      "$description": "Container padding: c-cover, dialog body, panel."
+    },
+    "inset-xl": {
+      "$value": "{spacing-4xl}",
+      "$type": "spacing",
+      "$description": "Container padding, loosest: hero boxes, empty states."
+    },
+    "region-xs": {
+      "$value": "{spacing-4xl}",
+      "$type": "spacing",
+      "$description": "Section spacing, tightest: between sub-sections."
+    },
+    "region-sm": {
+      "$value": "{spacing-6xl}",
+      "$type": "spacing",
+      "$description": "Section spacing: between sections in an app view."
+    },
+    "region-md": {
+      "$value": "{spacing-7xl}",
+      "$type": "spacing",
+      "$description": "Section spacing, default: between page sections."
+    },
+    "region-lg": {
+      "$value": "{spacing-8xl}",
+      "$type": "spacing",
+      "$description": "Section spacing: marketing sections."
+    },
+    "region-xl": {
+      "$value": "{spacing-9xl}",
+      "$type": "spacing",
+      "$description": "Section spacing, loosest: hero ↔ first section."
+    },
+    "threshold": {
+      "$value": "{width-sm}",
+      "$type": "sizing",
+      "$description": "Content width below which c-switcher stacks (and the documented fold point for c-sidebar and repel). Follows density. CSS: --my-threshold-compact / -comfortable / -spacious; this variable is the one the current mode selects."
     }
   },
   "density/comfortable": {
@@ -15886,6 +19336,131 @@
     "container-padding-spacious": {
       "$value": "{8}",
       "$type": "spacing"
+    },
+    "stack-xs": {
+      "$value": "{spacing-xs}",
+      "$type": "spacing",
+      "$description": "Vertical rhythm, tightest: label → control, lines in a caption."
+    },
+    "stack-sm": {
+      "$value": "{spacing-md}",
+      "$type": "spacing",
+      "$description": "Vertical rhythm: items inside a card or form group."
+    },
+    "stack-md": {
+      "$value": "{spacing-xl}",
+      "$type": "spacing",
+      "$description": "Vertical rhythm, default: c-stack gap; paragraphs; form fields."
+    },
+    "stack-lg": {
+      "$value": "{spacing-3xl}",
+      "$type": "spacing",
+      "$description": "Vertical rhythm: between groups inside a section."
+    },
+    "stack-xl": {
+      "$value": "{spacing-4xl}",
+      "$type": "spacing",
+      "$description": "Vertical rhythm: between blocks inside a page column."
+    },
+    "stack-2xl": {
+      "$value": "{spacing-6xl}",
+      "$type": "spacing",
+      "$description": "Vertical rhythm, loosest: between stacked compositions."
+    },
+    "inline-xs": {
+      "$value": "{spacing-xxs}",
+      "$type": "spacing",
+      "$description": "Horizontal gap, tightest: icon ↔ label inside a control. Equals inline-sm in Compact (2 = 2), by design."
+    },
+    "inline-sm": {
+      "$value": "{spacing-xs}",
+      "$type": "spacing",
+      "$description": "Horizontal gap: tags in a cluster, icon ↔ text in running copy."
+    },
+    "inline-md": {
+      "$value": "{spacing-md}",
+      "$type": "spacing",
+      "$description": "Horizontal gap, default: c-cluster gap; buttons in a row."
+    },
+    "inline-lg": {
+      "$value": "{spacing-xl}",
+      "$type": "spacing",
+      "$description": "Horizontal gap: loose clusters, toolbar groups."
+    },
+    "gutter-sm": {
+      "$value": "{spacing-3xl}",
+      "$type": "spacing",
+      "$description": "Gap between layout regions, tight: dense grids, data layouts."
+    },
+    "gutter-md": {
+      "$value": "{spacing-4xl}",
+      "$type": "spacing",
+      "$description": "Gap between layout regions, default: c-sidebar, c-switcher, c-grid, repel."
+    },
+    "gutter-lg": {
+      "$value": "{spacing-6xl}",
+      "$type": "spacing",
+      "$description": "Gap between layout regions, loose: marketing grids, hero splits."
+    },
+    "inset-none": {
+      "$value": "{spacing-none}",
+      "$type": "spacing",
+      "$description": "Container padding: none (flush box)."
+    },
+    "inset-xs": {
+      "$value": "{spacing-xs}",
+      "$type": "spacing",
+      "$description": "Container padding, tightest: chips, table cells."
+    },
+    "inset-sm": {
+      "$value": "{spacing-md}",
+      "$type": "spacing",
+      "$description": "Container padding: compact boxes, list rows."
+    },
+    "inset-md": {
+      "$value": "{spacing-xl}",
+      "$type": "spacing",
+      "$description": "Container padding, default: box, card body."
+    },
+    "inset-lg": {
+      "$value": "{spacing-3xl}",
+      "$type": "spacing",
+      "$description": "Container padding: c-cover, dialog body, panel."
+    },
+    "inset-xl": {
+      "$value": "{spacing-4xl}",
+      "$type": "spacing",
+      "$description": "Container padding, loosest: hero boxes, empty states."
+    },
+    "region-xs": {
+      "$value": "{spacing-4xl}",
+      "$type": "spacing",
+      "$description": "Section spacing, tightest: between sub-sections."
+    },
+    "region-sm": {
+      "$value": "{spacing-6xl}",
+      "$type": "spacing",
+      "$description": "Section spacing: between sections in an app view."
+    },
+    "region-md": {
+      "$value": "{spacing-7xl}",
+      "$type": "spacing",
+      "$description": "Section spacing, default: between page sections."
+    },
+    "region-lg": {
+      "$value": "{spacing-8xl}",
+      "$type": "spacing",
+      "$description": "Section spacing: marketing sections."
+    },
+    "region-xl": {
+      "$value": "{spacing-9xl}",
+      "$type": "spacing",
+      "$description": "Section spacing, loosest: hero ↔ first section."
+    },
+    "threshold": {
+      "$value": "{width-xl}",
+      "$type": "sizing",
+      "$description": "Content width below which c-switcher stacks (and the documented fold point for c-sidebar and repel). Follows density. CSS: --my-threshold-compact / -comfortable / -spacious; this variable is the one the current mode selects."
     }
   },
   "density/spacious": {
@@ -15978,6 +19553,131 @@
     "container-padding-spacious": {
       "$value": "{10}",
       "$type": "spacing"
+    },
+    "stack-xs": {
+      "$value": "{spacing-xs}",
+      "$type": "spacing",
+      "$description": "Vertical rhythm, tightest: label → control, lines in a caption."
+    },
+    "stack-sm": {
+      "$value": "{spacing-md}",
+      "$type": "spacing",
+      "$description": "Vertical rhythm: items inside a card or form group."
+    },
+    "stack-md": {
+      "$value": "{spacing-xl}",
+      "$type": "spacing",
+      "$description": "Vertical rhythm, default: c-stack gap; paragraphs; form fields."
+    },
+    "stack-lg": {
+      "$value": "{spacing-3xl}",
+      "$type": "spacing",
+      "$description": "Vertical rhythm: between groups inside a section."
+    },
+    "stack-xl": {
+      "$value": "{spacing-4xl}",
+      "$type": "spacing",
+      "$description": "Vertical rhythm: between blocks inside a page column."
+    },
+    "stack-2xl": {
+      "$value": "{spacing-6xl}",
+      "$type": "spacing",
+      "$description": "Vertical rhythm, loosest: between stacked compositions."
+    },
+    "inline-xs": {
+      "$value": "{spacing-xxs}",
+      "$type": "spacing",
+      "$description": "Horizontal gap, tightest: icon ↔ label inside a control. Equals inline-sm in Compact (2 = 2), by design."
+    },
+    "inline-sm": {
+      "$value": "{spacing-xs}",
+      "$type": "spacing",
+      "$description": "Horizontal gap: tags in a cluster, icon ↔ text in running copy."
+    },
+    "inline-md": {
+      "$value": "{spacing-md}",
+      "$type": "spacing",
+      "$description": "Horizontal gap, default: c-cluster gap; buttons in a row."
+    },
+    "inline-lg": {
+      "$value": "{spacing-xl}",
+      "$type": "spacing",
+      "$description": "Horizontal gap: loose clusters, toolbar groups."
+    },
+    "gutter-sm": {
+      "$value": "{spacing-3xl}",
+      "$type": "spacing",
+      "$description": "Gap between layout regions, tight: dense grids, data layouts."
+    },
+    "gutter-md": {
+      "$value": "{spacing-4xl}",
+      "$type": "spacing",
+      "$description": "Gap between layout regions, default: c-sidebar, c-switcher, c-grid, repel."
+    },
+    "gutter-lg": {
+      "$value": "{spacing-6xl}",
+      "$type": "spacing",
+      "$description": "Gap between layout regions, loose: marketing grids, hero splits."
+    },
+    "inset-none": {
+      "$value": "{spacing-none}",
+      "$type": "spacing",
+      "$description": "Container padding: none (flush box)."
+    },
+    "inset-xs": {
+      "$value": "{spacing-xs}",
+      "$type": "spacing",
+      "$description": "Container padding, tightest: chips, table cells."
+    },
+    "inset-sm": {
+      "$value": "{spacing-md}",
+      "$type": "spacing",
+      "$description": "Container padding: compact boxes, list rows."
+    },
+    "inset-md": {
+      "$value": "{spacing-xl}",
+      "$type": "spacing",
+      "$description": "Container padding, default: box, card body."
+    },
+    "inset-lg": {
+      "$value": "{spacing-3xl}",
+      "$type": "spacing",
+      "$description": "Container padding: c-cover, dialog body, panel."
+    },
+    "inset-xl": {
+      "$value": "{spacing-4xl}",
+      "$type": "spacing",
+      "$description": "Container padding, loosest: hero boxes, empty states."
+    },
+    "region-xs": {
+      "$value": "{spacing-4xl}",
+      "$type": "spacing",
+      "$description": "Section spacing, tightest: between sub-sections."
+    },
+    "region-sm": {
+      "$value": "{spacing-6xl}",
+      "$type": "spacing",
+      "$description": "Section spacing: between sections in an app view."
+    },
+    "region-md": {
+      "$value": "{spacing-7xl}",
+      "$type": "spacing",
+      "$description": "Section spacing, default: between page sections."
+    },
+    "region-lg": {
+      "$value": "{spacing-8xl}",
+      "$type": "spacing",
+      "$description": "Section spacing: marketing sections."
+    },
+    "region-xl": {
+      "$value": "{spacing-9xl}",
+      "$type": "spacing",
+      "$description": "Section spacing, loosest: hero ↔ first section."
+    },
+    "threshold": {
+      "$value": "{width-2xl}",
+      "$type": "sizing",
+      "$description": "Content width below which c-switcher stacks (and the documented fold point for c-sidebar and repel). Follows density. CSS: --my-threshold-compact / -comfortable / -spacious; this variable is the one the current mode selects."
     }
   },
   "spacing": {
@@ -16051,6 +19751,11 @@
     }
   },
   "width": {
+    "width-3xs": {
+      "$value": "{64}",
+      "$type": "sizing",
+      "$description": "Smallest useful column (256): c-grid default minimum. Below width-xxs (320)."
+    },
     "width-xxs": {
       "$value": "{80}",
       "$type": "sizing"
@@ -17010,20 +20715,41 @@
     "accent-contrast": {
       "$value": "#ffffff",
       "$type": "color"
+    },
+    "accent-text": {
+      "$value": "{base.11}",
+      "$type": "color",
+      "$description": "Light-mode text in this accent: step 11, or step 12 where step 11 misses WCAG AA 4.5:1 on neutral 1-3 or this hue's 3-4 (v2.16.2)."
+    }
+  },
+  "semantic/typeface-montserrat": {
+    "family": {
+      "primary": {
+        "$value": "Montserrat, system-ui, -apple-system, 'Noto Sans JP', sans-serif",
+        "$type": "fontFamilies"
+      },
+      "secondary": {
+        "$value": "Georgia, 'Times New Roman', 'Noto Serif JP', serif",
+        "$type": "fontFamilies"
+      },
+      "mono": {
+        "$value": "'JetBrains Mono', 'Fira Code', ui-monospace, 'Noto Sans JP', monospace",
+        "$type": "fontFamilies"
+      }
     }
   },
   "semantic/typeface-inter": {
     "family": {
       "primary": {
-        "$value": "Inter, system-ui, -apple-system, sans-serif",
+        "$value": "Inter, system-ui, -apple-system, 'Noto Sans JP', sans-serif",
         "$type": "fontFamilies"
       },
       "secondary": {
-        "$value": "Georgia, 'Times New Roman', serif",
+        "$value": "Georgia, 'Times New Roman', 'Noto Serif JP', serif",
         "$type": "fontFamilies"
       },
       "mono": {
-        "$value": "'JetBrains Mono', 'Fira Code', ui-monospace, monospace",
+        "$value": "'JetBrains Mono', 'Fira Code', ui-monospace, 'Noto Sans JP', monospace",
         "$type": "fontFamilies"
       }
     }
@@ -17031,15 +20757,15 @@
   "semantic/typeface-geist": {
     "family": {
       "primary": {
-        "$value": "Geist, system-ui, -apple-system, sans-serif",
+        "$value": "Geist, system-ui, -apple-system, 'Noto Sans JP', sans-serif",
         "$type": "fontFamilies"
       },
       "secondary": {
-        "$value": "'Playfair Display', Georgia, serif",
+        "$value": "'Playfair Display', Georgia, 'Noto Serif JP', serif",
         "$type": "fontFamilies"
       },
       "mono": {
-        "$value": "'Fira Code', Consolas, ui-monospace, monospace",
+        "$value": "'Fira Code', Consolas, ui-monospace, 'Noto Sans JP', monospace",
         "$type": "fontFamilies"
       }
     }
@@ -17047,15 +20773,15 @@
   "semantic/typeface-roboto": {
     "family": {
       "primary": {
-        "$value": "Roboto, system-ui, sans-serif",
+        "$value": "Roboto, system-ui, 'Noto Sans JP', sans-serif",
         "$type": "fontFamilies"
       },
       "secondary": {
-        "$value": "Georgia, 'Times New Roman', serif",
+        "$value": "Georgia, 'Times New Roman', 'Noto Serif JP', serif",
         "$type": "fontFamilies"
       },
       "mono": {
-        "$value": "'Fira Code', Consolas, ui-monospace, monospace",
+        "$value": "'Fira Code', Consolas, ui-monospace, 'Noto Sans JP', monospace",
         "$type": "fontFamilies"
       }
     }
@@ -17063,15 +20789,15 @@
   "semantic/typeface-system": {
     "family": {
       "primary": {
-        "$value": "system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
+        "$value": "system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans JP', sans-serif",
         "$type": "fontFamilies"
       },
       "secondary": {
-        "$value": "Georgia, 'Times New Roman', serif",
+        "$value": "Georgia, 'Times New Roman', 'Noto Serif JP', serif",
         "$type": "fontFamilies"
       },
       "mono": {
-        "$value": "ui-monospace, 'Cascadia Code', Consolas, 'Courier New', monospace",
+        "$value": "ui-monospace, 'Cascadia Code', Consolas, 'Courier New', 'Noto Sans JP', monospace",
         "$type": "fontFamilies"
       }
     }

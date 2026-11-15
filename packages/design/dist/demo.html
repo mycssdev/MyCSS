@@ -37,7 +37,7 @@
       background: var(--my-bg-brand-solid); color: var(--my-text-on-accent);
     }
     .my-button:hover { background: var(--my-bg-brand-solid_hover); }
-    .my-button[data-variant="soft"] { background: var(--my-bg-brand-secondary); color: var(--my-text-brand-primary); }
+    .my-button[data-variant="soft"] { background: var(--my-bg-brand-soft); color: var(--my-text-brand); }
     .my-button[data-variant="outline"] {
       background: transparent; color: var(--my-text-neutral-primary);
       box-shadow: inset 0 0 0 var(--my-border-width-2) var(--my-border-neutral-primary);
@@ -48,7 +48,7 @@
       border: var(--my-border-width-2) solid var(--my-border-neutral-secondary);
       border-radius: var(--my-border-radius-lg);
     }
-    .my-card[data-variant="featured"] { border-color: var(--my-border-brand); background: var(--my-bg-brand-primary); }
+    .my-card[data-variant="featured"] { border-color: var(--my-border-brand); background: var(--my-bg-brand-subtle); }
     .my-badge {
       display: inline-block; border-radius: var(--my-border-radius-full);
       padding-block: var(--my-squish-block-sm); padding-inline: var(--my-squish-inline-sm);
@@ -73,7 +73,7 @@
 
 <header class="my-topbar | u-inset-sm">
   <div class="c-center | c-cluster u-inline-md">
-    <strong class="u-label-lg">MyCSS <span class="u-text-brand-primary">v0.1.0-alpha</span></strong>
+    <strong class="u-label-lg">MyCSS <span class="u-text-brand">v0.1.0-alpha</span></strong>
     <span class="u-label u-text-neutral-tertiary">my-* | c-* | u-* — grammar demo</span>
     <span style="flex:1"></span>
     <label class="u-label">accent <select id="accent"></select></label>

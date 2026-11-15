@@ -77,7 +77,7 @@
     gap: my.knob(grid-space, gutter-md);
     grid-template-columns: repeat(
       auto-fit,
-      minmax(min(my.knob(grid-min, space-64), 100%), 1fr)
+      minmax(min(my.knob(grid-min, width-3xs), 100%), 1fr)
     );
   }
 
