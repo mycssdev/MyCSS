@@ -7647,16 +7647,40 @@
 }
 @layer mycss.blocks {
   .my-menu {
-    display: flex;
     flex-direction: column;
     box-sizing: border-box;
     margin: 0;
     padding: var(--my-spacing-xs);
+  }
+  .my-menu:where(:not([popover])), .my-menu:popover-open {
+    display: flex;
+  }
+  .my-menu {
     border: 1px solid var(--my-border-neutral-secondary);
     border-radius: var(--my-border-radius-soft);
     background-color: var(--my-overlay-primary);
     box-shadow: var(--my-shadow-mid);
     list-style: none;
+  }
+  .my-menu-heading {
+    margin: 0;
+    padding-block: var(--my-spacing-xs);
+    padding-inline: var(--my-spacing-md);
+    color: var(--my-text-neutral-tertiary);
+    font-family: var(--my-overline-family);
+    font-size: var(--my-overline-size);
+    font-weight: var(--my-overline-weight);
+    line-height: var(--my-overline-line-height);
+    letter-spacing: var(--my-overline-tracking);
+    text-transform: uppercase;
+  }
+  .my-menu-separator {
+    flex: none;
+    block-size: 1px;
+    margin-block: var(--my-spacing-xs);
+    margin-inline: 0;
+    border: 0;
+    background-color: var(--my-border-neutral-separator);
   }
   .my-menu-item {
     display: flex;
@@ -8881,6 +8905,263 @@
   .my-empty-state-icon > .my-icon {
     inline-size: var(--my-size-6);
     block-size: var(--my-size-6);
+  }
+}
+@layer mycss.blocks {
+  .my-backdrop,
+  :is(.my-dialog, .my-alert-dialog, .my-drawer)::backdrop {
+    background-color: var(--my-overlay-scrim);
+  }
+  .my-backdrop {
+    position: fixed;
+    inset: 0;
+  }
+  .my-dialog,
+  .my-alert-dialog {
+    box-sizing: border-box;
+    margin: 0;
+    border: 1px solid var(--my-border-neutral-secondary);
+    background-color: var(--my-overlay-primary);
+    color: var(--my-text-neutral-secondary);
+    flex-direction: column;
+    gap: var(--my-spacing-lg);
+    inline-size: min(var(--my-width-md), 100% - 2 * var(--my-spacing-lg));
+    max-block-size: calc(100dvh - 2 * var(--my-spacing-lg));
+    padding: var(--my-spacing-2xl);
+    border-radius: var(--my-border-radius-rounded);
+    box-shadow: var(--my-shadow-around-high);
+    font-family: var(--my-body-family);
+    font-size: var(--my-body-size);
+    font-weight: var(--my-body-weight);
+    line-height: var(--my-body-line-height);
+    letter-spacing: var(--my-body-tracking);
+  }
+  .my-dialog:where(:not(dialog)), .my-dialog[open],
+  .my-alert-dialog:where(:not(dialog)),
+  .my-alert-dialog[open] {
+    display: flex;
+  }
+  .my-dialog:where(dialog),
+  .my-alert-dialog:where(dialog) {
+    margin: auto;
+  }
+  .my-alert-dialog {
+    inline-size: min(var(--my-width-sm), 100% - 2 * var(--my-spacing-lg));
+    font-family: var(--my-body-sm-family);
+    font-size: var(--my-body-sm-size);
+    font-weight: var(--my-body-sm-weight);
+    line-height: var(--my-body-sm-line-height);
+    letter-spacing: var(--my-body-sm-tracking);
+  }
+  .my-dialog-header,
+  .my-drawer-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--my-spacing-md);
+  }
+  .my-dialog-header > :is(h1, h2, h3, h4, h5, h6),
+  .my-drawer-header > :is(h1, h2, h3, h4, h5, h6) {
+    flex: 1;
+    min-inline-size: 0;
+    margin: 0;
+    color: var(--my-text-neutral-primary);
+    font-family: var(--my-h5-family);
+    font-size: var(--my-h5-size);
+    font-weight: var(--my-h5-weight);
+    line-height: var(--my-h5-line-height);
+    letter-spacing: var(--my-h5-tracking);
+  }
+  .my-drawer-header > :is(h1, h2, h3, h4, h5, h6) {
+    font-family: var(--my-h6-family);
+    font-size: var(--my-h6-size);
+    font-weight: var(--my-h6-weight);
+    line-height: var(--my-h6-line-height);
+    letter-spacing: var(--my-h6-tracking);
+  }
+  .my-dialog-body {
+    min-block-size: 0;
+  }
+  .my-dialog-body > :first-child {
+    margin-block-start: 0;
+  }
+  .my-dialog-body > :last-child {
+    margin-block-end: 0;
+  }
+  .my-dialog[data-kind=scrollable] > .my-dialog-body {
+    overflow-y: auto;
+    padding-block: var(--my-spacing-lg);
+    border-block: 1px solid var(--my-border-neutral-separator);
+  }
+  .my-dialog-footer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    gap: var(--my-spacing-sm);
+  }
+  .my-alert-dialog-lead {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--my-spacing-md);
+  }
+  .my-alert-dialog-lead > svg,
+  .my-alert-dialog-lead > .my-icon {
+    flex: none;
+    inline-size: var(--my-size-2);
+    block-size: var(--my-size-2);
+    color: var(--my-fg-info-primary);
+  }
+  .my-alert-dialog-lead > div {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: var(--my-spacing-xxs);
+    min-inline-size: 0;
+  }
+  .my-alert-dialog-lead > div > * {
+    margin: 0;
+  }
+  .my-alert-dialog-lead > div > :is(h1, h2, h3, h4, h5, h6) {
+    color: var(--my-text-neutral-primary);
+    font-family: var(--my-h6-family);
+    font-size: var(--my-h6-size);
+    font-weight: var(--my-h6-weight);
+    line-height: var(--my-h6-line-height);
+    letter-spacing: var(--my-h6-tracking);
+  }
+  .my-alert-dialog[data-tone=danger] .my-alert-dialog-lead > :is(svg, .my-icon) {
+    color: var(--my-fg-error-primary);
+  }
+  .my-alert-dialog[data-tone=warning] .my-alert-dialog-lead > :is(svg, .my-icon) {
+    color: var(--my-fg-warning-primary);
+  }
+  .my-drawer {
+    box-sizing: border-box;
+    margin: 0;
+    border: 1px solid var(--my-border-neutral-secondary);
+    background-color: var(--my-overlay-primary);
+    color: var(--my-text-neutral-secondary);
+    flex-direction: column;
+    gap: var(--my-spacing-lg);
+    inline-size: min(var(--my-width-xxs), 100%);
+    padding: var(--my-spacing-lg);
+    border-width: 0;
+    font-family: var(--my-body-sm-family);
+    font-size: var(--my-body-sm-size);
+    font-weight: var(--my-body-sm-weight);
+    line-height: var(--my-body-sm-line-height);
+    letter-spacing: var(--my-body-sm-tracking);
+  }
+  .my-drawer:where(:not(dialog)), .my-drawer[open] {
+    display: flex;
+  }
+  .my-drawer:where(dialog) {
+    position: fixed;
+    block-size: 100dvh;
+    max-block-size: none;
+    max-inline-size: 100%;
+  }
+  .my-drawer, .my-drawer[data-side=left] {
+    inset: 0 auto 0 0;
+    border-inline-end-width: 1px;
+    border-color: var(--my-border-neutral-separator);
+    border-start-end-radius: var(--my-border-radius-rounded);
+    border-end-end-radius: var(--my-border-radius-rounded);
+    box-shadow: var(--my-shadow-end-high);
+  }
+  .my-drawer:dir(rtl):not([data-side=right], [data-side=bottom]) {
+    inset: 0 0 0 auto;
+  }
+  .my-drawer[data-side=right] {
+    inset: 0 0 0 auto;
+    border-inline-end-width: 0;
+    border-inline-start-width: 1px;
+    border-radius: 0;
+    border-start-start-radius: var(--my-border-radius-rounded);
+    border-end-start-radius: var(--my-border-radius-rounded);
+    box-shadow: var(--my-shadow-start-high);
+  }
+  .my-drawer[data-side=right]:dir(rtl) {
+    inset: 0 auto 0 0;
+  }
+  .my-drawer[data-side=bottom] {
+    inset: auto 0 0 0;
+    inline-size: 100%;
+    block-size: auto;
+    max-block-size: calc(100dvh - var(--my-spacing-4xl));
+    border-inline-end-width: 0;
+    border-block-start-width: 1px;
+    border-radius: 0;
+    border-start-start-radius: var(--my-border-radius-rounded);
+    border-start-end-radius: var(--my-border-radius-rounded);
+    box-shadow: var(--my-shadow-up-high);
+  }
+  .my-drawer[data-side=bottom]::before {
+    content: "";
+    flex: none;
+    align-self: center;
+    inline-size: 32px;
+    block-size: 4px;
+    border-radius: var(--my-border-radius-pill);
+    background-color: var(--my-bg-neutral-quaternary);
+  }
+  .my-drawer > .my-dialog-body {
+    flex: 1;
+    overflow-y: auto;
+  }
+  .my-popover {
+    box-sizing: border-box;
+    margin: 0;
+    border: 1px solid var(--my-border-neutral-secondary);
+    background-color: var(--my-overlay-primary);
+    color: var(--my-text-neutral-secondary);
+    flex-direction: column;
+    gap: var(--my-spacing-sm);
+    max-inline-size: var(--my-width-xxs);
+    padding: var(--my-spacing-lg);
+    border-radius: var(--my-border-radius-rounded);
+    box-shadow: var(--my-shadow-mid);
+    font-family: var(--my-body-sm-family);
+    font-size: var(--my-body-sm-size);
+    font-weight: var(--my-body-sm-weight);
+    line-height: var(--my-body-sm-line-height);
+    letter-spacing: var(--my-body-sm-tracking);
+  }
+  .my-popover:where(:not([popover])), .my-popover:popover-open {
+    display: flex;
+  }
+  .my-popover > * {
+    margin: 0;
+  }
+  .my-popover > :is(h1, h2, h3, h4, h5, h6, .my-popover-title) {
+    color: var(--my-text-neutral-primary);
+    font-family: var(--my-label-family);
+    font-size: var(--my-label-size);
+    font-weight: var(--my-label-weight);
+    line-height: var(--my-label-line-height);
+    letter-spacing: var(--my-label-tracking);
+  }
+  .my-tooltip {
+    box-sizing: border-box;
+    margin: 0;
+    border: 1px solid var(--my-border-neutral-secondary);
+    background-color: var(--my-overlay-primary);
+    color: var(--my-text-neutral-secondary);
+    display: inline-flex;
+    align-items: center;
+    gap: var(--my-spacing-sm);
+    padding-block: var(--my-spacing-xs);
+    padding-inline: var(--my-spacing-sm);
+    border-radius: var(--my-border-radius-crisp);
+    box-shadow: var(--my-shadow-mid);
+    color: var(--my-text-neutral-primary);
+    font-family: var(--my-caption-family);
+    font-size: var(--my-caption-size);
+    font-weight: var(--my-caption-weight);
+    line-height: var(--my-caption-line-height);
+    letter-spacing: var(--my-caption-tracking);
+    white-space: nowrap;
+    pointer-events: none;
   }
 }
 /*! MyCSS utilities v0.1.0-alpha.1 — u-* classes, token-symmetric names. */

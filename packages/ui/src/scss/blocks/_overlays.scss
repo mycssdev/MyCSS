@@ -1,0 +1,237 @@
+// Dialog · Alert Dialog · Drawer · Popover · Tooltip · Backdrop — Figma:
+// BLOCKS › Overlays. All share one panel chrome: overlay/primary fill, a 1px
+// border, a depth shadow. No carets on Tooltip or Popover (by decision).
+//
+// Built for the platform's own top layer, so focus trapping, Esc and the
+// scrim come from the browser:
+//   <dialog class="my-dialog" id="rename"> … </dialog>          dialog.showModal()
+//   <dialog class="my-drawer" data-side="right"> … </dialog>    dialog.showModal()
+//   <div class="my-popover" popover id="info"> … </div>         <button popovertarget="info">
+// The same classes work on a plain <div> for static layouts.
+//
+//   <dialog class="my-dialog">
+//     <header class="my-dialog-header"><h2>Rename project</h2><button class="my-icon-button" …>×</button></header>
+//     <div class="my-dialog-body">…</div>
+//     <footer class="my-dialog-footer"><button class="my-button" data-tone="neutral" data-variant="outline">Cancel</button><button class="my-button">Save</button></footer>
+//   </dialog>
+//   Scrollable: data-kind="scrollable" (body scrolls between two hairlines).
+//   Alert Dialog: <dialog class="my-alert-dialog" role="alertdialog" data-tone="danger">
+//     <div class="my-alert-dialog-lead"><svg …/><div><h2>Delete project?</h2><p>…</p></div></div> + footer
+//   Drawer sides: left | right | bottom. Left and right are logical (they swap in RTL).
+//   Tooltip: <span class="my-tooltip" role="tooltip">Copy link</span> (placement is the page's job).
+@use "../../../../design/src/scss/my" as my;
+
+@mixin panel {
+  box-sizing: border-box;
+  margin: 0;
+  border: 1px solid my.token(border-neutral-secondary);
+  background-color: my.token(overlay-primary);
+  color: my.token(text-neutral-secondary);
+}
+
+@layer mycss.blocks {
+  .my-backdrop,
+  :is(.my-dialog, .my-alert-dialog, .my-drawer)::backdrop {
+    background-color: my.token(overlay-scrim);
+  }
+  .my-backdrop {
+    position: fixed;
+    inset: 0;
+  }
+
+  // ---------- Dialog + Alert Dialog
+  .my-dialog,
+  .my-alert-dialog {
+    @include panel;
+    flex-direction: column;
+    gap: my.token(spacing-lg);
+    inline-size: min(#{my.token(width-md)}, 100% - 2 * #{my.token(spacing-lg)});
+    max-block-size: calc(100dvh - 2 * #{my.token(spacing-lg)});
+    padding: my.token(spacing-2xl);
+    border-radius: my.token(border-radius-rounded);
+    box-shadow: my.token(shadow-around-high);
+    @include my.type(body);
+
+    &:where(:not(dialog)),
+    &[open] {
+      display: flex;
+    }
+    &:where(dialog) { margin: auto; } // centred in the top layer
+  }
+  .my-alert-dialog {
+    inline-size: min(#{my.token(width-sm)}, 100% - 2 * #{my.token(spacing-lg)});
+    @include my.type(body-sm);
+  }
+
+  .my-dialog-header,
+  .my-drawer-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: my.token(spacing-md);
+
+    > :is(h1, h2, h3, h4, h5, h6) {
+      flex: 1;
+      min-inline-size: 0;
+      margin: 0;
+      color: my.token(text-neutral-primary);
+      @include my.type(h5);
+    }
+  }
+  .my-drawer-header > :is(h1, h2, h3, h4, h5, h6) {
+    @include my.type(h6);
+  }
+  .my-dialog-body {
+    min-block-size: 0;
+
+    > :first-child { margin-block-start: 0; }
+    > :last-child { margin-block-end: 0; }
+  }
+  .my-dialog[data-kind="scrollable"] > .my-dialog-body {
+    overflow-y: auto;
+    padding-block: my.token(spacing-lg);
+    border-block: 1px solid my.token(border-neutral-separator);
+  }
+  .my-dialog-footer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    gap: my.token(spacing-sm);
+  }
+
+  .my-alert-dialog-lead {
+    display: flex;
+    align-items: flex-start;
+    gap: my.token(spacing-md);
+
+    > svg,
+    > .my-icon {
+      flex: none;
+      inline-size: my.token(size-2);
+      block-size: my.token(size-2);
+      color: my.token(fg-info-primary);
+    }
+    > div {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: my.token(spacing-xxs);
+      min-inline-size: 0;
+
+      > * { margin: 0; }
+      > :is(h1, h2, h3, h4, h5, h6) {
+        color: my.token(text-neutral-primary);
+        @include my.type(h6);
+      }
+    }
+  }
+  .my-alert-dialog[data-tone="danger"] .my-alert-dialog-lead > :is(svg, .my-icon) { color: my.token(fg-error-primary); }
+  .my-alert-dialog[data-tone="warning"] .my-alert-dialog-lead > :is(svg, .my-icon) { color: my.token(fg-warning-primary); }
+
+  // ---------- Drawer
+  .my-drawer {
+    @include panel;
+    flex-direction: column;
+    gap: my.token(spacing-lg);
+    inline-size: min(#{my.token(width-xxs)}, 100%);
+    padding: my.token(spacing-lg);
+    border-width: 0;
+    @include my.type(body-sm);
+
+    &:where(:not(dialog)),
+    &[open] {
+      display: flex;
+    }
+    &:where(dialog) {
+      position: fixed;
+      block-size: 100dvh;
+      max-block-size: none;
+      max-inline-size: 100%;
+    }
+
+    // left (inline-start edge) is the default
+    &,
+    &[data-side="left"] {
+      inset: 0 auto 0 0;
+      border-inline-end-width: 1px;
+      border-color: my.token(border-neutral-separator);
+      border-start-end-radius: my.token(border-radius-rounded);
+      border-end-end-radius: my.token(border-radius-rounded);
+      box-shadow: my.token(shadow-end-high);
+    }
+    &:dir(rtl):not([data-side="right"], [data-side="bottom"]) { inset: 0 0 0 auto; }
+
+    &[data-side="right"] {
+      inset: 0 0 0 auto;
+      border-inline-end-width: 0;
+      border-inline-start-width: 1px;
+      border-radius: 0;
+      border-start-start-radius: my.token(border-radius-rounded);
+      border-end-start-radius: my.token(border-radius-rounded);
+      box-shadow: my.token(shadow-start-high);
+
+      &:dir(rtl) { inset: 0 auto 0 0; }
+    }
+    &[data-side="bottom"] {
+      inset: auto 0 0 0;
+      inline-size: 100%;
+      block-size: auto;
+      max-block-size: calc(100dvh - #{my.token(spacing-4xl)});
+      border-inline-end-width: 0;
+      border-block-start-width: 1px;
+      border-radius: 0;
+      border-start-start-radius: my.token(border-radius-rounded);
+      border-start-end-radius: my.token(border-radius-rounded);
+      box-shadow: my.token(shadow-up-high);
+
+      // drag handle
+      &::before {
+        content: "";
+        flex: none;
+        align-self: center;
+        inline-size: 32px;
+        block-size: 4px;
+        border-radius: my.token(border-radius-pill);
+        background-color: my.token(bg-neutral-quaternary);
+      }
+    }
+    > .my-dialog-body { flex: 1; overflow-y: auto; }
+  }
+
+  // ---------- Popover + Tooltip
+  .my-popover {
+    @include panel;
+    flex-direction: column;
+    gap: my.token(spacing-sm);
+    max-inline-size: my.token(width-xxs);
+    padding: my.token(spacing-lg);
+    border-radius: my.token(border-radius-rounded);
+    box-shadow: my.token(shadow-mid);
+    @include my.type(body-sm);
+
+    &:where(:not([popover])),
+    &:popover-open {
+      display: flex;
+    }
+    > * { margin: 0; }
+    > :is(h1, h2, h3, h4, h5, h6, .my-popover-title) {
+      color: my.token(text-neutral-primary);
+      @include my.type(label);
+    }
+  }
+
+  .my-tooltip {
+    @include panel;
+    display: inline-flex;
+    align-items: center;
+    gap: my.token(spacing-sm);
+    padding-block: my.token(spacing-xs);
+    padding-inline: my.token(spacing-sm);
+    border-radius: my.token(border-radius-crisp);
+    box-shadow: my.token(shadow-mid);
+    color: my.token(text-neutral-primary);
+    @include my.type(caption);
+    white-space: nowrap;
+    pointer-events: none;
+  }
+}

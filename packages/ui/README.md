@@ -23,7 +23,7 @@ Cascade order: `mycss.tokens, mycss.composition, mycss.blocks, mycss.utilities`.
 
 ## Status
 
-Specimens: `packages/design/dist/button-spec.html`, `packages/design/dist/actions-spec.html`, `packages/design/dist/inputs-forms-spec.html`, `packages/design/dist/navigation-spec.html`, `packages/design/dist/feedback-spec.html`. Shared tone × variant × state recipe: `src/scss/blocks/_action-tones.scss` (Button, Icon Button, Split Button).
+Specimens: `packages/design/dist/button-spec.html`, `packages/design/dist/actions-spec.html`, `packages/design/dist/inputs-forms-spec.html`, `packages/design/dist/navigation-spec.html`, `packages/design/dist/feedback-spec.html`, `packages/design/dist/overlays-spec.html`. Shared tone × variant × state recipe: `src/scss/blocks/_action-tones.scss` (Button, Icon Button, Split Button).
 
 
 | Component | Figma page | CSS |
@@ -55,4 +55,7 @@ Specimens: `packages/design/dist/button-spec.html`, `packages/design/dist/action
 | Alert, Toast | Feedback | ✅ 2026-11-15 — tones share `_status.scss`; toast placement and timing need script |
 | Progress Bar, Meter | Feedback | ✅ 2026-11-15 — native `<progress>` / `<meter>`; meter band comes from low/high/optimum |
 | Spinner, Skeleton, Empty State | Feedback | ✅ 2026-11-15 — skeleton is static, as in Figma |
+| Dialog, Alert Dialog | Overlays | ✅ 2026-11-15 — native `<dialog>` + `showModal()` (browser handles focus, Esc, scrim); also works on a `<div>` |
+| Drawer | Overlays | ✅ 2026-11-15 — left, right, bottom; left/right swap in RTL |
+| Popover, Tooltip, Menu extras | Overlays | ✅ 2026-11-15 — native `popover` attribute; anchoring to a trigger is the page's job |
 | Everything else | — | not started |

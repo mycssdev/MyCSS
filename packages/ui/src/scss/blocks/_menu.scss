@@ -7,7 +7,10 @@
 //     <div class="my-menu-item" role="option" aria-selected="true"><span>Option two</span><svg …check/></div>
 //     <button class="my-menu-item" data-tone="danger">Delete</button>
 //   </div>
-// Positioning and open/close belong to the Overlays components.
+// Also the Overlays › Menu (Kind Actions|Checkable): add .my-menu-separator,
+// .my-menu-heading, a leading icon, a trailing <kbd class="my-kbd"> shortcut.
+// Checkable items use role="menuitemcheckbox" + aria-checked.
+// Opening it: put popover on the .my-menu and point a button's popovertarget at it.
 @use "../../../../design/src/scss/my" as my;
 
 $selected: '[aria-selected="true"], [aria-checked="true"], [aria-current]:not([aria-current="false"]), [data-state="selected"]';
@@ -15,16 +18,38 @@ $disabled: ':disabled, [aria-disabled="true"], [data-state="disabled"]';
 
 @layer mycss.blocks {
   .my-menu {
-    display: flex;
     flex-direction: column;
     box-sizing: border-box;
     margin: 0;
     padding: my.token(spacing-xs);
+
+    &:where(:not([popover])),
+    &:popover-open {
+      display: flex;
+    }
     border: 1px solid my.token(border-neutral-secondary);
     border-radius: my.token(border-radius-soft);
     background-color: my.token(overlay-primary);
     box-shadow: my.token(shadow-mid);
     list-style: none;
+  }
+
+  // Overlays › Menu extras: a group heading and a separator
+  .my-menu-heading {
+    margin: 0;
+    padding-block: my.token(spacing-xs);
+    padding-inline: my.token(spacing-md);
+    color: my.token(text-neutral-tertiary);
+    @include my.type(overline);
+    text-transform: uppercase;
+  }
+  .my-menu-separator {
+    flex: none;
+    block-size: 1px;
+    margin-block: my.token(spacing-xs);
+    margin-inline: 0;
+    border: 0;
+    background-color: my.token(border-neutral-separator);
   }
 
   .my-menu-item {
