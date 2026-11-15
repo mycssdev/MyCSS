@@ -35,8 +35,7 @@ UNIT_TYPES = {"dimension", "spacing", "sizing", "fontSizes", "borderRadius", "bo
 SKIP_TYPES = {"string", "typography"}  # icon style strings, Penpot composite styles
 
 # v2.17.1: the default accent is "rebecca" (was "brand"), matching Figma.
-# data-accent="brand" stays as a deprecated alias until v2.18.
-DEPRECATED_ACCENT_ALIASES = {"rebecca": "brand"}
+# v2.18: the deprecated data-accent="brand" alias is gone.
 
 DEFAULTS = {"gray": "slate", "accent": "rebecca", "mode": "light",
             "density": "comfortable", "typeface": "montserrat", "depth": "soft",
@@ -398,8 +397,6 @@ def build_tokens_css(data):
                 continue
             key = t["name"].lower()
             sel = f'[data-{attr}="{key}"]'
-            if attr == "accent" and key in DEPRECATED_ACCENT_ALIASES:  # v2.17.1
-                sel += f', [data-accent="{DEPRECATED_ACCENT_ALIASES[key]}"]'
             out.append(f'  {sel} {{')
             for s in theme_sets(data, group, t["name"]):
                 out += emit_set(res, s, "    ")

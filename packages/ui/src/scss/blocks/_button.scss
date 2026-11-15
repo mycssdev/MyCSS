@@ -13,8 +13,8 @@
 // currentColor; the block sets their colour to the fg token.
 //
 // Translation notes (where CSS differs from the Figma file, on purpose):
-//   - Brand names use the v2.16.3 names (bg-brand-subtle/soft, text-brand);
-//     Figma still binds the deprecated brand-primary/secondary (v2.18).
+//   - Brand names are bg-brand-subtle/soft and text-brand, as in Figma (the
+//     old brand-primary/secondary names were removed in v2.18).
 //   - Neutral has no Solid variant in Figma (deliberate); data-tone="neutral"
 //     with Solid (or no data-variant) renders as Soft.
 //   - Focus ring = Figma shadow/ring/<tone>: 0 0 0 3px, spread only.

@@ -146,12 +146,6 @@
   .u-text-brand {
     color: var(--my-text-brand);
   }
-  .u-text-brand-primary {
-    color: var(--my-text-brand-primary);
-  }
-  .u-text-brand-secondary {
-    color: var(--my-text-brand-secondary);
-  }
   .u-text-on-accent {
     color: var(--my-text-on-accent);
   }
@@ -194,14 +188,8 @@
   .u-bg-brand-subtle {
     background-color: var(--my-bg-brand-subtle);
   }
-  .u-bg-brand-primary {
-    background-color: var(--my-bg-brand-primary);
-  }
   .u-bg-brand-soft {
     background-color: var(--my-bg-brand-soft);
-  }
-  .u-bg-brand-secondary {
-    background-color: var(--my-bg-brand-secondary);
   }
   .u-bg-brand-solid {
     background-color: var(--my-bg-brand-solid);

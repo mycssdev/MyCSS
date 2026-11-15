@@ -15974,16 +15974,6 @@
         "$type": "color",
         "$description": "Brand-hued text, readable on surfaces and brand tints in both modes (WCAG AA 4.5:1). A deeper shade of the brand colour where the brand colour itself is too light for text."
       },
-      "brand-primary": {
-        "$value": "{text.brand}",
-        "$type": "color",
-        "$description": "Deprecated in v2.16.3: renamed to text/brand. Same value. Removed in v2.18."
-      },
-      "brand-secondary": {
-        "$value": "{accent.9}",
-        "$type": "color",
-        "$description": "Deprecated in v2.16.3: use text/brand. Step 9 is the brand fill colour and is not readable as text for most accents. Removed in v2.18."
-      },
       "on-accent": {
         "$value": "{accent-contrast}",
         "$type": "color"
@@ -16043,16 +16033,6 @@
         "$value": "{accent.11}",
         "$type": "color",
         "$description": "Brand-hued icons (step 11 of the selected accent)."
-      },
-      "brand-primary": {
-        "$value": "{fg.brand}",
-        "$type": "color",
-        "$description": "Deprecated in v2.16.3: renamed to fg/brand. Same value. Removed in v2.18."
-      },
-      "brand-secondary": {
-        "$value": "{accent.9}",
-        "$type": "color",
-        "$description": "Deprecated in v2.16.3: use fg/brand. Step 9 is the brand fill colour and is not readable as text for most accents. Removed in v2.18."
       },
       "on-accent": {
         "$value": "{accent-contrast}",
@@ -16131,20 +16111,10 @@
         "$type": "color",
         "$description": "Subtle brand tint (step 3 of the selected accent): selected rows, tags, subtle highlights. Not the brand colour itself; that is background/brand-solid (--my-bg-brand-solid)."
       },
-      "brand-primary": {
-        "$value": "{bg.brand-subtle}",
-        "$type": "color",
-        "$description": "Deprecated in v2.16.3: renamed to background/brand-subtle. Same value. Removed in v2.18."
-      },
       "brand-soft": {
         "$value": "{accent.4}",
         "$type": "color",
         "$description": "Stronger brand tint (step 4 of the selected accent): soft buttons, hover on bg/brand-subtle."
-      },
-      "brand-secondary": {
-        "$value": "{bg.brand-soft}",
-        "$type": "color",
-        "$description": "Deprecated in v2.16.3: renamed to background/brand-soft. Same value. Removed in v2.18."
       },
       "brand-solid": {
         "$value": "{accent.9}",
@@ -17492,16 +17462,6 @@
         "$type": "color",
         "$description": "Brand-hued text, readable on surfaces and brand tints in both modes (WCAG AA 4.5:1). A deeper shade of the brand colour where the brand colour itself is too light for text."
       },
-      "brand-primary": {
-        "$value": "{text.brand}",
-        "$type": "color",
-        "$description": "Deprecated in v2.16.3: renamed to text/brand. Same value. Removed in v2.18."
-      },
-      "brand-secondary": {
-        "$value": "{accent-dark.9}",
-        "$type": "color",
-        "$description": "Deprecated in v2.16.3: use text/brand. Step 9 is the brand fill colour and is not readable as text for most accents. Removed in v2.18."
-      },
       "on-accent": {
         "$value": "{accent-contrast}",
         "$type": "color"
@@ -17561,16 +17521,6 @@
         "$value": "{accent-dark.11}",
         "$type": "color",
         "$description": "Brand-hued icons (step 11 of the selected accent)."
-      },
-      "brand-primary": {
-        "$value": "{fg.brand}",
-        "$type": "color",
-        "$description": "Deprecated in v2.16.3: renamed to fg/brand. Same value. Removed in v2.18."
-      },
-      "brand-secondary": {
-        "$value": "{accent-dark.9}",
-        "$type": "color",
-        "$description": "Deprecated in v2.16.3: use fg/brand. Step 9 is the brand fill colour and is not readable as text for most accents. Removed in v2.18."
       },
       "on-accent": {
         "$value": "{accent-contrast}",
@@ -17649,20 +17599,10 @@
         "$type": "color",
         "$description": "Subtle brand tint (step 3 of the selected accent): selected rows, tags, subtle highlights. Not the brand colour itself; that is background/brand-solid (--my-bg-brand-solid)."
       },
-      "brand-primary": {
-        "$value": "{bg.brand-subtle}",
-        "$type": "color",
-        "$description": "Deprecated in v2.16.3: renamed to background/brand-subtle. Same value. Removed in v2.18."
-      },
       "brand-soft": {
         "$value": "{accent-dark.4}",
         "$type": "color",
         "$description": "Stronger brand tint (step 4 of the selected accent): soft buttons, hover on bg/brand-subtle."
-      },
-      "brand-secondary": {
-        "$value": "{bg.brand-soft}",
-        "$type": "color",
-        "$description": "Deprecated in v2.16.3: renamed to background/brand-soft. Same value. Removed in v2.18."
       },
       "brand-solid": {
         "$value": "{accent-dark.9}",

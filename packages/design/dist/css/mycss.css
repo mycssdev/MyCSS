@@ -2610,7 +2610,7 @@
     --my-accent-contrast: #ffffff;
     --my-accent-text: var(--my-blue-12);
   }
-  [data-accent=rebecca], [data-accent=brand] {
+  [data-accent=rebecca] {
     --my-accent-1: var(--my-rebecca-1);
     --my-accent-2: var(--my-rebecca-2);
     --my-accent-3: var(--my-rebecca-3);
@@ -4427,8 +4427,6 @@
   :root, [data-gray], [data-accent], [data-brand] {
     --my-text-white: #ffffff;
     --my-text-brand: light-dark(var(--my-accent-text), var(--my-accent-dark-11));
-    --my-text-brand-primary: var(--my-text-brand);
-    --my-text-brand-secondary: light-dark(var(--my-accent-9), var(--my-accent-dark-9));
     --my-text-on-accent: var(--my-accent-contrast);
     --my-text-error: light-dark(var(--my-status-error-12), var(--my-status-error-dark-11));
     --my-text-warning: light-dark(var(--my-status-warning-12), var(--my-status-warning-dark-11));
@@ -4443,8 +4441,6 @@
     --my-text-on-neutral-solid: light-dark(var(--my-neutral-1), var(--my-neutral-dark-1));
     --my-fg-white: #ffffff;
     --my-fg-brand: light-dark(var(--my-accent-11), var(--my-accent-dark-11));
-    --my-fg-brand-primary: var(--my-fg-brand);
-    --my-fg-brand-secondary: light-dark(var(--my-accent-9), var(--my-accent-dark-9));
     --my-fg-on-accent: var(--my-accent-contrast);
     --my-fg-error-primary: light-dark(var(--my-status-error-11), var(--my-status-error-dark-11));
     --my-fg-error-secondary: light-dark(var(--my-status-error-9), var(--my-status-error-dark-9));
@@ -4463,9 +4459,7 @@
     --my-fg-on-neutral-solid: light-dark(var(--my-neutral-1), var(--my-neutral-dark-1));
     --my-bg-brand-faint: light-dark(var(--my-accent-2), var(--my-accent-dark-2));
     --my-bg-brand-subtle: light-dark(var(--my-accent-3), var(--my-accent-dark-3));
-    --my-bg-brand-primary: var(--my-bg-brand-subtle);
     --my-bg-brand-soft: light-dark(var(--my-accent-4), var(--my-accent-dark-4));
-    --my-bg-brand-secondary: var(--my-bg-brand-soft);
     --my-bg-brand-solid: light-dark(var(--my-accent-9), var(--my-accent-dark-9));
     --my-bg-brand-solid_hover: light-dark(var(--my-accent-10), var(--my-accent-dark-10));
     --my-bg-brand-solid_active: light-dark(var(--my-accent-12), var(--my-accent-dark-8));
@@ -10441,12 +10435,6 @@
   .u-text-brand {
     color: var(--my-text-brand);
   }
-  .u-text-brand-primary {
-    color: var(--my-text-brand-primary);
-  }
-  .u-text-brand-secondary {
-    color: var(--my-text-brand-secondary);
-  }
   .u-text-on-accent {
     color: var(--my-text-on-accent);
   }
@@ -10489,14 +10477,8 @@
   .u-bg-brand-subtle {
     background-color: var(--my-bg-brand-subtle);
   }
-  .u-bg-brand-primary {
-    background-color: var(--my-bg-brand-primary);
-  }
   .u-bg-brand-soft {
     background-color: var(--my-bg-brand-soft);
-  }
-  .u-bg-brand-secondary {
-    background-color: var(--my-bg-brand-secondary);
   }
   .u-bg-brand-solid {
     background-color: var(--my-bg-brand-solid);
