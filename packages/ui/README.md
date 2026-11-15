@@ -23,7 +23,7 @@ Cascade order: `mycss.tokens, mycss.composition, mycss.blocks, mycss.utilities`.
 
 ## Status
 
-Specimens: `packages/design/dist/button-spec.html`, `packages/design/dist/actions-spec.html`, `packages/design/dist/inputs-forms-spec.html`, `packages/design/dist/navigation-spec.html`. Shared tone × variant × state recipe: `src/scss/blocks/_action-tones.scss` (Button, Icon Button, Split Button).
+Specimens: `packages/design/dist/button-spec.html`, `packages/design/dist/actions-spec.html`, `packages/design/dist/inputs-forms-spec.html`, `packages/design/dist/navigation-spec.html`, `packages/design/dist/feedback-spec.html`. Shared tone × variant × state recipe: `src/scss/blocks/_action-tones.scss` (Button, Icon Button, Split Button).
 
 
 | Component | Figma page | CSS |
@@ -51,4 +51,8 @@ Specimens: `packages/design/dist/button-spec.html`, `packages/design/dist/action
 | Pagination | Navigation | ✅ 2026-11-15 — numbered and simple; prev/next are Icon Buttons |
 | Stepper | Navigation | ✅ 2026-11-15 — horizontal and vertical; connector stretches (Figma: fixed 48px) |
 | Table of Contents | Navigation | ✅ 2026-11-15 — current rail sits on the list's rule |
+| Badge | Feedback | ✅ 2026-11-15 — status (soft, outline), count, dot; static |
+| Alert, Toast | Feedback | ✅ 2026-11-15 — tones share `_status.scss`; toast placement and timing need script |
+| Progress Bar, Meter | Feedback | ✅ 2026-11-15 — native `<progress>` / `<meter>`; meter band comes from low/high/optimum |
+| Spinner, Skeleton, Empty State | Feedback | ✅ 2026-11-15 — skeleton is static, as in Figma |
 | Everything else | — | not started |

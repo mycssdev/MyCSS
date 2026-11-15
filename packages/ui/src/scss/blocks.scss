@@ -40,3 +40,9 @@
 @use "blocks/pagination";
 @use "blocks/stepper";
 @use "blocks/toc";
+
+// Feedback
+@use "blocks/badge";
+@use "blocks/alert";
+@use "blocks/progress";
+@use "blocks/empty-state";
