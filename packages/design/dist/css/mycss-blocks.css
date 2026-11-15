@@ -1,0 +1,717 @@
+@layer mycss.blocks {
+  .my-button {
+    --_solid: var(--my-bg-brand-solid);
+    --_solid-hover: var(--my-bg-brand-solid_hover);
+    --_solid-active: var(--my-bg-brand-solid_active);
+    --_on-solid: var(--my-text-on-accent);
+    --_on-solid-icon: var(--my-fg-on-accent);
+    --_tint: var(--my-bg-brand-subtle);
+    --_tint-hover: var(--my-bg-brand-soft);
+    --_tint-active: var(--my-bg-brand-soft);
+    --_wash-hover: var(--my-bg-brand-subtle);
+    --_text: var(--my-text-brand);
+    --_icon-tone: var(--my-fg-brand);
+    --_border: var(--my-border-brand);
+    --_ring: var(--my-effect-ring-brand);
+    --_bg: var(--_solid);
+    --_bg-hover: var(--_solid-hover);
+    --_bg-active: var(--_solid-active);
+    --_fg: var(--_on-solid);
+    --_icon-fg: var(--_on-solid-icon);
+    --_line: transparent;
+  }
+  .my-button[data-variant=soft] {
+    --_bg: var(--_tint);
+    --_bg-hover: var(--_tint-hover);
+    --_bg-active: var(--_tint-active);
+    --_fg: var(--_text);
+    --_icon-fg: var(--_icon-tone);
+  }
+  .my-button[data-variant=outline], .my-button[data-variant=ghost] {
+    --_bg: transparent;
+    --_bg-hover: var(--_wash-hover);
+    --_bg-active: var(--_tint-active);
+    --_fg: var(--_text);
+    --_icon-fg: var(--_icon-tone);
+  }
+  .my-button[data-variant=outline] {
+    --_line: var(--_border);
+  }
+  .my-button {
+    --_pad-inline: var(--my-spacing-xl);
+    --_pad-block: var(--my-spacing-sm);
+    --_gap: var(--my-spacing-xs);
+    --_icon: var(--my-size-1);
+    --_font-family: var(--my-label-lg-family);
+    --_font-size: var(--my-label-lg-size);
+    --_font-weight: var(--my-label-lg-weight);
+    --_line-height: var(--my-label-lg-line-height);
+    --_tracking: var(--my-label-lg-tracking);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    margin: 0;
+    border: var(--my-border-width-2) solid var(--_line);
+    border-radius: var(--my-border-radius-soft);
+    background-color: var(--_bg);
+    color: var(--_fg);
+    text-decoration: none;
+    white-space: nowrap;
+    cursor: pointer;
+    -webkit-appearance: none;
+    appearance: none;
+    transition-property: background-color, border-color, color, box-shadow;
+    transition-duration: var(--my-duration-fast-2);
+    transition-timing-function: var(--my-ease-standard);
+    gap: var(--_gap);
+    min-block-size: calc(var(--_font-size) * var(--_line-height) + 2 * var(--_pad-block) + 2 * var(--my-border-width-2));
+    padding-block: 0;
+    padding-inline: var(--_pad-inline);
+    font-family: var(--_font-family);
+    font-size: var(--_font-size);
+    font-weight: var(--_font-weight);
+    line-height: var(--_line-height);
+    letter-spacing: var(--_tracking);
+  }
+  .my-button > svg,
+  .my-button > .my-icon {
+    flex: none;
+    color: var(--_icon-fg);
+    inline-size: var(--_icon);
+    block-size: var(--_icon);
+  }
+  .my-button[data-tone=neutral] {
+    --_solid: var(--my-bg-neutral-primary);
+    --_solid-hover: var(--my-bg-neutral-secondary);
+    --_solid-active: var(--my-bg-neutral-active);
+    --_on-solid: var(--my-text-neutral-primary);
+    --_on-solid-icon: var(--my-fg-neutral-primary);
+    --_tint: var(--my-bg-neutral-primary);
+    --_tint-hover: var(--my-bg-neutral-secondary);
+    --_tint-active: var(--my-bg-neutral-active);
+    --_wash-hover: var(--my-bg-neutral-primary_hover);
+    --_text: var(--my-text-neutral-primary);
+    --_icon-tone: var(--my-fg-neutral-primary);
+    --_border: var(--my-border-neutral-primary);
+    --_ring: var(--my-effect-ring-brand);
+  }
+  .my-button[data-tone=danger] {
+    --_solid: var(--my-bg-error-solid);
+    --_solid-hover: var(--my-bg-error-solid_hover);
+    --_solid-active: var(--my-bg-error-solid_active);
+    --_on-solid: var(--my-text-white);
+    --_on-solid-icon: var(--my-fg-white);
+    --_tint: var(--my-bg-error-primary);
+    --_tint-hover: var(--my-bg-error-secondary);
+    --_tint-active: var(--my-bg-error-secondary);
+    --_wash-hover: var(--my-bg-error-primary);
+    --_text: var(--my-text-error);
+    --_icon-tone: var(--my-fg-error-primary);
+    --_border: var(--my-border-error);
+    --_ring: var(--my-effect-ring-error);
+  }
+  .my-button[data-tone=warning] {
+    --_solid: var(--my-bg-warning-solid);
+    --_solid-hover: var(--my-bg-warning-solid_hover);
+    --_solid-active: var(--my-bg-warning-solid_active);
+    --_on-solid: var(--my-text-white);
+    --_on-solid-icon: var(--my-fg-white);
+    --_tint: var(--my-bg-warning-primary);
+    --_tint-hover: var(--my-bg-warning-secondary);
+    --_tint-active: var(--my-bg-warning-secondary);
+    --_wash-hover: var(--my-bg-warning-primary);
+    --_text: var(--my-text-warning);
+    --_icon-tone: var(--my-fg-warning-primary);
+    --_border: var(--my-border-warning);
+    --_ring: var(--my-effect-ring-warning);
+  }
+  .my-button[data-tone=success] {
+    --_solid: var(--my-bg-success-solid);
+    --_solid-hover: var(--my-bg-success-solid_hover);
+    --_solid-active: var(--my-bg-success-solid_active);
+    --_on-solid: var(--my-text-white);
+    --_on-solid-icon: var(--my-fg-white);
+    --_tint: var(--my-bg-success-primary);
+    --_tint-hover: var(--my-bg-success-secondary);
+    --_tint-active: var(--my-bg-success-secondary);
+    --_wash-hover: var(--my-bg-success-primary);
+    --_text: var(--my-text-success);
+    --_icon-tone: var(--my-fg-success-primary);
+    --_border: var(--my-border-success);
+    --_ring: var(--my-effect-ring-success);
+  }
+  .my-button[data-tone=info] {
+    --_solid: var(--my-bg-info-solid);
+    --_solid-hover: var(--my-bg-info-solid_hover);
+    --_solid-active: var(--my-bg-info-solid_active);
+    --_on-solid: var(--my-text-white);
+    --_on-solid-icon: var(--my-fg-white);
+    --_tint: var(--my-bg-info-primary);
+    --_tint-hover: var(--my-bg-info-secondary);
+    --_tint-active: var(--my-bg-info-secondary);
+    --_wash-hover: var(--my-bg-info-primary);
+    --_text: var(--my-text-info);
+    --_icon-tone: var(--my-fg-info-primary);
+    --_border: var(--my-border-info);
+    --_ring: var(--my-effect-ring-info);
+  }
+  .my-button[data-size=xs] {
+    --_pad-inline: var(--my-spacing-md);
+    --_pad-block: var(--my-spacing-xxs);
+    --_gap: var(--my-spacing-xxs);
+    --_icon: var(--my-size-1);
+    --_font-family: var(--my-label-sm-family);
+    --_font-size: var(--my-label-sm-size);
+    --_font-weight: var(--my-label-sm-weight);
+    --_line-height: var(--my-label-sm-line-height);
+    --_tracking: var(--my-label-sm-tracking);
+  }
+  .my-button[data-size=sm] {
+    --_pad-inline: var(--my-spacing-lg);
+    --_pad-block: var(--my-spacing-xs);
+    --_gap: var(--my-spacing-xs);
+    --_icon: var(--my-size-1);
+    --_font-family: var(--my-label-family);
+    --_font-size: var(--my-label-size);
+    --_font-weight: var(--my-label-weight);
+    --_line-height: var(--my-label-line-height);
+    --_tracking: var(--my-label-tracking);
+  }
+  .my-button[data-size=lg] {
+    --_pad-inline: var(--my-spacing-2xl);
+    --_pad-block: var(--my-spacing-md);
+    --_gap: var(--my-spacing-sm);
+    --_icon: var(--my-size-2);
+    --_font-family: var(--my-label-xl-family);
+    --_font-size: var(--my-label-xl-size);
+    --_font-weight: var(--my-label-xl-weight);
+    --_line-height: var(--my-label-xl-line-height);
+    --_tracking: var(--my-label-xl-tracking);
+  }
+  .my-button[data-size=xl] {
+    --_pad-inline: var(--my-spacing-3xl);
+    --_pad-block: calc(var(--my-spacing-md) + var(--my-spacing-xxs));
+    --_gap: var(--my-spacing-md);
+    --_icon: var(--my-size-3);
+    --_font-family: var(--my-label-2xl-family);
+    --_font-size: var(--my-label-2xl-size);
+    --_font-weight: var(--my-label-2xl-weight);
+    --_line-height: var(--my-label-2xl-line-height);
+    --_tracking: var(--my-label-2xl-tracking);
+  }
+  .my-button:where(:hover):not(:disabled, [aria-disabled=true], [data-state=disabled], [aria-busy=true]), .my-button[data-state=hover] {
+    background-color: var(--_bg-hover);
+  }
+  .my-button:where(:active):not(:disabled, [aria-disabled=true], [data-state=disabled], [aria-busy=true]), .my-button[data-state=pressed] {
+    background-color: var(--_bg-active);
+  }
+  .my-button:focus-visible, .my-button[data-state=focus] {
+    outline: none;
+    box-shadow: 0 0 0 3px var(--_ring);
+  }
+  .my-button:is(:disabled, [aria-disabled=true], [data-state=disabled]) {
+    --_line: transparent;
+    --_icon-fg: var(--my-fg-neutral-disabled);
+    background-color: var(--my-bg-neutral-disabled_subtle);
+    color: var(--my-text-neutral-disabled);
+    cursor: not-allowed;
+  }
+  .my-button:is(:disabled, [aria-disabled=true], [data-state=disabled]):is(:not([data-variant]), [data-variant=solid]):not([data-tone=neutral]) {
+    background-color: var(--my-bg-neutral-disabled);
+  }
+  .my-button:is(:disabled, [aria-disabled=true], [data-state=disabled])[data-variant=outline] {
+    --_line: var(--my-border-neutral-disabled);
+  }
+  .my-button[aria-busy=true] {
+    cursor: progress;
+  }
+  .my-button[aria-busy=true]::before {
+    content: "";
+    flex: none;
+    inline-size: var(--_icon);
+    block-size: var(--_icon);
+    border-radius: var(--my-border-radius-full);
+    border: 2px solid currentColor;
+    border-inline-start-color: transparent;
+    animation: my-button-spin 1s linear infinite;
+  }
+  .my-button[aria-busy=true] > svg:first-child,
+  .my-button[aria-busy=true] > .my-icon:first-child {
+    display: none;
+  }
+  @keyframes my-button-spin {
+    to {
+      rotate: 1turn;
+    }
+  }
+}
+@layer mycss.blocks {
+  .my-icon-button {
+    --_solid: var(--my-bg-brand-solid);
+    --_solid-hover: var(--my-bg-brand-solid_hover);
+    --_solid-active: var(--my-bg-brand-solid_active);
+    --_on-solid: var(--my-text-on-accent);
+    --_on-solid-icon: var(--my-fg-on-accent);
+    --_tint: var(--my-bg-brand-subtle);
+    --_tint-hover: var(--my-bg-brand-soft);
+    --_tint-active: var(--my-bg-brand-soft);
+    --_wash-hover: var(--my-bg-brand-subtle);
+    --_text: var(--my-text-brand);
+    --_icon-tone: var(--my-fg-brand);
+    --_border: var(--my-border-brand);
+    --_ring: var(--my-effect-ring-brand);
+    --_bg: var(--_solid);
+    --_bg-hover: var(--_solid-hover);
+    --_bg-active: var(--_solid-active);
+    --_fg: var(--_on-solid);
+    --_icon-fg: var(--_on-solid-icon);
+    --_line: transparent;
+  }
+  .my-icon-button[data-variant=soft] {
+    --_bg: var(--_tint);
+    --_bg-hover: var(--_tint-hover);
+    --_bg-active: var(--_tint-active);
+    --_fg: var(--_text);
+    --_icon-fg: var(--_icon-tone);
+  }
+  .my-icon-button[data-variant=outline], .my-icon-button[data-variant=ghost] {
+    --_bg: transparent;
+    --_bg-hover: var(--_wash-hover);
+    --_bg-active: var(--_tint-active);
+    --_fg: var(--_text);
+    --_icon-fg: var(--_icon-tone);
+  }
+  .my-icon-button[data-variant=outline] {
+    --_line: var(--_border);
+  }
+  .my-icon-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    margin: 0;
+    border: var(--my-border-width-2) solid var(--_line);
+    border-radius: var(--my-border-radius-soft);
+    background-color: var(--_bg);
+    color: var(--_fg);
+    text-decoration: none;
+    white-space: nowrap;
+    cursor: pointer;
+    -webkit-appearance: none;
+    appearance: none;
+    transition-property: background-color, border-color, color, box-shadow;
+    transition-duration: var(--my-duration-fast-2);
+    transition-timing-function: var(--my-ease-standard);
+    --_icon: var(--my-size-1);
+    --_side: calc(var(--_icon) + 2 * var(--my-spacing-md) + 2 * var(--my-border-width-2));
+    flex: none;
+    inline-size: var(--_side);
+    block-size: var(--_side);
+    padding: 0;
+  }
+  .my-icon-button > svg,
+  .my-icon-button > .my-icon {
+    flex: none;
+    color: var(--_icon-fg);
+    inline-size: var(--_icon);
+    block-size: var(--_icon);
+  }
+  .my-icon-button[data-tone=neutral] {
+    --_solid: var(--my-bg-neutral-primary);
+    --_solid-hover: var(--my-bg-neutral-secondary);
+    --_solid-active: var(--my-bg-neutral-active);
+    --_on-solid: var(--my-text-neutral-primary);
+    --_on-solid-icon: var(--my-fg-neutral-primary);
+    --_tint: var(--my-bg-neutral-primary);
+    --_tint-hover: var(--my-bg-neutral-secondary);
+    --_tint-active: var(--my-bg-neutral-active);
+    --_wash-hover: var(--my-bg-neutral-primary_hover);
+    --_text: var(--my-text-neutral-primary);
+    --_icon-tone: var(--my-fg-neutral-primary);
+    --_border: var(--my-border-neutral-primary);
+    --_ring: var(--my-effect-ring-brand);
+  }
+  .my-icon-button[data-tone=danger] {
+    --_solid: var(--my-bg-error-solid);
+    --_solid-hover: var(--my-bg-error-solid_hover);
+    --_solid-active: var(--my-bg-error-solid_active);
+    --_on-solid: var(--my-text-white);
+    --_on-solid-icon: var(--my-fg-white);
+    --_tint: var(--my-bg-error-primary);
+    --_tint-hover: var(--my-bg-error-secondary);
+    --_tint-active: var(--my-bg-error-secondary);
+    --_wash-hover: var(--my-bg-error-primary);
+    --_text: var(--my-text-error);
+    --_icon-tone: var(--my-fg-error-primary);
+    --_border: var(--my-border-error);
+    --_ring: var(--my-effect-ring-error);
+  }
+  .my-icon-button:where(:hover):not(:disabled, [aria-disabled=true], [data-state=disabled], [aria-busy=true]), .my-icon-button[data-state=hover] {
+    background-color: var(--_bg-hover);
+  }
+  .my-icon-button:where(:active):not(:disabled, [aria-disabled=true], [data-state=disabled], [aria-busy=true]), .my-icon-button[data-state=pressed] {
+    background-color: var(--_bg-active);
+  }
+  .my-icon-button:focus-visible, .my-icon-button[data-state=focus] {
+    outline: none;
+    box-shadow: 0 0 0 3px var(--_ring);
+  }
+  .my-icon-button:is(:disabled, [aria-disabled=true], [data-state=disabled]) {
+    --_line: var(--my-border-neutral-disabled);
+    --_icon-fg: var(--my-fg-neutral-disabled);
+    background-color: var(--my-bg-neutral-disabled_subtle);
+    color: var(--my-text-neutral-disabled);
+    cursor: not-allowed;
+  }
+  .my-icon-button:is(:disabled, [aria-disabled=true], [data-state=disabled]):is(:not([data-variant]), [data-variant=solid]):not([data-tone=neutral]) {
+    background-color: var(--my-bg-neutral-disabled);
+  }
+}
+@layer mycss.blocks {
+  .my-toggle-button {
+    --_bg: transparent;
+    --_bg-hover: var(--my-bg-neutral-primary_hover);
+    --_fg: var(--my-text-neutral-primary);
+    --_icon-fg: var(--my-fg-neutral-primary);
+    --_line: transparent;
+    --_ring: var(--my-effect-ring-brand);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    margin: 0;
+    border: var(--my-border-width-2) solid var(--_line);
+    border-radius: var(--my-border-radius-soft);
+    background-color: var(--_bg);
+    color: var(--_fg);
+    text-decoration: none;
+    white-space: nowrap;
+    cursor: pointer;
+    -webkit-appearance: none;
+    appearance: none;
+    transition-property: background-color, border-color, color, box-shadow;
+    transition-duration: var(--my-duration-fast-2);
+    transition-timing-function: var(--my-ease-standard);
+    gap: var(--my-spacing-sm);
+    padding-block: var(--my-spacing-md);
+    padding-inline: var(--my-spacing-xl);
+    font-family: var(--my-label-family);
+    font-size: var(--my-label-size);
+    font-weight: var(--my-label-weight);
+    line-height: var(--my-label-line-height);
+    letter-spacing: var(--my-label-tracking);
+  }
+  .my-toggle-button > svg,
+  .my-toggle-button > .my-icon {
+    flex: none;
+    color: var(--_icon-fg);
+    inline-size: var(--my-size-1);
+    block-size: var(--my-size-1);
+  }
+  .my-toggle-button:is([aria-pressed=true], [data-value=on]) {
+    --_bg: var(--my-bg-brand-subtle);
+    --_bg-hover: var(--my-bg-brand-soft);
+    --_fg: var(--my-text-brand);
+    --_icon-fg: var(--my-fg-brand);
+    --_line: var(--my-border-brand_subtle);
+  }
+  .my-toggle-button:where(:hover):not(:disabled, [aria-disabled=true], [data-state=disabled]), .my-toggle-button[data-state=hover] {
+    background-color: var(--_bg-hover);
+  }
+  .my-toggle-button:focus-visible, .my-toggle-button[data-state=focus] {
+    outline: none;
+    box-shadow: 0 0 0 3px var(--_ring);
+  }
+  .my-toggle-button:is(:disabled, [aria-disabled=true], [data-state=disabled]) {
+    --_line: var(--my-border-neutral-disabled);
+    --_icon-fg: var(--my-fg-neutral-disabled);
+    background-color: var(--my-bg-neutral-disabled_subtle);
+    color: var(--my-text-neutral-disabled);
+    cursor: not-allowed;
+  }
+}
+@layer mycss.blocks {
+  .my-segmented-control {
+    display: inline-flex;
+    align-items: stretch;
+    gap: var(--my-spacing-xxs);
+    padding: var(--my-spacing-xxs);
+    border-radius: var(--my-border-radius-soft);
+    background-color: var(--my-bg-neutral-secondary);
+  }
+  .my-segment {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--my-spacing-xs);
+    box-sizing: border-box;
+    margin: 0;
+    padding-block: var(--my-spacing-sm);
+    padding-inline: var(--my-spacing-lg);
+    border: 0;
+    border-radius: var(--my-border-radius-soft);
+    background-color: transparent;
+    color: var(--my-text-neutral-secondary);
+    font-family: var(--my-label-family);
+    font-size: var(--my-label-size);
+    font-weight: var(--my-label-weight);
+    line-height: var(--my-label-line-height);
+    letter-spacing: var(--my-label-tracking);
+    white-space: nowrap;
+    cursor: pointer;
+    -webkit-appearance: none;
+    appearance: none;
+    transition-property: background-color, color, box-shadow;
+    transition-duration: var(--my-duration-fast-2);
+    transition-timing-function: var(--my-ease-standard);
+  }
+  .my-segment:where(:hover):not(:disabled, [aria-disabled=true], :has(> input:disabled), [data-state=disabled], [aria-pressed=true], [aria-selected=true], [aria-checked=true], [aria-current]:not([aria-current=false]), :has(> input:checked), [data-state=selected]), .my-segment[data-state=hover] {
+    background-color: var(--my-bg-neutral-primary_hover);
+    color: var(--my-text-neutral-primary);
+  }
+  .my-segment:is([aria-pressed=true], [aria-selected=true], [aria-checked=true], [aria-current]:not([aria-current=false]), :has(> input:checked), [data-state=selected]) {
+    background-color: var(--my-overlay-primary);
+    box-shadow: var(--my-shadow-low);
+    color: var(--my-text-neutral-primary);
+  }
+  .my-segment:focus-visible, .my-segment:has(> input:focus-visible), .my-segment[data-state=focus] {
+    outline: none;
+    box-shadow: 0 0 0 3px var(--my-effect-ring-brand);
+  }
+  .my-segment:is(:disabled, [aria-disabled=true], :has(> input:disabled), [data-state=disabled]) {
+    color: var(--my-text-neutral-disabled);
+    cursor: not-allowed;
+  }
+}
+@layer mycss.blocks {
+  .my-split-button {
+    --_solid: var(--my-bg-brand-solid);
+    --_solid-hover: var(--my-bg-brand-solid_hover);
+    --_solid-active: var(--my-bg-brand-solid_active);
+    --_on-solid: var(--my-text-on-accent);
+    --_on-solid-icon: var(--my-fg-on-accent);
+    --_tint: var(--my-bg-brand-subtle);
+    --_tint-hover: var(--my-bg-brand-soft);
+    --_tint-active: var(--my-bg-brand-soft);
+    --_wash-hover: var(--my-bg-brand-subtle);
+    --_text: var(--my-text-brand);
+    --_icon-tone: var(--my-fg-brand);
+    --_border: var(--my-border-brand);
+    --_ring: var(--my-effect-ring-brand);
+  }
+  .my-split-button[data-tone=danger] {
+    --_solid: var(--my-bg-error-solid);
+    --_solid-hover: var(--my-bg-error-solid_hover);
+    --_solid-active: var(--my-bg-error-solid_active);
+    --_on-solid: var(--my-text-white);
+    --_on-solid-icon: var(--my-fg-white);
+    --_tint: var(--my-bg-error-primary);
+    --_tint-hover: var(--my-bg-error-secondary);
+    --_tint-active: var(--my-bg-error-secondary);
+    --_wash-hover: var(--my-bg-error-primary);
+    --_text: var(--my-text-error);
+    --_icon-tone: var(--my-fg-error-primary);
+    --_border: var(--my-border-error);
+    --_ring: var(--my-effect-ring-error);
+  }
+  .my-split-button {
+    display: inline-flex;
+    align-items: stretch;
+    box-sizing: border-box;
+    border: var(--my-border-width-2) solid transparent;
+    border-radius: var(--my-border-radius-soft);
+    background-color: var(--_solid);
+    color: var(--_on-solid);
+    font-family: var(--my-label-lg-family);
+    font-size: var(--my-label-lg-size);
+    font-weight: var(--my-label-lg-weight);
+    line-height: var(--my-label-lg-line-height);
+    letter-spacing: var(--my-label-lg-tracking);
+    transition: background-color var(--my-duration-fast-2) var(--my-ease-standard);
+  }
+  .my-split-button > button,
+  .my-split-button > a {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--my-spacing-xs);
+    margin: 0;
+    padding-block: var(--my-spacing-sm);
+    padding-inline: var(--my-spacing-xl);
+    border: 0;
+    border-radius: inherit;
+    background: transparent;
+    color: inherit;
+    font: inherit;
+    letter-spacing: inherit;
+    text-decoration: none;
+    white-space: nowrap;
+    cursor: pointer;
+    -webkit-appearance: none;
+    appearance: none;
+  }
+  .my-split-button > button > svg,
+  .my-split-button > button > .my-icon,
+  .my-split-button > a > svg,
+  .my-split-button > a > .my-icon {
+    flex: none;
+    color: var(--_on-solid-icon);
+    inline-size: var(--my-size-1);
+    block-size: var(--my-size-1);
+  }
+  .my-split-button > :first-child {
+    border-start-end-radius: 0;
+    border-end-end-radius: 0;
+  }
+  .my-split-button > :last-child {
+    padding-inline: var(--my-spacing-lg);
+    border-inline-start: var(--my-border-width-2) solid var(--_solid-active);
+    border-start-start-radius: 0;
+    border-end-start-radius: 0;
+  }
+  .my-split-button > :hover:not(:disabled) {
+    background-color: var(--_solid-hover);
+  }
+  .my-split-button > :focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 3px var(--_ring);
+  }
+  .my-split-button:has(> [aria-expanded=true]), .my-split-button[data-state=open] {
+    background-color: var(--_solid-active);
+  }
+  .my-split-button:has(> :disabled, > [aria-disabled=true]), .my-split-button[data-state=disabled] {
+    border-color: var(--my-border-neutral-disabled);
+    background-color: var(--my-bg-neutral-disabled);
+    color: var(--my-text-neutral-disabled);
+  }
+  .my-split-button:has(> :disabled, > [aria-disabled=true]) > *, .my-split-button[data-state=disabled] > * {
+    cursor: not-allowed;
+    background-color: transparent;
+  }
+  .my-split-button:has(> :disabled, > [aria-disabled=true]) > * > svg, .my-split-button:has(> :disabled, > [aria-disabled=true]) > * > .my-icon, .my-split-button[data-state=disabled] > * > svg, .my-split-button[data-state=disabled] > * > .my-icon {
+    color: var(--my-fg-neutral-disabled);
+  }
+  .my-split-button:has(> :disabled, > [aria-disabled=true]) > :last-child, .my-split-button[data-state=disabled] > :last-child {
+    border-inline-start-color: var(--my-border-neutral-disabled);
+  }
+}
+@layer mycss.blocks {
+  .my-button-group {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--my-spacing-sm);
+  }
+}
+@layer mycss.blocks {
+  .my-link {
+    color: var(--my-text-brand);
+    text-decoration-line: none;
+    text-decoration-thickness: from-font;
+    text-underline-offset: 0.15em;
+    border-radius: var(--my-border-radius-crisp);
+    cursor: pointer;
+    transition: box-shadow var(--my-duration-fast-2) var(--my-ease-standard);
+  }
+  .my-link > svg,
+  .my-link > .my-icon {
+    display: inline-block;
+    inline-size: var(--my-size-1);
+    block-size: var(--my-size-1);
+    margin-inline-start: var(--my-spacing-xs);
+    vertical-align: -0.125em;
+    color: var(--my-fg-brand);
+  }
+  .my-link:hover, .my-link[data-state=hover] {
+    text-decoration-line: underline;
+  }
+  .my-link:focus-visible, .my-link[data-state=focus] {
+    outline: none;
+    box-shadow: 0 0 0 3px var(--my-effect-ring-brand);
+  }
+  .my-link[aria-disabled=true], .my-link[data-state=disabled] {
+    color: var(--my-text-neutral-disabled);
+    text-decoration-line: none;
+    pointer-events: none;
+    cursor: default;
+  }
+  .my-link[aria-disabled=true] > svg, .my-link[aria-disabled=true] > .my-icon, .my-link[data-state=disabled] > svg, .my-link[data-state=disabled] > .my-icon {
+    color: var(--my-fg-neutral-disabled);
+  }
+}
+@layer mycss.blocks {
+  .my-tag {
+    --_bg: var(--my-bg-neutral-secondary);
+    --_bg-hover: var(--my-bg-neutral-secondary_hover);
+    --_fg: var(--my-text-neutral-primary);
+    --_icon-fg: var(--my-fg-neutral-secondary);
+    display: inline-flex;
+    align-items: center;
+    gap: var(--my-spacing-xs);
+    box-sizing: border-box;
+    margin: 0;
+    padding-block: var(--my-spacing-xxs);
+    padding-inline: var(--my-spacing-md);
+    border: 0;
+    border-radius: var(--my-border-radius-pill);
+    background-color: var(--_bg);
+    color: var(--_fg);
+    font-family: var(--my-label-sm-family);
+    font-size: var(--my-label-sm-size);
+    font-weight: var(--my-label-sm-weight);
+    line-height: var(--my-label-sm-line-height);
+    letter-spacing: var(--my-label-sm-tracking);
+    text-decoration: none;
+    white-space: nowrap;
+    -webkit-appearance: none;
+    appearance: none;
+    transition-property: background-color, box-shadow;
+    transition-duration: var(--my-duration-fast-2);
+    transition-timing-function: var(--my-ease-standard);
+  }
+  .my-tag[data-tone=brand] {
+    --_bg: var(--my-bg-brand-subtle);
+    --_bg-hover: var(--my-bg-brand-soft);
+    --_fg: var(--my-text-brand);
+    --_icon-fg: var(--my-fg-brand);
+  }
+  .my-tag:is(button, a, [tabindex]) {
+    cursor: pointer;
+  }
+  .my-tag > svg,
+  .my-tag > .my-icon,
+  .my-tag > button > svg,
+  .my-tag > button > .my-icon {
+    flex: none;
+    inline-size: var(--my-size-1);
+    block-size: var(--my-size-1);
+    color: var(--_icon-fg);
+  }
+  .my-tag > button {
+    display: inline-flex;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    border-radius: var(--my-border-radius-pill);
+    background: none;
+    color: inherit;
+    cursor: pointer;
+  }
+  .my-tag > button:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 3px var(--my-effect-ring-brand);
+  }
+  .my-tag:is(button, a, [tabindex]):where(:hover):not(:disabled, [aria-disabled=true], [data-state=disabled]), .my-tag:has(> button:hover), .my-tag[data-state=hover] {
+    background-color: var(--_bg-hover);
+  }
+  .my-tag:focus-visible, .my-tag[data-state=focus] {
+    outline: none;
+    box-shadow: 0 0 0 3px var(--my-effect-ring-brand);
+  }
+  .my-tag:is(:disabled, [aria-disabled=true], [data-state=disabled]) {
+    --_icon-fg: var(--my-fg-neutral-disabled);
+    background-color: var(--my-bg-neutral-disabled_subtle);
+    color: var(--my-text-neutral-disabled);
+    cursor: not-allowed;
+  }
+}

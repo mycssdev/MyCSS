@@ -1,0 +1,36 @@
+// Icon Button — Figma: BLOCKS › Actions › Icon Button (55 variants).
+// Axes: Icon (swap) · Tone Brand|Neutral|Danger · Variant Solid|Soft|Outline|
+// Ghost · State Default|Hover|Focus|Pressed|Disabled. Same colour recipe as
+// Button; square, 16px icon inside spacing-md padding (34 × 34 at Comfortable).
+// Unlike Button, every disabled variant keeps a border/neutral-disabled edge.
+//
+//   <button class="my-icon-button" aria-label="Settings"><svg …/></button>
+//   <button class="my-icon-button" data-tone="danger" data-variant="ghost" aria-label="Delete"><svg …/></button>
+@use "../../../../design/src/scss/my" as my;
+@use "action-tones" as act;
+
+@layer mycss.blocks {
+  .my-icon-button {
+    @include act.brand-defaults;
+    @include act.variants;
+    @include act.action-box;
+
+    --_icon: #{my.token(size-1)};
+    --_side: calc(var(--_icon) + 2 * #{my.token(spacing-md)} + 2 * #{my.token(border-width-2)});
+    flex: none;
+    inline-size: var(--_side);
+    block-size: var(--_side);
+    padding: 0;
+
+    > svg,
+    > .my-icon {
+      flex: none;
+      color: var(--_icon-fg);
+      inline-size: var(--_icon);
+      block-size: var(--_icon);
+    }
+
+    @include act.tones((neutral, danger));
+    @include act.states(all);
+  }
+}

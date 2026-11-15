@@ -1,0 +1,50 @@
+// Link — Figma: BLOCKS › Actions › Link (4 variants).
+// Axes: State Default|Hover|Focus|Disabled · External (icon boolean).
+// Brand text, underline on hover, brand ring + crisp radius on focus.
+// Inherits the surrounding font so it works inline in running text (the
+// Figma specimen uses the body role, which is what running text uses).
+//
+//   <a class="my-link" href="…">Read the docs</a>
+//   <a class="my-link" href="https://…" target="_blank" rel="noopener">GitHub <svg …/></a>
+@use "../../../../design/src/scss/my" as my;
+
+@layer mycss.blocks {
+  .my-link {
+    color: my.token(text-brand);
+    text-decoration-line: none;
+    text-decoration-thickness: from-font;
+    text-underline-offset: 0.15em;
+    border-radius: my.token(border-radius-crisp);
+    cursor: pointer;
+    transition: box-shadow my.token(duration-fast-2) my.token(ease-standard);
+
+    > svg,
+    > .my-icon {
+      display: inline-block;
+      inline-size: my.token(size-1);
+      block-size: my.token(size-1);
+      margin-inline-start: my.token(spacing-xs);
+      vertical-align: -0.125em;
+      color: my.token(fg-brand);
+    }
+
+    &:hover,
+    &[data-state="hover"] {
+      text-decoration-line: underline;
+    }
+    &:focus-visible,
+    &[data-state="focus"] {
+      outline: none;
+      box-shadow: 0 0 0 3px my.token(effect-ring-brand);
+    }
+    &[aria-disabled="true"],
+    &[data-state="disabled"] {
+      color: my.token(text-neutral-disabled);
+      text-decoration-line: none;
+      pointer-events: none;
+      cursor: default;
+
+      > svg, > .my-icon { color: my.token(fg-neutral-disabled); }
+    }
+  }
+}

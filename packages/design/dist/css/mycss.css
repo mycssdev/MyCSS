@@ -1,6 +1,6 @@
 @charset "UTF-8";
-@layer mycss.tokens, mycss.composition, mycss.utilities;
-/*! MyCSS tokens v0.1.0-alpha.1 — generated 2026-11-05 from tokens.all-in-one.json.
+@layer mycss.tokens, mycss.composition, mycss.blocks, mycss.utilities;
+/*! MyCSS tokens v0.1.0-alpha.1 — generated 2026-11-15 from tokens.all-in-one.json.
  *  Do not edit by hand; run packages/design/build/generate_css.py.
  *  Requires: CSS round(), light-dark() — Baseline 2024. */
 @layer mycss.tokens {
@@ -52,21 +52,27 @@
     --my-shadow-o1-y: 1;
     --my-shadow-o1-blur: 1;
     --my-shadow-o1-spread: -0.5;
+    --my-shadow-o1-reverse: -1;
     --my-shadow-o2-y: 3;
     --my-shadow-o2-blur: 3;
     --my-shadow-o2-spread: -1.5;
+    --my-shadow-o2-reverse: -3;
     --my-shadow-o3-y: 6;
     --my-shadow-o3-blur: 6;
     --my-shadow-o3-spread: -3;
+    --my-shadow-o3-reverse: -6;
     --my-shadow-o4-y: 12;
     --my-shadow-o4-blur: 12;
     --my-shadow-o4-spread: -6;
+    --my-shadow-o4-reverse: -12;
     --my-shadow-o5-y: 24;
     --my-shadow-o5-blur: 24;
     --my-shadow-o5-spread: -12;
+    --my-shadow-o5-reverse: -24;
     --my-shadow-o6-y: 48;
     --my-shadow-o6-blur: 48;
     --my-shadow-o6-spread: -24;
+    --my-shadow-o6-reverse: -48;
     --my-scale-base: 16;
     --my-scale-ratio: 1.25;
     --my-linear-base: 4;
@@ -284,54 +290,6 @@
     --my-blue-dark-alpha-a10: #3b9eff;
     --my-blue-dark-alpha-a11: #70b8ff;
     --my-blue-dark-alpha-a12: #c2e6ff;
-    --my-brand-1: #fdfcfe;
-    --my-brand-2: #faf5ff;
-    --my-brand-3: #f2e6ff;
-    --my-brand-4: #e9d5ff;
-    --my-brand-5: #dfc4fd;
-    --my-brand-6: #d3b0f7;
-    --my-brand-7: #c197ee;
-    --my-brand-8: #a875de;
-    --my-brand-9: #663399;
-    --my-brand-10: #5b2d8a;
-    --my-brand-11: #7744aa;
-    --my-brand-12: #2f1546;
-    --my-brand-alpha-a1: #5500aa03;
-    --my-brand-alpha-a2: #6600ff0a;
-    --my-brand-alpha-a3: #6600ee19;
-    --my-brand-alpha-a4: #6b00ff2a;
-    --my-brand-alpha-a5: #6700f53b;
-    --my-brand-alpha-a6: #5e00e64f;
-    --my-brand-alpha-a7: #5500d068;
-    --my-brand-alpha-a8: #4f00c48a;
-    --my-brand-alpha-a9: #390079cc;
-    --my-brand-alpha-a10: #3a007ad5;
-    --my-brand-alpha-a11: #4400aa88;
-    --my-brand-alpha-a12: #190040ea;
-    --my-brand-dark-1: #15101d;
-    --my-brand-dark-2: #1d1528;
-    --my-brand-dark-3: #2c1f42;
-    --my-brand-dark-4: #382755;
-    --my-brand-dark-5: #432f64;
-    --my-brand-dark-6: #503a76;
-    --my-brand-dark-7: #624b8f;
-    --my-brand-dark-8: #7d64b3;
-    --my-brand-dark-9: #663399;
-    --my-brand-dark-10: #7744aa;
-    --my-brand-dark-11: #c9a5f0;
-    --my-brand-dark-12: #ece3f8;
-    --my-brand-dark-alpha-a1: #4400cc0d;
-    --my-brand-dark-alpha-a2: #5c28e018;
-    --my-brand-dark-alpha-a3: #6b3cf434;
-    --my-brand-dark-alpha-a4: #7040f848;
-    --my-brand-dark-alpha-a5: #7647fa58;
-    --my-brand-dark-alpha-a6: #7e52fc6b;
-    --my-brand-dark-alpha-a7: #8560fe86;
-    --my-brand-dark-alpha-a8: #8d6cfeac;
-    --my-brand-dark-alpha-a9: #7040f091;
-    --my-brand-dark-alpha-a10: #8256f5a3;
-    --my-brand-dark-alpha-a11: #cba5fbef;
-    --my-brand-dark-alpha-a12: #ede5fef7;
     --my-bronze-1: #fdfcfc;
     --my-bronze-2: #fdf7f5;
     --my-bronze-3: #f6edea;
@@ -1244,6 +1202,54 @@
     --my-purple-dark-alpha-a10: #bc6fffcd;
     --my-purple-dark-alpha-a11: #d19dff;
     --my-purple-dark-alpha-a12: #f1ddfffa;
+    --my-rebecca-1: #fdfcfe;
+    --my-rebecca-2: #faf5ff;
+    --my-rebecca-3: #f2e6ff;
+    --my-rebecca-4: #e9d5ff;
+    --my-rebecca-5: #dfc4fd;
+    --my-rebecca-6: #d3b0f7;
+    --my-rebecca-7: #c197ee;
+    --my-rebecca-8: #a875de;
+    --my-rebecca-9: #663399;
+    --my-rebecca-10: #5b2d8a;
+    --my-rebecca-11: #7744aa;
+    --my-rebecca-12: #2f1546;
+    --my-rebecca-alpha-a1: #5500aa03;
+    --my-rebecca-alpha-a2: #6600ff0a;
+    --my-rebecca-alpha-a3: #6600ee19;
+    --my-rebecca-alpha-a4: #6b00ff2a;
+    --my-rebecca-alpha-a5: #6700f53b;
+    --my-rebecca-alpha-a6: #5e00e64f;
+    --my-rebecca-alpha-a7: #5500d068;
+    --my-rebecca-alpha-a8: #4f00c48a;
+    --my-rebecca-alpha-a9: #390079cc;
+    --my-rebecca-alpha-a10: #3a007ad5;
+    --my-rebecca-alpha-a11: #4400aa88;
+    --my-rebecca-alpha-a12: #190040ea;
+    --my-rebecca-dark-1: #15101d;
+    --my-rebecca-dark-2: #1d1528;
+    --my-rebecca-dark-3: #2c1f42;
+    --my-rebecca-dark-4: #382755;
+    --my-rebecca-dark-5: #432f64;
+    --my-rebecca-dark-6: #503a76;
+    --my-rebecca-dark-7: #624b8f;
+    --my-rebecca-dark-8: #7d64b3;
+    --my-rebecca-dark-9: #663399;
+    --my-rebecca-dark-10: #7744aa;
+    --my-rebecca-dark-11: #c9a5f0;
+    --my-rebecca-dark-12: #ece3f8;
+    --my-rebecca-dark-alpha-a1: #4400cc0d;
+    --my-rebecca-dark-alpha-a2: #5c28e018;
+    --my-rebecca-dark-alpha-a3: #6b3cf434;
+    --my-rebecca-dark-alpha-a4: #7040f848;
+    --my-rebecca-dark-alpha-a5: #7647fa58;
+    --my-rebecca-dark-alpha-a6: #7e52fc6b;
+    --my-rebecca-dark-alpha-a7: #8560fe86;
+    --my-rebecca-dark-alpha-a8: #8d6cfeac;
+    --my-rebecca-dark-alpha-a9: #7040f091;
+    --my-rebecca-dark-alpha-a10: #8256f5a3;
+    --my-rebecca-dark-alpha-a11: #cba5fbef;
+    --my-rebecca-dark-alpha-a12: #ede5fef7;
     --my-red-1: #fffcfc;
     --my-red-2: #fff7f7;
     --my-red-3: #feebec;
@@ -1981,7 +1987,7 @@
     --my-threshold-spacious: var(--my-width-2xl);
     --my-threshold-max: var(--my-container-max-width);
     --my-threshold: var(--my-threshold-comfortable);
-    /* default theme: slate gray, brand accent, comfortable, montserrat, soft depth */
+    /* default theme: slate gray, rebecca accent, comfortable, montserrat, soft depth */
     --my-neutral-1: var(--my-slate-1);
     --my-neutral-2: var(--my-slate-2);
     --my-neutral-3: var(--my-slate-3);
@@ -2030,59 +2036,60 @@
     --my-neutral-dark-alpha-a10: var(--my-slate-dark-alpha-a10);
     --my-neutral-dark-alpha-a11: var(--my-slate-dark-alpha-a11);
     --my-neutral-dark-alpha-a12: var(--my-slate-dark-alpha-a12);
-    --my-accent-1: var(--my-brand-1);
-    --my-accent-2: var(--my-brand-2);
-    --my-accent-3: var(--my-brand-3);
-    --my-accent-4: var(--my-brand-4);
-    --my-accent-5: var(--my-brand-5);
-    --my-accent-6: var(--my-brand-6);
-    --my-accent-7: var(--my-brand-7);
-    --my-accent-8: var(--my-brand-8);
-    --my-accent-9: var(--my-brand-9);
-    --my-accent-10: var(--my-brand-10);
-    --my-accent-11: var(--my-brand-11);
-    --my-accent-12: var(--my-brand-12);
-    --my-accent-alpha-a1: var(--my-brand-alpha-a1);
-    --my-accent-alpha-a2: var(--my-brand-alpha-a2);
-    --my-accent-alpha-a3: var(--my-brand-alpha-a3);
-    --my-accent-alpha-a4: var(--my-brand-alpha-a4);
-    --my-accent-alpha-a5: var(--my-brand-alpha-a5);
-    --my-accent-alpha-a6: var(--my-brand-alpha-a6);
-    --my-accent-alpha-a7: var(--my-brand-alpha-a7);
-    --my-accent-alpha-a8: var(--my-brand-alpha-a8);
-    --my-accent-alpha-a9: var(--my-brand-alpha-a9);
-    --my-accent-alpha-a10: var(--my-brand-alpha-a10);
-    --my-accent-alpha-a11: var(--my-brand-alpha-a11);
-    --my-accent-alpha-a12: var(--my-brand-alpha-a12);
-    --my-accent-dark-1: var(--my-brand-dark-1);
-    --my-accent-dark-2: var(--my-brand-dark-2);
-    --my-accent-dark-3: var(--my-brand-dark-3);
-    --my-accent-dark-4: var(--my-brand-dark-4);
-    --my-accent-dark-5: var(--my-brand-dark-5);
-    --my-accent-dark-6: var(--my-brand-dark-6);
-    --my-accent-dark-7: var(--my-brand-dark-7);
-    --my-accent-dark-8: var(--my-brand-dark-8);
-    --my-accent-dark-9: var(--my-brand-dark-9);
-    --my-accent-dark-10: var(--my-brand-dark-10);
-    --my-accent-dark-11: var(--my-brand-dark-11);
-    --my-accent-dark-12: var(--my-brand-dark-12);
-    --my-accent-dark-alpha-a1: var(--my-brand-dark-alpha-a1);
-    --my-accent-dark-alpha-a2: var(--my-brand-dark-alpha-a2);
-    --my-accent-dark-alpha-a3: var(--my-brand-dark-alpha-a3);
-    --my-accent-dark-alpha-a4: var(--my-brand-dark-alpha-a4);
-    --my-accent-dark-alpha-a5: var(--my-brand-dark-alpha-a5);
-    --my-accent-dark-alpha-a6: var(--my-brand-dark-alpha-a6);
-    --my-accent-dark-alpha-a7: var(--my-brand-dark-alpha-a7);
-    --my-accent-dark-alpha-a8: var(--my-brand-dark-alpha-a8);
-    --my-accent-dark-alpha-a9: var(--my-brand-dark-alpha-a9);
-    --my-accent-dark-alpha-a10: var(--my-brand-dark-alpha-a10);
-    --my-accent-dark-alpha-a11: var(--my-brand-dark-alpha-a11);
-    --my-accent-dark-alpha-a12: var(--my-brand-dark-alpha-a12);
+    --my-accent-1: var(--my-rebecca-1);
+    --my-accent-2: var(--my-rebecca-2);
+    --my-accent-3: var(--my-rebecca-3);
+    --my-accent-4: var(--my-rebecca-4);
+    --my-accent-5: var(--my-rebecca-5);
+    --my-accent-6: var(--my-rebecca-6);
+    --my-accent-7: var(--my-rebecca-7);
+    --my-accent-8: var(--my-rebecca-8);
+    --my-accent-9: var(--my-rebecca-9);
+    --my-accent-10: var(--my-rebecca-10);
+    --my-accent-11: var(--my-rebecca-11);
+    --my-accent-12: var(--my-rebecca-12);
+    --my-accent-alpha-a1: var(--my-rebecca-alpha-a1);
+    --my-accent-alpha-a2: var(--my-rebecca-alpha-a2);
+    --my-accent-alpha-a3: var(--my-rebecca-alpha-a3);
+    --my-accent-alpha-a4: var(--my-rebecca-alpha-a4);
+    --my-accent-alpha-a5: var(--my-rebecca-alpha-a5);
+    --my-accent-alpha-a6: var(--my-rebecca-alpha-a6);
+    --my-accent-alpha-a7: var(--my-rebecca-alpha-a7);
+    --my-accent-alpha-a8: var(--my-rebecca-alpha-a8);
+    --my-accent-alpha-a9: var(--my-rebecca-alpha-a9);
+    --my-accent-alpha-a10: var(--my-rebecca-alpha-a10);
+    --my-accent-alpha-a11: var(--my-rebecca-alpha-a11);
+    --my-accent-alpha-a12: var(--my-rebecca-alpha-a12);
+    --my-accent-dark-1: var(--my-rebecca-dark-1);
+    --my-accent-dark-2: var(--my-rebecca-dark-2);
+    --my-accent-dark-3: var(--my-rebecca-dark-3);
+    --my-accent-dark-4: var(--my-rebecca-dark-4);
+    --my-accent-dark-5: var(--my-rebecca-dark-5);
+    --my-accent-dark-6: var(--my-rebecca-dark-6);
+    --my-accent-dark-7: var(--my-rebecca-dark-7);
+    --my-accent-dark-8: var(--my-rebecca-dark-8);
+    --my-accent-dark-9: var(--my-rebecca-dark-9);
+    --my-accent-dark-10: var(--my-rebecca-dark-10);
+    --my-accent-dark-11: var(--my-rebecca-dark-11);
+    --my-accent-dark-12: var(--my-rebecca-dark-12);
+    --my-accent-dark-alpha-a1: var(--my-rebecca-dark-alpha-a1);
+    --my-accent-dark-alpha-a2: var(--my-rebecca-dark-alpha-a2);
+    --my-accent-dark-alpha-a3: var(--my-rebecca-dark-alpha-a3);
+    --my-accent-dark-alpha-a4: var(--my-rebecca-dark-alpha-a4);
+    --my-accent-dark-alpha-a5: var(--my-rebecca-dark-alpha-a5);
+    --my-accent-dark-alpha-a6: var(--my-rebecca-dark-alpha-a6);
+    --my-accent-dark-alpha-a7: var(--my-rebecca-dark-alpha-a7);
+    --my-accent-dark-alpha-a8: var(--my-rebecca-dark-alpha-a8);
+    --my-accent-dark-alpha-a9: var(--my-rebecca-dark-alpha-a9);
+    --my-accent-dark-alpha-a10: var(--my-rebecca-dark-alpha-a10);
+    --my-accent-dark-alpha-a11: var(--my-rebecca-dark-alpha-a11);
+    --my-accent-dark-alpha-a12: var(--my-rebecca-dark-alpha-a12);
     --my-accent-contrast: #ffffff;
-    --my-accent-text: var(--my-brand-11);
+    --my-accent-text: var(--my-rebecca-11);
     --my-family-primary: Montserrat, system-ui, -apple-system, 'Noto Sans JP', sans-serif;
     --my-family-secondary: Georgia, 'Times New Roman', 'Noto Serif JP', serif;
     --my-family-mono: 'JetBrains Mono', 'Fira Code', ui-monospace, 'Noto Sans JP', monospace;
+    --my-dir: 1; /* v2.17: -1 under RTL; flips start/end shadows */
     /* depth: soft */
     --my-shadow-ring-color: var(--my-effect-depth-ring);
     --my-shadow-o1-color: var(--my-effect-depth-soft);
@@ -2094,6 +2101,52 @@
     --my-shadow-low: 0 3px 3px -1.5px var(--my-shadow-o2-color), 0 1px 1px -0.5px var(--my-shadow-o1-color), 0 0 0 1px var(--my-shadow-ring-color);
     --my-shadow-mid: 0 12px 12px -6px var(--my-shadow-o4-color), 0 6px 6px -3px var(--my-shadow-o3-color), 0 3px 3px -1.5px var(--my-shadow-o2-color), 0 1px 1px -0.5px var(--my-shadow-o1-color), 0 0 0 1px var(--my-shadow-ring-color);
     --my-shadow-high: 0 48px 48px -24px var(--my-shadow-o6-color), 0 24px 24px -12px var(--my-shadow-o5-color), 0 12px 12px -6px var(--my-shadow-o4-color), 0 6px 6px -3px var(--my-shadow-o3-color), 0 3px 3px -1.5px var(--my-shadow-o2-color), 0 1px 1px -0.5px var(--my-shadow-o1-color), 0 0 0 1px var(--my-shadow-ring-color);
+    --my-shadow-around-low: 0 0 3px 0 var(--my-shadow-o2-color), 0 0 1px 0 var(--my-shadow-o1-color), 0 0 0 1px var(--my-shadow-ring-color);
+    --my-shadow-around-mid: 0 3px 12px -1.5px var(--my-shadow-o4-color), 0 1px 6px -0.5px var(--my-shadow-o3-color), 0 0 3px 0 var(--my-shadow-o2-color), 0 0 1px 0 var(--my-shadow-o1-color), 0 0 0 1px var(--my-shadow-ring-color);
+    --my-shadow-around-high: 0 12px 48px -6px var(--my-shadow-o6-color), 0 6px 24px -3px var(--my-shadow-o5-color), 0 3px 12px -1.5px var(--my-shadow-o4-color), 0 1px 6px -0.5px var(--my-shadow-o3-color), 0 0 3px 0 var(--my-shadow-o2-color), 0 0 1px 0 var(--my-shadow-o1-color), 0 0 0 1px var(--my-shadow-ring-color);
+    --my-shadow-up-low: 0 -3px 3px -1.5px var(--my-shadow-o2-color), 0 -1px 1px -0.5px var(--my-shadow-o1-color), 0 0 0 1px var(--my-shadow-ring-color);
+    --my-shadow-up-mid: 0 -12px 12px -6px var(--my-shadow-o4-color), 0 -6px 6px -3px var(--my-shadow-o3-color), 0 -3px 3px -1.5px var(--my-shadow-o2-color), 0 -1px 1px -0.5px var(--my-shadow-o1-color), 0 0 0 1px var(--my-shadow-ring-color);
+    --my-shadow-up-high: 0 -48px 48px -24px var(--my-shadow-o6-color), 0 -24px 24px -12px var(--my-shadow-o5-color), 0 -12px 12px -6px var(--my-shadow-o4-color), 0 -6px 6px -3px var(--my-shadow-o3-color), 0 -3px 3px -1.5px var(--my-shadow-o2-color), 0 -1px 1px -0.5px var(--my-shadow-o1-color), 0 0 0 1px var(--my-shadow-ring-color);
+    --my-shadow-start-low: calc(-3px * var(--my-dir)) 0 3px -1.5px var(--my-shadow-o2-color), calc(-1px * var(--my-dir)) 0 1px -0.5px var(--my-shadow-o1-color), 0 0 0 1px var(--my-shadow-ring-color);
+    --my-shadow-start-mid: calc(-12px * var(--my-dir)) 0 12px -6px var(--my-shadow-o4-color), calc(-6px * var(--my-dir)) 0 6px -3px var(--my-shadow-o3-color), calc(-3px * var(--my-dir)) 0 3px -1.5px var(--my-shadow-o2-color), calc(-1px * var(--my-dir)) 0 1px -0.5px var(--my-shadow-o1-color), 0 0 0 1px var(--my-shadow-ring-color);
+    --my-shadow-start-high: calc(-48px * var(--my-dir)) 0 48px -24px var(--my-shadow-o6-color), calc(-24px * var(--my-dir)) 0 24px -12px var(--my-shadow-o5-color), calc(-12px * var(--my-dir)) 0 12px -6px var(--my-shadow-o4-color), calc(-6px * var(--my-dir)) 0 6px -3px var(--my-shadow-o3-color), calc(-3px * var(--my-dir)) 0 3px -1.5px var(--my-shadow-o2-color), calc(-1px * var(--my-dir)) 0 1px -0.5px var(--my-shadow-o1-color), 0 0 0 1px var(--my-shadow-ring-color);
+    --my-shadow-end-low: calc(3px * var(--my-dir)) 0 3px -1.5px var(--my-shadow-o2-color), calc(1px * var(--my-dir)) 0 1px -0.5px var(--my-shadow-o1-color), 0 0 0 1px var(--my-shadow-ring-color);
+    --my-shadow-end-mid: calc(12px * var(--my-dir)) 0 12px -6px var(--my-shadow-o4-color), calc(6px * var(--my-dir)) 0 6px -3px var(--my-shadow-o3-color), calc(3px * var(--my-dir)) 0 3px -1.5px var(--my-shadow-o2-color), calc(1px * var(--my-dir)) 0 1px -0.5px var(--my-shadow-o1-color), 0 0 0 1px var(--my-shadow-ring-color);
+    --my-shadow-end-high: calc(48px * var(--my-dir)) 0 48px -24px var(--my-shadow-o6-color), calc(24px * var(--my-dir)) 0 24px -12px var(--my-shadow-o5-color), calc(12px * var(--my-dir)) 0 12px -6px var(--my-shadow-o4-color), calc(6px * var(--my-dir)) 0 6px -3px var(--my-shadow-o3-color), calc(3px * var(--my-dir)) 0 3px -1.5px var(--my-shadow-o2-color), calc(1px * var(--my-dir)) 0 1px -0.5px var(--my-shadow-o1-color), 0 0 0 1px var(--my-shadow-ring-color);
+    --my-shadow-inset-low: inset 0 1px 1px 0 var(--my-shadow-o1-color), inset 0 0 0 1px var(--my-shadow-ring-color);
+    --my-shadow-inset-mid: inset 0 3px 3px 0 var(--my-shadow-o2-color), inset 0 1px 1px 0 var(--my-shadow-o1-color), inset 0 0 0 1px var(--my-shadow-ring-color);
+    /* shape: subtle */
+    --my-border-radius-none: 0;
+    --my-border-radius-sharp: 1.5px;
+    --my-border-radius-crisp: 2px;
+    --my-border-radius-soft: 3px;
+    --my-border-radius-pill: 9999px;
+    --my-border-radius-rounded: 4px;
+    --my-border-radius-smooth: 6px;
+    --my-border-radius-plush: 8px;
+    --my-border-radius-outer-spacing: 20px;
+    --my-border-radius-outer-sharp: 21.5px;
+    --my-border-radius-outer-crisp: 22px;
+    --my-border-radius-outer-soft: 23px;
+    --my-border-radius-outer-rounded: 24px;
+    --my-border-radius-outer-smooth: 26px;
+    --my-border-radius-outer-plush: 28px;
+    /* motion: full */
+    --my-duration-instant: 0ms;
+    --my-duration-fast-1: 100ms;
+    --my-duration-fast-2: 150ms;
+    --my-duration-base: 200ms;
+    --my-duration-slow-1: 300ms;
+    --my-duration-slow-2: 500ms;
+    --my-duration-deliberate: 800ms;
+    --my-stagger-1: 20ms;
+    --my-stagger-2: 40ms;
+    --my-stagger-3: 80ms;
+    --my-ease-standard: cubic-bezier(0.2, 0, 0, 1);
+    --my-ease-enter: cubic-bezier(0, 0, 0.2, 1);
+    --my-ease-exit: cubic-bezier(0.4, 0, 1, 1);
+    --my-ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+    --my-ease-linear: linear;
   }
   [data-mode=light] {
     color-scheme: light;
@@ -2557,57 +2610,57 @@
     --my-accent-contrast: #ffffff;
     --my-accent-text: var(--my-blue-12);
   }
-  [data-accent=brand] {
-    --my-accent-1: var(--my-brand-1);
-    --my-accent-2: var(--my-brand-2);
-    --my-accent-3: var(--my-brand-3);
-    --my-accent-4: var(--my-brand-4);
-    --my-accent-5: var(--my-brand-5);
-    --my-accent-6: var(--my-brand-6);
-    --my-accent-7: var(--my-brand-7);
-    --my-accent-8: var(--my-brand-8);
-    --my-accent-9: var(--my-brand-9);
-    --my-accent-10: var(--my-brand-10);
-    --my-accent-11: var(--my-brand-11);
-    --my-accent-12: var(--my-brand-12);
-    --my-accent-alpha-a1: var(--my-brand-alpha-a1);
-    --my-accent-alpha-a2: var(--my-brand-alpha-a2);
-    --my-accent-alpha-a3: var(--my-brand-alpha-a3);
-    --my-accent-alpha-a4: var(--my-brand-alpha-a4);
-    --my-accent-alpha-a5: var(--my-brand-alpha-a5);
-    --my-accent-alpha-a6: var(--my-brand-alpha-a6);
-    --my-accent-alpha-a7: var(--my-brand-alpha-a7);
-    --my-accent-alpha-a8: var(--my-brand-alpha-a8);
-    --my-accent-alpha-a9: var(--my-brand-alpha-a9);
-    --my-accent-alpha-a10: var(--my-brand-alpha-a10);
-    --my-accent-alpha-a11: var(--my-brand-alpha-a11);
-    --my-accent-alpha-a12: var(--my-brand-alpha-a12);
-    --my-accent-dark-1: var(--my-brand-dark-1);
-    --my-accent-dark-2: var(--my-brand-dark-2);
-    --my-accent-dark-3: var(--my-brand-dark-3);
-    --my-accent-dark-4: var(--my-brand-dark-4);
-    --my-accent-dark-5: var(--my-brand-dark-5);
-    --my-accent-dark-6: var(--my-brand-dark-6);
-    --my-accent-dark-7: var(--my-brand-dark-7);
-    --my-accent-dark-8: var(--my-brand-dark-8);
-    --my-accent-dark-9: var(--my-brand-dark-9);
-    --my-accent-dark-10: var(--my-brand-dark-10);
-    --my-accent-dark-11: var(--my-brand-dark-11);
-    --my-accent-dark-12: var(--my-brand-dark-12);
-    --my-accent-dark-alpha-a1: var(--my-brand-dark-alpha-a1);
-    --my-accent-dark-alpha-a2: var(--my-brand-dark-alpha-a2);
-    --my-accent-dark-alpha-a3: var(--my-brand-dark-alpha-a3);
-    --my-accent-dark-alpha-a4: var(--my-brand-dark-alpha-a4);
-    --my-accent-dark-alpha-a5: var(--my-brand-dark-alpha-a5);
-    --my-accent-dark-alpha-a6: var(--my-brand-dark-alpha-a6);
-    --my-accent-dark-alpha-a7: var(--my-brand-dark-alpha-a7);
-    --my-accent-dark-alpha-a8: var(--my-brand-dark-alpha-a8);
-    --my-accent-dark-alpha-a9: var(--my-brand-dark-alpha-a9);
-    --my-accent-dark-alpha-a10: var(--my-brand-dark-alpha-a10);
-    --my-accent-dark-alpha-a11: var(--my-brand-dark-alpha-a11);
-    --my-accent-dark-alpha-a12: var(--my-brand-dark-alpha-a12);
+  [data-accent=rebecca], [data-accent=brand] {
+    --my-accent-1: var(--my-rebecca-1);
+    --my-accent-2: var(--my-rebecca-2);
+    --my-accent-3: var(--my-rebecca-3);
+    --my-accent-4: var(--my-rebecca-4);
+    --my-accent-5: var(--my-rebecca-5);
+    --my-accent-6: var(--my-rebecca-6);
+    --my-accent-7: var(--my-rebecca-7);
+    --my-accent-8: var(--my-rebecca-8);
+    --my-accent-9: var(--my-rebecca-9);
+    --my-accent-10: var(--my-rebecca-10);
+    --my-accent-11: var(--my-rebecca-11);
+    --my-accent-12: var(--my-rebecca-12);
+    --my-accent-alpha-a1: var(--my-rebecca-alpha-a1);
+    --my-accent-alpha-a2: var(--my-rebecca-alpha-a2);
+    --my-accent-alpha-a3: var(--my-rebecca-alpha-a3);
+    --my-accent-alpha-a4: var(--my-rebecca-alpha-a4);
+    --my-accent-alpha-a5: var(--my-rebecca-alpha-a5);
+    --my-accent-alpha-a6: var(--my-rebecca-alpha-a6);
+    --my-accent-alpha-a7: var(--my-rebecca-alpha-a7);
+    --my-accent-alpha-a8: var(--my-rebecca-alpha-a8);
+    --my-accent-alpha-a9: var(--my-rebecca-alpha-a9);
+    --my-accent-alpha-a10: var(--my-rebecca-alpha-a10);
+    --my-accent-alpha-a11: var(--my-rebecca-alpha-a11);
+    --my-accent-alpha-a12: var(--my-rebecca-alpha-a12);
+    --my-accent-dark-1: var(--my-rebecca-dark-1);
+    --my-accent-dark-2: var(--my-rebecca-dark-2);
+    --my-accent-dark-3: var(--my-rebecca-dark-3);
+    --my-accent-dark-4: var(--my-rebecca-dark-4);
+    --my-accent-dark-5: var(--my-rebecca-dark-5);
+    --my-accent-dark-6: var(--my-rebecca-dark-6);
+    --my-accent-dark-7: var(--my-rebecca-dark-7);
+    --my-accent-dark-8: var(--my-rebecca-dark-8);
+    --my-accent-dark-9: var(--my-rebecca-dark-9);
+    --my-accent-dark-10: var(--my-rebecca-dark-10);
+    --my-accent-dark-11: var(--my-rebecca-dark-11);
+    --my-accent-dark-12: var(--my-rebecca-dark-12);
+    --my-accent-dark-alpha-a1: var(--my-rebecca-dark-alpha-a1);
+    --my-accent-dark-alpha-a2: var(--my-rebecca-dark-alpha-a2);
+    --my-accent-dark-alpha-a3: var(--my-rebecca-dark-alpha-a3);
+    --my-accent-dark-alpha-a4: var(--my-rebecca-dark-alpha-a4);
+    --my-accent-dark-alpha-a5: var(--my-rebecca-dark-alpha-a5);
+    --my-accent-dark-alpha-a6: var(--my-rebecca-dark-alpha-a6);
+    --my-accent-dark-alpha-a7: var(--my-rebecca-dark-alpha-a7);
+    --my-accent-dark-alpha-a8: var(--my-rebecca-dark-alpha-a8);
+    --my-accent-dark-alpha-a9: var(--my-rebecca-dark-alpha-a9);
+    --my-accent-dark-alpha-a10: var(--my-rebecca-dark-alpha-a10);
+    --my-accent-dark-alpha-a11: var(--my-rebecca-dark-alpha-a11);
+    --my-accent-dark-alpha-a12: var(--my-rebecca-dark-alpha-a12);
     --my-accent-contrast: #ffffff;
-    --my-accent-text: var(--my-brand-11);
+    --my-accent-text: var(--my-rebecca-11);
   }
   [data-accent=bronze] {
     --my-accent-1: var(--my-bronze-1);
@@ -3989,6 +4042,20 @@
     --my-shadow-low: 0 3px 3px -1.5px var(--my-shadow-o2-color), 0 1px 1px -0.5px var(--my-shadow-o1-color), 0 0 0 1px var(--my-shadow-ring-color);
     --my-shadow-mid: 0 12px 12px -6px var(--my-shadow-o4-color), 0 6px 6px -3px var(--my-shadow-o3-color), 0 3px 3px -1.5px var(--my-shadow-o2-color), 0 1px 1px -0.5px var(--my-shadow-o1-color), 0 0 0 1px var(--my-shadow-ring-color);
     --my-shadow-high: 0 48px 48px -24px var(--my-shadow-o6-color), 0 24px 24px -12px var(--my-shadow-o5-color), 0 12px 12px -6px var(--my-shadow-o4-color), 0 6px 6px -3px var(--my-shadow-o3-color), 0 3px 3px -1.5px var(--my-shadow-o2-color), 0 1px 1px -0.5px var(--my-shadow-o1-color), 0 0 0 1px var(--my-shadow-ring-color);
+    --my-shadow-around-low: 0 0 3px 0 var(--my-shadow-o2-color), 0 0 1px 0 var(--my-shadow-o1-color), 0 0 0 1px var(--my-shadow-ring-color);
+    --my-shadow-around-mid: 0 3px 12px -1.5px var(--my-shadow-o4-color), 0 1px 6px -0.5px var(--my-shadow-o3-color), 0 0 3px 0 var(--my-shadow-o2-color), 0 0 1px 0 var(--my-shadow-o1-color), 0 0 0 1px var(--my-shadow-ring-color);
+    --my-shadow-around-high: 0 12px 48px -6px var(--my-shadow-o6-color), 0 6px 24px -3px var(--my-shadow-o5-color), 0 3px 12px -1.5px var(--my-shadow-o4-color), 0 1px 6px -0.5px var(--my-shadow-o3-color), 0 0 3px 0 var(--my-shadow-o2-color), 0 0 1px 0 var(--my-shadow-o1-color), 0 0 0 1px var(--my-shadow-ring-color);
+    --my-shadow-up-low: 0 -3px 3px -1.5px var(--my-shadow-o2-color), 0 -1px 1px -0.5px var(--my-shadow-o1-color), 0 0 0 1px var(--my-shadow-ring-color);
+    --my-shadow-up-mid: 0 -12px 12px -6px var(--my-shadow-o4-color), 0 -6px 6px -3px var(--my-shadow-o3-color), 0 -3px 3px -1.5px var(--my-shadow-o2-color), 0 -1px 1px -0.5px var(--my-shadow-o1-color), 0 0 0 1px var(--my-shadow-ring-color);
+    --my-shadow-up-high: 0 -48px 48px -24px var(--my-shadow-o6-color), 0 -24px 24px -12px var(--my-shadow-o5-color), 0 -12px 12px -6px var(--my-shadow-o4-color), 0 -6px 6px -3px var(--my-shadow-o3-color), 0 -3px 3px -1.5px var(--my-shadow-o2-color), 0 -1px 1px -0.5px var(--my-shadow-o1-color), 0 0 0 1px var(--my-shadow-ring-color);
+    --my-shadow-start-low: calc(-3px * var(--my-dir)) 0 3px -1.5px var(--my-shadow-o2-color), calc(-1px * var(--my-dir)) 0 1px -0.5px var(--my-shadow-o1-color), 0 0 0 1px var(--my-shadow-ring-color);
+    --my-shadow-start-mid: calc(-12px * var(--my-dir)) 0 12px -6px var(--my-shadow-o4-color), calc(-6px * var(--my-dir)) 0 6px -3px var(--my-shadow-o3-color), calc(-3px * var(--my-dir)) 0 3px -1.5px var(--my-shadow-o2-color), calc(-1px * var(--my-dir)) 0 1px -0.5px var(--my-shadow-o1-color), 0 0 0 1px var(--my-shadow-ring-color);
+    --my-shadow-start-high: calc(-48px * var(--my-dir)) 0 48px -24px var(--my-shadow-o6-color), calc(-24px * var(--my-dir)) 0 24px -12px var(--my-shadow-o5-color), calc(-12px * var(--my-dir)) 0 12px -6px var(--my-shadow-o4-color), calc(-6px * var(--my-dir)) 0 6px -3px var(--my-shadow-o3-color), calc(-3px * var(--my-dir)) 0 3px -1.5px var(--my-shadow-o2-color), calc(-1px * var(--my-dir)) 0 1px -0.5px var(--my-shadow-o1-color), 0 0 0 1px var(--my-shadow-ring-color);
+    --my-shadow-end-low: calc(3px * var(--my-dir)) 0 3px -1.5px var(--my-shadow-o2-color), calc(1px * var(--my-dir)) 0 1px -0.5px var(--my-shadow-o1-color), 0 0 0 1px var(--my-shadow-ring-color);
+    --my-shadow-end-mid: calc(12px * var(--my-dir)) 0 12px -6px var(--my-shadow-o4-color), calc(6px * var(--my-dir)) 0 6px -3px var(--my-shadow-o3-color), calc(3px * var(--my-dir)) 0 3px -1.5px var(--my-shadow-o2-color), calc(1px * var(--my-dir)) 0 1px -0.5px var(--my-shadow-o1-color), 0 0 0 1px var(--my-shadow-ring-color);
+    --my-shadow-end-high: calc(48px * var(--my-dir)) 0 48px -24px var(--my-shadow-o6-color), calc(24px * var(--my-dir)) 0 24px -12px var(--my-shadow-o5-color), calc(12px * var(--my-dir)) 0 12px -6px var(--my-shadow-o4-color), calc(6px * var(--my-dir)) 0 6px -3px var(--my-shadow-o3-color), calc(3px * var(--my-dir)) 0 3px -1.5px var(--my-shadow-o2-color), calc(1px * var(--my-dir)) 0 1px -0.5px var(--my-shadow-o1-color), 0 0 0 1px var(--my-shadow-ring-color);
+    --my-shadow-inset-low: inset 0 1px 1px 0 var(--my-shadow-o1-color), inset 0 0 0 1px var(--my-shadow-ring-color);
+    --my-shadow-inset-mid: inset 0 3px 3px 0 var(--my-shadow-o2-color), inset 0 1px 1px 0 var(--my-shadow-o1-color), inset 0 0 0 1px var(--my-shadow-ring-color);
   }
   [data-depth=flat] {
     /* depth: flat */
@@ -4002,6 +4069,20 @@
     --my-shadow-low: 0 3px 3px -1.5px var(--my-shadow-o2-color), 0 1px 1px -0.5px var(--my-shadow-o1-color), 0 0 0 1px var(--my-shadow-ring-color);
     --my-shadow-mid: 0 12px 12px -6px var(--my-shadow-o4-color), 0 6px 6px -3px var(--my-shadow-o3-color), 0 3px 3px -1.5px var(--my-shadow-o2-color), 0 1px 1px -0.5px var(--my-shadow-o1-color), 0 0 0 1px var(--my-shadow-ring-color);
     --my-shadow-high: 0 48px 48px -24px var(--my-shadow-o6-color), 0 24px 24px -12px var(--my-shadow-o5-color), 0 12px 12px -6px var(--my-shadow-o4-color), 0 6px 6px -3px var(--my-shadow-o3-color), 0 3px 3px -1.5px var(--my-shadow-o2-color), 0 1px 1px -0.5px var(--my-shadow-o1-color), 0 0 0 1px var(--my-shadow-ring-color);
+    --my-shadow-around-low: 0 0 3px 0 var(--my-shadow-o2-color), 0 0 1px 0 var(--my-shadow-o1-color), 0 0 0 1px var(--my-shadow-ring-color);
+    --my-shadow-around-mid: 0 3px 12px -1.5px var(--my-shadow-o4-color), 0 1px 6px -0.5px var(--my-shadow-o3-color), 0 0 3px 0 var(--my-shadow-o2-color), 0 0 1px 0 var(--my-shadow-o1-color), 0 0 0 1px var(--my-shadow-ring-color);
+    --my-shadow-around-high: 0 12px 48px -6px var(--my-shadow-o6-color), 0 6px 24px -3px var(--my-shadow-o5-color), 0 3px 12px -1.5px var(--my-shadow-o4-color), 0 1px 6px -0.5px var(--my-shadow-o3-color), 0 0 3px 0 var(--my-shadow-o2-color), 0 0 1px 0 var(--my-shadow-o1-color), 0 0 0 1px var(--my-shadow-ring-color);
+    --my-shadow-up-low: 0 -3px 3px -1.5px var(--my-shadow-o2-color), 0 -1px 1px -0.5px var(--my-shadow-o1-color), 0 0 0 1px var(--my-shadow-ring-color);
+    --my-shadow-up-mid: 0 -12px 12px -6px var(--my-shadow-o4-color), 0 -6px 6px -3px var(--my-shadow-o3-color), 0 -3px 3px -1.5px var(--my-shadow-o2-color), 0 -1px 1px -0.5px var(--my-shadow-o1-color), 0 0 0 1px var(--my-shadow-ring-color);
+    --my-shadow-up-high: 0 -48px 48px -24px var(--my-shadow-o6-color), 0 -24px 24px -12px var(--my-shadow-o5-color), 0 -12px 12px -6px var(--my-shadow-o4-color), 0 -6px 6px -3px var(--my-shadow-o3-color), 0 -3px 3px -1.5px var(--my-shadow-o2-color), 0 -1px 1px -0.5px var(--my-shadow-o1-color), 0 0 0 1px var(--my-shadow-ring-color);
+    --my-shadow-start-low: calc(-3px * var(--my-dir)) 0 3px -1.5px var(--my-shadow-o2-color), calc(-1px * var(--my-dir)) 0 1px -0.5px var(--my-shadow-o1-color), 0 0 0 1px var(--my-shadow-ring-color);
+    --my-shadow-start-mid: calc(-12px * var(--my-dir)) 0 12px -6px var(--my-shadow-o4-color), calc(-6px * var(--my-dir)) 0 6px -3px var(--my-shadow-o3-color), calc(-3px * var(--my-dir)) 0 3px -1.5px var(--my-shadow-o2-color), calc(-1px * var(--my-dir)) 0 1px -0.5px var(--my-shadow-o1-color), 0 0 0 1px var(--my-shadow-ring-color);
+    --my-shadow-start-high: calc(-48px * var(--my-dir)) 0 48px -24px var(--my-shadow-o6-color), calc(-24px * var(--my-dir)) 0 24px -12px var(--my-shadow-o5-color), calc(-12px * var(--my-dir)) 0 12px -6px var(--my-shadow-o4-color), calc(-6px * var(--my-dir)) 0 6px -3px var(--my-shadow-o3-color), calc(-3px * var(--my-dir)) 0 3px -1.5px var(--my-shadow-o2-color), calc(-1px * var(--my-dir)) 0 1px -0.5px var(--my-shadow-o1-color), 0 0 0 1px var(--my-shadow-ring-color);
+    --my-shadow-end-low: calc(3px * var(--my-dir)) 0 3px -1.5px var(--my-shadow-o2-color), calc(1px * var(--my-dir)) 0 1px -0.5px var(--my-shadow-o1-color), 0 0 0 1px var(--my-shadow-ring-color);
+    --my-shadow-end-mid: calc(12px * var(--my-dir)) 0 12px -6px var(--my-shadow-o4-color), calc(6px * var(--my-dir)) 0 6px -3px var(--my-shadow-o3-color), calc(3px * var(--my-dir)) 0 3px -1.5px var(--my-shadow-o2-color), calc(1px * var(--my-dir)) 0 1px -0.5px var(--my-shadow-o1-color), 0 0 0 1px var(--my-shadow-ring-color);
+    --my-shadow-end-high: calc(48px * var(--my-dir)) 0 48px -24px var(--my-shadow-o6-color), calc(24px * var(--my-dir)) 0 24px -12px var(--my-shadow-o5-color), calc(12px * var(--my-dir)) 0 12px -6px var(--my-shadow-o4-color), calc(6px * var(--my-dir)) 0 6px -3px var(--my-shadow-o3-color), calc(3px * var(--my-dir)) 0 3px -1.5px var(--my-shadow-o2-color), calc(1px * var(--my-dir)) 0 1px -0.5px var(--my-shadow-o1-color), 0 0 0 1px var(--my-shadow-ring-color);
+    --my-shadow-inset-low: inset 0 1px 1px 0 var(--my-shadow-o1-color), inset 0 0 0 1px var(--my-shadow-ring-color);
+    --my-shadow-inset-mid: inset 0 3px 3px 0 var(--my-shadow-o2-color), inset 0 1px 1px 0 var(--my-shadow-o1-color), inset 0 0 0 1px var(--my-shadow-ring-color);
   }
   [data-depth=dramatic] {
     /* depth: dramatic */
@@ -4015,9 +4096,184 @@
     --my-shadow-low: 0 3px 3px -1.5px var(--my-shadow-o2-color), 0 1px 1px -0.5px var(--my-shadow-o1-color), 0 0 0 1px var(--my-shadow-ring-color);
     --my-shadow-mid: 0 12px 12px -6px var(--my-shadow-o4-color), 0 6px 6px -3px var(--my-shadow-o3-color), 0 3px 3px -1.5px var(--my-shadow-o2-color), 0 1px 1px -0.5px var(--my-shadow-o1-color), 0 0 0 1px var(--my-shadow-ring-color);
     --my-shadow-high: 0 48px 48px -24px var(--my-shadow-o6-color), 0 24px 24px -12px var(--my-shadow-o5-color), 0 12px 12px -6px var(--my-shadow-o4-color), 0 6px 6px -3px var(--my-shadow-o3-color), 0 3px 3px -1.5px var(--my-shadow-o2-color), 0 1px 1px -0.5px var(--my-shadow-o1-color), 0 0 0 1px var(--my-shadow-ring-color);
+    --my-shadow-around-low: 0 0 3px 0 var(--my-shadow-o2-color), 0 0 1px 0 var(--my-shadow-o1-color), 0 0 0 1px var(--my-shadow-ring-color);
+    --my-shadow-around-mid: 0 3px 12px -1.5px var(--my-shadow-o4-color), 0 1px 6px -0.5px var(--my-shadow-o3-color), 0 0 3px 0 var(--my-shadow-o2-color), 0 0 1px 0 var(--my-shadow-o1-color), 0 0 0 1px var(--my-shadow-ring-color);
+    --my-shadow-around-high: 0 12px 48px -6px var(--my-shadow-o6-color), 0 6px 24px -3px var(--my-shadow-o5-color), 0 3px 12px -1.5px var(--my-shadow-o4-color), 0 1px 6px -0.5px var(--my-shadow-o3-color), 0 0 3px 0 var(--my-shadow-o2-color), 0 0 1px 0 var(--my-shadow-o1-color), 0 0 0 1px var(--my-shadow-ring-color);
+    --my-shadow-up-low: 0 -3px 3px -1.5px var(--my-shadow-o2-color), 0 -1px 1px -0.5px var(--my-shadow-o1-color), 0 0 0 1px var(--my-shadow-ring-color);
+    --my-shadow-up-mid: 0 -12px 12px -6px var(--my-shadow-o4-color), 0 -6px 6px -3px var(--my-shadow-o3-color), 0 -3px 3px -1.5px var(--my-shadow-o2-color), 0 -1px 1px -0.5px var(--my-shadow-o1-color), 0 0 0 1px var(--my-shadow-ring-color);
+    --my-shadow-up-high: 0 -48px 48px -24px var(--my-shadow-o6-color), 0 -24px 24px -12px var(--my-shadow-o5-color), 0 -12px 12px -6px var(--my-shadow-o4-color), 0 -6px 6px -3px var(--my-shadow-o3-color), 0 -3px 3px -1.5px var(--my-shadow-o2-color), 0 -1px 1px -0.5px var(--my-shadow-o1-color), 0 0 0 1px var(--my-shadow-ring-color);
+    --my-shadow-start-low: calc(-3px * var(--my-dir)) 0 3px -1.5px var(--my-shadow-o2-color), calc(-1px * var(--my-dir)) 0 1px -0.5px var(--my-shadow-o1-color), 0 0 0 1px var(--my-shadow-ring-color);
+    --my-shadow-start-mid: calc(-12px * var(--my-dir)) 0 12px -6px var(--my-shadow-o4-color), calc(-6px * var(--my-dir)) 0 6px -3px var(--my-shadow-o3-color), calc(-3px * var(--my-dir)) 0 3px -1.5px var(--my-shadow-o2-color), calc(-1px * var(--my-dir)) 0 1px -0.5px var(--my-shadow-o1-color), 0 0 0 1px var(--my-shadow-ring-color);
+    --my-shadow-start-high: calc(-48px * var(--my-dir)) 0 48px -24px var(--my-shadow-o6-color), calc(-24px * var(--my-dir)) 0 24px -12px var(--my-shadow-o5-color), calc(-12px * var(--my-dir)) 0 12px -6px var(--my-shadow-o4-color), calc(-6px * var(--my-dir)) 0 6px -3px var(--my-shadow-o3-color), calc(-3px * var(--my-dir)) 0 3px -1.5px var(--my-shadow-o2-color), calc(-1px * var(--my-dir)) 0 1px -0.5px var(--my-shadow-o1-color), 0 0 0 1px var(--my-shadow-ring-color);
+    --my-shadow-end-low: calc(3px * var(--my-dir)) 0 3px -1.5px var(--my-shadow-o2-color), calc(1px * var(--my-dir)) 0 1px -0.5px var(--my-shadow-o1-color), 0 0 0 1px var(--my-shadow-ring-color);
+    --my-shadow-end-mid: calc(12px * var(--my-dir)) 0 12px -6px var(--my-shadow-o4-color), calc(6px * var(--my-dir)) 0 6px -3px var(--my-shadow-o3-color), calc(3px * var(--my-dir)) 0 3px -1.5px var(--my-shadow-o2-color), calc(1px * var(--my-dir)) 0 1px -0.5px var(--my-shadow-o1-color), 0 0 0 1px var(--my-shadow-ring-color);
+    --my-shadow-end-high: calc(48px * var(--my-dir)) 0 48px -24px var(--my-shadow-o6-color), calc(24px * var(--my-dir)) 0 24px -12px var(--my-shadow-o5-color), calc(12px * var(--my-dir)) 0 12px -6px var(--my-shadow-o4-color), calc(6px * var(--my-dir)) 0 6px -3px var(--my-shadow-o3-color), calc(3px * var(--my-dir)) 0 3px -1.5px var(--my-shadow-o2-color), calc(1px * var(--my-dir)) 0 1px -0.5px var(--my-shadow-o1-color), 0 0 0 1px var(--my-shadow-ring-color);
+    --my-shadow-inset-low: inset 0 1px 1px 0 var(--my-shadow-o1-color), inset 0 0 0 1px var(--my-shadow-ring-color);
+    --my-shadow-inset-mid: inset 0 3px 3px 0 var(--my-shadow-o2-color), inset 0 1px 1px 0 var(--my-shadow-o1-color), inset 0 0 0 1px var(--my-shadow-ring-color);
+  }
+  [data-shape=subtle] {
+    /* shape: subtle */
+    --my-border-radius-none: 0;
+    --my-border-radius-sharp: 1.5px;
+    --my-border-radius-crisp: 2px;
+    --my-border-radius-soft: 3px;
+    --my-border-radius-pill: 9999px;
+    --my-border-radius-rounded: 4px;
+    --my-border-radius-smooth: 6px;
+    --my-border-radius-plush: 8px;
+    --my-border-radius-outer-spacing: 20px;
+    --my-border-radius-outer-sharp: 21.5px;
+    --my-border-radius-outer-crisp: 22px;
+    --my-border-radius-outer-soft: 23px;
+    --my-border-radius-outer-rounded: 24px;
+    --my-border-radius-outer-smooth: 26px;
+    --my-border-radius-outer-plush: 28px;
+  }
+  [data-shape=smooth] {
+    /* shape: smooth */
+    --my-border-radius-none: 0;
+    --my-border-radius-sharp: 4.5px;
+    --my-border-radius-crisp: 6px;
+    --my-border-radius-soft: 9px;
+    --my-border-radius-pill: 9999px;
+    --my-border-radius-rounded: 12px;
+    --my-border-radius-smooth: 18px;
+    --my-border-radius-plush: 24px;
+    --my-border-radius-outer-spacing: 20px;
+    --my-border-radius-outer-sharp: 24.5px;
+    --my-border-radius-outer-crisp: 26px;
+    --my-border-radius-outer-soft: 29px;
+    --my-border-radius-outer-rounded: 32px;
+    --my-border-radius-outer-smooth: 38px;
+    --my-border-radius-outer-plush: 44px;
+  }
+  [data-shape=sharp] {
+    /* shape: sharp */
+    --my-border-radius-none: 0;
+    --my-border-radius-sharp: 0;
+    --my-border-radius-crisp: 0;
+    --my-border-radius-soft: 0;
+    --my-border-radius-pill: 0;
+    --my-border-radius-rounded: 0;
+    --my-border-radius-smooth: 0;
+    --my-border-radius-plush: 0;
+    --my-border-radius-outer-spacing: 20px;
+    --my-border-radius-outer-sharp: 0;
+    --my-border-radius-outer-crisp: 0;
+    --my-border-radius-outer-soft: 0;
+    --my-border-radius-outer-rounded: 0;
+    --my-border-radius-outer-smooth: 0;
+    --my-border-radius-outer-plush: 0;
+  }
+  [data-shape=round] {
+    /* shape: round */
+    --my-border-radius-none: 0;
+    --my-border-radius-sharp: 6px;
+    --my-border-radius-crisp: 8px;
+    --my-border-radius-soft: 12px;
+    --my-border-radius-pill: 9999px;
+    --my-border-radius-rounded: 16px;
+    --my-border-radius-smooth: 24px;
+    --my-border-radius-plush: 32px;
+    --my-border-radius-outer-spacing: 20px;
+    --my-border-radius-outer-sharp: 26px;
+    --my-border-radius-outer-crisp: 28px;
+    --my-border-radius-outer-soft: 32px;
+    --my-border-radius-outer-rounded: 36px;
+    --my-border-radius-outer-smooth: 44px;
+    --my-border-radius-outer-plush: 52px;
+  }
+  [data-shape=pill] {
+    /* shape: pill */
+    --my-border-radius-none: 0;
+    --my-border-radius-sharp: 2px;
+    --my-border-radius-crisp: 4px;
+    --my-border-radius-soft: 9999px;
+    --my-border-radius-pill: 9999px;
+    --my-border-radius-rounded: 16px;
+    --my-border-radius-smooth: 24px;
+    --my-border-radius-plush: 32px;
+    --my-border-radius-outer-spacing: 20px;
+    --my-border-radius-outer-sharp: 26px;
+    --my-border-radius-outer-crisp: 28px;
+    --my-border-radius-outer-soft: 9999px;
+    --my-border-radius-outer-rounded: 36px;
+    --my-border-radius-outer-smooth: 44px;
+    --my-border-radius-outer-plush: 52px;
+  }
+  [data-motion=full] {
+    /* motion: full */
+    --my-duration-instant: 0ms;
+    --my-duration-fast-1: 100ms;
+    --my-duration-fast-2: 150ms;
+    --my-duration-base: 200ms;
+    --my-duration-slow-1: 300ms;
+    --my-duration-slow-2: 500ms;
+    --my-duration-deliberate: 800ms;
+    --my-stagger-1: 20ms;
+    --my-stagger-2: 40ms;
+    --my-stagger-3: 80ms;
+    --my-ease-standard: cubic-bezier(0.2, 0, 0, 1);
+    --my-ease-enter: cubic-bezier(0, 0, 0.2, 1);
+    --my-ease-exit: cubic-bezier(0.4, 0, 1, 1);
+    --my-ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+    --my-ease-linear: linear;
+  }
+  [data-motion=reduced] {
+    /* motion: reduced */
+    --my-duration-instant: 0ms;
+    --my-duration-fast-1: 0ms;
+    --my-duration-fast-2: 0ms;
+    --my-duration-base: 100ms;
+    --my-duration-slow-1: 100ms;
+    --my-duration-slow-2: 100ms;
+    --my-duration-deliberate: 100ms;
+    --my-stagger-1: 0ms;
+    --my-stagger-2: 0ms;
+    --my-stagger-3: 0ms;
+    --my-ease-standard: cubic-bezier(0.2, 0, 0, 1);
+    --my-ease-enter: cubic-bezier(0, 0, 0.2, 1);
+    --my-ease-exit: cubic-bezier(0.4, 0, 1, 1);
+    --my-ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+    --my-ease-linear: linear;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    :root:not([data-motion=full]) {
+      /* motion: reduced */
+      --my-duration-instant: 0ms;
+      --my-duration-fast-1: 0ms;
+      --my-duration-fast-2: 0ms;
+      --my-duration-base: 100ms;
+      --my-duration-slow-1: 100ms;
+      --my-duration-slow-2: 100ms;
+      --my-duration-deliberate: 100ms;
+      --my-stagger-1: 0ms;
+      --my-stagger-2: 0ms;
+      --my-stagger-3: 0ms;
+      --my-ease-standard: cubic-bezier(0.2, 0, 0, 1);
+      --my-ease-enter: cubic-bezier(0, 0, 0.2, 1);
+      --my-ease-exit: cubic-bezier(0.4, 0, 1, 1);
+      --my-ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+      --my-ease-linear: linear;
+    }
+  }
+  /* direction — start/end shadows follow the inline direction */
+  :dir(rtl) {
+    --my-dir: -1;
+  }
+  [dir=ltr] {
+    --my-dir: 1;
+  }
+  :dir(rtl), [dir=ltr] {
+    --my-shadow-start-low: calc(-3px * var(--my-dir)) 0 3px -1.5px var(--my-shadow-o2-color), calc(-1px * var(--my-dir)) 0 1px -0.5px var(--my-shadow-o1-color), 0 0 0 1px var(--my-shadow-ring-color);
+    --my-shadow-start-mid: calc(-12px * var(--my-dir)) 0 12px -6px var(--my-shadow-o4-color), calc(-6px * var(--my-dir)) 0 6px -3px var(--my-shadow-o3-color), calc(-3px * var(--my-dir)) 0 3px -1.5px var(--my-shadow-o2-color), calc(-1px * var(--my-dir)) 0 1px -0.5px var(--my-shadow-o1-color), 0 0 0 1px var(--my-shadow-ring-color);
+    --my-shadow-start-high: calc(-48px * var(--my-dir)) 0 48px -24px var(--my-shadow-o6-color), calc(-24px * var(--my-dir)) 0 24px -12px var(--my-shadow-o5-color), calc(-12px * var(--my-dir)) 0 12px -6px var(--my-shadow-o4-color), calc(-6px * var(--my-dir)) 0 6px -3px var(--my-shadow-o3-color), calc(-3px * var(--my-dir)) 0 3px -1.5px var(--my-shadow-o2-color), calc(-1px * var(--my-dir)) 0 1px -0.5px var(--my-shadow-o1-color), 0 0 0 1px var(--my-shadow-ring-color);
+    --my-shadow-end-low: calc(3px * var(--my-dir)) 0 3px -1.5px var(--my-shadow-o2-color), calc(1px * var(--my-dir)) 0 1px -0.5px var(--my-shadow-o1-color), 0 0 0 1px var(--my-shadow-ring-color);
+    --my-shadow-end-mid: calc(12px * var(--my-dir)) 0 12px -6px var(--my-shadow-o4-color), calc(6px * var(--my-dir)) 0 6px -3px var(--my-shadow-o3-color), calc(3px * var(--my-dir)) 0 3px -1.5px var(--my-shadow-o2-color), calc(1px * var(--my-dir)) 0 1px -0.5px var(--my-shadow-o1-color), 0 0 0 1px var(--my-shadow-ring-color);
+    --my-shadow-end-high: calc(48px * var(--my-dir)) 0 48px -24px var(--my-shadow-o6-color), calc(24px * var(--my-dir)) 0 24px -12px var(--my-shadow-o5-color), calc(12px * var(--my-dir)) 0 12px -6px var(--my-shadow-o4-color), calc(6px * var(--my-dir)) 0 6px -3px var(--my-shadow-o3-color), calc(3px * var(--my-dir)) 0 3px -1.5px var(--my-shadow-o2-color), calc(1px * var(--my-dir)) 0 1px -0.5px var(--my-shadow-o1-color), 0 0 0 1px var(--my-shadow-ring-color);
   }
   /* modular scale — recomputes where density changes seeds */
-  :root, [data-density] {
+  :root, [data-density], [data-brand] {
     --my-ms--3: round(var(--my-scale-base) / var(--my-scale-ratio) / var(--my-scale-ratio) / var(--my-scale-ratio) * 1px, 1px);
     --my-ms--2: round(var(--my-scale-base) / var(--my-scale-ratio) / var(--my-scale-ratio) * 1px, 1px);
     --my-ms--1: round(var(--my-scale-base) / var(--my-scale-ratio) * 1px, 1px);
@@ -4032,7 +4288,7 @@
     --my-ms-8: round(var(--my-ms-7) * var(--my-scale-ratio), 1px);
   }
   /* semantic spacing v1.0 — recomputes where density remaps spacing-* */
-  :root, [data-density] {
+  :root, [data-density], [data-brand] {
     --my-inset-none: var(--my-spacing-none);
     --my-inset-xs: var(--my-spacing-xs);
     --my-inset-sm: var(--my-spacing-md);
@@ -4065,7 +4321,7 @@
     --my-region-xl: var(--my-spacing-9xl);
   }
   /* typography roles — recompute where density or typeface change */
-  :root, [data-density], [data-typeface] {
+  :root, [data-density], [data-typeface], [data-brand] {
     --my-display-2xl-size: var(--my-ms-8);
     --my-display-2xl-line-height: var(--my-leading-none);
     --my-display-2xl-weight: var(--my-font-weight-bold);
@@ -4141,6 +4397,16 @@
     --my-code-weight: var(--my-font-weight-regular);
     --my-code-family: var(--my-family-mono);
     --my-code-tracking: var(--my-tracking-normal);
+    --my-label-2xl-size: var(--my-ms-2);
+    --my-label-2xl-line-height: var(--my-leading-normal);
+    --my-label-2xl-weight: var(--my-font-weight-medium);
+    --my-label-2xl-family: var(--my-family-primary);
+    --my-label-2xl-tracking: var(--my-tracking-normal);
+    --my-label-xl-size: var(--my-ms-1);
+    --my-label-xl-line-height: var(--my-leading-normal);
+    --my-label-xl-weight: var(--my-font-weight-medium);
+    --my-label-xl-family: var(--my-family-primary);
+    --my-label-xl-tracking: var(--my-tracking-normal);
     --my-label-lg-size: var(--my-ms-0);
     --my-label-lg-line-height: var(--my-leading-normal);
     --my-label-lg-weight: var(--my-font-weight-medium);
@@ -4158,7 +4424,7 @@
     --my-label-sm-tracking: var(--my-tracking-wide);
   }
   /* appearance — recompute where gray or accent change; mode via light-dark() */
-  :root, [data-gray], [data-accent] {
+  :root, [data-gray], [data-accent], [data-brand] {
     --my-text-white: #ffffff;
     --my-text-brand: light-dark(var(--my-accent-text), var(--my-accent-dark-11));
     --my-text-brand-primary: var(--my-text-brand);
@@ -4195,9 +4461,6 @@
     --my-fg-neutral-disabled: light-dark(var(--my-neutral-8), var(--my-neutral-dark-8));
     --my-fg-neutral-disabled_subtle: light-dark(var(--my-neutral-7), var(--my-neutral-dark-7));
     --my-fg-on-neutral-solid: light-dark(var(--my-neutral-1), var(--my-neutral-dark-1));
-    --my-bg-overlay: var(--my-overlay-scrim);
-    --my-bg-surface: var(--my-overlay-primary);
-    --my-bg-panel: light-dark(rgba(255, 255, 255, 0.65), var(--my-neutral-dark-1));
     --my-bg-brand-faint: light-dark(var(--my-accent-2), var(--my-accent-dark-2));
     --my-bg-brand-subtle: light-dark(var(--my-accent-3), var(--my-accent-dark-3));
     --my-bg-brand-primary: var(--my-bg-brand-subtle);
@@ -4255,10 +4518,7 @@
     --my-border-neutral-disabled: light-dark(var(--my-neutral-5), var(--my-neutral-dark-5));
     --my-border-neutral-disabled_subtle: light-dark(var(--my-neutral-4), var(--my-neutral-dark-4));
     --my-border-neutral-separator: light-dark(var(--my-neutral-6), var(--my-neutral-dark-6));
-    --my-surface-default: var(--my-surface-primary);
-    --my-surface-raised: var(--my-surface-secondary);
     --my-surface-sunken: light-dark(var(--my-neutral-alpha-a3), var(--my-black-alpha-a6));
-    --my-surface-overlay: var(--my-overlay-primary);
     --my-surface-primary: light-dark(var(--my-neutral-1), var(--my-neutral-dark-1));
     --my-surface-secondary: light-dark(var(--my-neutral-2), var(--my-neutral-dark-2));
     --my-surface-tertiary: light-dark(var(--my-neutral-3), var(--my-neutral-dark-3));
@@ -4407,13 +4667,13 @@
     --my-decorative-orange-solid: light-dark(var(--my-orange-9), var(--my-orange-dark-9));
     --my-decorative-orange-text: light-dark(var(--my-orange-12), var(--my-orange-dark-11));
     --my-decorative-orange-on-solid: #ffffff;
-    --my-decorative-rebecca-bg: light-dark(var(--my-brand-3), var(--my-brand-dark-3));
-    --my-decorative-rebecca-border: light-dark(var(--my-brand-7), var(--my-brand-dark-7));
-    --my-decorative-rebecca-solid: light-dark(var(--my-brand-9), var(--my-brand-dark-9));
-    --my-decorative-rebecca-text: light-dark(var(--my-brand-11), var(--my-brand-dark-11));
+    --my-decorative-rebecca-bg: light-dark(var(--my-rebecca-3), var(--my-rebecca-dark-3));
+    --my-decorative-rebecca-border: light-dark(var(--my-rebecca-7), var(--my-rebecca-dark-7));
+    --my-decorative-rebecca-solid: light-dark(var(--my-rebecca-9), var(--my-rebecca-dark-9));
+    --my-decorative-rebecca-text: light-dark(var(--my-rebecca-11), var(--my-rebecca-dark-11));
     --my-decorative-rebecca-on-solid: #ffffff;
-    --my-gradient-tonal-rebecca-depth-stop-1: light-dark(var(--my-brand-5), var(--my-brand-dark-5));
-    --my-gradient-tonal-rebecca-depth-stop-2: light-dark(var(--my-brand-10), var(--my-brand-dark-10));
+    --my-gradient-tonal-rebecca-depth-stop-1: light-dark(var(--my-rebecca-5), var(--my-rebecca-dark-5));
+    --my-gradient-tonal-rebecca-depth-stop-2: light-dark(var(--my-rebecca-10), var(--my-rebecca-dark-10));
     --my-gradient-tonal-rebecca-depth-angle: 135;
     --my-gradient-tonal-iris-depth-stop-1: light-dark(var(--my-iris-4), var(--my-iris-dark-4));
     --my-gradient-tonal-iris-depth-stop-2: light-dark(var(--my-iris-10), var(--my-iris-dark-10));
@@ -4445,16 +4705,16 @@
     --my-gradient-analogous-ember-stop-1: light-dark(var(--my-amber-9), var(--my-amber-dark-9));
     --my-gradient-analogous-ember-stop-2: light-dark(var(--my-orange-9), var(--my-orange-dark-9));
     --my-gradient-analogous-ember-angle: 120;
-    --my-gradient-signature-twilight-stop-1: light-dark(var(--my-brand-9), var(--my-brand-dark-9));
+    --my-gradient-signature-twilight-stop-1: light-dark(var(--my-rebecca-9), var(--my-rebecca-dark-9));
     --my-gradient-signature-twilight-stop-2: light-dark(var(--my-iris-9), var(--my-iris-dark-9));
     --my-gradient-signature-twilight-angle: 135;
-    --my-gradient-signature-flare-stop-1: light-dark(var(--my-brand-9), var(--my-brand-dark-9));
+    --my-gradient-signature-flare-stop-1: light-dark(var(--my-rebecca-9), var(--my-rebecca-dark-9));
     --my-gradient-signature-flare-stop-2: light-dark(var(--my-crimson-9), var(--my-crimson-dark-9));
     --my-gradient-signature-flare-angle: 135;
-    --my-gradient-signature-abyss-stop-1: light-dark(var(--my-brand-11), var(--my-brand-dark-11));
+    --my-gradient-signature-abyss-stop-1: light-dark(var(--my-rebecca-11), var(--my-rebecca-dark-11));
     --my-gradient-signature-abyss-stop-2: light-dark(var(--my-indigo-11), var(--my-indigo-dark-11));
     --my-gradient-signature-abyss-angle: 135;
-    --my-gradient-signature-dawn-stop-1: light-dark(var(--my-brand-8), var(--my-brand-dark-8));
+    --my-gradient-signature-dawn-stop-1: light-dark(var(--my-rebecca-8), var(--my-rebecca-dark-8));
     --my-gradient-signature-dawn-stop-2: light-dark(var(--my-orange-8), var(--my-orange-dark-8));
     --my-gradient-signature-dawn-angle: 135;
     --my-gradient-wash-petal-stop-1: light-dark(var(--my-iris-3), var(--my-iris-dark-3));
@@ -4466,10 +4726,10 @@
     --my-gradient-wash-sunset-stop-1: light-dark(var(--my-amber-3), var(--my-amber-dark-3));
     --my-gradient-wash-sunset-stop-2: light-dark(var(--my-tomato-3), var(--my-tomato-dark-3));
     --my-gradient-wash-sunset-angle: 160;
-    --my-gradient-wash-orchid-stop-1: light-dark(var(--my-brand-3), var(--my-brand-dark-3));
+    --my-gradient-wash-orchid-stop-1: light-dark(var(--my-rebecca-3), var(--my-rebecca-dark-3));
     --my-gradient-wash-orchid-stop-2: light-dark(var(--my-plum-3), var(--my-plum-dark-3));
     --my-gradient-wash-orchid-angle: 160;
-    --my-gradient-tri-stop-sunset-run-stop-1: light-dark(var(--my-brand-9), var(--my-brand-dark-9));
+    --my-gradient-tri-stop-sunset-run-stop-1: light-dark(var(--my-rebecca-9), var(--my-rebecca-dark-9));
     --my-gradient-tri-stop-sunset-run-stop-2: light-dark(var(--my-crimson-9), var(--my-crimson-dark-9));
     --my-gradient-tri-stop-sunset-run-stop-3: light-dark(var(--my-amber-9), var(--my-amber-dark-9));
     --my-gradient-tri-stop-sunset-run-angle: 110;
@@ -6117,6 +6377,723 @@
     margin-block: auto;
   }
 }
+@layer mycss.blocks {
+  .my-button {
+    --_solid: var(--my-bg-brand-solid);
+    --_solid-hover: var(--my-bg-brand-solid_hover);
+    --_solid-active: var(--my-bg-brand-solid_active);
+    --_on-solid: var(--my-text-on-accent);
+    --_on-solid-icon: var(--my-fg-on-accent);
+    --_tint: var(--my-bg-brand-subtle);
+    --_tint-hover: var(--my-bg-brand-soft);
+    --_tint-active: var(--my-bg-brand-soft);
+    --_wash-hover: var(--my-bg-brand-subtle);
+    --_text: var(--my-text-brand);
+    --_icon-tone: var(--my-fg-brand);
+    --_border: var(--my-border-brand);
+    --_ring: var(--my-effect-ring-brand);
+    --_bg: var(--_solid);
+    --_bg-hover: var(--_solid-hover);
+    --_bg-active: var(--_solid-active);
+    --_fg: var(--_on-solid);
+    --_icon-fg: var(--_on-solid-icon);
+    --_line: transparent;
+  }
+  .my-button[data-variant=soft] {
+    --_bg: var(--_tint);
+    --_bg-hover: var(--_tint-hover);
+    --_bg-active: var(--_tint-active);
+    --_fg: var(--_text);
+    --_icon-fg: var(--_icon-tone);
+  }
+  .my-button[data-variant=outline], .my-button[data-variant=ghost] {
+    --_bg: transparent;
+    --_bg-hover: var(--_wash-hover);
+    --_bg-active: var(--_tint-active);
+    --_fg: var(--_text);
+    --_icon-fg: var(--_icon-tone);
+  }
+  .my-button[data-variant=outline] {
+    --_line: var(--_border);
+  }
+  .my-button {
+    --_pad-inline: var(--my-spacing-xl);
+    --_pad-block: var(--my-spacing-sm);
+    --_gap: var(--my-spacing-xs);
+    --_icon: var(--my-size-1);
+    --_font-family: var(--my-label-lg-family);
+    --_font-size: var(--my-label-lg-size);
+    --_font-weight: var(--my-label-lg-weight);
+    --_line-height: var(--my-label-lg-line-height);
+    --_tracking: var(--my-label-lg-tracking);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    margin: 0;
+    border: var(--my-border-width-2) solid var(--_line);
+    border-radius: var(--my-border-radius-soft);
+    background-color: var(--_bg);
+    color: var(--_fg);
+    text-decoration: none;
+    white-space: nowrap;
+    cursor: pointer;
+    -webkit-appearance: none;
+    appearance: none;
+    transition-property: background-color, border-color, color, box-shadow;
+    transition-duration: var(--my-duration-fast-2);
+    transition-timing-function: var(--my-ease-standard);
+    gap: var(--_gap);
+    min-block-size: calc(var(--_font-size) * var(--_line-height) + 2 * var(--_pad-block) + 2 * var(--my-border-width-2));
+    padding-block: 0;
+    padding-inline: var(--_pad-inline);
+    font-family: var(--_font-family);
+    font-size: var(--_font-size);
+    font-weight: var(--_font-weight);
+    line-height: var(--_line-height);
+    letter-spacing: var(--_tracking);
+  }
+  .my-button > svg,
+  .my-button > .my-icon {
+    flex: none;
+    color: var(--_icon-fg);
+    inline-size: var(--_icon);
+    block-size: var(--_icon);
+  }
+  .my-button[data-tone=neutral] {
+    --_solid: var(--my-bg-neutral-primary);
+    --_solid-hover: var(--my-bg-neutral-secondary);
+    --_solid-active: var(--my-bg-neutral-active);
+    --_on-solid: var(--my-text-neutral-primary);
+    --_on-solid-icon: var(--my-fg-neutral-primary);
+    --_tint: var(--my-bg-neutral-primary);
+    --_tint-hover: var(--my-bg-neutral-secondary);
+    --_tint-active: var(--my-bg-neutral-active);
+    --_wash-hover: var(--my-bg-neutral-primary_hover);
+    --_text: var(--my-text-neutral-primary);
+    --_icon-tone: var(--my-fg-neutral-primary);
+    --_border: var(--my-border-neutral-primary);
+    --_ring: var(--my-effect-ring-brand);
+  }
+  .my-button[data-tone=danger] {
+    --_solid: var(--my-bg-error-solid);
+    --_solid-hover: var(--my-bg-error-solid_hover);
+    --_solid-active: var(--my-bg-error-solid_active);
+    --_on-solid: var(--my-text-white);
+    --_on-solid-icon: var(--my-fg-white);
+    --_tint: var(--my-bg-error-primary);
+    --_tint-hover: var(--my-bg-error-secondary);
+    --_tint-active: var(--my-bg-error-secondary);
+    --_wash-hover: var(--my-bg-error-primary);
+    --_text: var(--my-text-error);
+    --_icon-tone: var(--my-fg-error-primary);
+    --_border: var(--my-border-error);
+    --_ring: var(--my-effect-ring-error);
+  }
+  .my-button[data-tone=warning] {
+    --_solid: var(--my-bg-warning-solid);
+    --_solid-hover: var(--my-bg-warning-solid_hover);
+    --_solid-active: var(--my-bg-warning-solid_active);
+    --_on-solid: var(--my-text-white);
+    --_on-solid-icon: var(--my-fg-white);
+    --_tint: var(--my-bg-warning-primary);
+    --_tint-hover: var(--my-bg-warning-secondary);
+    --_tint-active: var(--my-bg-warning-secondary);
+    --_wash-hover: var(--my-bg-warning-primary);
+    --_text: var(--my-text-warning);
+    --_icon-tone: var(--my-fg-warning-primary);
+    --_border: var(--my-border-warning);
+    --_ring: var(--my-effect-ring-warning);
+  }
+  .my-button[data-tone=success] {
+    --_solid: var(--my-bg-success-solid);
+    --_solid-hover: var(--my-bg-success-solid_hover);
+    --_solid-active: var(--my-bg-success-solid_active);
+    --_on-solid: var(--my-text-white);
+    --_on-solid-icon: var(--my-fg-white);
+    --_tint: var(--my-bg-success-primary);
+    --_tint-hover: var(--my-bg-success-secondary);
+    --_tint-active: var(--my-bg-success-secondary);
+    --_wash-hover: var(--my-bg-success-primary);
+    --_text: var(--my-text-success);
+    --_icon-tone: var(--my-fg-success-primary);
+    --_border: var(--my-border-success);
+    --_ring: var(--my-effect-ring-success);
+  }
+  .my-button[data-tone=info] {
+    --_solid: var(--my-bg-info-solid);
+    --_solid-hover: var(--my-bg-info-solid_hover);
+    --_solid-active: var(--my-bg-info-solid_active);
+    --_on-solid: var(--my-text-white);
+    --_on-solid-icon: var(--my-fg-white);
+    --_tint: var(--my-bg-info-primary);
+    --_tint-hover: var(--my-bg-info-secondary);
+    --_tint-active: var(--my-bg-info-secondary);
+    --_wash-hover: var(--my-bg-info-primary);
+    --_text: var(--my-text-info);
+    --_icon-tone: var(--my-fg-info-primary);
+    --_border: var(--my-border-info);
+    --_ring: var(--my-effect-ring-info);
+  }
+  .my-button[data-size=xs] {
+    --_pad-inline: var(--my-spacing-md);
+    --_pad-block: var(--my-spacing-xxs);
+    --_gap: var(--my-spacing-xxs);
+    --_icon: var(--my-size-1);
+    --_font-family: var(--my-label-sm-family);
+    --_font-size: var(--my-label-sm-size);
+    --_font-weight: var(--my-label-sm-weight);
+    --_line-height: var(--my-label-sm-line-height);
+    --_tracking: var(--my-label-sm-tracking);
+  }
+  .my-button[data-size=sm] {
+    --_pad-inline: var(--my-spacing-lg);
+    --_pad-block: var(--my-spacing-xs);
+    --_gap: var(--my-spacing-xs);
+    --_icon: var(--my-size-1);
+    --_font-family: var(--my-label-family);
+    --_font-size: var(--my-label-size);
+    --_font-weight: var(--my-label-weight);
+    --_line-height: var(--my-label-line-height);
+    --_tracking: var(--my-label-tracking);
+  }
+  .my-button[data-size=lg] {
+    --_pad-inline: var(--my-spacing-2xl);
+    --_pad-block: var(--my-spacing-md);
+    --_gap: var(--my-spacing-sm);
+    --_icon: var(--my-size-2);
+    --_font-family: var(--my-label-xl-family);
+    --_font-size: var(--my-label-xl-size);
+    --_font-weight: var(--my-label-xl-weight);
+    --_line-height: var(--my-label-xl-line-height);
+    --_tracking: var(--my-label-xl-tracking);
+  }
+  .my-button[data-size=xl] {
+    --_pad-inline: var(--my-spacing-3xl);
+    --_pad-block: calc(var(--my-spacing-md) + var(--my-spacing-xxs));
+    --_gap: var(--my-spacing-md);
+    --_icon: var(--my-size-3);
+    --_font-family: var(--my-label-2xl-family);
+    --_font-size: var(--my-label-2xl-size);
+    --_font-weight: var(--my-label-2xl-weight);
+    --_line-height: var(--my-label-2xl-line-height);
+    --_tracking: var(--my-label-2xl-tracking);
+  }
+  .my-button:where(:hover):not(:disabled, [aria-disabled=true], [data-state=disabled], [aria-busy=true]), .my-button[data-state=hover] {
+    background-color: var(--_bg-hover);
+  }
+  .my-button:where(:active):not(:disabled, [aria-disabled=true], [data-state=disabled], [aria-busy=true]), .my-button[data-state=pressed] {
+    background-color: var(--_bg-active);
+  }
+  .my-button:focus-visible, .my-button[data-state=focus] {
+    outline: none;
+    box-shadow: 0 0 0 3px var(--_ring);
+  }
+  .my-button:is(:disabled, [aria-disabled=true], [data-state=disabled]) {
+    --_line: transparent;
+    --_icon-fg: var(--my-fg-neutral-disabled);
+    background-color: var(--my-bg-neutral-disabled_subtle);
+    color: var(--my-text-neutral-disabled);
+    cursor: not-allowed;
+  }
+  .my-button:is(:disabled, [aria-disabled=true], [data-state=disabled]):is(:not([data-variant]), [data-variant=solid]):not([data-tone=neutral]) {
+    background-color: var(--my-bg-neutral-disabled);
+  }
+  .my-button:is(:disabled, [aria-disabled=true], [data-state=disabled])[data-variant=outline] {
+    --_line: var(--my-border-neutral-disabled);
+  }
+  .my-button[aria-busy=true] {
+    cursor: progress;
+  }
+  .my-button[aria-busy=true]::before {
+    content: "";
+    flex: none;
+    inline-size: var(--_icon);
+    block-size: var(--_icon);
+    border-radius: var(--my-border-radius-full);
+    border: 2px solid currentColor;
+    border-inline-start-color: transparent;
+    animation: my-button-spin 1s linear infinite;
+  }
+  .my-button[aria-busy=true] > svg:first-child,
+  .my-button[aria-busy=true] > .my-icon:first-child {
+    display: none;
+  }
+  @keyframes my-button-spin {
+    to {
+      rotate: 1turn;
+    }
+  }
+}
+@layer mycss.blocks {
+  .my-icon-button {
+    --_solid: var(--my-bg-brand-solid);
+    --_solid-hover: var(--my-bg-brand-solid_hover);
+    --_solid-active: var(--my-bg-brand-solid_active);
+    --_on-solid: var(--my-text-on-accent);
+    --_on-solid-icon: var(--my-fg-on-accent);
+    --_tint: var(--my-bg-brand-subtle);
+    --_tint-hover: var(--my-bg-brand-soft);
+    --_tint-active: var(--my-bg-brand-soft);
+    --_wash-hover: var(--my-bg-brand-subtle);
+    --_text: var(--my-text-brand);
+    --_icon-tone: var(--my-fg-brand);
+    --_border: var(--my-border-brand);
+    --_ring: var(--my-effect-ring-brand);
+    --_bg: var(--_solid);
+    --_bg-hover: var(--_solid-hover);
+    --_bg-active: var(--_solid-active);
+    --_fg: var(--_on-solid);
+    --_icon-fg: var(--_on-solid-icon);
+    --_line: transparent;
+  }
+  .my-icon-button[data-variant=soft] {
+    --_bg: var(--_tint);
+    --_bg-hover: var(--_tint-hover);
+    --_bg-active: var(--_tint-active);
+    --_fg: var(--_text);
+    --_icon-fg: var(--_icon-tone);
+  }
+  .my-icon-button[data-variant=outline], .my-icon-button[data-variant=ghost] {
+    --_bg: transparent;
+    --_bg-hover: var(--_wash-hover);
+    --_bg-active: var(--_tint-active);
+    --_fg: var(--_text);
+    --_icon-fg: var(--_icon-tone);
+  }
+  .my-icon-button[data-variant=outline] {
+    --_line: var(--_border);
+  }
+  .my-icon-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    margin: 0;
+    border: var(--my-border-width-2) solid var(--_line);
+    border-radius: var(--my-border-radius-soft);
+    background-color: var(--_bg);
+    color: var(--_fg);
+    text-decoration: none;
+    white-space: nowrap;
+    cursor: pointer;
+    -webkit-appearance: none;
+    appearance: none;
+    transition-property: background-color, border-color, color, box-shadow;
+    transition-duration: var(--my-duration-fast-2);
+    transition-timing-function: var(--my-ease-standard);
+    --_icon: var(--my-size-1);
+    --_side: calc(var(--_icon) + 2 * var(--my-spacing-md) + 2 * var(--my-border-width-2));
+    flex: none;
+    inline-size: var(--_side);
+    block-size: var(--_side);
+    padding: 0;
+  }
+  .my-icon-button > svg,
+  .my-icon-button > .my-icon {
+    flex: none;
+    color: var(--_icon-fg);
+    inline-size: var(--_icon);
+    block-size: var(--_icon);
+  }
+  .my-icon-button[data-tone=neutral] {
+    --_solid: var(--my-bg-neutral-primary);
+    --_solid-hover: var(--my-bg-neutral-secondary);
+    --_solid-active: var(--my-bg-neutral-active);
+    --_on-solid: var(--my-text-neutral-primary);
+    --_on-solid-icon: var(--my-fg-neutral-primary);
+    --_tint: var(--my-bg-neutral-primary);
+    --_tint-hover: var(--my-bg-neutral-secondary);
+    --_tint-active: var(--my-bg-neutral-active);
+    --_wash-hover: var(--my-bg-neutral-primary_hover);
+    --_text: var(--my-text-neutral-primary);
+    --_icon-tone: var(--my-fg-neutral-primary);
+    --_border: var(--my-border-neutral-primary);
+    --_ring: var(--my-effect-ring-brand);
+  }
+  .my-icon-button[data-tone=danger] {
+    --_solid: var(--my-bg-error-solid);
+    --_solid-hover: var(--my-bg-error-solid_hover);
+    --_solid-active: var(--my-bg-error-solid_active);
+    --_on-solid: var(--my-text-white);
+    --_on-solid-icon: var(--my-fg-white);
+    --_tint: var(--my-bg-error-primary);
+    --_tint-hover: var(--my-bg-error-secondary);
+    --_tint-active: var(--my-bg-error-secondary);
+    --_wash-hover: var(--my-bg-error-primary);
+    --_text: var(--my-text-error);
+    --_icon-tone: var(--my-fg-error-primary);
+    --_border: var(--my-border-error);
+    --_ring: var(--my-effect-ring-error);
+  }
+  .my-icon-button:where(:hover):not(:disabled, [aria-disabled=true], [data-state=disabled], [aria-busy=true]), .my-icon-button[data-state=hover] {
+    background-color: var(--_bg-hover);
+  }
+  .my-icon-button:where(:active):not(:disabled, [aria-disabled=true], [data-state=disabled], [aria-busy=true]), .my-icon-button[data-state=pressed] {
+    background-color: var(--_bg-active);
+  }
+  .my-icon-button:focus-visible, .my-icon-button[data-state=focus] {
+    outline: none;
+    box-shadow: 0 0 0 3px var(--_ring);
+  }
+  .my-icon-button:is(:disabled, [aria-disabled=true], [data-state=disabled]) {
+    --_line: var(--my-border-neutral-disabled);
+    --_icon-fg: var(--my-fg-neutral-disabled);
+    background-color: var(--my-bg-neutral-disabled_subtle);
+    color: var(--my-text-neutral-disabled);
+    cursor: not-allowed;
+  }
+  .my-icon-button:is(:disabled, [aria-disabled=true], [data-state=disabled]):is(:not([data-variant]), [data-variant=solid]):not([data-tone=neutral]) {
+    background-color: var(--my-bg-neutral-disabled);
+  }
+}
+@layer mycss.blocks {
+  .my-toggle-button {
+    --_bg: transparent;
+    --_bg-hover: var(--my-bg-neutral-primary_hover);
+    --_fg: var(--my-text-neutral-primary);
+    --_icon-fg: var(--my-fg-neutral-primary);
+    --_line: transparent;
+    --_ring: var(--my-effect-ring-brand);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    margin: 0;
+    border: var(--my-border-width-2) solid var(--_line);
+    border-radius: var(--my-border-radius-soft);
+    background-color: var(--_bg);
+    color: var(--_fg);
+    text-decoration: none;
+    white-space: nowrap;
+    cursor: pointer;
+    -webkit-appearance: none;
+    appearance: none;
+    transition-property: background-color, border-color, color, box-shadow;
+    transition-duration: var(--my-duration-fast-2);
+    transition-timing-function: var(--my-ease-standard);
+    gap: var(--my-spacing-sm);
+    padding-block: var(--my-spacing-md);
+    padding-inline: var(--my-spacing-xl);
+    font-family: var(--my-label-family);
+    font-size: var(--my-label-size);
+    font-weight: var(--my-label-weight);
+    line-height: var(--my-label-line-height);
+    letter-spacing: var(--my-label-tracking);
+  }
+  .my-toggle-button > svg,
+  .my-toggle-button > .my-icon {
+    flex: none;
+    color: var(--_icon-fg);
+    inline-size: var(--my-size-1);
+    block-size: var(--my-size-1);
+  }
+  .my-toggle-button:is([aria-pressed=true], [data-value=on]) {
+    --_bg: var(--my-bg-brand-subtle);
+    --_bg-hover: var(--my-bg-brand-soft);
+    --_fg: var(--my-text-brand);
+    --_icon-fg: var(--my-fg-brand);
+    --_line: var(--my-border-brand_subtle);
+  }
+  .my-toggle-button:where(:hover):not(:disabled, [aria-disabled=true], [data-state=disabled]), .my-toggle-button[data-state=hover] {
+    background-color: var(--_bg-hover);
+  }
+  .my-toggle-button:focus-visible, .my-toggle-button[data-state=focus] {
+    outline: none;
+    box-shadow: 0 0 0 3px var(--_ring);
+  }
+  .my-toggle-button:is(:disabled, [aria-disabled=true], [data-state=disabled]) {
+    --_line: var(--my-border-neutral-disabled);
+    --_icon-fg: var(--my-fg-neutral-disabled);
+    background-color: var(--my-bg-neutral-disabled_subtle);
+    color: var(--my-text-neutral-disabled);
+    cursor: not-allowed;
+  }
+}
+@layer mycss.blocks {
+  .my-segmented-control {
+    display: inline-flex;
+    align-items: stretch;
+    gap: var(--my-spacing-xxs);
+    padding: var(--my-spacing-xxs);
+    border-radius: var(--my-border-radius-soft);
+    background-color: var(--my-bg-neutral-secondary);
+  }
+  .my-segment {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--my-spacing-xs);
+    box-sizing: border-box;
+    margin: 0;
+    padding-block: var(--my-spacing-sm);
+    padding-inline: var(--my-spacing-lg);
+    border: 0;
+    border-radius: var(--my-border-radius-soft);
+    background-color: transparent;
+    color: var(--my-text-neutral-secondary);
+    font-family: var(--my-label-family);
+    font-size: var(--my-label-size);
+    font-weight: var(--my-label-weight);
+    line-height: var(--my-label-line-height);
+    letter-spacing: var(--my-label-tracking);
+    white-space: nowrap;
+    cursor: pointer;
+    -webkit-appearance: none;
+    appearance: none;
+    transition-property: background-color, color, box-shadow;
+    transition-duration: var(--my-duration-fast-2);
+    transition-timing-function: var(--my-ease-standard);
+  }
+  .my-segment:where(:hover):not(:disabled, [aria-disabled=true], :has(> input:disabled), [data-state=disabled], [aria-pressed=true], [aria-selected=true], [aria-checked=true], [aria-current]:not([aria-current=false]), :has(> input:checked), [data-state=selected]), .my-segment[data-state=hover] {
+    background-color: var(--my-bg-neutral-primary_hover);
+    color: var(--my-text-neutral-primary);
+  }
+  .my-segment:is([aria-pressed=true], [aria-selected=true], [aria-checked=true], [aria-current]:not([aria-current=false]), :has(> input:checked), [data-state=selected]) {
+    background-color: var(--my-overlay-primary);
+    box-shadow: var(--my-shadow-low);
+    color: var(--my-text-neutral-primary);
+  }
+  .my-segment:focus-visible, .my-segment:has(> input:focus-visible), .my-segment[data-state=focus] {
+    outline: none;
+    box-shadow: 0 0 0 3px var(--my-effect-ring-brand);
+  }
+  .my-segment:is(:disabled, [aria-disabled=true], :has(> input:disabled), [data-state=disabled]) {
+    color: var(--my-text-neutral-disabled);
+    cursor: not-allowed;
+  }
+}
+@layer mycss.blocks {
+  .my-split-button {
+    --_solid: var(--my-bg-brand-solid);
+    --_solid-hover: var(--my-bg-brand-solid_hover);
+    --_solid-active: var(--my-bg-brand-solid_active);
+    --_on-solid: var(--my-text-on-accent);
+    --_on-solid-icon: var(--my-fg-on-accent);
+    --_tint: var(--my-bg-brand-subtle);
+    --_tint-hover: var(--my-bg-brand-soft);
+    --_tint-active: var(--my-bg-brand-soft);
+    --_wash-hover: var(--my-bg-brand-subtle);
+    --_text: var(--my-text-brand);
+    --_icon-tone: var(--my-fg-brand);
+    --_border: var(--my-border-brand);
+    --_ring: var(--my-effect-ring-brand);
+  }
+  .my-split-button[data-tone=danger] {
+    --_solid: var(--my-bg-error-solid);
+    --_solid-hover: var(--my-bg-error-solid_hover);
+    --_solid-active: var(--my-bg-error-solid_active);
+    --_on-solid: var(--my-text-white);
+    --_on-solid-icon: var(--my-fg-white);
+    --_tint: var(--my-bg-error-primary);
+    --_tint-hover: var(--my-bg-error-secondary);
+    --_tint-active: var(--my-bg-error-secondary);
+    --_wash-hover: var(--my-bg-error-primary);
+    --_text: var(--my-text-error);
+    --_icon-tone: var(--my-fg-error-primary);
+    --_border: var(--my-border-error);
+    --_ring: var(--my-effect-ring-error);
+  }
+  .my-split-button {
+    display: inline-flex;
+    align-items: stretch;
+    box-sizing: border-box;
+    border: var(--my-border-width-2) solid transparent;
+    border-radius: var(--my-border-radius-soft);
+    background-color: var(--_solid);
+    color: var(--_on-solid);
+    font-family: var(--my-label-lg-family);
+    font-size: var(--my-label-lg-size);
+    font-weight: var(--my-label-lg-weight);
+    line-height: var(--my-label-lg-line-height);
+    letter-spacing: var(--my-label-lg-tracking);
+    transition: background-color var(--my-duration-fast-2) var(--my-ease-standard);
+  }
+  .my-split-button > button,
+  .my-split-button > a {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--my-spacing-xs);
+    margin: 0;
+    padding-block: var(--my-spacing-sm);
+    padding-inline: var(--my-spacing-xl);
+    border: 0;
+    border-radius: inherit;
+    background: transparent;
+    color: inherit;
+    font: inherit;
+    letter-spacing: inherit;
+    text-decoration: none;
+    white-space: nowrap;
+    cursor: pointer;
+    -webkit-appearance: none;
+    appearance: none;
+  }
+  .my-split-button > button > svg,
+  .my-split-button > button > .my-icon,
+  .my-split-button > a > svg,
+  .my-split-button > a > .my-icon {
+    flex: none;
+    color: var(--_on-solid-icon);
+    inline-size: var(--my-size-1);
+    block-size: var(--my-size-1);
+  }
+  .my-split-button > :first-child {
+    border-start-end-radius: 0;
+    border-end-end-radius: 0;
+  }
+  .my-split-button > :last-child {
+    padding-inline: var(--my-spacing-lg);
+    border-inline-start: var(--my-border-width-2) solid var(--_solid-active);
+    border-start-start-radius: 0;
+    border-end-start-radius: 0;
+  }
+  .my-split-button > :hover:not(:disabled) {
+    background-color: var(--_solid-hover);
+  }
+  .my-split-button > :focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 3px var(--_ring);
+  }
+  .my-split-button:has(> [aria-expanded=true]), .my-split-button[data-state=open] {
+    background-color: var(--_solid-active);
+  }
+  .my-split-button:has(> :disabled, > [aria-disabled=true]), .my-split-button[data-state=disabled] {
+    border-color: var(--my-border-neutral-disabled);
+    background-color: var(--my-bg-neutral-disabled);
+    color: var(--my-text-neutral-disabled);
+  }
+  .my-split-button:has(> :disabled, > [aria-disabled=true]) > *, .my-split-button[data-state=disabled] > * {
+    cursor: not-allowed;
+    background-color: transparent;
+  }
+  .my-split-button:has(> :disabled, > [aria-disabled=true]) > * > svg, .my-split-button:has(> :disabled, > [aria-disabled=true]) > * > .my-icon, .my-split-button[data-state=disabled] > * > svg, .my-split-button[data-state=disabled] > * > .my-icon {
+    color: var(--my-fg-neutral-disabled);
+  }
+  .my-split-button:has(> :disabled, > [aria-disabled=true]) > :last-child, .my-split-button[data-state=disabled] > :last-child {
+    border-inline-start-color: var(--my-border-neutral-disabled);
+  }
+}
+@layer mycss.blocks {
+  .my-button-group {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--my-spacing-sm);
+  }
+}
+@layer mycss.blocks {
+  .my-link {
+    color: var(--my-text-brand);
+    text-decoration-line: none;
+    text-decoration-thickness: from-font;
+    text-underline-offset: 0.15em;
+    border-radius: var(--my-border-radius-crisp);
+    cursor: pointer;
+    transition: box-shadow var(--my-duration-fast-2) var(--my-ease-standard);
+  }
+  .my-link > svg,
+  .my-link > .my-icon {
+    display: inline-block;
+    inline-size: var(--my-size-1);
+    block-size: var(--my-size-1);
+    margin-inline-start: var(--my-spacing-xs);
+    vertical-align: -0.125em;
+    color: var(--my-fg-brand);
+  }
+  .my-link:hover, .my-link[data-state=hover] {
+    text-decoration-line: underline;
+  }
+  .my-link:focus-visible, .my-link[data-state=focus] {
+    outline: none;
+    box-shadow: 0 0 0 3px var(--my-effect-ring-brand);
+  }
+  .my-link[aria-disabled=true], .my-link[data-state=disabled] {
+    color: var(--my-text-neutral-disabled);
+    text-decoration-line: none;
+    pointer-events: none;
+    cursor: default;
+  }
+  .my-link[aria-disabled=true] > svg, .my-link[aria-disabled=true] > .my-icon, .my-link[data-state=disabled] > svg, .my-link[data-state=disabled] > .my-icon {
+    color: var(--my-fg-neutral-disabled);
+  }
+}
+@layer mycss.blocks {
+  .my-tag {
+    --_bg: var(--my-bg-neutral-secondary);
+    --_bg-hover: var(--my-bg-neutral-secondary_hover);
+    --_fg: var(--my-text-neutral-primary);
+    --_icon-fg: var(--my-fg-neutral-secondary);
+    display: inline-flex;
+    align-items: center;
+    gap: var(--my-spacing-xs);
+    box-sizing: border-box;
+    margin: 0;
+    padding-block: var(--my-spacing-xxs);
+    padding-inline: var(--my-spacing-md);
+    border: 0;
+    border-radius: var(--my-border-radius-pill);
+    background-color: var(--_bg);
+    color: var(--_fg);
+    font-family: var(--my-label-sm-family);
+    font-size: var(--my-label-sm-size);
+    font-weight: var(--my-label-sm-weight);
+    line-height: var(--my-label-sm-line-height);
+    letter-spacing: var(--my-label-sm-tracking);
+    text-decoration: none;
+    white-space: nowrap;
+    -webkit-appearance: none;
+    appearance: none;
+    transition-property: background-color, box-shadow;
+    transition-duration: var(--my-duration-fast-2);
+    transition-timing-function: var(--my-ease-standard);
+  }
+  .my-tag[data-tone=brand] {
+    --_bg: var(--my-bg-brand-subtle);
+    --_bg-hover: var(--my-bg-brand-soft);
+    --_fg: var(--my-text-brand);
+    --_icon-fg: var(--my-fg-brand);
+  }
+  .my-tag:is(button, a, [tabindex]) {
+    cursor: pointer;
+  }
+  .my-tag > svg,
+  .my-tag > .my-icon,
+  .my-tag > button > svg,
+  .my-tag > button > .my-icon {
+    flex: none;
+    inline-size: var(--my-size-1);
+    block-size: var(--my-size-1);
+    color: var(--_icon-fg);
+  }
+  .my-tag > button {
+    display: inline-flex;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    border-radius: var(--my-border-radius-pill);
+    background: none;
+    color: inherit;
+    cursor: pointer;
+  }
+  .my-tag > button:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 3px var(--my-effect-ring-brand);
+  }
+  .my-tag:is(button, a, [tabindex]):where(:hover):not(:disabled, [aria-disabled=true], [data-state=disabled]), .my-tag:has(> button:hover), .my-tag[data-state=hover] {
+    background-color: var(--_bg-hover);
+  }
+  .my-tag:focus-visible, .my-tag[data-state=focus] {
+    outline: none;
+    box-shadow: 0 0 0 3px var(--my-effect-ring-brand);
+  }
+  .my-tag:is(:disabled, [aria-disabled=true], [data-state=disabled]) {
+    --_icon-fg: var(--my-fg-neutral-disabled);
+    background-color: var(--my-bg-neutral-disabled_subtle);
+    color: var(--my-text-neutral-disabled);
+    cursor: not-allowed;
+  }
+}
 /*! MyCSS utilities v0.1.0-alpha.1 — u-* classes, token-symmetric names. */
 @layer mycss.utilities {
   .u-display-2xl {
@@ -6224,6 +7201,20 @@
     line-height: var(--my-code-line-height);
     letter-spacing: var(--my-code-tracking);
   }
+  .u-label-2xl {
+    font-family: var(--my-label-2xl-family);
+    font-size: var(--my-label-2xl-size);
+    font-weight: var(--my-label-2xl-weight);
+    line-height: var(--my-label-2xl-line-height);
+    letter-spacing: var(--my-label-2xl-tracking);
+  }
+  .u-label-xl {
+    font-family: var(--my-label-xl-family);
+    font-size: var(--my-label-xl-size);
+    font-weight: var(--my-label-xl-weight);
+    line-height: var(--my-label-xl-line-height);
+    letter-spacing: var(--my-label-xl-tracking);
+  }
   .u-label-lg {
     font-family: var(--my-label-lg-family);
     font-size: var(--my-label-lg-size);
@@ -6292,15 +7283,6 @@
   }
   .u-text-on-neutral-solid {
     color: var(--my-text-on-neutral-solid);
-  }
-  .u-bg-overlay {
-    background-color: var(--my-bg-overlay);
-  }
-  .u-bg-surface {
-    background-color: var(--my-bg-surface);
-  }
-  .u-bg-panel {
-    background-color: var(--my-bg-panel);
   }
   .u-bg-brand-faint {
     background-color: var(--my-bg-brand-faint);
@@ -7082,6 +8064,48 @@
   }
   .u-shadow-high {
     box-shadow: var(--my-shadow-high);
+  }
+  .u-shadow-around-low {
+    box-shadow: var(--my-shadow-around-low);
+  }
+  .u-shadow-around-mid {
+    box-shadow: var(--my-shadow-around-mid);
+  }
+  .u-shadow-around-high {
+    box-shadow: var(--my-shadow-around-high);
+  }
+  .u-shadow-up-low {
+    box-shadow: var(--my-shadow-up-low);
+  }
+  .u-shadow-up-mid {
+    box-shadow: var(--my-shadow-up-mid);
+  }
+  .u-shadow-up-high {
+    box-shadow: var(--my-shadow-up-high);
+  }
+  .u-shadow-start-low {
+    box-shadow: var(--my-shadow-start-low);
+  }
+  .u-shadow-start-mid {
+    box-shadow: var(--my-shadow-start-mid);
+  }
+  .u-shadow-start-high {
+    box-shadow: var(--my-shadow-start-high);
+  }
+  .u-shadow-end-low {
+    box-shadow: var(--my-shadow-end-low);
+  }
+  .u-shadow-end-mid {
+    box-shadow: var(--my-shadow-end-mid);
+  }
+  .u-shadow-end-high {
+    box-shadow: var(--my-shadow-end-high);
+  }
+  .u-shadow-inset-low {
+    box-shadow: var(--my-shadow-inset-low);
+  }
+  .u-shadow-inset-mid {
+    box-shadow: var(--my-shadow-inset-mid);
   }
   .u-radius-none {
     border-radius: var(--my-border-radius-none);

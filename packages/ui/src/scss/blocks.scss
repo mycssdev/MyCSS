@@ -1,0 +1,23 @@
+// MyCSS UI — CUBE "B" layer (blocks), authored in SCSS.
+// One partial per BLOCKS component in the Figma library. Built into the
+// bundle (dist/css/mycss.css) and standalone (dist/css/mycss-blocks.css).
+//
+// Conventions (2026-11-14):
+//   - class = .my-<component>; Figma variant axes -> data-* attributes
+//     (Tone -> data-tone, Variant -> data-variant, Size -> data-size)
+//   - interactive states use real pseudo-classes AND a data-state mirror
+//     (hover | focus | pressed | disabled) for docs and static specimens
+//   - private per-component knobs are --_name custom properties; every
+//     value comes from a token via my.token() (typos fail the build)
+//   - no size variants except where Figma has one (Button's Size axis);
+//     density modes scale everything else
+
+// Actions
+@use "blocks/button";
+@use "blocks/icon-button";
+@use "blocks/toggle-button";
+@use "blocks/segmented-control";
+@use "blocks/split-button";
+@use "blocks/button-group";
+@use "blocks/link";
+@use "blocks/tag";

@@ -2,11 +2,13 @@
   "name": "mycss",
   "version": "0.1.0-alpha.1",
   "private": true,
-  "description": "MyCSS — Intrinsic Web Design framework (CUBE CSS). Tokens → CSS pipeline + SCSS authoring layer.",
+  "description": "MyCSS \u2014 Intrinsic Web Design framework (CUBE CSS). Tokens \u2192 CSS pipeline + SCSS authoring layer.",
   "scripts": {
     "build:tokens": "python packages/design/build/generate_css.py",
-    "build:css": "sass --no-source-map packages/design/src/scss/mycss.scss:packages/design/dist/css/mycss.css packages/composition/src/scss/composition.scss:packages/design/dist/css/mycss-composition.css",
-    "build": "npm run build:tokens && npm run build:css",
+    "build:css": "sass --no-source-map packages/design/src/scss/mycss.scss:packages/design/dist/css/mycss.css packages/composition/src/scss/composition.scss:packages/design/dist/css/mycss-composition.css packages/ui/src/scss/blocks.scss:packages/design/dist/css/mycss-blocks.css",
+    "build:brandkits": "python packages/design/build/generate_brandkit.py",
+    "build": "npm run build:tokens && npm run build:css && npm run build:brandkits",
+    "dev": "sass --watch --no-source-map packages/design/src/scss/mycss.scss:packages/design/dist/css/mycss.css packages/composition/src/scss/composition.scss:packages/design/dist/css/mycss-composition.css packages/ui/src/scss/blocks.scss:packages/design/dist/css/mycss-blocks.css",
     "test": "node tools/tests/verify.mjs"
   },
   "devDependencies": {

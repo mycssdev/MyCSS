@@ -1,0 +1,17 @@
+// Button Group — Figma: BLOCKS › Actions › Button Group (Primary · Secondary ·
+// optional Tertiary Buttons, gap spacing-sm). Wraps when space runs out.
+//
+//   <div class="my-button-group">
+//     <button class="my-button">Save</button>
+//     <button class="my-button" data-tone="neutral" data-variant="ghost">Cancel</button>
+//   </div>
+@use "../../../../design/src/scss/my" as my;
+
+@layer mycss.blocks {
+  .my-button-group {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: my.token(spacing-sm);
+  }
+}

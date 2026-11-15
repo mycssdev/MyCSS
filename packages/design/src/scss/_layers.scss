@@ -1,2 +1,4 @@
 // Public cascade-layer order — part of the MyCSS API.
-@layer mycss.tokens, mycss.composition, mycss.utilities;
+// blocks (MyCSS UI components) sit between composition and utilities, so a
+// u-* utility always wins over a component default (CUBE: utilities last).
+@layer mycss.tokens, mycss.composition, mycss.blocks, mycss.utilities;

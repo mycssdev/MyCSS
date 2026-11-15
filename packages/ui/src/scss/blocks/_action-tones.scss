@@ -1,0 +1,167 @@
+// Shared colour machinery for the tone × variant × state actions (Button,
+// Icon Button, Split Button). Figma binds the same tokens in the same slots
+// across all three, so the recipe lives once here.
+//
+// Slots: --_solid/-hover/-active + --_on-solid(-icon) (Solid), --_tint/-hover/
+// -active (Soft fills), --_wash-hover (Outline/Ghost hover), --_text (label),
+// --_icon-tone (icon), --_border (Outline), --_ring (focus).
+// Colour roles: labels text/*, icons fg/* (paint inline SVG with currentColor).
+@use "../../../../design/src/scss/my" as my;
+@use "sass:map";
+
+// Tone -> status family + on-solid colour. Danger reads the error tokens.
+$status-tones: (
+  danger:  (family: error,   on: white),
+  warning: (family: warning, on: white),
+  success: (family: success, on: white),
+  info:    (family: info,    on: white),
+);
+
+@mixin brand-defaults {
+  --_solid: #{my.token(bg-brand-solid)};
+  --_solid-hover: #{my.token(bg-brand-solid_hover)};
+  --_solid-active: #{my.token(bg-brand-solid_active)};
+  --_on-solid: #{my.token(text-on-accent)};
+  --_on-solid-icon: #{my.token(fg-on-accent)};
+  --_tint: #{my.token(bg-brand-subtle)};
+  --_tint-hover: #{my.token(bg-brand-soft)};
+  --_tint-active: #{my.token(bg-brand-soft)};
+  --_wash-hover: #{my.token(bg-brand-subtle)};
+  --_text: #{my.token(text-brand)};
+  --_icon-tone: #{my.token(fg-brand)};
+  --_border: #{my.token(border-brand)};
+  --_ring: #{my.token(effect-ring-brand)};
+}
+
+// Emits &[data-tone="…"] blocks for the given tone names (brand is the default).
+@mixin tones($names) {
+  @each $name in $names {
+    @if $name == neutral {
+      &[data-tone="neutral"] {
+        // Figma has no Neutral Solid: the solid slots carry the Soft recipe
+        --_solid: #{my.token(bg-neutral-primary)};
+        --_solid-hover: #{my.token(bg-neutral-secondary)};
+        --_solid-active: #{my.token(bg-neutral-active)};
+        --_on-solid: #{my.token(text-neutral-primary)};
+        --_on-solid-icon: #{my.token(fg-neutral-primary)};
+        --_tint: #{my.token(bg-neutral-primary)};
+        --_tint-hover: #{my.token(bg-neutral-secondary)};
+        --_tint-active: #{my.token(bg-neutral-active)};
+        --_wash-hover: #{my.token(bg-neutral-primary_hover)};
+        --_text: #{my.token(text-neutral-primary)};
+        --_icon-tone: #{my.token(fg-neutral-primary)};
+        --_border: #{my.token(border-neutral-primary)};
+        --_ring: #{my.token(effect-ring-brand)};
+      }
+    } @else if $name != brand {
+      $t: map.get($status-tones, $name);
+      $f: map.get($t, family);
+      $on: map.get($t, on);
+      &[data-tone="#{$name}"] {
+        --_solid: #{my.token(bg-#{$f}-solid)};
+        --_solid-hover: #{my.token(bg-#{$f}-solid_hover)};
+        --_solid-active: #{my.token(bg-#{$f}-solid_active)};
+        --_on-solid: #{my.token(text-#{$on})};
+        --_on-solid-icon: #{my.token(fg-#{$on})};
+        --_tint: #{my.token(bg-#{$f}-primary)};
+        --_tint-hover: #{my.token(bg-#{$f}-secondary)};
+        --_tint-active: #{my.token(bg-#{$f}-secondary)};
+        --_wash-hover: #{my.token(bg-#{$f}-primary)};
+        --_text: #{my.token(text-#{$f})};
+        --_icon-tone: #{my.token(fg-#{$f}-primary)};
+        --_border: #{my.token(border-#{$f})};
+        --_ring: #{my.token(effect-ring-#{$f})};
+      }
+    }
+  }
+}
+
+// Variant slots (default Solid) + the data-variant overrides.
+@mixin variants {
+  --_bg: var(--_solid);
+  --_bg-hover: var(--_solid-hover);
+  --_bg-active: var(--_solid-active);
+  --_fg: var(--_on-solid);
+  --_icon-fg: var(--_on-solid-icon);
+  --_line: transparent;
+
+  &[data-variant="soft"] {
+    --_bg: var(--_tint);
+    --_bg-hover: var(--_tint-hover);
+    --_bg-active: var(--_tint-active);
+    --_fg: var(--_text);
+    --_icon-fg: var(--_icon-tone);
+  }
+  &[data-variant="outline"],
+  &[data-variant="ghost"] {
+    --_bg: transparent;
+    --_bg-hover: var(--_wash-hover);
+    --_bg-active: var(--_tint-active);
+    --_fg: var(--_text);
+    --_icon-fg: var(--_icon-tone);
+  }
+  &[data-variant="outline"] {
+    --_line: var(--_border);
+  }
+}
+
+$disabled: ':disabled, [aria-disabled="true"], [data-state="disabled"]';
+
+// Hover / pressed / focus / disabled, real pseudo-classes + data-state mirror.
+// $disabled-line: "outline" (Button: only Outline keeps a disabled border)
+// or "all" (Icon Button: every variant gets border/neutral-disabled).
+@mixin states($disabled-line: outline) {
+  &:where(:hover):not(#{$disabled}, [aria-busy="true"]),
+  &[data-state="hover"] {
+    background-color: var(--_bg-hover);
+  }
+  &:where(:active):not(#{$disabled}, [aria-busy="true"]),
+  &[data-state="pressed"] {
+    background-color: var(--_bg-active);
+  }
+  &:focus-visible,
+  &[data-state="focus"] {
+    outline: none;
+    box-shadow: 0 0 0 3px var(--_ring);
+  }
+  &:is(#{$disabled}) {
+    @if $disabled-line == all {
+      --_line: #{my.token(border-neutral-disabled)};
+    } @else {
+      --_line: transparent;
+    }
+    --_icon-fg: #{my.token(fg-neutral-disabled)};
+    background-color: my.token(bg-neutral-disabled_subtle);
+    color: my.token(text-neutral-disabled);
+    cursor: not-allowed;
+  }
+  &:is(#{$disabled}):is(:not([data-variant]), [data-variant="solid"]):not([data-tone="neutral"]) {
+    background-color: my.token(bg-neutral-disabled);
+  }
+  @if $disabled-line == outline {
+    &:is(#{$disabled})[data-variant="outline"] {
+      --_line: #{my.token(border-neutral-disabled)};
+    }
+  }
+}
+
+// The box every action shares.
+@mixin action-box {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  margin: 0;
+  border: my.token(border-width-2) solid var(--_line);
+  border-radius: my.token(border-radius-soft);
+  background-color: var(--_bg);
+  color: var(--_fg);
+  text-decoration: none;
+  white-space: nowrap;
+  cursor: pointer;
+  -webkit-appearance: none;
+  appearance: none;
+  transition-property: background-color, border-color, color, box-shadow;
+  transition-duration: my.token(duration-fast-2);
+  transition-timing-function: my.token(ease-standard);
+}

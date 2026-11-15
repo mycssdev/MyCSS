@@ -1,0 +1,90 @@
+// Tag — Figma: BLOCKS › Actions › Tag (8 variants). Interactive; its static
+// sibling is Badge (Feedback). Never call either Label, Chip or Pill.
+// Axes: Tone Neutral|Brand · State Default|Hover|Focus|Disabled · Dismissible.
+//
+//   <button class="my-tag">Design</button>
+//   <span class="my-tag" data-tone="brand">Figma <button aria-label="Remove Figma"><svg …/></button></span>
+@use "../../../../design/src/scss/my" as my;
+
+$disabled: ':disabled, [aria-disabled="true"], [data-state="disabled"]';
+
+@layer mycss.blocks {
+  .my-tag {
+    --_bg: #{my.token(bg-neutral-secondary)};
+    --_bg-hover: #{my.token(bg-neutral-secondary_hover)};
+    --_fg: #{my.token(text-neutral-primary)};
+    --_icon-fg: #{my.token(fg-neutral-secondary)};
+
+    display: inline-flex;
+    align-items: center;
+    gap: my.token(spacing-xs);
+    box-sizing: border-box;
+    margin: 0;
+    padding-block: my.token(spacing-xxs);
+    padding-inline: my.token(spacing-md);
+    border: 0;
+    border-radius: my.token(border-radius-pill);
+    background-color: var(--_bg);
+    color: var(--_fg);
+    @include my.type(label-sm);
+    text-decoration: none;
+    white-space: nowrap;
+    -webkit-appearance: none;
+    appearance: none;
+    transition-property: background-color, box-shadow;
+    transition-duration: my.token(duration-fast-2);
+    transition-timing-function: my.token(ease-standard);
+
+    &[data-tone="brand"] {
+      --_bg: #{my.token(bg-brand-subtle)};
+      --_bg-hover: #{my.token(bg-brand-soft)};
+      --_fg: #{my.token(text-brand)};
+      --_icon-fg: #{my.token(fg-brand)};
+    }
+
+    &:is(button, a, [tabindex]) { cursor: pointer; }
+
+    > svg,
+    > .my-icon,
+    > button > svg,
+    > button > .my-icon {
+      flex: none;
+      inline-size: my.token(size-1);
+      block-size: my.token(size-1);
+      color: var(--_icon-fg);
+    }
+    // dismiss control inside the tag
+    > button {
+      display: inline-flex;
+      margin: 0;
+      padding: 0;
+      border: 0;
+      border-radius: my.token(border-radius-pill);
+      background: none;
+      color: inherit;
+      cursor: pointer;
+
+      &:focus-visible {
+        outline: none;
+        box-shadow: 0 0 0 3px my.token(effect-ring-brand);
+      }
+    }
+
+    &:is(button, a, [tabindex]):where(:hover):not(#{$disabled}),
+    &:has(> button:hover),
+    &[data-state="hover"] {
+      background-color: var(--_bg-hover);
+    }
+    &:focus-visible,
+    &[data-state="focus"] {
+      outline: none;
+      box-shadow: 0 0 0 3px my.token(effect-ring-brand);
+    }
+    &:is(#{$disabled}) {
+      --_icon-fg: #{my.token(fg-neutral-disabled)};
+      background-color: my.token(bg-neutral-disabled_subtle);
+      color: my.token(text-neutral-disabled);
+      cursor: not-allowed;
+    }
+  }
+}
