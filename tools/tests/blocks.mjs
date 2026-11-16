@@ -204,6 +204,9 @@ const kit = await page.evaluate((probes) => {
 const greenish = (c) => { const m = c.match(/[\d.]+/g).map(Number); return c.startsWith("rgb") ? m[1] > m[0] && m[1] > m[2] : /oklch|color\(/.test(c); };
 for (const k of Object.keys(probes))
   check(`${k}: ${kit.plain[k]} -> ${kit.acme[k]}`, kit.plain[k] !== kit.acme[k] && greenish(kit.acme[k]) && !greenish(kit.plain[k]));
+const accentOf = (id) => page.$eval(`#${id} [data-probe="button"]`, (el) => getComputedStyle(el).backgroundColor);
+check("default accent is base", (await accentOf("plain")) === (await accentOf("base")), await accentOf("plain"));
+check("rebecca is opt-in: data-accent=\"rebecca\" gives #663399", (await accentOf("rebecca")) === "rgb(102, 51, 153)" && (await accentOf("plain")) !== "rgb(102, 51, 153)", await accentOf("rebecca"));
 check("solid button is the brand colour exactly", kit.acme.button === "rgb(11, 110, 79)", kit.acme.button);
 check("typeface switches to the kit's", /Work Sans/.test(kit.fonts[1]) && !/Work Sans/.test(kit.fonts[0]), kit.fonts.join(" | "));
 

@@ -34,10 +34,12 @@ PREFIX = "--my-"
 UNIT_TYPES = {"dimension", "spacing", "sizing", "fontSizes", "borderRadius", "borderWidth"}
 SKIP_TYPES = {"string", "typography"}  # icon style strings, Penpot composite styles
 
-# v2.17.1: the default accent is "rebecca" (was "brand"), matching Figma.
+# v2.17.1: the purple accent is "rebecca" (was "brand"), matching Figma.
+# 2026-11-15: the default accent is "base", as in Figma; rebecca is the demo
+# brand colour and is opt-in with data-accent="rebecca".
 # v2.18: the deprecated data-accent="brand" alias is gone.
 
-DEFAULTS = {"gray": "slate", "accent": "rebecca", "mode": "light",
+DEFAULTS = {"gray": "slate", "accent": "base", "mode": "light",
             "density": "comfortable", "typeface": "montserrat", "depth": "soft",
             "shape": "subtle", "motion": "full"}
 
@@ -375,7 +377,7 @@ def build_tokens_css(data):
     # v2.16: one mode-selected threshold (the Figma variable); [data-density]
     # blocks re-declare it from canonical
     out.append(f"    {PREFIX}threshold: var({PREFIX}threshold-{DEFAULTS['density']});")
-    out.append("    /* default theme: slate gray, rebecca accent, comfortable, montserrat, soft depth */")
+    out.append("    /* default theme: slate gray, base accent, comfortable, montserrat, soft depth */")
     for s in [f"semantic/gray-{DEFAULTS['gray']}", f"semantic/accent-{DEFAULTS['accent']}",
               f"semantic/typeface-{DEFAULTS['typeface']}"]:
         out += emit_set(res, s, "    ")

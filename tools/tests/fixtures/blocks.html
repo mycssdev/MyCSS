@@ -33,6 +33,8 @@
 
 <!-- same components, default accent vs the acme brand kit -->
 <div id="plain" class="kit"></div>
+<div id="base" class="kit" data-accent="base"></div>
+<div id="rebecca" class="kit" data-accent="rebecca"></div>
 <div id="acme" class="kit" data-brand="acme"></div>
 <template id="kit-tpl">
   <button class="my-button" data-probe="button">Button</button>
@@ -46,5 +48,5 @@
   <span class="my-badge" data-tone="accent" data-probe="badge">Badge</span>
   <span class="my-spinner" data-probe="spinner"></span>
 </template>
-<script>for (const id of ["plain","acme"]) document.getElementById(id).append(document.getElementById("kit-tpl").content.cloneNode(true));</script>
+<script>for (const id of ["plain","base","rebecca","acme"]) document.getElementById(id).append(document.getElementById("kit-tpl").content.cloneNode(true));</script>
 </body></html>
