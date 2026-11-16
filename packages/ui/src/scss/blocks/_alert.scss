@@ -1,0 +1,115 @@
+// Alert · Toast — Figma: BLOCKS › Feedback.
+// Alert: Tone Danger|Warning|Success|Info|Neutral|Brand, optional title,
+// action and dismiss. A tinted panel with a 2px accent bar and a status icon.
+// Toast: Tone Neutral|Success|Danger|Warning|Info. A floating panel
+// (overlay/primary, depth/high); only the icon carries the tone.
+//
+//   <div class="my-alert" data-tone="danger" role="alert">
+//     <svg …/>
+//     <div class="my-alert-content"><p class="my-alert-title">Payment failed</p><p>Check the card details.</p></div>
+//     <button class="my-icon-button" data-tone="neutral" data-variant="ghost" aria-label="Dismiss"><svg …/></button>
+//   </div>
+//   <div class="my-toast" data-tone="success" role="status"><svg …/><p>Changes saved</p> …dismiss… </div>
+// With js/mycss.js: MyCSS.toast("Saved", { tone: "success" }) stacks toasts in
+// .my-toast-region and removes them after 5s; [data-dismiss] closes one.
+@use "../../../../design/src/scss/my" as my;
+@use "status";
+
+@layer mycss.blocks {
+  .my-alert {
+    @include status.tones(info, (danger, warning, success, neutral, brand));
+
+    display: flex;
+    align-items: flex-start;
+    gap: my.token(spacing-md);
+    box-sizing: border-box;
+    padding: my.token(spacing-lg);
+    border-radius: my.token(border-radius-rounded);
+    background-color: var(--_soft);
+    color: my.token(text-neutral-secondary);
+    @include my.type(body-sm);
+
+    &::before {
+      content: "";
+      flex: none;
+      align-self: stretch;
+      inline-size: 2px;
+      background-color: var(--_solid);
+    }
+    > svg,
+    > .my-icon {
+      flex: none;
+      inline-size: my.token(size-2);
+      block-size: my.token(size-2);
+      color: var(--_icon);
+    }
+    > :is(.my-icon-button, .my-button) {
+      flex: none;
+      margin-block: calc(-1 * #{my.token(spacing-xs)});
+    }
+  }
+  .my-alert-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: my.token(spacing-xxs);
+    min-inline-size: 0;
+
+    > * { margin: 0; }
+    > .my-button-group, > .my-button, > .my-link { margin-block-start: my.token(spacing-xs); align-self: flex-start; }
+  }
+  .my-alert-title {
+    margin: 0;
+    color: var(--_text);
+    @include my.type(label);
+  }
+
+  // where MyCSS.toast() stacks toasts: bottom inline-end corner, newest last
+  .my-toast-region {
+    position: fixed;
+    inset-block-end: my.token(spacing-2xl);
+    inset-inline-end: my.token(spacing-2xl);
+    z-index: my.token(z-index-toast);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: my.token(spacing-md);
+    max-inline-size: calc(100% - 2 * #{my.token(spacing-2xl)});
+    pointer-events: none;
+
+    > * { pointer-events: auto; }
+  }
+
+  .my-toast {
+    @include status.tones(neutral, (success, danger, warning, info));
+
+    display: flex;
+    align-items: center;
+    gap: my.token(spacing-md);
+    box-sizing: border-box;
+    inline-size: min(384px, 100%);
+    padding: my.token(spacing-lg);
+    border: 1px solid my.token(border-neutral-secondary);
+    border-radius: my.token(border-radius-rounded);
+    background-color: my.token(overlay-primary);
+    box-shadow: my.token(shadow-high);
+    color: my.token(text-neutral-primary);
+    @include my.type(body-sm);
+
+    > svg,
+    > .my-icon {
+      flex: none;
+      inline-size: my.token(size-2);
+      block-size: my.token(size-2);
+      color: var(--_icon);
+    }
+    > :is(p, span, div):not([class]) {
+      flex: 1;
+      min-inline-size: 0;
+      margin: 0;
+    }
+    > :is(.my-icon-button, .my-button, .my-link) {
+      flex: none;
+    }
+  }
+}

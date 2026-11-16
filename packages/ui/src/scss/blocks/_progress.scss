@@ -1,0 +1,113 @@
+// Progress Bar · Meter · Spinner · Skeleton — Figma: BLOCKS › Feedback.
+// Progress: Kind Determinate|Indeterminate · Tone Brand|Success|Danger.
+// Meter: Band Optimal|Warning|Critical. Both are 6px pills on bg/neutral-secondary.
+// Spinner: Tone Brand|Neutral, a 24px 270° arc. Skeleton: Line|Heading|Circle|Rectangle.
+//
+//   <progress class="my-progress" value="60" max="100"></progress>
+//   <progress class="my-progress"></progress>                       (indeterminate: no value)
+//   <progress class="my-progress" data-tone="success" value="100" max="100"></progress>
+//   <meter class="my-meter" value="0.8" min="0" max="1" low="0.3" high="0.6" optimum="0.9"></meter>
+//   <span class="my-spinner" role="status" aria-label="Loading"></span>
+//   <span class="my-skeleton"></span>  <span class="my-skeleton" data-shape="circle"></span>
+//
+// The meter's band is the browser's own: it picks optimal / warning /
+// critical from value against low, high and optimum.
+@use "../../../../design/src/scss/my" as my;
+
+@layer mycss.blocks {
+  .my-progress {
+    --_bar: #{my.token(bg-brand-solid)};
+    --_track: #{my.token(bg-neutral-secondary)};
+
+    display: block;
+    inline-size: 100%;
+    block-size: 6px;
+    border: 0;
+    border-radius: my.token(border-radius-pill);
+    background-color: var(--_track);
+    color: var(--_bar);
+    overflow: hidden;
+    -webkit-appearance: none;
+    appearance: none;
+
+    &[data-tone="success"] { --_bar: #{my.token(bg-success-solid)}; }
+    &[data-tone="danger"] { --_bar: #{my.token(bg-error-solid)}; }
+
+    &::-webkit-progress-bar { background-color: var(--_track); border-radius: my.token(border-radius-pill); }
+    &::-webkit-progress-value { background-color: var(--_bar); border-radius: my.token(border-radius-pill); }
+    &::-moz-progress-bar { background-color: var(--_bar); border-radius: my.token(border-radius-pill); }
+
+    // indeterminate: a 40% bar travelling along the track (status, so it
+    // keeps moving under reduced motion, only slower)
+    &:indeterminate {
+      background: linear-gradient(var(--_bar), var(--_bar)) 0 0 / 40% 100% no-repeat var(--_track);
+      animation: my-progress-slide 1.4s my.token(ease-standard) infinite;
+
+      &::-webkit-progress-bar { background: transparent; }
+      &::-moz-progress-bar { background: transparent; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      &:indeterminate { animation-duration: 4s; }
+    }
+  }
+  @keyframes my-progress-slide {
+    from { background-position: -70% 0; }
+    to { background-position: 170% 0; }
+  }
+
+  .my-meter {
+    display: block;
+    inline-size: 100%;
+    block-size: 6px;
+    border: 0;
+    border-radius: my.token(border-radius-pill);
+    background: my.token(bg-neutral-secondary);
+
+    &::-webkit-meter-inner-element { display: block; }
+    &::-webkit-meter-bar {
+      block-size: 6px;
+      border: 0;
+      border-radius: my.token(border-radius-pill);
+      background: my.token(bg-neutral-secondary);
+    }
+    &::-webkit-meter-optimum-value { border-radius: my.token(border-radius-pill); background: my.token(bg-success-solid); }
+    &::-webkit-meter-suboptimum-value { border-radius: my.token(border-radius-pill); background: my.token(bg-warning-solid); }
+    &::-webkit-meter-even-less-good-value { border-radius: my.token(border-radius-pill); background: my.token(bg-error-solid); }
+    &::-moz-meter-bar { border-radius: my.token(border-radius-pill); background: my.token(bg-success-solid); }
+    &:-moz-meter-sub-optimum::-moz-meter-bar { background: my.token(bg-warning-solid); }
+    &:-moz-meter-sub-sub-optimum::-moz-meter-bar { background: my.token(bg-error-solid); }
+  }
+
+  .my-spinner {
+    display: inline-block;
+    box-sizing: border-box;
+    inline-size: my.token(size-3);
+    block-size: my.token(size-3);
+    border: 2px solid my.token(bg-brand-solid);
+    border-inline-start-color: transparent;
+    border-radius: 50%;
+    animation: my-spin 1s linear infinite; // status, not decoration: kept under reduced motion
+
+    &[data-tone="neutral"] {
+      border-color: my.token(fg-neutral-tertiary);
+      border-inline-start-color: transparent;
+    }
+  }
+  @keyframes my-spin {
+    to { rotate: 1turn; }
+  }
+
+  // Static placeholder shapes (no shimmer in Figma, none here).
+  .my-skeleton {
+    display: block;
+    inline-size: 100%;
+    max-inline-size: 240px;
+    block-size: 12px;
+    border-radius: my.token(border-radius-pill);
+    background-color: my.token(bg-neutral-secondary);
+
+    &[data-shape="heading"] { max-inline-size: 160px; block-size: 20px; }
+    &[data-shape="circle"] { inline-size: 40px; block-size: 40px; }
+    &[data-shape="rectangle"] { block-size: 120px; border-radius: my.token(border-radius-rounded); }
+  }
+}

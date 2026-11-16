@@ -12,7 +12,7 @@
         "primitives/base": "enabled",
         "primitives/black-alpha": "enabled",
         "primitives/blue": "enabled",
-        "primitives/brand": "enabled",
+        "primitives/rebecca": "enabled",
         "primitives/bronze": "enabled",
         "primitives/brown": "enabled",
         "primitives/crimson": "enabled",
@@ -121,10 +121,10 @@
       }
     },
     {
-      "name": "Brand",
+      "name": "Rebecca",
       "group": "Accent color",
       "selectedTokenSets": {
-        "semantic/accent-brand": "enabled"
+        "semantic/accent-rebecca": "enabled"
       }
     },
     {
@@ -699,6 +699,60 @@
         "$type": "letterSpacing"
       }
     },
+    "label-2xl": {
+      "size": {
+        "$value": "{ms-2}",
+        "$type": "fontSizes",
+        "$description": "Added in v2.17 — label role one step above label-xl (ms-2); used by Button Size XL."
+      },
+      "line-height": {
+        "$value": "{leading-normal}",
+        "$type": "number",
+        "$description": "Added in v2.17 — label role one step above label-xl (ms-2); used by Button Size XL."
+      },
+      "weight": {
+        "$value": "{font-weight.medium}",
+        "$type": "fontWeights",
+        "$description": "Added in v2.17 — label role one step above label-xl (ms-2); used by Button Size XL."
+      },
+      "family": {
+        "$value": "{family.primary}",
+        "$type": "fontFamilies",
+        "$description": "Added in v2.17 — label role one step above label-xl (ms-2); used by Button Size XL."
+      },
+      "tracking": {
+        "$value": "{tracking-normal}",
+        "$type": "letterSpacing",
+        "$description": "Added in v2.17 — label role one step above label-xl (ms-2); used by Button Size XL."
+      }
+    },
+    "label-xl": {
+      "size": {
+        "$value": "{ms-1}",
+        "$type": "fontSizes",
+        "$description": "Added in v2.17 — label role one step above label-lg (ms-1); used by Button Size LG."
+      },
+      "line-height": {
+        "$value": "{leading-normal}",
+        "$type": "number",
+        "$description": "Added in v2.17 — label role one step above label-lg (ms-1); used by Button Size LG."
+      },
+      "weight": {
+        "$value": "{font-weight.medium}",
+        "$type": "fontWeights",
+        "$description": "Added in v2.17 — label role one step above label-lg (ms-1); used by Button Size LG."
+      },
+      "family": {
+        "$value": "{family.primary}",
+        "$type": "fontFamilies",
+        "$description": "Added in v2.17 — label role one step above label-lg (ms-1); used by Button Size LG."
+      },
+      "tracking": {
+        "$value": "{tracking-normal}",
+        "$type": "letterSpacing",
+        "$description": "Added in v2.17 — label role one step above label-lg (ms-1); used by Button Size LG."
+      }
+    },
     "label-lg": {
       "size": {
         "$value": "{ms-0}",
@@ -779,7 +833,7 @@
         "letterSpacing": -0.8
       },
       "$type": "typography",
-      "$description": "display-2xl \u2014 fontFamily+fontWeight aliased. Test v10."
+      "$description": "display-2xl — fontFamily+fontWeight aliased. Test v10."
     },
     "display-xl": {
       "$value": {
@@ -790,7 +844,7 @@
         "letterSpacing": -0.8
       },
       "$type": "typography",
-      "$description": "display-xl \u2014 fontFamily+fontWeight aliased. Test v10."
+      "$description": "display-xl — fontFamily+fontWeight aliased. Test v10."
     },
     "display-lg": {
       "$value": {
@@ -801,7 +855,7 @@
         "letterSpacing": -0.4
       },
       "$type": "typography",
-      "$description": "display-lg \u2014 fontFamily+fontWeight aliased. Test v10."
+      "$description": "display-lg — fontFamily+fontWeight aliased. Test v10."
     },
     "h1": {
       "$value": {
@@ -812,7 +866,7 @@
         "letterSpacing": -0.4
       },
       "$type": "typography",
-      "$description": "h1 \u2014 fontFamily+fontWeight aliased. Test v10."
+      "$description": "h1 — fontFamily+fontWeight aliased. Test v10."
     },
     "h2": {
       "$value": {
@@ -823,7 +877,7 @@
         "letterSpacing": -0.4
       },
       "$type": "typography",
-      "$description": "h2 \u2014 fontFamily+fontWeight aliased. Test v10."
+      "$description": "h2 — fontFamily+fontWeight aliased. Test v10."
     },
     "h3": {
       "$value": {
@@ -834,7 +888,7 @@
         "letterSpacing": 0
       },
       "$type": "typography",
-      "$description": "h3 \u2014 fontFamily+fontWeight aliased. Test v10."
+      "$description": "h3 — fontFamily+fontWeight aliased. Test v10."
     },
     "h4": {
       "$value": {
@@ -845,7 +899,7 @@
         "letterSpacing": 0
       },
       "$type": "typography",
-      "$description": "h4 \u2014 fontFamily+fontWeight aliased. Test v10."
+      "$description": "h4 — fontFamily+fontWeight aliased. Test v10."
     },
     "h5": {
       "$value": {
@@ -856,7 +910,7 @@
         "letterSpacing": 0
       },
       "$type": "typography",
-      "$description": "h5 \u2014 fontFamily+fontWeight aliased. Test v10."
+      "$description": "h5 — fontFamily+fontWeight aliased. Test v10."
     },
     "h6": {
       "$value": {
@@ -867,7 +921,7 @@
         "letterSpacing": 0.4
       },
       "$type": "typography",
-      "$description": "h6 \u2014 fontFamily+fontWeight aliased. Test v10."
+      "$description": "h6 — fontFamily+fontWeight aliased. Test v10."
     },
     "body-lg": {
       "$value": {
@@ -878,7 +932,7 @@
         "letterSpacing": 0
       },
       "$type": "typography",
-      "$description": "body-lg \u2014 fontFamily+fontWeight aliased. Test v10."
+      "$description": "body-lg — fontFamily+fontWeight aliased. Test v10."
     },
     "body": {
       "$value": {
@@ -889,7 +943,7 @@
         "letterSpacing": 0
       },
       "$type": "typography",
-      "$description": "body \u2014 fontFamily+fontWeight aliased. Test v10."
+      "$description": "body — fontFamily+fontWeight aliased. Test v10."
     },
     "body-sm": {
       "$value": {
@@ -900,7 +954,7 @@
         "letterSpacing": 0
       },
       "$type": "typography",
-      "$description": "body-sm \u2014 fontFamily+fontWeight aliased. Test v10."
+      "$description": "body-sm — fontFamily+fontWeight aliased. Test v10."
     },
     "caption": {
       "$value": {
@@ -911,7 +965,7 @@
         "letterSpacing": 0.4
       },
       "$type": "typography",
-      "$description": "caption \u2014 fontFamily+fontWeight aliased. Test v10."
+      "$description": "caption — fontFamily+fontWeight aliased. Test v10."
     },
     "overline": {
       "$value": {
@@ -922,7 +976,7 @@
         "letterSpacing": 1.6
       },
       "$type": "typography",
-      "$description": "overline \u2014 fontFamily+fontWeight aliased. Test v10."
+      "$description": "overline — fontFamily+fontWeight aliased. Test v10."
     },
     "code": {
       "$value": {
@@ -933,7 +987,7 @@
         "letterSpacing": 0
       },
       "$type": "typography",
-      "$description": "code \u2014 fontFamily+fontWeight aliased. Test v10."
+      "$description": "code — fontFamily+fontWeight aliased. Test v10."
     },
     "label-lg": {
       "$value": {
@@ -944,7 +998,7 @@
         "letterSpacing": 0
       },
       "$type": "typography",
-      "$description": "label-lg \u2014 fontFamily+fontWeight aliased. Test v10."
+      "$description": "label-lg — fontFamily+fontWeight aliased. Test v10."
     },
     "label": {
       "$value": {
@@ -955,7 +1009,7 @@
         "letterSpacing": 0
       },
       "$type": "typography",
-      "$description": "label \u2014 fontFamily+fontWeight aliased. Test v10."
+      "$description": "label — fontFamily+fontWeight aliased. Test v10."
     },
     "label-sm": {
       "$value": {
@@ -966,7 +1020,7 @@
         "letterSpacing": 0.4
       },
       "$type": "typography",
-      "$description": "label-sm \u2014 fontFamily+fontWeight aliased. Test v10."
+      "$description": "label-sm — fontFamily+fontWeight aliased. Test v10."
     }
   }
 }

@@ -1,0 +1,80 @@
+// Pagination (+ .Page Button) — Figma: BLOCKS › Navigation.
+// Variant Numbered|Simple. Page Button: Current False|True · State
+// Default|Hover|Focus|Disabled. Previous / next are Icon Buttons.
+//
+//   <nav class="my-pagination" aria-label="Pagination">
+//     <button class="my-icon-button" data-tone="neutral" data-variant="outline" aria-label="Previous page" disabled><svg …/></button>
+//     <a class="my-page-button" href="?p=1" aria-current="page">1</a>
+//     <a class="my-page-button" href="?p=2">2</a>
+//     <span class="my-pagination-gap">…</span>
+//     <button class="my-icon-button" data-tone="neutral" data-variant="outline" aria-label="Next page"><svg …/></button>
+//   </nav>
+//   Simple: prev · <span class="my-pagination-status">Page 1 of 10</span> · next
+@use "../../../../design/src/scss/my" as my;
+
+$disabled: ':disabled, [aria-disabled="true"], [data-state="disabled"]';
+$current: '[aria-current]:not([aria-current="false"])';
+
+@layer mycss.blocks {
+  .my-pagination {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: my.token(spacing-xs);
+  }
+
+  .my-page-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    min-inline-size: 36px;
+    margin: 0;
+    padding-block: my.token(spacing-sm);
+    padding-inline: my.token(spacing-md);
+    border: 0;
+    border-radius: my.token(border-radius-soft);
+    background-color: transparent;
+    color: my.token(text-neutral-secondary);
+    @include my.type(label);
+    font-variant-numeric: tabular-nums;
+    text-decoration: none;
+    cursor: pointer;
+    -webkit-appearance: none;
+    appearance: none;
+    transition-property: background-color, color, box-shadow;
+    transition-duration: my.token(duration-fast-2);
+    transition-timing-function: my.token(ease-standard);
+
+    &:where(:hover):not(#{$disabled}, #{$current}),
+    &[data-state="hover"] {
+      background-color: my.token(bg-neutral-primary_hover);
+      color: my.token(text-neutral-primary);
+    }
+    &:is(#{$current}) {
+      background-color: my.token(bg-brand-subtle);
+      color: my.token(text-brand);
+    }
+    &:focus-visible,
+    &[data-state="focus"] {
+      outline: none;
+      box-shadow: 0 0 0 3px my.token(effect-ring-brand);
+    }
+    // doubled so disabled also beats the current/selected rule
+    &:is(#{$disabled}):is(#{$disabled}) {
+      background-color: transparent;
+      color: my.token(text-neutral-disabled);
+      cursor: not-allowed;
+    }
+  }
+
+  .my-pagination-gap {
+    color: my.token(text-neutral-placeholder_subtle);
+    @include my.type(label);
+  }
+  .my-pagination-status {
+    padding-inline: my.token(spacing-xs);
+    color: my.token(text-neutral-secondary);
+    @include my.type(caption);
+  }
+}

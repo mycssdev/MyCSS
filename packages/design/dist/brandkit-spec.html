@@ -1,0 +1,28 @@
+<!doctype html><html data-accent="rebecca" data-gray="slate" data-density="comfortable" data-typeface="montserrat"><head><meta charset="utf-8"><title>MyCSS — Brand kit specimen (acme)</title>
+<link rel="stylesheet" href="css/mycss.css"><link rel="stylesheet" href="css/brandkits/mycss.brandkit.acme.css">
+<style>
+body{margin:0;background:var(--my-bg-neutral-primary);color:var(--my-text-neutral-primary);font-family:var(--my-body-family);font-size:var(--my-body-size)}
+.panel{padding:32px;background:var(--my-bg-neutral-primary);color:var(--my-text-neutral-primary);font-family:var(--my-body-family);font-size:var(--my-body-size);border-bottom:1px solid var(--my-border-neutral-separator)}
+.row{display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin-top:16px}
+.ramp{display:flex;margin-top:16px}.ramp i{width:44px;height:28px;display:block}
+.card{padding:var(--my-inset-md);background:var(--my-surface-secondary);border-radius:var(--my-border-radius-rounded);box-shadow:var(--my-shadow-mid);max-width:300px}
+small{font:11px ui-monospace,monospace;opacity:.7;display:block;margin-bottom:8px}
+</style></head><body>
+<script>
+const body=(id)=>`<small>${id}</small><h2 class="u-h2" data-probe="h">Heading in this brand</h2><p class="u-body">Body copy with a <a class="my-link" href="#">link</a>, on this brand's neutral.</p>
+<div class="row"><button class="my-button" data-probe="btn">Solid</button><button class="my-button" data-variant="soft">Soft</button><button class="my-button" data-variant="outline">Outline</button><button class="my-button" data-tone="neutral" data-variant="outline">Neutral</button><button class="my-toggle-button" aria-pressed="true">Toggle</button><button class="my-tag" data-tone="brand">Tag</button><div class="card" data-probe="card">Card</div></div>
+<div class="ramp">${[1,2,3,4,5,6,7,8,9,10,11,12].map(i=>`<i style="background:light-dark(var(--my-accent-${i}),var(--my-accent-dark-${i}))"></i>`).join('')}</div>
+<div class="ramp" style="margin-top:4px">${[1,2,3,4,5,6,7,8,9,10,11,12].map(i=>`<i style="background:light-dark(var(--my-neutral-${i}),var(--my-neutral-dark-${i}))"></i>`).join('')}</div>`;
+const panels=[
+ ['default','My.CSS default (no brand)',''],
+ ['brand','data-brand="acme"','data-brand="acme"'],
+ ['branddark','data-brand="acme" data-mode="dark"','data-brand="acme" data-mode="dark"'],
+ ['accentonly','data-accent="acme" only (built-in neutral, type, shape)','data-accent="acme"'],
+ ['override','data-brand="acme" data-accent="jade" data-shape="pill" (explicit axes win)','data-brand="acme" data-accent="jade" data-shape="pill"'],
+ ['compact','data-brand="acme" › nested data-density="compact"','data-brand="acme"','data-density="compact"'],
+ ['interinside','data-brand="acme" › data-typeface="inter" › data-density="compact"','data-brand="acme"','data-typeface="inter"','data-density="compact"'],
+];
+for(const [id,label,...attrs] of panels){let open='',close='';attrs.filter(Boolean).forEach((a,i)=>{open+=`<div ${a} ${i==attrs.filter(Boolean).length-1||attrs.length==1?`class="panel" id="${id}"`:''}>`;close+='</div>';});
+ if(!attrs.filter(Boolean).length){open=`<div class="panel" id="${id}">`;close='</div>';}
+ document.write(open+body(label)+close);}
+</script></body></html>

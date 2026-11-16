@@ -12,7 +12,7 @@
         "primitives/base": "enabled",
         "primitives/black-alpha": "enabled",
         "primitives/blue": "enabled",
-        "primitives/brand": "enabled",
+        "primitives/rebecca": "enabled",
         "primitives/bronze": "enabled",
         "primitives/brown": "enabled",
         "primitives/crimson": "enabled",
@@ -121,10 +121,10 @@
       }
     },
     {
-      "name": "Brand",
+      "name": "Rebecca",
       "group": "Accent color",
       "selectedTokenSets": {
-        "semantic/accent-brand": "enabled"
+        "semantic/accent-rebecca": "enabled"
       }
     },
     {
@@ -522,6 +522,136 @@
         "$value": "1700",
         "$type": "number"
       }
+    },
+    "shadow": {
+      "ring": {
+        "y": {
+          "$value": 0,
+          "$type": "number"
+        },
+        "blur": {
+          "$value": 0,
+          "$type": "number"
+        },
+        "spread": {
+          "$value": 1,
+          "$type": "number"
+        }
+      },
+      "o1": {
+        "y": {
+          "$value": 1,
+          "$type": "number"
+        },
+        "blur": {
+          "$value": 1,
+          "$type": "number"
+        },
+        "spread": {
+          "$value": -0.5,
+          "$type": "number"
+        },
+        "reverse": {
+          "$value": -1,
+          "$type": "number",
+          "$description": "Negative of this layer's y. Lets a shadow cast up or toward the inline start. Never edit: it mirrors y."
+        }
+      },
+      "o2": {
+        "y": {
+          "$value": 3,
+          "$type": "number"
+        },
+        "blur": {
+          "$value": 3,
+          "$type": "number"
+        },
+        "spread": {
+          "$value": -1.5,
+          "$type": "number"
+        },
+        "reverse": {
+          "$value": -3,
+          "$type": "number",
+          "$description": "Negative of this layer's y. Lets a shadow cast up or toward the inline start. Never edit: it mirrors y."
+        }
+      },
+      "o3": {
+        "y": {
+          "$value": 6,
+          "$type": "number"
+        },
+        "blur": {
+          "$value": 6,
+          "$type": "number"
+        },
+        "spread": {
+          "$value": -3,
+          "$type": "number"
+        },
+        "reverse": {
+          "$value": -6,
+          "$type": "number",
+          "$description": "Negative of this layer's y. Lets a shadow cast up or toward the inline start. Never edit: it mirrors y."
+        }
+      },
+      "o4": {
+        "y": {
+          "$value": 12,
+          "$type": "number"
+        },
+        "blur": {
+          "$value": 12,
+          "$type": "number"
+        },
+        "spread": {
+          "$value": -6,
+          "$type": "number"
+        },
+        "reverse": {
+          "$value": -12,
+          "$type": "number",
+          "$description": "Negative of this layer's y. Lets a shadow cast up or toward the inline start. Never edit: it mirrors y."
+        }
+      },
+      "o5": {
+        "y": {
+          "$value": 24,
+          "$type": "number"
+        },
+        "blur": {
+          "$value": 24,
+          "$type": "number"
+        },
+        "spread": {
+          "$value": -12,
+          "$type": "number"
+        },
+        "reverse": {
+          "$value": -24,
+          "$type": "number",
+          "$description": "Negative of this layer's y. Lets a shadow cast up or toward the inline start. Never edit: it mirrors y."
+        }
+      },
+      "o6": {
+        "y": {
+          "$value": 48,
+          "$type": "number"
+        },
+        "blur": {
+          "$value": 48,
+          "$type": "number"
+        },
+        "spread": {
+          "$value": -24,
+          "$type": "number"
+        },
+        "reverse": {
+          "$value": -48,
+          "$type": "number",
+          "$description": "Negative of this layer's y. Lets a shadow cast up or toward the inline start. Never edit: it mirrors y."
+        }
+      }
     }
   },
   "foundations/scales": {
@@ -545,12 +675,12 @@
     "ms--3": {
       "$value": "round({scale-base} / {scale-ratio} / {scale-ratio} / {scale-ratio})",
       "$type": "dimension",
-      "$description": "~8px at comfortable (16 / 1.25\u00c2\u00b3)"
+      "$description": "~8px at comfortable (16 / 1.25Â³)"
     },
     "ms--2": {
       "$value": "round({scale-base} / {scale-ratio} / {scale-ratio})",
       "$type": "dimension",
-      "$description": "~10px at comfortable (16 / 1.25\u00c2\u00b2)"
+      "$description": "~10px at comfortable (16 / 1.25Â²)"
     },
     "ms--1": {
       "$value": "round({scale-base} / {scale-ratio})",
@@ -560,47 +690,47 @@
     "ms-0": {
       "$value": "{scale-base}",
       "$type": "dimension",
-      "$description": "16px at comfortable \u00e2\u20ac\u201d body text base"
+      "$description": "16px at comfortable â€” body text base"
     },
     "ms-1": {
       "$value": "round({scale-base} * {scale-ratio})",
       "$type": "dimension",
-      "$description": "~20px at comfortable (16 \u00c3\u2014 1.25)"
+      "$description": "~20px at comfortable (16 Ã— 1.25)"
     },
     "ms-2": {
       "$value": "round({ms-1} * {scale-ratio})",
       "$type": "dimension",
-      "$description": "~25px at comfortable (16 \u00c3\u2014 1.25\u00c2\u00b2)"
+      "$description": "~25px at comfortable (16 Ã— 1.25Â²)"
     },
     "ms-3": {
       "$value": "round({ms-2} * {scale-ratio})",
       "$type": "dimension",
-      "$description": "~31px at comfortable (16 \u00c3\u2014 1.25\u00c2\u00b3)"
+      "$description": "~31px at comfortable (16 Ã— 1.25Â³)"
     },
     "ms-4": {
       "$value": "round({ms-3} * {scale-ratio})",
       "$type": "dimension",
-      "$description": "~39px at comfortable (16 \u00c3\u2014 1.25\u00e2\u0081\u00b4)"
+      "$description": "~39px at comfortable (16 Ã— 1.25â´)"
     },
     "ms-5": {
       "$value": "round({ms-4} * {scale-ratio})",
       "$type": "dimension",
-      "$description": "~49px at comfortable (16 \u00c3\u2014 1.25\u00e2\u0081\u00b5)"
+      "$description": "~49px at comfortable (16 Ã— 1.25âµ)"
     },
     "ms-6": {
       "$value": "round({ms-5} * {scale-ratio})",
       "$type": "dimension",
-      "$description": "~61px at comfortable (16 \u00c3\u2014 1.25\u00e2\u0081\u00b6)"
+      "$description": "~61px at comfortable (16 Ã— 1.25â¶)"
     },
     "ms-7": {
       "$value": "round({ms-6} * {scale-ratio})",
       "$type": "dimension",
-      "$description": "~76px at comfortable (16 \u00c3\u2014 1.25\u00e2\u0081\u00b7)"
+      "$description": "~76px at comfortable (16 Ã— 1.25â·)"
     },
     "ms-8": {
       "$value": "round({ms-7} * {scale-ratio})",
       "$type": "dimension",
-      "$description": "~95px at comfortable (16 \u00c3\u2014 1.25\u00e2\u0081\u00b8)"
+      "$description": "~95px at comfortable (16 Ã— 1.25â¸)"
     }
   },
   "foundations/linear-scale": {

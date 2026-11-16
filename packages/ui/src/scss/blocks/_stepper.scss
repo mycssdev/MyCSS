@@ -1,0 +1,143 @@
+// Stepper (+ .Step) — Figma: BLOCKS › Navigation.
+// .Step: Orientation Horizontal|Vertical · Status Complete|Current|Upcoming|
+// Error · State Default|Hover|Focus. A 24px marker, a label, and a 2px
+// connector to the next step (brand once the step is complete).
+//
+//   <ol class="my-stepper">
+//     <li class="my-step" data-status="complete"><span class="my-step-marker"><svg …check/></span>Account</li>
+//     <li class="my-step" data-status="current" aria-current="step"><span class="my-step-marker">2</span>Payment</li>
+//     <li class="my-step"><span class="my-step-marker">3</span>Review</li>      (upcoming is the default)
+//   </ol>
+//   Vertical: <ol class="my-stepper" data-orientation="vertical">. Error: data-status="error".
+//   A step can hold a link or button around marker + label; its focus ring goes on the marker.
+//
+// Translation note: Figma's connector is a fixed 48px; here it stretches to
+// share the available width (minimum 24px), so a stepper fills its container.
+@use "../../../../design/src/scss/my" as my;
+
+@layer mycss.blocks {
+  .my-stepper {
+    display: flex;
+    gap: my.token(spacing-sm);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+
+    &[data-orientation="vertical"] {
+      flex-direction: column;
+      gap: 0;
+    }
+  }
+
+  .my-step {
+    --_line: #{my.token(border-neutral-secondary)};
+    flex: 1;
+    display: flex;
+    align-items: center;
+    gap: my.token(spacing-sm);
+    color: my.token(text-neutral-tertiary);
+    @include my.type(label);
+    white-space: nowrap;
+
+    &:last-child { flex: none; }
+    &:not(:last-child)::after {
+      content: "";
+      flex: 1;
+      min-inline-size: 24px;
+      block-size: 2px;
+      background-color: var(--_line);
+    }
+    > :is(a, button) {
+      display: inline-flex;
+      align-items: center;
+      gap: my.token(spacing-sm);
+      margin: 0;
+      padding: 0;
+      border: 0;
+      background: none;
+      color: inherit;
+      font: inherit;
+      letter-spacing: inherit;
+      text-decoration: none;
+      cursor: pointer;
+
+      &:focus-visible { outline: none; }
+      &:focus-visible > .my-step-marker { box-shadow: 0 0 0 3px my.token(effect-ring-brand); }
+    }
+
+    &[data-status="complete"] {
+      --_line: #{my.token(bg-brand-solid)};
+      color: my.token(text-neutral-primary);
+
+      .my-step-marker {
+        border-color: transparent;
+        background-color: my.token(bg-brand-solid);
+        color: my.token(fg-on-accent);
+      }
+    }
+    &:is([data-status="current"], [aria-current="step"]) {
+      color: my.token(text-neutral-primary);
+
+      .my-step-marker {
+        border: 2px solid my.token(border-brand);
+        background-color: my.token(bg-brand-subtle);
+        color: my.token(text-brand);
+      }
+    }
+    &[data-status="error"] {
+      color: my.token(text-error);
+
+      .my-step-marker {
+        border: 2px solid my.token(border-error);
+        background-color: my.token(bg-error-primary);
+        color: my.token(fg-error-primary);
+      }
+    }
+    &[data-state="focus"] .my-step-marker {
+      box-shadow: 0 0 0 3px my.token(effect-ring-brand);
+    }
+  }
+
+  .my-step-marker {
+    flex: none;
+    display: inline-grid;
+    place-items: center;
+    box-sizing: border-box;
+    inline-size: 24px;
+    block-size: 24px;
+    border: 1px solid my.token(border-neutral-secondary);
+    border-radius: my.token(border-radius-pill);
+    background-color: my.token(bg-neutral-secondary);
+    color: my.token(text-neutral-tertiary);
+    @include my.type(label-sm);
+    font-variant-numeric: tabular-nums;
+    transition: box-shadow my.token(duration-fast-2) my.token(ease-standard);
+
+    > svg,
+    > .my-icon {
+      inline-size: my.token(size-1);
+      block-size: my.token(size-1);
+    }
+  }
+
+  // vertical: the connector drops from under the marker
+  .my-stepper[data-orientation="vertical"] > .my-step {
+    flex: none;
+    flex-wrap: wrap;
+    row-gap: 0;
+
+    &:not(:last-child)::after {
+      flex: none;
+      flex-basis: 100%;
+      inline-size: 2px;
+      min-inline-size: 0;
+      block-size: 24px;
+      margin-block: my.token(spacing-sm) 0;
+      margin-inline-start: 11px;
+      // a 2px bar in a full-width row
+      background: linear-gradient(var(--_line), var(--_line)) 0 0 / 2px 100% no-repeat;
+      background-color: transparent;
+    }
+    &:not(:last-child):dir(rtl)::after { background-position: 100% 0; }
+  }
+}

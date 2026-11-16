@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><title>MyCSS blocks test fixture</title>
+<link rel="stylesheet" href="../../../packages/design/dist/css/mycss.css">
+<link rel="stylesheet" href="../../../packages/design/dist/css/brandkits/mycss.brandkit.acme.css">
+<script src="../../../packages/design/dist/js/mycss.js" defer></script>
+<style>body{padding:40px;display:grid;gap:24px;justify-items:start}</style></head>
+<body>
+<div>
+  <div class="my-tabs" role="tablist" id="tabs">
+    <button class="my-tab" role="tab" id="t1" aria-controls="p1" aria-selected="true">One</button>
+    <button class="my-tab" role="tab" id="t2" aria-controls="p2">Two</button>
+    <button class="my-tab" role="tab" id="t3" aria-controls="p3" disabled>Three</button>
+    <button class="my-tab" role="tab" id="t4" aria-controls="p4">Four</button>
+  </div>
+  <div id="p1" role="tabpanel">Panel one</div><div id="p2" role="tabpanel">Panel two</div>
+  <div id="p3" role="tabpanel">Panel three</div><div id="p4" role="tabpanel">Panel four</div>
+</div>
+<input type="range" class="my-slider" id="slider" min="0" max="200" value="50" style="width:240px">
+<label class="my-color-input" id="color"><input type="color" value="#663399"><input type="text" value="#663399"></label>
+<label class="my-choice"><input type="checkbox" class="my-checkbox" id="mixed" data-indeterminate> Mixed</label>
+<button class="my-button" id="open" data-open="#dlg">Open dialog</button>
+<dialog class="my-dialog" id="dlg" data-light-dismiss><header class="my-dialog-header"><h2>Title</h2></header>
+  <div class="my-dialog-body"><p>Body</p></div>
+  <footer class="my-dialog-footer"><button class="my-button" id="close" data-close="saved">Save</button></footer></dialog>
+<button class="my-button" id="menubtn" popovertarget="menu">Menu</button>
+<div class="my-menu" popover id="menu" role="menu" style="width:240px"><div class="my-menu-item" role="menuitem" id="mi1"><span>Rename</span></div><div class="my-menu-item" role="menuitem" id="mi2"><span>Share</span></div><div class="my-menu-item" role="menuitem" id="mi3" aria-disabled="true"><span>Delete</span></div></div>
+<button class="my-button" id="popbtn" popovertarget="pop">Popover</button>
+<div class="my-popover" popover id="pop"><h3>About</h3><p>Popover body.</p></div>
+<button class="my-icon-button" id="tipbtn" data-tooltip="Copy link" aria-label="Copy link"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor"><rect x="3" y="3" width="10" height="10"/></svg></button>
+<div class="my-audio" id="audio" style="width:480px"><audio></audio>
+  <div class="my-media-controls"><button class="my-icon-button" data-media="play" aria-label="Play"></button><span class="my-media-time">0:00 / 0:00</span><input type="range" class="my-slider" value="0"><button class="my-icon-button" data-media="mute" aria-label="Mute"></button></div></div>
+<div class="my-alert" id="alert" data-tone="info"><p>Heads up</p><button class="my-icon-button" data-dismiss aria-label="Dismiss"></button></div>
+
+<!-- same components, default accent vs the acme brand kit -->
+<div id="plain" class="kit"></div>
+<div id="base" class="kit" data-accent="base"></div>
+<div id="rebecca" class="kit" data-accent="rebecca"></div>
+<div id="acme" class="kit" data-brand="acme"></div>
+<template id="kit-tpl">
+  <button class="my-button" data-probe="button">Button</button>
+  <a class="my-link" href="#" data-probe="link">Link</a>
+  <input type="checkbox" class="my-checkbox" checked data-probe="checkbox">
+  <input type="radio" class="my-radio" checked data-probe="radio">
+  <input type="checkbox" class="my-switch" role="switch" checked data-probe="switch">
+  <div class="my-tabs" role="tablist"><button class="my-tab" role="tab" aria-selected="true" data-probe="tab">Tab</button></div>
+  <a class="my-nav-link" href="#" aria-current="page" data-probe="nav-link">Nav</a>
+  <a class="my-page-button" href="#" aria-current="page" data-probe="page-button">1</a>
+  <span class="my-badge" data-tone="accent" data-probe="badge">Badge</span>
+  <span class="my-spinner" data-probe="spinner"></span>
+</template>
+<script>for (const id of ["plain","base","rebecca","acme"]) document.getElementById(id).append(document.getElementById("kit-tpl").content.cloneNode(true));</script>
+</body></html>

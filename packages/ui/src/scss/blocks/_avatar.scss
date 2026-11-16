@@ -1,0 +1,70 @@
+// Avatar · Avatar Group — Figma: BLOCKS › Data Display.
+// Kind Initials|Icon|Image · Size Sm|Md|Lg (24 / 32 / 48). Avatar is the
+// one sanctioned size axis besides Button; everything else sizes by density.
+//
+//   <span class="my-avatar">AO</span>
+//   <span class="my-avatar" data-size="lg"><img src="…" alt="Ada Okafor"></span>
+//   <span class="my-avatar" data-kind="icon" data-size="sm"><svg …/></span>
+//   Presence: add <span class="my-badge" data-kind="dot" data-tone="success"></span> inside.
+//   <div class="my-avatar-group"> …avatars… <span class="my-avatar" data-kind="overflow">+4</span></div>
+@use "../../../../design/src/scss/my" as my;
+
+@layer mycss.blocks {
+  .my-avatar {
+    --_size: #{my.token(size-5)};
+    position: relative;
+    flex: none;
+    display: inline-grid;
+    place-items: center;
+    box-sizing: border-box;
+    inline-size: var(--_size);
+    block-size: var(--_size);
+    border-radius: my.token(border-radius-pill);
+    background-color: my.token(bg-brand-subtle);
+    color: my.token(text-brand);
+    @include my.type(label);
+    line-height: 1;
+    user-select: none;
+
+    &[data-size="sm"] { --_size: #{my.token(size-3)}; font-size: my.token(caption-size); }
+    &[data-size="lg"] { --_size: #{my.token(size-6)}; font-size: my.token(h6-size); }
+
+    > img {
+      inline-size: 100%;
+      block-size: 100%;
+      border-radius: inherit;
+      object-fit: cover;
+      background-color: my.token(bg-neutral-quaternary);
+    }
+    &[data-kind="icon"] {
+      background-color: my.token(bg-neutral-tertiary);
+      color: my.token(fg-neutral-secondary);
+    }
+    &[data-kind="overflow"] {
+      background-color: my.token(bg-neutral-secondary);
+      color: my.token(text-neutral-secondary);
+    }
+    > svg, > .my-icon { inline-size: 62.5%; block-size: 62.5%; }
+    &[data-size="sm"] > :is(svg, .my-icon) { inline-size: my.token(size-1); block-size: my.token(size-1); }
+    &[data-size="lg"] > :is(svg, .my-icon) { inline-size: my.token(size-3); block-size: my.token(size-3); }
+
+    // presence dot
+    > .my-badge[data-kind="dot"] {
+      position: absolute;
+      inset-block-end: 0;
+      inset-inline-end: 0;
+      box-shadow: 0 0 0 2px my.token(surface-secondary);
+    }
+  }
+
+  .my-avatar-group {
+    display: inline-flex;
+    align-items: center;
+
+    > .my-avatar {
+      box-shadow: 0 0 0 2px my.token(surface-secondary);
+
+      & + .my-avatar { margin-inline-start: -8px; }
+    }
+  }
+}

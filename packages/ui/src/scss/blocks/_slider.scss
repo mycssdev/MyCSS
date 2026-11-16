@@ -1,0 +1,87 @@
+// Slider — Figma: BLOCKS › Inputs & Forms › Slider (Default|Hover|Focus|Disabled).
+// A native <input type="range">: 4px pill track, brand fill, 16px thumb
+// (20px on hover) with depth/low; the focus ring sits on the thumb.
+//
+//   <input type="range" class="my-slider" style="--my-slider-fill: 50%">
+//
+// The filled part: Firefox paints it natively. Chrome and Safari have no
+// "filled track" part, so the fill follows --my-slider-fill (0%-100%), which
+// the page keeps in step with the value, e.g.
+//   oninput="this.style.setProperty('--my-slider-fill', (this.value-this.min)/(this.max-this.min)*100+'%')"
+@use "../../../../design/src/scss/my" as my;
+
+@mixin thumb {
+  box-sizing: border-box;
+  inline-size: var(--_thumb);
+  block-size: var(--_thumb);
+  border: 1.5px solid var(--_edge);
+  border-radius: 50%;
+  background-color: my.token(overlay-primary);
+  box-shadow: var(--_ring, 0 0 0 0 transparent), my.token(shadow-low);
+  transition: inline-size my.token(duration-fast-2) my.token(ease-standard),
+    block-size my.token(duration-fast-2) my.token(ease-standard),
+    box-shadow my.token(duration-fast-2) my.token(ease-standard);
+}
+
+@layer mycss.blocks {
+  .my-slider {
+    --_thumb: 16px;
+    --_edge: #{my.token(border-brand)};
+    --_fill: #{my.token(bg-brand-solid)};
+    --_rest: #{my.token(bg-neutral-quaternary)};
+
+    display: block;
+    inline-size: 100%;
+    block-size: 20px;
+    margin: 0;
+    padding: 0;
+    background: none;
+    cursor: pointer;
+    -webkit-appearance: none;
+    appearance: none;
+
+    &::-webkit-slider-runnable-track {
+      block-size: 4px;
+      border-radius: my.token(border-radius-pill);
+      background: linear-gradient(to right, var(--_fill) var(--my-slider-fill, 0%), var(--_rest) var(--my-slider-fill, 0%));
+    }
+    &:dir(rtl)::-webkit-slider-runnable-track {
+      background: linear-gradient(to left, var(--_fill) var(--my-slider-fill, 0%), var(--_rest) var(--my-slider-fill, 0%));
+    }
+    &::-moz-range-track {
+      block-size: 4px;
+      border-radius: my.token(border-radius-pill);
+      background-color: var(--_rest);
+    }
+    &::-moz-range-progress {
+      block-size: 4px;
+      border-radius: my.token(border-radius-pill);
+      background-color: var(--_fill);
+    }
+    &::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      margin-block-start: calc((4px - var(--_thumb)) / 2);
+      @include thumb;
+    }
+    &::-moz-range-thumb {
+      @include thumb;
+    }
+
+    &:where(:hover):not(:disabled),
+    &[data-state="hover"] {
+      --_thumb: 20px;
+    }
+    &:focus-visible,
+    &[data-state="focus"] {
+      outline: none;
+      --_ring: 0 0 0 3px #{my.token(effect-ring-brand)};
+    }
+    &:disabled,
+    &[data-state="disabled"] {
+      --_edge: #{my.token(border-neutral-disabled)};
+      --_fill: #{my.token(bg-neutral-disabled)};
+      cursor: not-allowed;
+    }
+  }
+}

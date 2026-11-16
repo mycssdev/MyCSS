@@ -73,7 +73,7 @@
     gap: var(--my-grid-space, var(--my-gutter-md));
     grid-template-columns: repeat(
       auto-fit,
-      minmax(min(var(--my-grid-min, var(--my-space-64)), 100%), 1fr)
+      minmax(min(var(--my-grid-min, var(--my-width-3xs)), 100%), 1fr)
     );
   }
 

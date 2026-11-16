@@ -1,0 +1,77 @@
+// Disclosure (+ .Summary) · Accordion — Figma: BLOCKS › Navigation.
+// Native <details>/<summary>; the chevron turns when open.
+// .Summary: Open False|True · State Default|Hover|Focus|Disabled.
+//
+//   <details class="my-disclosure"><summary>Section title</summary><p>Content…</p></details>
+//   <div class="my-accordion"> <details class="my-disclosure" name="faq">…</details> … </div>
+//   (the shared name attribute makes the browser keep one open at a time)
+@use "../../../../design/src/scss/my" as my;
+@use "glyphs";
+
+@layer mycss.blocks {
+  .my-disclosure {
+    display: block;
+
+    > summary {
+      display: flex;
+      align-items: center;
+      gap: my.token(spacing-sm);
+      padding-block: my.token(spacing-sm);
+      padding-inline: my.token(spacing-md);
+      border-radius: my.token(border-radius-soft);
+      color: my.token(text-neutral-primary);
+      @include my.type(label);
+      list-style: none;
+      cursor: pointer;
+      transition-property: background-color, box-shadow;
+      transition-duration: my.token(duration-fast-2);
+      transition-timing-function: my.token(ease-standard);
+
+      &::-webkit-details-marker { display: none; }
+      &::before {
+        @include glyphs.glyph(glyphs.$chevron-right);
+        background-color: my.token(fg-neutral-tertiary);
+        transition: rotate my.token(duration-fast-2) my.token(ease-standard);
+      }
+      &:dir(rtl)::before { scale: -1 1; }
+      &:hover,
+      &[data-state="hover"] {
+        background-color: my.token(bg-neutral-primary_hover);
+      }
+      &:focus-visible,
+      &[data-state="focus"] {
+        outline: none;
+        box-shadow: 0 0 0 3px my.token(effect-ring-brand);
+      }
+    }
+    &[open] > summary::before { rotate: 90deg; }
+    &[open]:dir(rtl) > summary::before { rotate: -90deg; }
+
+    // content: indented under the title
+    > :not(summary) {
+      margin-block: my.token(spacing-xs) 0;
+      margin-inline: 0;
+      padding-inline-start: my.token(spacing-2xl);
+      color: my.token(text-neutral-secondary);
+      @include my.type(body-sm);
+    }
+    > .my-sidebar-item { padding-inline-start: calc(#{my.token(spacing-md)} + #{my.token(size-1)} + #{my.token(spacing-sm)}); color: my.token(text-neutral-primary); @include my.type(label); }
+
+    &[data-state="disabled"] > summary {
+      background-color: transparent;
+      color: my.token(text-neutral-disabled);
+      pointer-events: none;
+
+      &::before { background-color: my.token(fg-neutral-disabled); }
+    }
+  }
+
+  .my-accordion {
+    display: flex;
+    flex-direction: column;
+
+    > .my-disclosure + .my-disclosure {
+      border-block-start: 1px solid my.token(border-neutral-separator);
+    }
+  }
+}

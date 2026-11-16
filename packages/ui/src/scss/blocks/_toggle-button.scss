@@ -1,0 +1,62 @@
+// Toggle Button — Figma: BLOCKS › Actions › Toggle Button (8 variants).
+// Axes: Value Off|On · State Default|Hover|Focus|Disabled · leading/trailing
+// icon booleans. Value = aria-pressed (data-value mirror for specimens).
+//
+//   <button class="my-toggle-button" aria-pressed="false"><svg …/>Bold</button>
+//
+// Off is chromeless in Figma (no stroke, 2px shorter than On). Here Off keeps
+// a transparent 1px border so toggling never shifts layout.
+@use "../../../../design/src/scss/my" as my;
+@use "action-tones" as act;
+
+$on: '[aria-pressed="true"], [data-value="on"]';
+
+@layer mycss.blocks {
+  .my-toggle-button {
+    --_bg: transparent;
+    --_bg-hover: #{my.token(bg-neutral-primary_hover)};
+    --_fg: #{my.token(text-neutral-primary)};
+    --_icon-fg: #{my.token(fg-neutral-primary)};
+    --_line: transparent;
+    --_ring: #{my.token(effect-ring-brand)};
+    @include act.action-box;
+
+    gap: my.token(spacing-sm);
+    padding-block: my.token(spacing-md);
+    padding-inline: my.token(spacing-xl);
+    @include my.type(label);
+
+    > svg,
+    > .my-icon {
+      flex: none;
+      color: var(--_icon-fg);
+      inline-size: my.token(size-1);
+      block-size: my.token(size-1);
+    }
+
+    &:is(#{$on}) {
+      --_bg: #{my.token(bg-brand-subtle)};
+      --_bg-hover: #{my.token(bg-brand-soft)};
+      --_fg: #{my.token(text-brand)};
+      --_icon-fg: #{my.token(fg-brand)};
+      --_line: #{my.token(border-brand_subtle)};
+    }
+
+    &:where(:hover):not(#{act.$disabled}),
+    &[data-state="hover"] {
+      background-color: var(--_bg-hover);
+    }
+    &:focus-visible,
+    &[data-state="focus"] {
+      outline: none;
+      box-shadow: 0 0 0 3px var(--_ring);
+    }
+    &:is(#{act.$disabled}) {
+      --_line: #{my.token(border-neutral-disabled)};
+      --_icon-fg: #{my.token(fg-neutral-disabled)};
+      background-color: my.token(bg-neutral-disabled_subtle);
+      color: my.token(text-neutral-disabled);
+      cursor: not-allowed;
+    }
+  }
+}

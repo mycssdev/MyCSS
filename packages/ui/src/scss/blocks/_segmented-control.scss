@@ -1,0 +1,69 @@
+// Segmented Control + .Segment — Figma: BLOCKS › Actions (Segmented Control,
+// .Segment 5 states: Default|Hover|Selected|Focus|Disabled).
+// The selected segment lifts on overlay/primary + depth/low inside a
+// bg/neutral-secondary track.
+//
+//   <div class="my-segmented-control" role="group" aria-label="View">
+//     <button class="my-segment" aria-pressed="true">List</button>
+//     <button class="my-segment" aria-pressed="false">Grid</button>
+//   </div>
+// Radio version: <label class="my-segment"><input type="radio" name="v" class="u-visually-hidden"> List</label>
+@use "../../../../design/src/scss/my" as my;
+
+$selected: '[aria-pressed="true"], [aria-selected="true"], [aria-checked="true"], [aria-current]:not([aria-current="false"]), :has(> input:checked), [data-state="selected"]';
+$disabled: ':disabled, [aria-disabled="true"], :has(> input:disabled), [data-state="disabled"]';
+
+@layer mycss.blocks {
+  .my-segmented-control {
+    display: inline-flex;
+    align-items: stretch;
+    gap: my.token(spacing-xxs);
+    padding: my.token(spacing-xxs);
+    border-radius: my.token(border-radius-soft);
+    background-color: my.token(bg-neutral-secondary);
+  }
+
+  .my-segment {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: my.token(spacing-xs);
+    box-sizing: border-box;
+    margin: 0;
+    padding-block: my.token(spacing-sm);
+    padding-inline: my.token(spacing-lg);
+    border: 0;
+    border-radius: my.token(border-radius-soft);
+    background-color: transparent;
+    color: my.token(text-neutral-secondary);
+    @include my.type(label);
+    white-space: nowrap;
+    cursor: pointer;
+    -webkit-appearance: none;
+    appearance: none;
+    transition-property: background-color, color, box-shadow;
+    transition-duration: my.token(duration-fast-2);
+    transition-timing-function: my.token(ease-standard);
+
+    &:where(:hover):not(#{$disabled}, #{$selected}),
+    &[data-state="hover"] {
+      background-color: my.token(bg-neutral-primary_hover);
+      color: my.token(text-neutral-primary);
+    }
+    &:is(#{$selected}) {
+      background-color: my.token(overlay-primary);
+      box-shadow: my.token(shadow-low);
+      color: my.token(text-neutral-primary);
+    }
+    &:focus-visible,
+    &:has(> input:focus-visible),
+    &[data-state="focus"] {
+      outline: none;
+      box-shadow: 0 0 0 3px my.token(effect-ring-brand);
+    }
+    &:is(#{$disabled}) {
+      color: my.token(text-neutral-disabled);
+      cursor: not-allowed;
+    }
+  }
+}

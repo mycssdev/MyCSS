@@ -1,0 +1,52 @@
+// Empty State — Figma: BLOCKS › Feedback › Empty State.
+// A centred column: 96px icon disc, heading, one line of body, actions.
+//
+//   <div class="my-empty-state">
+//     <div class="my-empty-state-icon"><svg …/></div>
+//     <h2>No projects yet</h2>
+//     <p>Create your first project to get started.</p>
+//     <div class="my-button-group"><button class="my-button">New project</button></div>
+//   </div>
+@use "../../../../design/src/scss/my" as my;
+
+@layer mycss.blocks {
+  .my-empty-state {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: my.token(spacing-lg);
+    box-sizing: border-box;
+    padding-block: my.token(spacing-7xl);
+    padding-inline: my.token(spacing-4xl);
+    text-align: center;
+
+    > :is(h1, h2, h3, h4, h5, h6) {
+      margin: 0;
+      color: my.token(text-neutral-primary);
+      @include my.type(h5);
+      font-weight: my.token(font-weight-bold);
+    }
+    > p {
+      max-inline-size: 416px;
+      margin: 0;
+      color: my.token(text-neutral-secondary);
+      @include my.type(body-sm);
+    }
+    > .my-button-group { justify-content: center; }
+  }
+  .my-empty-state-icon {
+    display: grid;
+    place-items: center;
+    inline-size: 96px;
+    block-size: 96px;
+    border-radius: my.token(border-radius-pill);
+    background-color: my.token(bg-neutral-secondary);
+    color: my.token(fg-neutral-tertiary);
+
+    > svg,
+    > .my-icon {
+      inline-size: my.token(size-6);
+      block-size: my.token(size-6);
+    }
+  }
+}

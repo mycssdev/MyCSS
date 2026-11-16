@@ -1,0 +1,116 @@
+// Menu Item + .Select Menu — Figma: BLOCKS › Inputs & Forms (Menu Item 6
+// variants: Tone Neutral|Danger · State Default|Hover|Selected|Disabled;
+// .Select Menu is the floating panel that holds them).
+//
+//   <div class="my-menu" role="listbox">
+//     <div class="my-menu-item" role="option">Option one</div>
+//     <div class="my-menu-item" role="option" aria-selected="true"><span>Option two</span><svg …check/></div>
+//     <button class="my-menu-item" data-tone="danger">Delete</button>
+//   </div>
+// Also the Overlays › Menu (Kind Actions|Checkable): add .my-menu-separator,
+// .my-menu-heading, a leading icon, a trailing <kbd class="my-kbd"> shortcut.
+// Checkable items use role="menuitemcheckbox" + aria-checked.
+// Opening it: put popover on the .my-menu and point a button's popovertarget at it.
+@use "../../../../design/src/scss/my" as my;
+
+$selected: '[aria-selected="true"], [aria-checked="true"], [aria-current]:not([aria-current="false"]), [data-state="selected"]';
+$disabled: ':disabled, [aria-disabled="true"], [data-state="disabled"]';
+
+@layer mycss.blocks {
+  .my-menu {
+    flex-direction: column;
+    box-sizing: border-box;
+    margin: 0;
+    padding: my.token(spacing-xs);
+
+    &:where(:not([popover])),
+    &:popover-open {
+      display: flex;
+    }
+    border: 1px solid my.token(border-neutral-secondary);
+    border-radius: my.token(border-radius-soft);
+    background-color: my.token(overlay-primary);
+    box-shadow: my.token(shadow-mid);
+    list-style: none;
+  }
+
+  // Overlays › Menu extras: a group heading and a separator
+  .my-menu-heading {
+    margin: 0;
+    padding-block: my.token(spacing-xs);
+    padding-inline: my.token(spacing-md);
+    color: my.token(text-neutral-tertiary);
+    @include my.type(overline);
+    text-transform: uppercase;
+  }
+  .my-menu-separator {
+    flex: none;
+    block-size: 1px;
+    margin-block: my.token(spacing-xs);
+    margin-inline: 0;
+    border: 0;
+    background-color: my.token(border-neutral-separator);
+  }
+
+  .my-menu-item {
+    display: flex;
+    align-items: center;
+    gap: my.token(spacing-sm);
+    box-sizing: border-box;
+    inline-size: 100%;
+    margin: 0;
+    padding-block: my.token(spacing-sm);
+    padding-inline: my.token(spacing-md);
+    border: 0;
+    border-radius: my.token(border-radius-crisp);
+    background-color: transparent;
+    color: my.token(text-neutral-primary);
+    @include my.type(body);
+    text-align: start;
+    text-decoration: none;
+    cursor: pointer;
+    -webkit-appearance: none;
+    appearance: none;
+
+    > svg,
+    > .my-icon {
+      flex: none;
+      inline-size: my.token(size-1);
+      block-size: my.token(size-1);
+      color: my.token(fg-neutral-secondary);
+    }
+    // wrap the label in a <span> when something follows it (check, shortcut,
+    // submenu arrow): the label takes the free space, as in Figma
+    > span {
+      flex: 1;
+      min-inline-size: 0;
+    }
+
+    &:where(:hover, :focus-visible):not(#{$disabled}, #{$selected}),
+    &[data-state="hover"] {
+      outline: none;
+      background-color: my.token(bg-neutral-secondary_hover);
+    }
+    &:is(#{$selected}) {
+      background-color: my.token(bg-brand-subtle);
+      color: my.token(text-brand);
+
+      > svg, > .my-icon { color: my.token(fg-brand); }
+    }
+    &[data-tone="danger"] {
+      color: my.token(text-error);
+
+      > svg, > .my-icon { color: my.token(fg-error-primary); }
+      &:where(:hover, :focus-visible):not(#{$disabled}),
+      &[data-state="hover"] {
+        background-color: my.token(bg-error-primary);
+      }
+    }
+    &:is(#{$disabled}) {
+      color: my.token(text-neutral-disabled);
+      cursor: not-allowed;
+
+      > svg, > .my-icon { color: my.token(fg-neutral-disabled); }
+    }
+  }
+}

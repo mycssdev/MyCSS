@@ -1,0 +1,97 @@
+// Split Button — Figma: BLOCKS › Actions › Split Button (6 variants).
+// Axes: Tone Brand|Danger · State Default|Open|Disabled. Solid only.
+// Two real buttons in one shape: the action, then the menu toggle, divided
+// by a 1px rule in the tone's solid_active colour (as in Figma).
+//
+//   <div class="my-split-button" data-tone="danger">
+//     <button>Delete</button>
+//     <button aria-label="More delete options" aria-haspopup="menu" aria-expanded="false"><svg …/></button>
+//   </div>
+//
+// Translation notes: Figma draws a divider after the leading icon as well; the
+// CSS divides action | toggle only. Figma's enabled variants have no stroke
+// (36px tall vs Button's 38); the CSS keeps a transparent 1px border so a
+// Split Button lines up with Buttons. Hover (not in Figma) uses solid_hover
+// per half, like Button.
+@use "../../../../design/src/scss/my" as my;
+@use "action-tones" as act;
+
+@layer mycss.blocks {
+  .my-split-button {
+    @include act.brand-defaults;
+    @include act.tones((danger));
+
+    display: inline-flex;
+    align-items: stretch;
+    box-sizing: border-box;
+    border: my.token(border-width-2) solid transparent;
+    border-radius: my.token(border-radius-soft);
+    background-color: var(--_solid);
+    color: var(--_on-solid);
+    @include my.type(label-lg);
+    transition: background-color my.token(duration-fast-2) my.token(ease-standard);
+
+    > button,
+    > a {
+      display: inline-flex;
+      align-items: center;
+      gap: my.token(spacing-xs);
+      margin: 0;
+      padding-block: my.token(spacing-sm);
+      padding-inline: my.token(spacing-xl);
+      border: 0;
+      border-radius: inherit;
+      background: transparent;
+      color: inherit;
+      font: inherit;
+      letter-spacing: inherit;
+      text-decoration: none;
+      white-space: nowrap;
+      cursor: pointer;
+      -webkit-appearance: none;
+      appearance: none;
+
+      > svg,
+      > .my-icon {
+        flex: none;
+        color: var(--_on-solid-icon);
+        inline-size: my.token(size-1);
+        block-size: my.token(size-1);
+      }
+    }
+    > :first-child {
+      border-start-end-radius: 0;
+      border-end-end-radius: 0;
+    }
+    > :last-child {
+      padding-inline: my.token(spacing-lg);
+      border-inline-start: my.token(border-width-2) solid var(--_solid-active);
+      border-start-start-radius: 0;
+      border-end-start-radius: 0;
+    }
+    > :hover:not(:disabled) {
+      background-color: var(--_solid-hover);
+    }
+    > :focus-visible {
+      outline: none;
+      box-shadow: 0 0 0 3px var(--_ring);
+    }
+
+    // Open: the menu toggle is expanded
+    &:has(> [aria-expanded="true"]),
+    &[data-state="open"] {
+      background-color: var(--_solid-active);
+    }
+
+    &:has(> :disabled, > [aria-disabled="true"]),
+    &[data-state="disabled"] {
+      border-color: my.token(border-neutral-disabled);
+      background-color: my.token(bg-neutral-disabled);
+      color: my.token(text-neutral-disabled);
+
+      > * { cursor: not-allowed; background-color: transparent; }
+      > * > svg, > * > .my-icon { color: my.token(fg-neutral-disabled); }
+      > :last-child { border-inline-start-color: my.token(border-neutral-disabled); }
+    }
+  }
+}

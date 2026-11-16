@@ -1,0 +1,115 @@
+// Button — Figma: BLOCKS › Actions › Button (120 variants) + .Button Base.
+// Axes: Tone Brand|Neutral|Danger|Warning|Success|Info · Variant Solid|Soft|
+// Outline|Ghost · State Default|Hover|Focus|Pressed|Disabled · Size XS–XL
+// (on .Button Base, v2.17) · Loading (boolean).
+//
+//   <button class="my-button">Save</button>
+//   <button class="my-button" data-tone="danger" data-variant="outline" data-size="sm">Delete</button>
+//   <a class="my-button" data-variant="ghost" href="…">Docs</a>
+//   <button class="my-button" aria-busy="true">Saving…</button>
+//
+// Colour roles follow Figma exactly: the label uses text/* (WCAG AA text
+// steps), icons use fg/* (non-text, 3:1). Inline SVG icons should paint with
+// currentColor; the block sets their colour to the fg token.
+//
+// Translation notes (where CSS differs from the Figma file, on purpose):
+//   - Brand names are bg-brand-subtle/soft and text-brand, as in Figma (the
+//     old brand-primary/secondary names were removed in v2.18).
+//   - Neutral has no Solid variant in Figma (deliberate); data-tone="neutral"
+//     with Solid (or no data-variant) renders as Soft.
+//   - Focus ring = Figma shadow/ring/<tone>: 0 0 0 3px, spread only.
+@use "../../../../design/src/scss/my" as my;
+@use "action-tones" as act;
+@use "sass:map";
+
+// Size axis (.Button Base): inline padding, block padding (text-wrap + outer),
+// gap, label role, icon size — all 06. Density / 09. Typography Roles tokens.
+$sizes: (
+  xs: (pad-i: spacing-md,  pad-b: spacing-xxs, gap: spacing-xxs, role: label-sm,  icon: size-1),
+  sm: (pad-i: spacing-lg,  pad-b: spacing-xs,  gap: spacing-xs,  role: label,     icon: size-1),
+  md: (pad-i: spacing-xl,  pad-b: spacing-sm,  gap: spacing-xs,  role: label-lg,  icon: size-1),
+  lg: (pad-i: spacing-2xl, pad-b: spacing-md,  gap: spacing-sm,  role: label-xl,  icon: size-2),
+  xl: (pad-i: spacing-3xl, pad-b: spacing-md,  gap: spacing-md,  role: label-2xl, icon: size-3, pad-b-outer: spacing-xxs),
+);
+
+@mixin size($s) {
+  $role: map.get($s, role);
+  --_pad-inline: #{my.token(map.get($s, pad-i))};
+  @if map.has-key($s, pad-b-outer) {
+    --_pad-block: calc(#{my.token(map.get($s, pad-b))} + #{my.token(map.get($s, pad-b-outer))});
+  } @else {
+    --_pad-block: #{my.token(map.get($s, pad-b))};
+  }
+  --_gap: #{my.token(map.get($s, gap))};
+  --_icon: #{my.token(map.get($s, icon))};
+  --_font-family: #{my.token(#{$role}-family)};
+  --_font-size: #{my.token(#{$role}-size)};
+  --_font-weight: #{my.token(#{$role}-weight)};
+  --_line-height: #{my.token(#{$role}-line-height)};
+  --_tracking: #{my.token(#{$role}-tracking)};
+}
+
+@layer mycss.blocks {
+  .my-button {
+    @include act.brand-defaults;
+    @include act.variants;
+    @include size(map.get($sizes, md));
+    @include act.action-box;
+
+    gap: var(--_gap);
+    // Figma pads the label (text-wrap), not the icons: the height is
+    // label line + 2 × block padding + 2 × border, whatever the icon size.
+    min-block-size: calc(var(--_font-size) * var(--_line-height) + 2 * var(--_pad-block) + 2 * #{my.token(border-width-2)});
+    padding-block: 0;
+    padding-inline: var(--_pad-inline);
+    font-family: var(--_font-family);
+    font-size: var(--_font-size);
+    font-weight: var(--_font-weight);
+    line-height: var(--_line-height);
+    letter-spacing: var(--_tracking);
+
+    > svg,
+    > .my-icon {
+      flex: none;
+      color: var(--_icon-fg);
+      inline-size: var(--_icon);
+      block-size: var(--_icon);
+    }
+
+    @include act.tones((neutral, danger, warning, success, info));
+
+    @each $name, $s in $sizes {
+      @if $name != md {
+        &[data-size="#{$name}"] {
+          @include size($s);
+        }
+      }
+    }
+
+    @include act.states(outline);
+
+    // ---- loading (Figma: Loading boolean; a 270° ring before the label)
+    &[aria-busy="true"] {
+      cursor: progress;
+
+      &::before {
+        content: "";
+        flex: none;
+        inline-size: var(--_icon);
+        block-size: var(--_icon);
+        border-radius: my.token(border-radius-full);
+        border: 2px solid currentColor;
+        border-inline-start-color: transparent;
+        animation: my-button-spin 1s linear infinite; // status, not decoration: kept under reduced motion
+      }
+      > svg:first-child,
+      > .my-icon:first-child {
+        display: none;
+      }
+    }
+  }
+
+  @keyframes my-button-spin {
+    to { rotate: 1turn; }
+  }
+}

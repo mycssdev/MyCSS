@@ -1,0 +1,17 @@
+{
+  "name": "acme",
+  "label": "Acme (example kit)",
+  "accent": { "hex": "#0B6E4F" },
+  "neutral": { "hex": "#8A8378" },
+  "typography": {
+    "families": {
+      "primary": "'Work Sans', system-ui, -apple-system, sans-serif",
+      "secondary": "Fraunces, Georgia, serif"
+    },
+    "weights": {
+      "roles": { "display": 800, "heading": 700, "label": "semibold" }
+    },
+    "scale": { "base": 17, "ratio": 1.2 }
+  },
+  "recipe": { "shape": "sharp", "depth": "flat", "density": "comfortable" }
+}

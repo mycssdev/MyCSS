@@ -8,6 +8,9 @@ import { resolve, dirname } from "node:path";
 const demo = resolve(dirname(fileURLToPath(import.meta.url)), "../../packages/design/dist/demo.html");
 await page.goto("file://" + demo.replace(/\\/g, "/"));
 await page.waitForTimeout(300);
+// Blocks animate state changes (motion tokens); the probes read computed
+// colours right after flipping attributes, so freeze transitions for the run.
+await page.addStyleTag({ content: "*, *::before, *::after { transition: none !important; }" });
 
 const probe = () => page.evaluate(() => {
   const cs = el => getComputedStyle(el);
@@ -16,10 +19,10 @@ const probe = () => page.evaluate(() => {
     bodyBg: cs(document.body).backgroundColor,
     btnBg: cs(document.querySelector(".my-button")).backgroundColor,
     jadeBtnBg: cs(document.querySelector('[data-accent="jade"] .my-button')).backgroundColor,
-    cardInset: cs(document.querySelector(".my-card")).paddingTop,
+    cardInset: cs(document.querySelector(".demo-card")).paddingTop,
     regionMd: cs(document.querySelector("main section")).paddingTop,
-    featuredBorder: cs(document.querySelector('.my-card[data-variant="featured"]')).borderTopColor,
-    plainBorder: cs(document.querySelector('.my-card:not([data-variant])')).borderTopColor,
+    featuredBorder: cs(document.querySelector('.demo-card[data-variant="featured"]')).borderTopColor,
+    plainBorder: cs(document.querySelector('.demo-card:not([data-variant])')).borderTopColor,
     disabledBtnBg: cs(document.querySelector('.my-button[data-state="disabled"]')).backgroundColor,
   };
 });
@@ -65,7 +68,7 @@ await page.evaluate(() => document.documentElement.dataset.accent = "iris");
 results.dark_iris = await probe();
 
 // subtree theming — reset page to light/comfortable first
-await page.evaluate(() => { const r = document.documentElement.dataset; r.mode = "light"; r.accent = "brand"; r.density = "comfortable"; });
+await page.evaluate(() => { const r = document.documentElement.dataset; r.mode = "light"; r.accent = "rebecca"; r.density = "comfortable"; });
 results.subtree = await page.evaluate(() => {
   const cs = el => getComputedStyle(el);
   const host = document.createElement("div");
@@ -85,7 +88,7 @@ results.subtree = await page.evaluate(() => {
 
 console.log(JSON.stringify(results, null, 1));
 
-await page.evaluate(() => { const r = document.documentElement.dataset; r.mode = "light"; r.accent = "brand"; r.density = "comfortable"; });
+await page.evaluate(() => { const r = document.documentElement.dataset; r.mode = "light"; r.accent = "rebecca"; r.density = "comfortable"; });
 await page.waitForTimeout(200);
 await page.screenshot({ path: "demo-light.png" });
 await page.evaluate(() => { const r = document.documentElement.dataset; r.mode = "dark"; r.accent = "iris"; });

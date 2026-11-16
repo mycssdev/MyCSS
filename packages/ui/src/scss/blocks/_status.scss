@@ -1,0 +1,37 @@
+// The one status language shared by the Feedback components: tone -> token
+// family. Danger reads the error tokens. Icons use fg/*, text uses text/*.
+@use "../../../../design/src/scss/my" as my;
+@use "sass:map";
+
+$families: (danger: error, warning: warning, success: success, info: info);
+
+// Sets --_soft (tint fill), --_solid, --_text, --_icon, --_line for a tone.
+@mixin tone-vars($tone) {
+  @if $tone == neutral {
+    --_soft: #{my.token(bg-neutral-secondary)};
+    --_solid: #{my.token(fg-neutral-secondary)};
+    --_text: #{my.token(text-neutral-primary)};
+    --_icon: #{my.token(fg-neutral-secondary)};
+    --_line: #{my.token(border-neutral-primary)};
+  } @else if $tone == brand {
+    --_soft: #{my.token(bg-brand-subtle)};
+    --_solid: #{my.token(bg-brand-solid)};
+    --_text: #{my.token(text-brand)};
+    --_icon: #{my.token(fg-brand)};
+    --_line: #{my.token(border-brand)};
+  } @else {
+    $f: map.get($families, $tone);
+    --_soft: #{my.token(bg-#{$f}-primary)};
+    --_solid: #{my.token(bg-#{$f}-solid)};
+    --_text: #{my.token(text-#{$f})};
+    --_icon: #{my.token(fg-#{$f}-primary)};
+    --_line: #{my.token(border-#{$f})};
+  }
+}
+
+@mixin tones($default, $others) {
+  @include tone-vars($default);
+  @each $t in $others {
+    &[data-tone="#{$t}"] { @include tone-vars($t); }
+  }
+}

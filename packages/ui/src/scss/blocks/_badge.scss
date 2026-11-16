@@ -1,0 +1,56 @@
+// Badge — Figma: BLOCKS › Feedback › Badge (18 variants). Static: never
+// hover or focus. Its interactive sibling is Tag (Actions).
+// Kind Status|Count|Dot · Tone Brand|Neutral|Danger|Warning|Success|Info ·
+// Style Soft|Outline (Status) / Solid (Count, Dot).
+//
+//   <span class="my-badge">Draft</span>
+//   <span class="my-badge" data-tone="success" data-variant="outline">Live</span>
+//   <span class="my-badge" data-kind="count" data-tone="danger">12</span>
+//   <span class="my-badge" data-kind="dot" data-tone="danger" aria-label="Unread"></span>
+// Figma has Count and Dot in Danger, Brand and Neutral; the other tones work too.
+@use "../../../../design/src/scss/my" as my;
+@use "status";
+
+@layer mycss.blocks {
+  .my-badge {
+    @include status.tones(brand, (neutral, danger, warning, success, info));
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    padding-block: my.token(spacing-xxs);
+    padding-inline: my.token(spacing-sm);
+    border: 0;
+    border-radius: my.token(border-radius-crisp);
+    background-color: var(--_soft);
+    color: var(--_text);
+    @include my.type(label-sm);
+    white-space: nowrap;
+
+    &[data-variant="outline"] {
+      border: 1px solid var(--_line);
+      background-color: transparent;
+    }
+    &[data-kind="count"] {
+      min-inline-size: calc(#{my.token(label-sm-size)} * #{my.token(label-sm-line-height)} + 2 * #{my.token(spacing-xxs)});
+      padding-inline: my.token(spacing-xs);
+      border-radius: my.token(border-radius-pill);
+      background-color: var(--_solid);
+      color: my.token(text-white);
+      font-variant-numeric: tabular-nums;
+
+      &:not([data-tone]), &[data-tone="brand"] { color: my.token(text-on-accent); }
+      &[data-tone="neutral"] { background-color: my.token(bg-neutral-secondary); color: my.token(text-neutral-primary); }
+    }
+    &[data-kind="dot"] {
+      inline-size: 8px;
+      block-size: 8px;
+      padding: 0;
+      border-radius: my.token(border-radius-pill);
+      background-color: var(--_solid);
+
+      &[data-tone="neutral"] { background-color: my.token(bg-neutral-quaternary); }
+    }
+  }
+}

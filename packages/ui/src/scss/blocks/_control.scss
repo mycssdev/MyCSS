@@ -1,0 +1,52 @@
+// Shared recipe for the boxed text controls (Input, Textarea, Select, Color
+// Input). Figma binds the same tokens in the same slots on all four:
+//   Default  surface/secondary · border/neutral-primary
+//   Hover    bg/neutral-primary_hover · border/brand_subtle
+//   Focus    border/brand + shadow/ring/brand
+//   Error    border/error            Disabled  bg/neutral-disabled_subtle
+// States use real pseudo-classes, aria-invalid, and a data-state mirror.
+@use "../../../../design/src/scss/my" as my;
+
+$invalid: '[aria-invalid="true"], [data-state="error"]';
+$disabled: ':disabled, [aria-disabled="true"], [data-state="disabled"]';
+
+@mixin box {
+  box-sizing: border-box;
+  margin: 0;
+  padding-block: my.token(spacing-md);
+  padding-inline: my.token(spacing-lg);
+  border: my.token(border-width-2) solid my.token(border-neutral-primary);
+  border-radius: my.token(border-radius-soft);
+  background-color: my.token(surface-secondary);
+  color: my.token(text-neutral-primary);
+  @include my.type(body);
+  -webkit-appearance: none;
+  appearance: none;
+  transition-property: background-color, border-color, box-shadow;
+  transition-duration: my.token(duration-fast-2);
+  transition-timing-function: my.token(ease-standard);
+}
+
+@mixin hover($bg: true) {
+  @if $bg {
+    background-color: my.token(bg-neutral-primary_hover);
+  }
+  border-color: my.token(border-brand_subtle);
+}
+
+@mixin focus {
+  outline: none;
+  border-color: my.token(border-brand);
+  box-shadow: 0 0 0 3px my.token(effect-ring-brand);
+}
+
+@mixin invalid {
+  border-color: my.token(border-error);
+}
+
+@mixin disabled {
+  border-color: my.token(border-neutral-disabled);
+  background-color: my.token(bg-neutral-disabled_subtle);
+  color: my.token(text-neutral-disabled);
+  cursor: not-allowed;
+}

@@ -1,0 +1,136 @@
+// Sidebar Item · Sidebar · Nav Drawer — Figma: BLOCKS › Navigation.
+// Sidebar Item: Current False|True · State Default|Hover|Focus|Disabled.
+// Sidebar: Variant Expanded|Rail. Nav Drawer: the mobile navigation panel.
+//
+//   <nav class="my-sidebar" aria-label="Workspace">
+//     <p class="my-sidebar-heading">Workspace</p>
+//     <a class="my-sidebar-item" href="…" aria-current="page"><svg …/><span>Projects</span></a>
+//     <details class="my-disclosure" open><summary>Team</summary>
+//       <a class="my-sidebar-item" data-nested href="…"><span>Design</span></a>
+//     </details>
+//   </nav>
+//   Rail: <nav class="my-sidebar" data-variant="rail"> — labels stay in the markup
+//   (in the <span>) for screen readers and are hidden visually.
+@use "../../../../design/src/scss/my" as my;
+
+$disabled: ':disabled, [aria-disabled="true"], [data-state="disabled"]';
+$current: '[aria-current]:not([aria-current="false"])';
+
+@layer mycss.blocks {
+  .my-sidebar-item {
+    display: flex;
+    align-items: center;
+    gap: my.token(spacing-sm);
+    box-sizing: border-box;
+    margin: 0;
+    padding-block: my.token(spacing-sm);
+    padding-inline: my.token(spacing-md);
+    border: 0;
+    border-radius: my.token(border-radius-soft);
+    background-color: transparent;
+    color: my.token(text-neutral-primary);
+    @include my.type(label);
+    text-align: start;
+    text-decoration: none;
+    cursor: pointer;
+    -webkit-appearance: none;
+    appearance: none;
+    transition-property: background-color, color, box-shadow;
+    transition-duration: my.token(duration-fast-2);
+    transition-timing-function: my.token(ease-standard);
+
+    > span { flex: 1; min-inline-size: 0; }
+    > svg,
+    > .my-icon {
+      flex: none;
+      inline-size: my.token(size-1);
+      block-size: my.token(size-1);
+      color: my.token(fg-neutral-secondary);
+    }
+    // nested under a disclosure: the label lines up with the summary's title
+    &[data-nested] {
+      padding-inline-start: calc(#{my.token(spacing-md)} + #{my.token(size-1)} + #{my.token(spacing-sm)});
+    }
+    &:where(:hover):not(#{$disabled}, #{$current}),
+    &[data-state="hover"]:not(#{$current}) {
+      background-color: my.token(bg-neutral-primary_hover);
+    }
+    &:is(#{$current}) {
+      background-color: my.token(bg-brand-subtle);
+      color: my.token(text-brand);
+
+      > svg, > .my-icon { color: my.token(fg-brand); }
+    }
+    &:focus-visible,
+    &[data-state="focus"] {
+      outline: none;
+      box-shadow: 0 0 0 3px my.token(effect-ring-brand);
+    }
+    // doubled so disabled also beats the current/selected rule
+    &:is(#{$disabled}):is(#{$disabled}) {
+      background-color: transparent;
+      color: my.token(text-neutral-disabled);
+      cursor: not-allowed;
+
+      > svg, > .my-icon { color: my.token(fg-neutral-disabled); }
+    }
+  }
+
+  .my-sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: my.token(spacing-xs);
+    box-sizing: border-box;
+    padding: my.token(spacing-lg);
+    border-inline-end: 1px solid my.token(border-neutral-separator);
+    background-color: my.token(surface-secondary);
+
+    &[data-variant="rail"] {
+      align-items: center;
+      padding-inline: my.token(spacing-sm);
+
+      .my-sidebar-heading,
+      .my-sidebar-item > span {
+        position: absolute;
+        inline-size: 1px;
+        block-size: 1px;
+        overflow: hidden;
+        clip-path: inset(50%);
+        white-space: nowrap;
+      }
+    }
+  }
+  .my-sidebar-heading {
+    margin: 0;
+    color: my.token(text-neutral-tertiary);
+    @include my.type(overline);
+    text-transform: uppercase;
+
+    &:not(:first-child) { margin-block-start: my.token(spacing-md); }
+  }
+
+  // Panel only: fixed positioning, scrim and open/close come with Overlays › Drawer.
+  .my-nav-drawer {
+    display: flex;
+    flex-direction: column;
+    gap: my.token(spacing-xs);
+    box-sizing: border-box;
+    inline-size: min(320px, 100%);
+    padding: my.token(spacing-lg);
+    background-color: my.token(overlay-primary);
+    box-shadow: my.token(shadow-end-high);
+
+    > hr {
+      inline-size: 100%;
+      margin: my.token(spacing-xs) 0;
+      border: 0;
+      border-block-start: 1px solid my.token(border-neutral-separator);
+    }
+  }
+  .my-nav-drawer-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-block-end: my.token(spacing-xs);
+  }
+}

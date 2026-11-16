@@ -12,7 +12,7 @@
         "primitives/base": "enabled",
         "primitives/black-alpha": "enabled",
         "primitives/blue": "enabled",
-        "primitives/brand": "enabled",
+        "primitives/rebecca": "enabled",
         "primitives/bronze": "enabled",
         "primitives/brown": "enabled",
         "primitives/crimson": "enabled",
@@ -121,10 +121,10 @@
       }
     },
     {
-      "name": "Brand",
+      "name": "Rebecca",
       "group": "Accent color",
       "selectedTokenSets": {
-        "semantic/accent-brand": "enabled"
+        "semantic/accent-rebecca": "enabled"
       }
     },
     {
@@ -740,7 +740,7 @@
         "$type": "color"
       },
       "a9": {
-        "$value": "#ffffff63",
+        "$value": "#ffffff64",
         "$type": "color"
       },
       "a10": {
@@ -748,7 +748,7 @@
         "$type": "color"
       },
       "a11": {
-        "$value": "#ffffffab",
+        "$value": "#ffffffaf",
         "$type": "color"
       },
       "a12": {
@@ -1011,8 +1011,8 @@
       }
     }
   },
-  "primitives/brand": {
-    "brand": {
+  "primitives/rebecca": {
+    "rebecca": {
       "1": {
         "$value": "#fdfcfe",
         "$type": "color"
@@ -1062,7 +1062,7 @@
         "$type": "color"
       }
     },
-    "brand-alpha": {
+    "rebecca-alpha": {
       "a1": {
         "$value": "#5500aa03",
         "$type": "color"
@@ -1112,7 +1112,7 @@
         "$type": "color"
       }
     },
-    "brand-dark": {
+    "rebecca-dark": {
       "1": {
         "$value": "#15101d",
         "$type": "color"
@@ -1162,7 +1162,7 @@
         "$type": "color"
       }
     },
-    "brand-dark-alpha": {
+    "rebecca-dark-alpha": {
       "a1": {
         "$value": "#4400cc0d",
         "$type": "color"
