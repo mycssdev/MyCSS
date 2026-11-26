@@ -1,8 +1,62 @@
 // MyCSS Composition v0.1.0-alpha — CUBE "C" layer, authored in SCSS.
-// Intrinsic, query-less layout primitives (Every Layout lineage).
+// Intrinsic layout primitives (Every Layout lineage) plus the grid system
+// (2026-11-25; model: Bulma v1 smart grid / fixed grid / cells / columns,
+// Bootstrap-style custom-property knobs, Layout Breakouts page grid).
 // Knobs are --my-* custom properties (via my.knob) defaulting to semantic
 // spacing tokens, so every composition is density-aware automatically.
+//
+// Nothing here reads the viewport. Most compositions are query-less; the
+// SIZED knobs (--my-grid-columns-md, --my-cell-span-lg, --my-col-span-xl ...)
+// are container queries against the nearest .c-container.
+@use "sass:list";
+@use "sass:map";
+@use "sass:string";
 @use "../../../design/src/scss/my" as my;
+@use "../../../design/src/scss/sizes.generated" as sizes;
+
+// Size names, smallest first. xs is the base (0, no query); the rest come
+// from the generated map (sm 480 · md 768 · lg 1024 · xl 1280 · 2xl 1440).
+// They are SIZE names, not the width ladder: size md is --my-width-xl.
+$size-names: list.join(("xs",), map.keys(sizes.$sizes));
+
+/// var() chain for a sized knob at size number $upto: that size first, then
+/// each smaller one, then $tail. A sized knob therefore applies from its
+/// size UP until a larger one overrides it.
+///   sized(grid-columns, 3) -> var(--my-grid-columns-md, var(--my-grid-columns-sm, var(--my-grid-columns-xs)))
+@function sized($knob, $upto, $tail: null) {
+  $out: $tail;
+  @for $i from 1 through $upto {
+    $name: "#{my.$prefix}#{$knob}-#{list.nth($size-names, $i)}";
+    @if $out {
+      $out: "var(#{$name}, #{$out})";
+    } @else {
+      $out: "var(#{$name})";
+    }
+  }
+  @return string.unquote($out);
+}
+
+// Knobs that sit on a CHILD are registered non-inheriting, so a cell's span
+// never leaks into a grid nested inside that cell. --my-column-gap is
+// published by the u-gutter-* / u-inline-* utilities for the gap maths.
+@each $knob in (cell-span, cell-start, col-span) {
+  @each $suffix in list.join(("",), $size-names) {
+    $name: "#{my.$prefix}#{$knob}";
+    @if $suffix != "" {
+      $name: "#{$name}-#{$suffix}";
+    }
+    @property #{$name} {
+      syntax: "*";
+      inherits: false;
+    }
+  }
+}
+@each $knob in (cell-rows, column-gap) {
+  @property #{my.$prefix}#{$knob} {
+    syntax: "*";
+    inherits: false;
+  }
+}
 
 @layer mycss.composition {
 
@@ -71,14 +125,166 @@
     }
   }
 
-  // ---- c-grid — responsive card grid, no media queries
+  // ---- c-container — opt-in query container
+  // The sized knobs measure the nearest .c-container, never the viewport.
+  // Put it on a wrapper that gets its width from outside (a block, a grid
+  // cell, a column), not on the grid itself: a query container cannot size
+  // from its own content, so inside anything that shrink-wraps (c-cluster,
+  // inline-block, fit-content) it collapses to nothing.
+  // It is not the centring wrapper; that is c-center.
+  .c-container {
+    container-type: inline-size;
+  }
+
+  // ---- c-grid — smart grid: as many columns as fit, no queries
+  //   --my-grid-min          smallest a column may get
+  //   --my-grid-space        gap
+  //   --my-grid-columns[-size]  most columns per row (a ceiling, not a count)
+  //   --my-grid-placement    auto-fit | auto-fill
+  // The column gap used by the maths is: a gap utility if present (it also
+  // sets the real gap, and utilities are the last layer), else the knob,
+  // else the default. Never set `gap` by hand on a c-grid.
+  // Parent knobs are relayed through private --_* properties and reset on
+  // the children, so they do not leak into nested grids.
   .c-grid {
+    --_grid-gap: var(--my-column-gap, #{my.knob(grid-space, gutter-md)});
+    --_grid-cols-sized: initial;
+    --_grid-cols: var(--_grid-cols-sized, var(--my-grid-columns-xs, var(--my-grid-columns, 999)));
+    --_grid-min: #{my.knob(grid-min, width-3xs)};
     display: grid;
-    gap: my.knob(grid-space, gutter-md);
+    row-gap: my.knob(grid-space, gutter-md);
+    column-gap: var(--_grid-gap);
     grid-template-columns: repeat(
-      auto-fit,
-      minmax(min(my.knob(grid-min, width-3xs), 100%), 1fr)
+      var(--my-grid-placement, auto-fit),
+      minmax(
+        min(100%, max(var(--_grid-min), (100% - (var(--_grid-cols) - 1) * var(--_grid-gap)) / var(--_grid-cols))),
+        1fr
+      )
     );
+
+    > * {
+      --my-grid-columns: initial;
+      @each $name in $size-names {
+        --my-grid-columns-#{$name}: initial;
+      }
+      --my-grid-min: initial;
+      --my-grid-space: initial;
+      --my-grid-placement: initial;
+    }
+
+    // The one span that is always safe in an auto-fit grid. Numeric spans
+    // belong to the fixed layout: here they would force an extra track.
+    > [data-span="full"] {
+      grid-column: 1 / -1;
+    }
+
+    // ---- fixed layout — explicit tracks + cells
+    //   --my-grid-columns[-size]   track count
+    //   --my-cell-span[-size] · --my-cell-start[-size] · --my-cell-rows
+    // Defaults: ONE column below md, then --my-grid-columns (12). So with no
+    // sized knobs it folds by itself, and with no .c-container it stays one
+    // column (safe) instead of squeezing 12 tracks into a phone.
+    // Span and start are clamped to the current track count, so a cell can
+    // never force an extra track.
+    &[data-layout="fixed"] {
+      --_grid-cols: var(--_grid-cols-sized, var(--my-grid-columns-xs, 1));
+      grid-template-columns: repeat(var(--_grid-cols), minmax(0, 1fr));
+
+      > * {
+        --_cell-span-sized: initial;
+        --_cell-start-sized: initial;
+        --_cell-span: min(var(--_cell-span-sized, var(--my-cell-span-xs, var(--my-cell-span, 1))), var(--_grid-cols));
+        --_cell-start: max(1, min(var(--_cell-start-sized, var(--my-cell-start-xs, var(--my-cell-start))), var(--_grid-cols) - var(--_cell-span) + 1));
+        grid-column: var(--_cell-start, auto) / span var(--_cell-span);
+        grid-row: span var(--my-cell-rows, 1);
+      }
+    }
+
+    // ---- subgrid exceptions
+    // [data-subgrid] on a cell: its children sit on the parent's columns.
+    // data-subgrid="rows" on the grid: every item spans --my-grid-rows rows
+    // and shares them, so titles / bodies / footers line up across cards.
+    > [data-subgrid]:not([data-subgrid="rows"]) {
+      display: grid;
+      grid-template-columns: subgrid;
+      gap: inherit;
+    }
+    &[data-subgrid="rows"] > * {
+      display: grid;
+      grid-template-rows: subgrid;
+      grid-row: span var(--my-grid-rows, 3);
+      row-gap: my.knob(grid-row-space, stack-sm);
+    }
+  }
+
+  // ---- c-columns — flexbox columns
+  //   --my-col-span[-size] on a child = its share of --my-columns-count (12)
+  //   --my-columns-min   narrowest a column may get
+  //   --my-columns-space gap (same utility-first rule as c-grid)
+  // No span = equal share. A column never gets narrower than the minimum,
+  // so rows wrap by themselves with no query; only the sized spans need a
+  // .c-container. data-col="shrink" = content-sized.
+  .c-columns {
+    --_col-gap: var(--my-column-gap, #{my.knob(columns-space, gutter-md)});
+    --_col-count: var(--my-columns-count, 12);
+    --_col-min: #{my.knob(columns-min, width-3xs)};
+    display: flex;
+    flex-wrap: wrap;
+    row-gap: my.knob(columns-space, gutter-md);
+    column-gap: var(--_col-gap);
+
+    > * {
+      --my-columns-space: initial;
+      --my-columns-count: initial;
+      --my-columns-min: initial;
+      --_col-span-sized: initial;
+      --_col-span: var(--_col-span-sized, var(--my-col-span-xs, var(--my-col-span)));
+      flex-grow: var(--_col-span, 1);
+      flex-shrink: 1;
+      // 1px under the exact share so sub-pixel rounding can't wrap a full row
+      flex-basis: max(0px, var(--_col-span, 0) / var(--_col-count) * (100% + var(--_col-gap)) - var(--_col-gap) - 1px);
+      min-inline-size: min(100%, var(--_col-min));
+    }
+    > [data-col="shrink"] {
+      flex: 0 0 auto;
+      min-inline-size: 0;
+      max-inline-size: 100%;
+    }
+  }
+
+  // ---- c-page — page grid with named breakout lines, no queries
+  //   children sit on `content`; data-breakout = popout | feature | full
+  //   --my-page-content · --my-page-popout · --my-page-feature · --my-page-gutter
+  // A full band with data-subgrid hands the page's lines to its children.
+  .c-page {
+    --_page-gutter: #{my.knob(page-gutter, container-padding-comfortable)};
+    --_page-content: min(#{my.knob(page-content, width-lg)}, 100% - var(--_page-gutter) * 2);
+    --_page-popout: minmax(0, #{my.knob(page-popout, gutter-lg)});
+    --_page-feature: minmax(0, #{my.knob(page-feature, width-3xs)});
+    --_page-full: minmax(var(--_page-gutter), 1fr);
+    display: grid;
+    grid-template-columns:
+      [full-start] var(--_page-full)
+      [feature-start] var(--_page-feature)
+      [popout-start] var(--_page-popout)
+      [content-start] var(--_page-content) [content-end]
+      var(--_page-popout) [popout-end]
+      var(--_page-feature) [feature-end]
+      var(--_page-full) [full-end];
+
+    > * { grid-column: content; }
+    > [data-breakout="popout"] { grid-column: popout; }
+    > [data-breakout="feature"] { grid-column: feature; }
+    > [data-breakout="full"] { grid-column: full; }
+
+    > [data-breakout="full"][data-subgrid] {
+      display: grid;
+      grid-template-columns: subgrid;
+
+      > * { grid-column: content; }
+      > [data-breakout="popout"] { grid-column: popout; }
+      > [data-breakout="feature"] { grid-column: feature; }
+    }
   }
 
   // ---- c-cover — full-height cover with centered principal element
@@ -91,6 +297,36 @@
 
     > [data-principal] {
       margin-block: auto;
+    }
+  }
+
+  // ---- sized knobs — container queries, generated from the size map
+  // KEEP THIS BLOCK LAST. Its rules have the same specificity as the base
+  // rules above (which reset every --_*-sized value to `initial`), so they
+  // only win by coming later; moved earlier, the sized knobs silently stop
+  // working.
+  @each $name, $px in sizes.$sizes {
+    $i: list.index($size-names, $name);
+    // the fixed grid unfolds to --my-grid-columns (12) from md
+    $fixed-tail: null;
+    @if $px >= map.get(sizes.$sizes, "md") {
+      $fixed-tail: string.unquote("var(--my-grid-columns, 12)");
+    }
+
+    @container (inline-size >= #{$px}) {
+      .c-grid {
+        --_grid-cols-sized: #{sized(grid-columns, $i)};
+      }
+      .c-grid[data-layout="fixed"] {
+        --_grid-cols-sized: #{sized(grid-columns, $i, $fixed-tail)};
+      }
+      .c-grid[data-layout="fixed"] > * {
+        --_cell-span-sized: #{sized(cell-span, $i)};
+        --_cell-start-sized: #{sized(cell-start, $i)};
+      }
+      .c-columns > * {
+        --_col-span-sized: #{sized(col-span, $i)};
+      }
     }
   }
 }

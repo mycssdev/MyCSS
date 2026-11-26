@@ -1,4 +1,5 @@
 // Public cascade-layer order — part of the MyCSS API.
 // blocks (MyCSS UI components) sit between composition and utilities, so a
 // u-* utility always wins over a component default (CUBE: utilities last).
-@layer mycss.tokens, mycss.composition, mycss.blocks, mycss.utilities;
+// base (2026-11-25) holds the few global defaults; it is not a reset.
+@layer mycss.tokens, mycss.base, mycss.composition, mycss.blocks, mycss.utilities;

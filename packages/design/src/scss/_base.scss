@@ -1,0 +1,11 @@
+// MyCSS base — global defaults the other layers rely on. Deliberately tiny:
+// MyCSS is not a reset. Sits between tokens and composition.
+@layer mycss.base {
+  // Long unbreakable strings (URLs, long words) wrap instead of spilling out
+  // of a grid cell or column. `break-word` and not `anywhere`: it wraps the
+  // same way but leaves min-content sizes alone, so tables and shrink-to-fit
+  // boxes keep their natural widths.
+  :root {
+    overflow-wrap: break-word;
+  }
+}

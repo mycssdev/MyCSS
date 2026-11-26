@@ -1,0 +1,582 @@
+<!doctype html>
+<html lang="en" data-gray="slate" data-accent="base" data-mode="light" data-density="comfortable" data-typeface="inter">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MyCSS — grid system spec and stress test</title>
+<link rel="stylesheet" href="css/mycss.css">
+
+<!-- The grid system under test is the framework's own:
+     packages/composition/src/scss/composition.scss  (c-container, c-grid, c-columns, c-page)
+     packages/design/src/scss/_base.scss             (overflow-wrap)
+     packages/design/build/generate_css.py           (u-gutter-* / u-inline-* publish --my-column-gap; container sizes)
+     This page adds no layout CSS of its own. -->
+
+<!-- Demo-page chrome only (demo-*) -->
+<style>
+@layer mycss.blocks {
+  * { margin: 0; box-sizing: border-box; }
+  [hidden] { display: none !important; }
+  body {
+    background: var(--my-bg-neutral-primary);
+    color: var(--my-text-neutral-primary);
+    font-family: var(--my-body-family);
+    font-size: var(--my-body-size);
+    line-height: var(--my-body-line-height);
+  }
+  code, .demo-mono { font-family: var(--my-code-family); font-size: 0.9em; }
+  .demo-topbar {
+    position: sticky; top: 0; z-index: var(--my-z-index-sticky);
+    background: var(--my-bg-neutral-secondary);
+    border-block-end: var(--my-border-width-2) solid var(--my-border-neutral-separator);
+    padding-block: var(--my-inset-sm);
+  }
+  .demo-topbar select, .demo-topbar button {
+    font: inherit; font-size: var(--my-label-size);
+    padding-block: var(--my-squish-block-sm); padding-inline: var(--my-squish-inline-sm);
+    border-radius: var(--my-border-radius-sm);
+    border: var(--my-border-width-2) solid var(--my-border-neutral-primary);
+    background: var(--my-bg-neutral-primary); color: var(--my-text-neutral-primary);
+    cursor: pointer;
+  }
+  .demo-topbar button[aria-pressed="true"] { background: var(--my-bg-brand-solid); color: var(--my-bg-neutral-primary); border-color: transparent; }
+  .demo-summary { font-size: var(--my-label-size); font-weight: 600; }
+  .demo-summary[data-state="pass"] { color: var(--my-text-success); }
+  .demo-summary[data-state="fail"] { color: var(--my-text-error, #c00); }
+
+  .demo-test { border-block-start: var(--my-border-width-2) solid var(--my-border-neutral-separator); }
+  .demo-test > header { display: flex; flex-wrap: wrap; gap: var(--my-inline-md); align-items: baseline; }
+  .demo-readout { font-family: var(--my-code-family); font-size: var(--my-label-sm-size); color: var(--my-text-neutral-tertiary); }
+  .demo-status {
+    font-size: var(--my-label-sm-size); font-weight: 600;
+    padding-inline: var(--my-squish-inline-sm); border-radius: var(--my-border-radius-full);
+    background: var(--my-bg-success-secondary); color: var(--my-text-success);
+  }
+  .demo-status[data-state="fail"]   { background: var(--my-bg-error-secondary, #fdd); color: var(--my-text-error, #c00); }
+  .demo-status[data-state="hazard"] { background: var(--my-bg-warning-secondary); color: var(--my-text-warning); }
+
+  /* The resizable stage. It is deliberately NOT a query container; tests that
+     need one add .c-container inside it. */
+  .demo-stage {
+    inline-size: var(--demo-w, 100%);
+    max-inline-size: 100%;
+    min-inline-size: 200px;
+    resize: horizontal;
+    overflow: auto;
+    padding: var(--my-inset-sm);
+    border: var(--my-border-width-2) dashed var(--my-border-neutral-primary);
+    border-radius: var(--my-border-radius-md);
+  }
+  .demo-cell {
+    background: var(--my-bg-brand-subtle);
+    border: var(--my-border-width-2) solid var(--my-border-brand);
+    border-radius: var(--my-border-radius-sm);
+    padding: var(--my-inset-sm);
+    font-family: var(--my-code-family);
+    font-size: var(--my-label-sm-size);
+    min-block-size: var(--my-space-12);
+  }
+  .demo-cell[data-tone="neutral"] { background: var(--my-bg-neutral-tertiary); border-color: var(--my-border-neutral-primary); }
+  .demo-band { background: var(--my-bg-neutral-tertiary); padding-block: var(--my-inset-md); }
+  .demo-card {
+    background: var(--my-bg-neutral-secondary);
+    border: var(--my-border-width-2) solid var(--my-border-neutral-secondary);
+    border-radius: var(--my-border-radius-lg);
+    padding: var(--my-inset-md);
+  }
+  .demo-card > footer { color: var(--my-text-neutral-tertiary); font-size: var(--my-label-sm-size); }
+  .demo-ruler { inline-size: 100%; border-collapse: collapse; font-size: var(--my-label-size); }
+  .demo-ruler :is(th, td) { text-align: start; padding: var(--my-squish-block-sm) var(--my-squish-inline-sm); border-block-end: var(--my-border-width-2) solid var(--my-border-neutral-separator); }
+  .demo-ruler td:nth-child(2) { font-family: var(--my-code-family); }
+  .demo-bar { display: block; block-size: var(--my-space-2); background: var(--my-bg-brand-solid); border-radius: var(--my-border-radius-full); max-inline-size: 100%; }
+  /* self-test lays stages out wider than a small viewport so every size is reached */
+  [data-selftest] main { inline-size: 1620px; max-inline-size: none; }
+  [data-selftest] .demo-stage { max-inline-size: none; }
+  [data-outline] .demo-stage :is(.c-grid, .c-columns, .c-page) { outline: 1px dotted var(--my-border-brand); outline-offset: 2px; }
+}
+</style>
+</head>
+<body>
+
+<header class="demo-topbar">
+  <div class="c-center | c-cluster u-inline-md" style="--my-center-max: var(--my-width-5xl)">
+    <strong class="u-label-lg">Grid system</strong>
+    <span class="demo-summary" id="summary" role="status"></span>
+    <span style="flex:1"></span>
+    <span class="c-cluster" style="--my-cluster-space: var(--my-inline-xs)" id="widths" aria-label="Stage width"></span>
+    <label class="u-label">density <select id="density"><option>compact</option><option selected>comfortable</option><option>spacious</option></select></label>
+    <button id="dir" aria-pressed="false">RTL</button>
+    <button id="hostile" aria-pressed="false">long content</button>
+    <button id="outline" aria-pressed="false">outlines</button>
+    <button id="mode">dark</button>
+    <button id="selftest">Run self-test</button>
+  </div>
+</header>
+
+<main class="c-center | c-stack u-stack-xl" style="--my-center-max: var(--my-width-5xl)">
+
+  <section class="c-stack | u-region-sm u-stack-md">
+    <h1 class="u-h2">Grid system — spec and stress test</h1>
+    <p class="u-body u-paragraph u-text-neutral-secondary">
+      Every dashed box is a stage: drag its bottom-right corner, or use the width buttons above.
+      Each stage reports its width, how many items share the first row, and whether anything overflows.
+      Tests 9 to 13 are size-driven: they also report the container width and which size is active, and fail if the column count is not the one asked for at that size.
+      <strong>Hazard</strong> marks a failure the design already predicts; <strong>Overflow</strong> in red is an unexpected one.
+      The CSS under test is the framework's own (<code>css/mycss.css</code>); this page adds no layout rules.
+    </p>
+  </section>
+
+  <section class="demo-card | c-stack u-stack-sm" id="selftest-out" hidden>
+    <h2 class="u-h4" id="selftest-title">Self-test</h2>
+    <p class="u-body-sm u-text-neutral-secondary">Sweeps every stage across 16 widths in five modes (default, compact, spacious, RTL, long content). Copy the box below to report a browser.</p>
+    <textarea id="selftest-text" readonly rows="10" style="inline-size:100%; max-inline-size: 80ch; font-family: var(--my-code-family); font-size: var(--my-label-sm-size)"></textarea>
+  </section>
+
+  <!-- ---------------------------------------------------------------- 0 -->
+  <section class="c-stack | u-stack-md" id="sizes">
+    <h2 class="u-h4">0 · Sizes: width tokens, fold points and container sizes</h2>
+    <p class="u-body-sm u-text-neutral-secondary">Resolved live from the token CSS: content widths and fold points, not viewport breakpoints. The last six rows are the container sizes; they are measured on the nearest <code>.c-container</code>, never the viewport.</p>
+    <table class="demo-ruler" id="ruler"><thead><tr><th>Token</th><th>Resolves to</th><th>Role</th><th style="inline-size:40%">Scale (÷ 4)</th></tr></thead><tbody></tbody></table>
+  </section>
+
+  <!-- ---------------------------------------------------------------- 1 -->
+  <section class="demo-test | c-stack | u-region-xs u-stack-sm" data-test>
+    <header><h2 class="u-h4">1 · Smart grid — baseline</h2><code>.c-grid</code></header>
+    <p class="u-body-sm u-text-neutral-secondary">The existing composition, re-expressed with the new maths. Must behave exactly as before: as many 256px-minimum columns as fit.</p>
+    <div class="demo-stage"><div class="c-grid" data-probe data-fill="7"></div></div>
+  </section>
+
+  <!-- ---------------------------------------------------------------- 2 -->
+  <section class="demo-test | c-stack | u-region-xs u-stack-sm" data-test>
+    <header><h2 class="u-h4">2 · Column cap</h2><code>--my-grid-columns: 3</code></header>
+    <p class="u-body-sm u-text-neutral-secondary">Never more than 3 per row, still wraps to 2 and 1 on its own. Replaces Bulma's fixed-grid column counts without any breakpoint.</p>
+    <div class="demo-stage"><div class="c-grid" data-probe data-fill="8" data-max="3" style="--my-grid-columns: 3"></div></div>
+  </section>
+
+  <section class="demo-test | c-stack | u-region-xs u-stack-sm" data-test>
+    <header><h2 class="u-h4">2b · Cap of 4 with a smaller minimum</h2><code>--my-grid-columns: 4; --my-grid-min: var(--my-space-40)</code></header>
+    <div class="demo-stage"><div class="c-grid" data-probe data-fill="8" data-max="4" style="--my-grid-columns: 4; --my-grid-min: var(--my-space-40)"></div></div>
+  </section>
+
+  <section class="demo-test | c-stack | u-region-xs u-stack-sm" data-test>
+    <header><h2 class="u-h4">2c · Cap + a gap utility</h2><code>.c-grid | u-gutter-lg</code></header>
+    <p class="u-body-sm u-text-neutral-secondary">Was a hazard: <code>u-gutter-*</code> set <code>gap</code> behind the cap's back, giving 2 columns where 3 were asked. The utilities now publish their gap as <code>--my-column-gap</code>, the grid reads it, and you get the 3 you asked for. (A wider gap still means the row wraps a little sooner than test 2; that is correct.)</p>
+    <div class="demo-stage"><div class="c-grid | u-gutter-lg" data-probe data-fill="6" data-max="3" data-wide="3" style="--my-grid-columns: 3"></div></div>
+  </section>
+
+  <section class="demo-test | c-stack | u-region-xs u-stack-sm" data-test>
+    <header><h2 class="u-h4">2d · Flex 8 / 4 + gap utilities</h2><code>.c-columns | u-gutter-lg</code> and <code>| u-inline-xs</code></header>
+    <p class="u-body-sm u-text-neutral-secondary">Same check for the flex columns, with a larger and a smaller gap than the default. Both rows must still split 8 / 4 when there is room.</p>
+    <div class="demo-stage c-stack u-stack-sm">
+      <div class="c-columns | u-gutter-lg" data-probe data-wide="2"><div class="demo-cell" style="--my-col-span: 8">8</div><div class="demo-cell" style="--my-col-span: 4">4</div></div>
+      <div class="c-columns | u-inline-xs"><div class="demo-cell" style="--my-col-span: 8">8</div><div class="demo-cell" style="--my-col-span: 4">4</div></div>
+    </div>
+  </section>
+
+  <!-- ---------------------------------------------------------------- 3 -->
+  <section class="demo-test | c-stack | u-region-xs u-stack-sm" data-test>
+    <header><h2 class="u-h4">3 · Spans in a smart grid — the safe one</h2><code>data-span="full"</code></header>
+    <div class="demo-stage"><div class="c-grid" data-probe>
+      <div class="demo-cell" data-span="full" data-tone="neutral">full</div>
+      <div class="demo-cell">1</div><div class="demo-cell">2</div><div class="demo-cell">3</div>
+      <div class="demo-cell" data-span="full" data-tone="neutral">full</div>
+      <div class="demo-cell">4</div><div class="demo-cell">5</div>
+    </div></div>
+  </section>
+
+  <section class="demo-test | c-stack | u-region-xs u-stack-sm" data-test data-expect="overflow">
+    <header><h2 class="u-h4">3b · Spans in a smart grid — the unsafe one</h2><code>grid-column: span 2</code></header>
+    <p class="u-body-sm u-text-neutral-secondary">Numeric spans are deliberately <em>not</em> offered on the smart grid: once only one column fits, a span of 2 forces an extra track. The other items come up one gap short, and below about 290px the grid overflows.</p>
+    <div class="demo-stage"><div class="c-grid" data-probe>
+      <div class="demo-cell" style="grid-column: span 2" data-tone="neutral">span 2</div>
+      <div class="demo-cell">1</div><div class="demo-cell">2</div><div class="demo-cell">3</div>
+    </div></div>
+  </section>
+
+  <!-- ---------------------------------------------------------------- 4 -->
+  <section class="demo-test | c-stack | u-region-xs u-stack-sm" data-test>
+    <header><h2 class="u-h4">4 · Fixed grid + cells</h2><code>.c-container &gt; .c-grid[data-layout="fixed"]</code></header>
+    <p class="u-body-sm u-text-neutral-secondary">No sized knobs at all: cells set <code>--my-cell-span</code> / <code>--my-cell-start</code>. Default behaviour is one column below <em>md</em> (768px of container), 12 tracks from there up.</p>
+    <div class="demo-stage"><div class="c-container"><div class="c-grid" data-layout="fixed" data-probe>
+      <div class="demo-cell" style="--my-cell-span: 8">8</div><div class="demo-cell" style="--my-cell-span: 4">4</div>
+      <div class="demo-cell" style="--my-cell-span: 4">4</div><div class="demo-cell" style="--my-cell-span: 4">4</div><div class="demo-cell" style="--my-cell-span: 4">4</div>
+      <div class="demo-cell" style="--my-cell-span: 3">3</div><div class="demo-cell" style="--my-cell-span: 3">3</div><div class="demo-cell" style="--my-cell-span: 3">3</div><div class="demo-cell" style="--my-cell-span: 3">3</div>
+      <div class="demo-cell" style="--my-cell-span: 6; --my-cell-start: 4" data-tone="neutral">6, start 4</div>
+      <div class="demo-cell" style="--my-cell-span: 20" data-tone="neutral">span 20 (clamped to 12)</div>
+    </div></div></div>
+  </section>
+
+  <section class="demo-test | c-stack | u-region-xs u-stack-sm" data-test>
+    <header><h2 class="u-h4">4b · Fixed grid, 5 tracks, row spans, earlier unfold</h2><code>--my-grid-columns-sm: 5</code></header>
+    <div class="demo-stage"><div class="c-container"><div class="c-grid" data-layout="fixed" data-probe style="--my-grid-columns-sm: 5">
+      <div class="demo-cell" style="--my-cell-span: 2; --my-cell-rows: 2" data-tone="neutral">2 × 2 rows</div>
+      <div class="demo-cell" style="--my-cell-span: 3">3</div>
+      <div class="demo-cell">1</div><div class="demo-cell">1</div><div class="demo-cell">1</div>
+    </div></div></div>
+  </section>
+
+  <section class="demo-test | c-stack | u-region-xs u-stack-sm" data-test data-expect="nounfold">
+    <header><h2 class="u-h4">4c · Fixed grid with no container</h2><code>.c-grid[data-layout="fixed"]</code> <span class="u-body-sm">without <code>.c-container</code></span></header>
+    <p class="u-body-sm u-text-neutral-secondary">Nothing to query, so it stays at its xs default of one column at every width. That is the safe failure: stacked, never overflowing. (Setting <code>--my-grid-columns-xs: 12</code> would force tracks without a container.)</p>
+    <div class="demo-stage"><div class="c-grid" data-layout="fixed" data-probe>
+      <div class="demo-cell" style="--my-cell-span: 3">3</div><div class="demo-cell" style="--my-cell-span: 3">3</div><div class="demo-cell" style="--my-cell-span: 3">3</div><div class="demo-cell" style="--my-cell-span: 3">3</div>
+    </div></div>
+  </section>
+
+  <section class="demo-test | c-stack | u-region-xs u-stack-sm" data-test>
+    <header><h2 class="u-h4">4d · Subgrid cell</h2><code>data-subgrid</code></header>
+    <p class="u-body-sm u-text-neutral-secondary">The grey cell spans 8 tracks and passes them to its children, so the inner 3 + 5 line up with the outer row above.</p>
+    <div class="demo-stage"><div class="c-container"><div class="c-grid" data-layout="fixed" data-probe>
+      <div class="demo-cell" style="--my-cell-span: 3">3</div><div class="demo-cell" style="--my-cell-span: 5">5</div><div class="demo-cell" style="--my-cell-span: 4">4</div>
+      <div class="demo-cell" data-tone="neutral" data-subgrid style="--my-cell-span: 8">
+        <div class="demo-cell" style="grid-column: span 3">inner 3</div><div class="demo-cell" style="grid-column: span 5">inner 5</div>
+      </div>
+      <div class="demo-cell" style="--my-cell-span: 4">4</div>
+    </div></div></div>
+  </section>
+
+  <!-- ---------------------------------------------------------------- 5 -->
+  <section class="demo-test | c-stack | u-region-xs u-stack-sm" data-test>
+    <header><h2 class="u-h4">5 · Flex columns — 8 / 4</h2><code>.c-columns</code> <code>--my-col-span</code></header>
+    <p class="u-body-sm u-text-neutral-secondary">Proportional while both columns can stay at least 256px wide; then the row wraps and each takes the full line. No query, no container.</p>
+    <div class="demo-stage"><div class="c-columns" data-probe>
+      <div class="demo-cell" style="--my-col-span: 8">8</div><div class="demo-cell" style="--my-col-span: 4">4</div>
+    </div></div>
+  </section>
+
+  <section class="demo-test | c-stack | u-region-xs u-stack-sm" data-test>
+    <header><h2 class="u-h4">5b · Flex columns — 3 / 6 / 3, then 4 / 4 / 4, then a full 12 × 1</h2></header>
+    <div class="demo-stage c-stack u-stack-sm">
+      <div class="c-columns" data-probe>
+        <div class="demo-cell" style="--my-col-span: 3">3</div><div class="demo-cell" style="--my-col-span: 6">6</div><div class="demo-cell" style="--my-col-span: 3">3</div>
+      </div>
+      <div class="c-columns">
+        <div class="demo-cell" style="--my-col-span: 4">4</div><div class="demo-cell" style="--my-col-span: 4">4</div><div class="demo-cell" style="--my-col-span: 4">4</div>
+      </div>
+      <div class="c-columns" id="twelve" style="--my-columns-min: var(--my-space-10); --my-columns-space: var(--my-inline-sm)" data-fill="12" data-fill-style="--my-col-span: 1"></div>
+    </div>
+  </section>
+
+  <section class="demo-test | c-stack | u-region-xs u-stack-sm" data-test>
+    <header><h2 class="u-h4">5c · Flex columns — equal, and content-sized</h2><code>data-col="shrink"</code></header>
+    <div class="demo-stage c-stack u-stack-sm">
+      <div class="c-columns" data-probe>
+        <div class="demo-cell">auto</div><div class="demo-cell">auto</div><div class="demo-cell">auto</div>
+      </div>
+      <div class="c-columns" style="--my-columns-min: var(--my-space-40)">
+        <div class="demo-cell" data-col="shrink" data-tone="neutral">shrink</div><div class="demo-cell">auto</div><div class="demo-cell" data-col="shrink" data-tone="neutral">shrink to content</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ---------------------------------------------------------------- 6 -->
+  <section class="demo-test | c-stack | u-region-xs u-stack-sm" data-test>
+    <header><h2 class="u-h4">6 · Page grid with breakouts</h2><code>.c-page</code> <code>data-breakout</code></header>
+    <p class="u-body-sm u-text-neutral-secondary">Content column 640px; popout, feature and full step outward and collapse inward as the stage narrows.</p>
+    <div class="demo-stage" style="padding: 0"><div class="c-page | u-stack-sm" data-probe>
+      <div class="demo-cell">content</div>
+      <div class="demo-cell" data-breakout="popout" data-tone="neutral">popout</div>
+      <div class="demo-cell">content</div>
+      <div class="demo-cell" data-breakout="feature" data-tone="neutral">feature</div>
+      <div class="demo-cell" data-breakout="full" data-tone="neutral">full</div>
+      <div class="demo-band" data-breakout="full" data-subgrid>
+        <div class="demo-cell">content, inside a full band (subgrid)</div>
+        <div class="demo-cell" data-breakout="popout" style="margin-block-start: var(--my-stack-sm)">popout, inside the band</div>
+      </div>
+    </div></div>
+  </section>
+
+  <!-- ---------------------------------------------------------------- 7 -->
+  <section class="demo-test | c-stack | u-region-xs u-stack-sm" data-test>
+    <header><h2 class="u-h4">7 · Cards with aligned rows</h2><code>.c-grid[data-subgrid="rows"]</code></header>
+    <p class="u-body-sm u-text-neutral-secondary">Title, body and footer share rows across each line of cards, whatever the copy length.</p>
+    <div class="demo-stage"><div class="c-grid" data-subgrid="rows" data-probe style="--my-grid-columns: 3">
+      <article class="demo-card"><h3 class="u-h6">Short</h3><p class="u-body-sm">One line.</p><footer>footer</footer></article>
+      <article class="demo-card"><h3 class="u-h6">A title that runs onto a second line at most widths</h3><p class="u-body-sm">Body copy of a middling length that wraps a couple of times.</p><footer>footer</footer></article>
+      <article class="demo-card"><h3 class="u-h6">Medium title</h3><p class="u-body-sm">The longest body of the three, long enough that without shared rows the three footers would sit at three different heights and the row would look ragged.</p><footer>footer</footer></article>
+      <article class="demo-card"><h3 class="u-h6">Fourth</h3><p class="u-body-sm">Starts a new set of rows.</p><footer>footer</footer></article>
+    </div></div>
+  </section>
+
+  <!-- ---------------------------------------------------------------- 8 -->
+  <section class="demo-test | c-stack | u-region-xs u-stack-sm" data-test>
+    <header><h2 class="u-h4">8 · Everything nested</h2><code>c-page › c-columns › c-grid › c-grid</code></header>
+    <p class="u-body-sm u-text-neutral-secondary">Also the inheritance check: the outer grid is capped at 2 columns, the grid nested inside its first cell must <em>not</em> inherit that cap (it should reach 3).</p>
+    <div class="demo-stage" style="padding: 0"><div class="c-page" style="--my-page-content: var(--my-width-3xl)">
+      <div class="c-columns" data-probe>
+        <div style="--my-col-span: 8" class="c-stack u-stack-sm">
+          <div class="c-grid" style="--my-grid-columns: 2; --my-grid-min: var(--my-space-50)">
+            <div class="demo-cell" data-tone="neutral">
+              <div class="c-grid" id="leak" style="--my-grid-min: var(--my-space-10); --my-grid-space: var(--my-inline-sm)" data-fill="3"></div>
+            </div>
+            <div class="demo-cell">2</div><div class="demo-cell">3</div><div class="demo-cell">4</div>
+          </div>
+        </div>
+        <aside style="--my-col-span: 4" class="c-container">
+          <div class="c-grid" data-layout="fixed" style="--my-grid-columns-xs: 4; --my-grid-space: var(--my-inline-md)">
+            <div class="demo-cell" style="--my-cell-span: 4">4</div><div class="demo-cell" style="--my-cell-span: 2">2</div><div class="demo-cell" style="--my-cell-span: 2">2</div>
+          </div>
+        </aside>
+      </div>
+    </div></div>
+  </section>
+
+  <!-- ---------------------------------------------------------------- 9 -->
+  <section class="demo-test | c-stack | u-region-xs u-stack-sm" data-test data-want="xs:2 md:3 xl:6">
+    <header><h2 class="u-h4">9 · Column count by size</h2><code>--my-grid-columns-xs: 2; -md: 3; -xl: 6</code></header>
+    <p class="u-body-sm u-text-neutral-secondary">Exact counts chosen per container size, no spans needed. A sized knob holds from its size up until a larger one takes over, so <em>sm</em> and <em>lg</em> inherit from the size below.</p>
+    <div class="demo-stage"><div class="c-container"><div class="c-grid" data-layout="fixed" data-probe data-fill="12" style="--my-grid-columns-xs: 2; --my-grid-columns-md: 3; --my-grid-columns-xl: 6; --my-grid-space: var(--my-gutter-sm)"></div></div></div>
+  </section>
+
+  <section class="demo-test | c-stack | u-region-xs u-stack-sm" data-test data-want="xs:1 sm:2 lg:3 xl:4">
+    <header><h2 class="u-h4">10 · Spans by size</h2><code>--my-cell-span: 12; -sm: 6; -lg: 4; -xl: 3</code></header>
+    <p class="u-body-sm u-text-neutral-secondary">12 tracks from <em>sm</em> up (<code>--my-grid-columns-sm: 12</code>); each card is full, then half, a third, a quarter.</p>
+    <div class="demo-stage"><div class="c-container"><div class="c-grid" data-layout="fixed" data-probe data-fill="8" data-fill-style="--my-cell-span: 12; --my-cell-span-sm: 6; --my-cell-span-lg: 4; --my-cell-span-xl: 3" style="--my-grid-columns-sm: 12"></div></div></div>
+  </section>
+
+  <section class="demo-test | c-stack | u-region-xs u-stack-sm" data-test data-want="xs:1 md:2 xl:3">
+    <header><h2 class="u-h4">10b · Layout that changes shape by size</h2><code>--my-cell-span-*</code> + <code>--my-cell-start-*</code></header>
+    <p class="u-body-sm u-text-neutral-secondary">Stacked, then nav 4 + main 8, then nav 3 + main 6 + aside 3. The note cell is offset with a start that only applies from <em>lg</em>; below that the clamp keeps it on the grid.</p>
+    <div class="demo-stage"><div class="c-container"><div class="c-grid" data-layout="fixed" data-probe>
+      <div class="demo-cell" data-tone="neutral" style="--my-cell-span-md: 4; --my-cell-span-xl: 3">nav</div>
+      <div class="demo-cell" style="--my-cell-span-md: 8; --my-cell-span-xl: 6">main</div>
+      <div class="demo-cell" data-tone="neutral" style="--my-cell-span-md: 12; --my-cell-span-xl: 3">aside</div>
+      <div class="demo-cell" style="--my-cell-span-md: 12; --my-cell-span-lg: 6; --my-cell-start-lg: 4">note (start 4 from lg)</div>
+    </div></div></div>
+  </section>
+
+  <section class="demo-test | c-stack | u-region-xs u-stack-sm" data-test>
+    <header><h2 class="u-h4">11 · Smart grid with a cap that changes by size</h2><code>.c-grid</code> <code>--my-grid-columns: 2; -lg: 4</code></header>
+    <p class="u-body-sm u-text-neutral-secondary">Still the wrapping grid (160px minimum here), but the most it may show per row is 2, then 4 from <em>lg</em>. The cap is a ceiling, not a count: it never forces columns narrower than the minimum.</p>
+    <div class="demo-stage"><div class="c-container"><div class="c-grid" data-probe data-fill="8" data-max="4" style="--my-grid-columns: 2; --my-grid-columns-lg: 4; --my-grid-min: var(--my-space-40)"></div></div></div>
+  </section>
+
+  <section class="demo-test | c-stack | u-region-xs u-stack-sm" data-test data-want="xs:2 md:4">
+    <header><h2 class="u-h4">12 · Sizes measure the container, not the page</h2><code>.c-columns › .c-container › .c-grid</code></header>
+    <p class="u-body-sm u-text-neutral-secondary">The same grid twice, side by side: 2 columns, 4 from <em>md</em>. Each copy answers to its own column's width, so at stage widths where the page is wide but each half is not, both stay at 2. The readout follows the first copy.</p>
+    <div class="demo-stage"><div class="c-columns">
+      <div class="c-container"><div class="c-grid" data-layout="fixed" data-probe data-fill="4" style="--my-grid-columns-xs: 2; --my-grid-columns-md: 4; --my-grid-space: var(--my-inline-md)"></div></div>
+      <div class="c-container"><div class="c-grid" data-layout="fixed" data-fill="4" style="--my-grid-columns-xs: 2; --my-grid-columns-md: 4; --my-grid-space: var(--my-inline-md)"></div></div>
+    </div></div>
+  </section>
+
+  <section class="demo-test | c-stack | u-region-xs u-stack-sm" data-test data-want="xs:1 md:2 xl:3">
+    <header><h2 class="u-h4">13 · Flex columns with spans by size</h2><code>.c-columns</code> <code>--my-col-span: 12; -md: 6; -xl: 4</code></header>
+    <p class="u-body-sm u-text-neutral-secondary">The flex columns take the same sized knob. Full width, halves from <em>md</em>, thirds from <em>xl</em>. The minimum-width wrap still applies underneath, so a span can never squeeze a column below <code>--my-columns-min</code>.</p>
+    <div class="demo-stage"><div class="c-container"><div class="c-columns" data-probe data-fill="6" data-fill-style="--my-col-span: 12; --my-col-span-md: 6; --my-col-span-xl: 4"></div></div></div>
+  </section>
+
+  <section class="demo-test | c-stack | u-region-xs u-stack-sm" data-test data-want="xs:1 lg:2">
+    <header><h2 class="u-h4">13b · Flex 8 / 4 that only splits from lg</h2><code>--my-col-span-lg: 8</code> / <code>--my-col-span-lg: 4</code></header>
+    <p class="u-body-sm u-text-neutral-secondary">Compare with test 5, where the split point falls out of the minimum width (about 832px). Here it is chosen: stacked until <em>lg</em>.</p>
+    <div class="demo-stage"><div class="c-container"><div class="c-columns" data-probe>
+      <div class="demo-cell" style="--my-col-span: 12; --my-col-span-lg: 8">main</div><div class="demo-cell" data-tone="neutral" style="--my-col-span: 12; --my-col-span-lg: 4">aside</div>
+    </div></div></div>
+  </section>
+
+  <section class="demo-test | c-stack | u-region-xs u-stack-sm" data-test data-expect="collapse">
+    <header><h2 class="u-h4">14 · Where a query container must not go</h2><code>.c-cluster &gt; .c-container</code></header>
+    <p class="u-body-sm u-text-neutral-secondary">A query container cannot take its width from its own content, so inside anything that shrink-wraps (a cluster, an inline-block, <code>fit-content</code>) it collapses to nothing. It needs a width from outside: a block, a stretched item, a grid cell, a column.</p>
+    <div class="demo-stage"><div class="c-cluster">
+      <div class="demo-cell" data-tone="neutral">sibling</div>
+      <div class="c-container"><div class="c-grid" data-layout="fixed" data-probe data-fill="2" style="--my-grid-columns-xs: 2"></div></div>
+    </div></div>
+  </section>
+
+</main>
+
+<script>
+// Any script error is shown on the page, not just in the console.
+const showError = msg => {
+  const b = document.getElementById("summary"); if (b) { b.dataset.state = "fail"; b.textContent = "Script error: " + msg; }
+  const t = document.getElementById("selftest-text"), o = document.getElementById("selftest-out");
+  if (t && o) { o.hidden = false; t.value += "ERROR: " + msg + "\n"; }
+};
+addEventListener("error", e => showError(e.message + " (line " + e.lineno + ")"));
+addEventListener("unhandledrejection", e => showError(String(e.reason && e.reason.message || e.reason)));
+const $ = (s, r = document) => r.querySelector(s), $$ = (s, r = document) => [...r.querySelectorAll(s)];
+const root = document.documentElement;
+
+// generated cells
+$$("[data-fill]").forEach(el => {
+  for (let i = 1; i <= +el.dataset.fill; i++) {
+    const c = document.createElement("div");
+    c.className = "demo-cell"; c.textContent = i;
+    if (el.dataset.fillStyle) c.style.cssText = el.dataset.fillStyle;
+    el.append(c);
+  }
+});
+
+// each test gets a readout + status
+$$("[data-test]").forEach(t => {
+  const h = $("header", t);
+  h.insertAdjacentHTML("beforeend", '<span style="flex:1"></span><span class="demo-readout"></span><span class="demo-status"></span>');
+});
+
+const SIZES = [["xs", 0], ["sm", 480], ["md", 768], ["lg", 1024], ["xl", 1280], ["2xl", 1440]];
+const firstRow = el => {
+  const kids = [...el.children].filter(k => k.getClientRects().length);
+  if (!kids.length) return 0;
+  const top = Math.min(...kids.map(k => k.getBoundingClientRect().top));
+  return kids.filter(k => Math.abs(k.getBoundingClientRect().top - top) < 1).length;
+};
+
+function measure() {
+  let fail = 0, hazard = 0, pass = 0;
+  $$("[data-test]").forEach(t => {
+    const stage = $(".demo-stage", t), probe = $("[data-probe]", t);
+    const w = Math.round(stage.clientWidth);
+    const overflow = stage.scrollWidth > stage.clientWidth + 1;
+    const spill = $$(".demo-cell, .demo-card", stage).some(c => c.scrollWidth > c.clientWidth + 1);
+    const cols = probe ? firstRow(probe) : 0;
+    const max = probe && +probe.dataset.max;
+    const expect = t.dataset.expect;
+    let state = "pass", text = "OK";
+    let detail = "";
+    if (overflow) { state = "fail"; text = "Overflow"; detail = `stage scroll ${stage.scrollWidth} > client ${stage.clientWidth}`; }
+    else if (spill) {
+      state = "fail"; text = "Content spills its cell";
+      const c = $$(".demo-cell, .demo-card", stage).find(c => c.scrollWidth > c.clientWidth + 1);
+      detail = `cell "${c.textContent.trim().slice(0, 24)}" scroll ${c.scrollWidth} > client ${c.clientWidth}`;
+    }
+    if (expect === "overflow" && overflow) { state = "hazard"; text = "Hazard: overflow (predicted)"; }
+    if (expect === "nounfold" && w >= 800 && cols === 1) { state = "hazard"; text = "Hazard: never unfolds (predicted)"; }
+    // size-driven tests: first-row count must match the active container size
+    const box = probe && probe.closest(".c-container");
+    const cw = box ? Math.round(box.getBoundingClientRect().width) : null;
+    const size = cw == null ? null : SIZES.filter(([, v]) => cw >= v).pop()[0];
+    if (t.dataset.want && size) {
+      const want = Object.fromEntries(t.dataset.want.split(" ").map(p => p.split(":")));
+      const exp = +SIZES.map(([n]) => n).slice(0, SIZES.findIndex(([n]) => n === size) + 1).reverse().map(n => want[n]).find(Boolean);
+      if (state === "pass" && cols !== exp) { state = "fail"; text = `Expected ${exp} at ${size}, got ${cols}`; }
+    }
+    t.dataset.size = size || "";
+    if (expect === "collapse" && cw != null && cw < 10) { state = "hazard"; text = "Hazard: container collapsed to " + cw + "px (predicted)"; }
+    t.dataset.cols = cols;
+    if (max && cols > max) { state = "fail"; text = `Cap broken: ${cols} > ${max}`; }
+    const wide = probe && +probe.dataset.wide;
+    if (wide && w >= 1280 && state === "pass" && cols !== wide) { state = "fail"; text = `Expected ${wide} in the first row, got ${cols}`; }
+    $(".demo-readout", t).textContent = `${w}px · ${cols} in first row` + (size ? ` · container ${cw}px = ${size}` : "");
+    const s = $(".demo-status", t); s.dataset.state = state; s.textContent = text;
+    t.dataset.result = state; t.dataset.detail = state === "fail" ? detail : "";
+    state === "fail" ? fail++ : state === "hazard" ? hazard++ : pass++;
+  });
+  // inheritance check (test 8)
+  const leak = $("#leak");
+  if (leak) leak.closest("[data-test]").dataset.leak = firstRow(leak);
+  const sum = $("#summary");
+  sum.dataset.state = fail ? "fail" : "pass";
+  sum.textContent = `${pass} OK · ${hazard} predicted hazard${hazard === 1 ? "" : "s"} · ${fail} unexpected`;
+}
+new ResizeObserver(() => requestAnimationFrame(measure)).observe(document.body);
+$$(".demo-stage").forEach(s => new ResizeObserver(() => requestAnimationFrame(measure)).observe(s));
+
+// stage width presets
+const setWidth = w => {
+  $$(".demo-stage").forEach(s => { s.style.inlineSize = ""; });
+  w ? root.style.setProperty("--demo-w", w + "px") : root.style.removeProperty("--demo-w");
+  $$("#widths button").forEach(b => b.setAttribute("aria-pressed", String(b.dataset.w === String(w || ""))));
+};
+["", 240, 320, 480, 640, 768, 1024, 1280].forEach(w => {
+  const b = document.createElement("button");
+  b.textContent = w || "full"; b.dataset.w = w; b.onclick = () => setWidth(w);
+  $("#widths").append(b);
+});
+setWidth("");
+window.demoSetWidth = setWidth; window.demoMeasure = measure;
+
+// toggles
+$("#density").onchange = e => { root.dataset.density = e.target.value; };
+const toggle = (id, fn) => { const b = $(id); b.onclick = () => { const on = b.getAttribute("aria-pressed") !== "true"; b.setAttribute("aria-pressed", on); fn(on); requestAnimationFrame(measure); }; };
+toggle("#dir", on => { root.dir = on ? "rtl" : "ltr"; });
+toggle("#outline", on => { root.toggleAttribute("data-outline", on); });
+const LONG = " https://example.com/a-very-long-unbreakable-path/that-does-not-wrap/anywhere-at-all Donaudampfschifffahrtsgesellschaftskapitän";
+toggle("#hostile", on => {
+  $$(".demo-stage .demo-cell").forEach(c => {
+    if (c.children.length) return;
+    if (on) { c.dataset.orig = c.textContent; c.textContent += LONG; } else if (c.dataset.orig != null) c.textContent = c.dataset.orig;
+  });
+});
+$("#mode").onclick = e => { const d = root.dataset.mode === "dark"; root.dataset.mode = d ? "light" : "dark"; e.target.textContent = d ? "dark" : "light"; };
+
+// section 0 — resolve the size tokens the framework already ships
+const px = name => { const p = document.createElement("div"); p.style.cssText = `position:absolute;visibility:hidden;inline-size:var(${name})`; document.body.append(p); const w = p.getBoundingClientRect().width; p.remove(); return Math.round(w); };
+const rows = [
+  ...["3xs","xxs","xs","sm","md","lg","xl","2xl","3xl","4xl","5xl","6xl"].map(s => [`--my-width-${s}`, "content width"]),
+  ["--my-threshold-compact", "fold point · compact density"],
+  ["--my-threshold-comfortable", "fold point · comfortable density"],
+  ["--my-threshold-spacious", "fold point · spacious density"],
+  ["--my-threshold", "fold point · follows data-density"],
+  ["--my-threshold-max", "content ceiling"],
+  ["--my-container-max-width", "c-center max"],
+];
+const sizeRows = SIZES.map(([n, v]) => `<tr><td><code>-${n}</code></td><td>${v}px</td><td>container size, from this width up</td><td><span class="demo-bar" style="inline-size:${v / 4}px"></span></td></tr>`).join("");
+const fillRuler = () => { $("#ruler tbody").innerHTML = rows.map(([n, role]) => { const v = px(n); return `<tr><td><code>${n}</code></td><td>${v}px</td><td>${role}</td><td><span class="demo-bar" style="inline-size:${v / 4}px"></span></td></tr>`; }).join("") + sizeRows; };
+fillRuler(); $("#density").addEventListener("change", fillRuler);
+requestAnimationFrame(measure);
+
+// ---- self-test: the same sweep in any browser -------------------------
+const frame = () => new Promise(r => { let done = false; const go = () => { if (!done) { done = true; r(); } };
+  requestAnimationFrame(() => requestAnimationFrame(go)); setTimeout(go, 120); });
+async function selfTest() {
+  const out = $("#selftest-out"), title = $("#selftest-title"), box = $("#selftest-text");
+  const btn = $("#selftest"); btn.disabled = true; btn.textContent = "Running…";
+  out.hidden = false; title.textContent = "Self-test running…"; box.value = "";
+  out.scrollIntoView({ block: "center" });
+  // start from a known state whatever was toggled before
+  ["#dir", "#hostile", "#outline"].forEach(id => { if ($(id).getAttribute("aria-pressed") === "true") $(id).click(); });
+  $("#density").value = "comfortable"; root.dataset.density = "comfortable";
+  const t0 = performance.now();
+  root.dataset.selftest = "";
+  const widths = [240, 320, 400, 479, 500, 640, 767, 790, 900, 1043, 1050, 1299, 1310, 1459, 1480, 1560];
+  const modes = [
+    ["default", () => {}, () => {}],
+    ["density compact", () => { root.dataset.density = "compact"; }, () => { root.dataset.density = "comfortable"; }],
+    ["density spacious", () => { root.dataset.density = "spacious"; }, () => { root.dataset.density = "comfortable"; }],
+    ["rtl", () => { root.dir = "rtl"; }, () => { root.dir = "ltr"; }],
+    ["long content", () => { $("#hostile").click(); }, () => { $("#hostile").click(); }],
+  ];
+  let checks = 0, hazards = 0, step = 0; const fails = [], sizesSeen = new Set();
+  for (const [mode, on, off] of modes) {
+    on();
+    for (const w of widths) {
+      title.textContent = btn.textContent = `Running… ${++step}/${modes.length * widths.length}`;
+      setWidth(w); await frame(); void document.body.offsetWidth; measure();
+      $$("[data-test]").forEach(t => {
+        checks++;
+        if (t.dataset.size) sizesSeen.add(t.dataset.size);
+        if (t.dataset.result === "hazard") hazards++;
+        const id = $("h2", t).textContent.split("·")[0].trim();
+        const got = Math.round($(".demo-stage", t).getBoundingClientRect().width);
+        if (Math.abs(got - w) > 2) fails.push(`${id} | ${mode} | ${w}px | stage did not take the width (is ${got}px)`);
+        if (t.dataset.result === "fail") fails.push(`${id} | ${mode} | ${w}px | ${$(".demo-status", t).textContent} | ${t.dataset.detail}`);
+      });
+    }
+    off(); await frame();
+  }
+  setWidth(""); delete root.dataset.selftest; await frame(); measure();
+  const leak = $("#leak") ? firstRow($("#leak")) : null;
+  if (leak !== 3) fails.push(`8 | nested grid inherited its parent's cap (${leak} columns, expected 3)`);
+  const supports = ["container-type: inline-size", "grid-template-columns: subgrid"].map(d => `${d.split(":")[0]} ${CSS.supports(d) ? "yes" : "NO"}`).join(" · ");
+  const verdict = fails.length ? "FAIL" : "PASS";
+  const text = [
+    `MyCSS grid self-test: ${verdict}`,
+    navigator.userAgent,
+    `${checks} checks · ${fails.length} unexpected · ${hazards} predicted hazards · sizes reached: ${SIZES.map(([n]) => n).filter(n => sizesSeen.has(n)).join(" ")}`,
+    `supports: ${supports} · @property ${"registerProperty" in CSS ? "yes" : "NO"}`,
+    `window ${innerWidth}×${innerHeight} · pixel ratio ${devicePixelRatio} · ${Math.round((performance.now() - t0) / 100) / 10}s · ${parent !== window ? "framed" : "top-level"}`,
+    ...fails,
+  ].join("\n");
+  title.textContent = `Self-test: ${verdict}`;
+  box.value = text; box.rows = Math.min(30, 6 + fails.length);
+  window.__selftest = { verdict, checks, hazards, fails, text };
+  document.title = `SELFTEST ${verdict}`;
+  btn.disabled = false; btn.textContent = `Self-test: ${verdict} (run again)`;
+  try { if (parent !== window) parent.postMessage({ selftest: text }, "*"); } catch (e) {}
+  out.scrollIntoView({ block: "center" });
+}
+$("#selftest").onclick = () => selfTest().catch(e => showError(e.message));
+if (location.hash === "#selftest") addEventListener("load", () => setTimeout(selfTest, 300));
+</script>
+</body>
+</html>

@@ -1,3 +1,95 @@
+@property --my-cell-span {
+  syntax: "*";
+  inherits: false;
+}
+@property --my-cell-span-xs {
+  syntax: "*";
+  inherits: false;
+}
+@property --my-cell-span-sm {
+  syntax: "*";
+  inherits: false;
+}
+@property --my-cell-span-md {
+  syntax: "*";
+  inherits: false;
+}
+@property --my-cell-span-lg {
+  syntax: "*";
+  inherits: false;
+}
+@property --my-cell-span-xl {
+  syntax: "*";
+  inherits: false;
+}
+@property --my-cell-span-2xl {
+  syntax: "*";
+  inherits: false;
+}
+@property --my-cell-start {
+  syntax: "*";
+  inherits: false;
+}
+@property --my-cell-start-xs {
+  syntax: "*";
+  inherits: false;
+}
+@property --my-cell-start-sm {
+  syntax: "*";
+  inherits: false;
+}
+@property --my-cell-start-md {
+  syntax: "*";
+  inherits: false;
+}
+@property --my-cell-start-lg {
+  syntax: "*";
+  inherits: false;
+}
+@property --my-cell-start-xl {
+  syntax: "*";
+  inherits: false;
+}
+@property --my-cell-start-2xl {
+  syntax: "*";
+  inherits: false;
+}
+@property --my-col-span {
+  syntax: "*";
+  inherits: false;
+}
+@property --my-col-span-xs {
+  syntax: "*";
+  inherits: false;
+}
+@property --my-col-span-sm {
+  syntax: "*";
+  inherits: false;
+}
+@property --my-col-span-md {
+  syntax: "*";
+  inherits: false;
+}
+@property --my-col-span-lg {
+  syntax: "*";
+  inherits: false;
+}
+@property --my-col-span-xl {
+  syntax: "*";
+  inherits: false;
+}
+@property --my-col-span-2xl {
+  syntax: "*";
+  inherits: false;
+}
+@property --my-cell-rows {
+  syntax: "*";
+  inherits: false;
+}
+@property --my-column-gap {
+  syntax: "*";
+  inherits: false;
+}
 @layer mycss.composition {
   .c-stack {
     display: flex;
@@ -49,10 +141,115 @@
     flex-grow: 1;
     flex-basis: calc((var(--my-switcher-threshold, var(--my-threshold-comfortable)) - 100%) * 999);
   }
+  .c-container {
+    container-type: inline-size;
+  }
   .c-grid {
+    --_grid-gap: var(--my-column-gap, var(--my-grid-space, var(--my-gutter-md)));
+    --_grid-cols-sized: initial;
+    --_grid-cols: var(--_grid-cols-sized, var(--my-grid-columns-xs, var(--my-grid-columns, 999)));
+    --_grid-min: var(--my-grid-min, var(--my-width-3xs));
     display: grid;
-    gap: var(--my-grid-space, var(--my-gutter-md));
-    grid-template-columns: repeat(auto-fit, minmax(min(var(--my-grid-min, var(--my-width-3xs)), 100%), 1fr));
+    row-gap: var(--my-grid-space, var(--my-gutter-md));
+    column-gap: var(--_grid-gap);
+    grid-template-columns: repeat(var(--my-grid-placement, auto-fit), minmax(min(100%, max(var(--_grid-min), (100% - (var(--_grid-cols) - 1) * var(--_grid-gap)) / var(--_grid-cols))), 1fr));
+  }
+  .c-grid > * {
+    --my-grid-columns: initial;
+    --my-grid-columns-xs: initial;
+    --my-grid-columns-sm: initial;
+    --my-grid-columns-md: initial;
+    --my-grid-columns-lg: initial;
+    --my-grid-columns-xl: initial;
+    --my-grid-columns-2xl: initial;
+    --my-grid-min: initial;
+    --my-grid-space: initial;
+    --my-grid-placement: initial;
+  }
+  .c-grid > [data-span=full] {
+    grid-column: 1/-1;
+  }
+  .c-grid[data-layout=fixed] {
+    --_grid-cols: var(--_grid-cols-sized, var(--my-grid-columns-xs, 1));
+    grid-template-columns: repeat(var(--_grid-cols), minmax(0, 1fr));
+  }
+  .c-grid[data-layout=fixed] > * {
+    --_cell-span-sized: initial;
+    --_cell-start-sized: initial;
+    --_cell-span: min(var(--_cell-span-sized, var(--my-cell-span-xs, var(--my-cell-span, 1))), var(--_grid-cols));
+    --_cell-start: max(1, min(var(--_cell-start-sized, var(--my-cell-start-xs, var(--my-cell-start))), var(--_grid-cols) - var(--_cell-span) + 1));
+    grid-column: var(--_cell-start, auto)/span var(--_cell-span);
+    grid-row: span var(--my-cell-rows, 1);
+  }
+  .c-grid > [data-subgrid]:not([data-subgrid=rows]) {
+    display: grid;
+    grid-template-columns: subgrid;
+    gap: inherit;
+  }
+  .c-grid[data-subgrid=rows] > * {
+    display: grid;
+    grid-template-rows: subgrid;
+    grid-row: span var(--my-grid-rows, 3);
+    row-gap: var(--my-grid-row-space, var(--my-stack-sm));
+  }
+  .c-columns {
+    --_col-gap: var(--my-column-gap, var(--my-columns-space, var(--my-gutter-md)));
+    --_col-count: var(--my-columns-count, 12);
+    --_col-min: var(--my-columns-min, var(--my-width-3xs));
+    display: flex;
+    flex-wrap: wrap;
+    row-gap: var(--my-columns-space, var(--my-gutter-md));
+    column-gap: var(--_col-gap);
+  }
+  .c-columns > * {
+    --my-columns-space: initial;
+    --my-columns-count: initial;
+    --my-columns-min: initial;
+    --_col-span-sized: initial;
+    --_col-span: var(--_col-span-sized, var(--my-col-span-xs, var(--my-col-span)));
+    flex-grow: var(--_col-span, 1);
+    flex-shrink: 1;
+    flex-basis: max(0px, var(--_col-span, 0) / var(--_col-count) * (100% + var(--_col-gap)) - var(--_col-gap) - 1px);
+    min-inline-size: min(100%, var(--_col-min));
+  }
+  .c-columns > [data-col=shrink] {
+    flex: 0 0 auto;
+    min-inline-size: 0;
+    max-inline-size: 100%;
+  }
+  .c-page {
+    --_page-gutter: var(--my-page-gutter, var(--my-container-padding-comfortable));
+    --_page-content: min(var(--my-page-content, var(--my-width-lg)), 100% - var(--_page-gutter) * 2);
+    --_page-popout: minmax(0, var(--my-page-popout, var(--my-gutter-lg)));
+    --_page-feature: minmax(0, var(--my-page-feature, var(--my-width-3xs)));
+    --_page-full: minmax(var(--_page-gutter), 1fr);
+    display: grid;
+    grid-template-columns: [full-start] var(--_page-full) [feature-start] var(--_page-feature) [popout-start] var(--_page-popout) [content-start] var(--_page-content) [content-end] var(--_page-popout) [popout-end] var(--_page-feature) [feature-end] var(--_page-full) [full-end];
+  }
+  .c-page > * {
+    grid-column: content;
+  }
+  .c-page > [data-breakout=popout] {
+    grid-column: popout;
+  }
+  .c-page > [data-breakout=feature] {
+    grid-column: feature;
+  }
+  .c-page > [data-breakout=full] {
+    grid-column: full;
+  }
+  .c-page > [data-breakout=full][data-subgrid] {
+    display: grid;
+    grid-template-columns: subgrid;
+  }
+  .c-page > [data-breakout=full][data-subgrid] > * {
+    grid-column: content;
+  }
+  .c-page > [data-breakout=full][data-subgrid] > [data-breakout=popout] {
+    grid-column: popout;
+  }
+  .c-page > [data-breakout=full][data-subgrid] > [data-breakout=feature] {
+    grid-column: feature;
   }
   .c-cover {
     display: flex;
@@ -63,5 +260,80 @@
   }
   .c-cover > [data-principal] {
     margin-block: auto;
+  }
+  @container (inline-size >= 480px) {
+    .c-grid {
+      --_grid-cols-sized: var(--my-grid-columns-sm, var(--my-grid-columns-xs));
+    }
+    .c-grid[data-layout=fixed] {
+      --_grid-cols-sized: var(--my-grid-columns-sm, var(--my-grid-columns-xs));
+    }
+    .c-grid[data-layout=fixed] > * {
+      --_cell-span-sized: var(--my-cell-span-sm, var(--my-cell-span-xs));
+      --_cell-start-sized: var(--my-cell-start-sm, var(--my-cell-start-xs));
+    }
+    .c-columns > * {
+      --_col-span-sized: var(--my-col-span-sm, var(--my-col-span-xs));
+    }
+  }
+  @container (inline-size >= 768px) {
+    .c-grid {
+      --_grid-cols-sized: var(--my-grid-columns-md, var(--my-grid-columns-sm, var(--my-grid-columns-xs)));
+    }
+    .c-grid[data-layout=fixed] {
+      --_grid-cols-sized: var(--my-grid-columns-md, var(--my-grid-columns-sm, var(--my-grid-columns-xs, var(--my-grid-columns, 12))));
+    }
+    .c-grid[data-layout=fixed] > * {
+      --_cell-span-sized: var(--my-cell-span-md, var(--my-cell-span-sm, var(--my-cell-span-xs)));
+      --_cell-start-sized: var(--my-cell-start-md, var(--my-cell-start-sm, var(--my-cell-start-xs)));
+    }
+    .c-columns > * {
+      --_col-span-sized: var(--my-col-span-md, var(--my-col-span-sm, var(--my-col-span-xs)));
+    }
+  }
+  @container (inline-size >= 1024px) {
+    .c-grid {
+      --_grid-cols-sized: var(--my-grid-columns-lg, var(--my-grid-columns-md, var(--my-grid-columns-sm, var(--my-grid-columns-xs))));
+    }
+    .c-grid[data-layout=fixed] {
+      --_grid-cols-sized: var(--my-grid-columns-lg, var(--my-grid-columns-md, var(--my-grid-columns-sm, var(--my-grid-columns-xs, var(--my-grid-columns, 12)))));
+    }
+    .c-grid[data-layout=fixed] > * {
+      --_cell-span-sized: var(--my-cell-span-lg, var(--my-cell-span-md, var(--my-cell-span-sm, var(--my-cell-span-xs))));
+      --_cell-start-sized: var(--my-cell-start-lg, var(--my-cell-start-md, var(--my-cell-start-sm, var(--my-cell-start-xs))));
+    }
+    .c-columns > * {
+      --_col-span-sized: var(--my-col-span-lg, var(--my-col-span-md, var(--my-col-span-sm, var(--my-col-span-xs))));
+    }
+  }
+  @container (inline-size >= 1280px) {
+    .c-grid {
+      --_grid-cols-sized: var(--my-grid-columns-xl, var(--my-grid-columns-lg, var(--my-grid-columns-md, var(--my-grid-columns-sm, var(--my-grid-columns-xs)))));
+    }
+    .c-grid[data-layout=fixed] {
+      --_grid-cols-sized: var(--my-grid-columns-xl, var(--my-grid-columns-lg, var(--my-grid-columns-md, var(--my-grid-columns-sm, var(--my-grid-columns-xs, var(--my-grid-columns, 12))))));
+    }
+    .c-grid[data-layout=fixed] > * {
+      --_cell-span-sized: var(--my-cell-span-xl, var(--my-cell-span-lg, var(--my-cell-span-md, var(--my-cell-span-sm, var(--my-cell-span-xs)))));
+      --_cell-start-sized: var(--my-cell-start-xl, var(--my-cell-start-lg, var(--my-cell-start-md, var(--my-cell-start-sm, var(--my-cell-start-xs)))));
+    }
+    .c-columns > * {
+      --_col-span-sized: var(--my-col-span-xl, var(--my-col-span-lg, var(--my-col-span-md, var(--my-col-span-sm, var(--my-col-span-xs)))));
+    }
+  }
+  @container (inline-size >= 1440px) {
+    .c-grid {
+      --_grid-cols-sized: var(--my-grid-columns-2xl, var(--my-grid-columns-xl, var(--my-grid-columns-lg, var(--my-grid-columns-md, var(--my-grid-columns-sm, var(--my-grid-columns-xs))))));
+    }
+    .c-grid[data-layout=fixed] {
+      --_grid-cols-sized: var(--my-grid-columns-2xl, var(--my-grid-columns-xl, var(--my-grid-columns-lg, var(--my-grid-columns-md, var(--my-grid-columns-sm, var(--my-grid-columns-xs, var(--my-grid-columns, 12)))))));
+    }
+    .c-grid[data-layout=fixed] > * {
+      --_cell-span-sized: var(--my-cell-span-2xl, var(--my-cell-span-xl, var(--my-cell-span-lg, var(--my-cell-span-md, var(--my-cell-span-sm, var(--my-cell-span-xs))))));
+      --_cell-start-sized: var(--my-cell-start-2xl, var(--my-cell-start-xl, var(--my-cell-start-lg, var(--my-cell-start-md, var(--my-cell-start-sm, var(--my-cell-start-xs))))));
+    }
+    .c-columns > * {
+      --_col-span-sized: var(--my-col-span-2xl, var(--my-col-span-xl, var(--my-col-span-lg, var(--my-col-span-md, var(--my-col-span-sm, var(--my-col-span-xs))))));
+    }
   }
 }

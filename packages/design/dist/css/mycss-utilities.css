@@ -1081,24 +1081,31 @@
     row-gap: var(--my-stack-2xl);
   }
   .u-inline-xs {
+    --my-column-gap: var(--my-inline-xs);
     column-gap: var(--my-inline-xs);
   }
   .u-inline-sm {
+    --my-column-gap: var(--my-inline-sm);
     column-gap: var(--my-inline-sm);
   }
   .u-inline-md {
+    --my-column-gap: var(--my-inline-md);
     column-gap: var(--my-inline-md);
   }
   .u-inline-lg {
+    --my-column-gap: var(--my-inline-lg);
     column-gap: var(--my-inline-lg);
   }
   .u-gutter-sm {
+    --my-column-gap: var(--my-gutter-sm);
     gap: var(--my-gutter-sm);
   }
   .u-gutter-md {
+    --my-column-gap: var(--my-gutter-md);
     gap: var(--my-gutter-md);
   }
   .u-gutter-lg {
+    --my-column-gap: var(--my-gutter-lg);
     gap: var(--my-gutter-lg);
   }
   .u-region-xs {
