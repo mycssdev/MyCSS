@@ -1434,7 +1434,7 @@
     gap: var(--my-spacing-xl);
     box-sizing: border-box;
     padding-block: var(--my-spacing-md);
-    padding-inline: var(--my-navbar-gutter, var(--my-container-padding-comfortable));
+    padding-inline: var(--my-navbar-gutter, var(--my-container-padding));
     border-block-end: 1px solid var(--my-border-neutral-separator);
     background-color: var(--my-surface-secondary);
   }

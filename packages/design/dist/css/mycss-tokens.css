@@ -1,4 +1,4 @@
-/*! MyCSS tokens v0.1.0-alpha.1 — generated 2026-11-26 from tokens.all-in-one.json.
+/*! MyCSS tokens v0.1.0-alpha.1 — generated 2026-11-28 from tokens.all-in-one.json.
  *  Do not edit by hand; run packages/design/build/generate_css.py.
  *  Requires: CSS round(), light-dark() — Baseline 2024. */
 @layer mycss.tokens {
@@ -1985,6 +1985,7 @@
     --my-threshold-spacious: var(--my-width-2xl);
     --my-threshold-max: var(--my-container-max-width);
     --my-threshold: var(--my-threshold-comfortable);
+    --my-container-padding: var(--my-container-padding-comfortable);
     /* default theme: slate gray, base accent, comfortable, montserrat, soft depth */
     --my-neutral-1: var(--my-slate-1);
     --my-neutral-2: var(--my-slate-2);
@@ -3900,6 +3901,7 @@
     --my-region-lg: var(--my-spacing-8xl);
     --my-region-xl: var(--my-spacing-9xl);
     --my-threshold: var(--my-width-sm);
+    --my-container-padding: var(--my-container-padding-compact);
   }
   [data-density="comfortable"] {
     --my-scale-base: 16;
@@ -3949,6 +3951,7 @@
     --my-region-lg: var(--my-spacing-8xl);
     --my-region-xl: var(--my-spacing-9xl);
     --my-threshold: var(--my-width-xl);
+    --my-container-padding: var(--my-container-padding-comfortable);
   }
   [data-density="spacious"] {
     --my-scale-base: 18;
@@ -3998,6 +4001,7 @@
     --my-region-lg: var(--my-spacing-8xl);
     --my-region-xl: var(--my-spacing-9xl);
     --my-threshold: var(--my-width-2xl);
+    --my-container-padding: var(--my-container-padding-spacious);
   }
   [data-typeface="montserrat"] {
     --my-family-primary: Montserrat, system-ui, -apple-system, 'Noto Sans JP', sans-serif;

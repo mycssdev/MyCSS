@@ -7,6 +7,11 @@ plain-CSS copy. Live spec and stress test: `packages/design/dist/grid-spec.html`
 Primitives: `c-stack`, `c-cluster`, `c-center`, `c-sidebar`, `c-switcher`,
 `c-cover`, and the grid system below.
 
+`c-center` is `box-sizing: border-box`: `--my-center-max` (1280 by default)
+is the width of the whole column including its gutter. The gutter of
+`c-center` and `c-page` is `--my-container-padding`, which follows density
+(12 / 24 / 40), the same variable as `container-padding` in Figma.
+
 ## Grid system
 
 Nothing reads the viewport. Most of it has no queries at all; the *sized*

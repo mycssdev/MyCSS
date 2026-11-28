@@ -183,6 +183,17 @@ def container_sizes_px(data):
     return out
 
 
+# Container padding (2026-11-28). Canonical carries a 3 x 3 cross-product:
+# container-padding-{compact,comfortable,spacious}, each re-valued in every
+# density. The Figma builder collapses it to ONE variable, `container-padding`,
+# that takes the value named after the active density (12 / 24 / 40). This is
+# the same variable for CSS: --my-container-padding. c-center, c-page and the
+# navbar read it, so their gutter follows density exactly as in Figma.
+# (Before this they read -comfortable in every density: 16 / 24 / 32.)
+def container_padding_line(mode, indent="    "):
+    return f"{indent}{PREFIX}container-padding: var({PREFIX}container-padding-{mode});"
+
+
 # semantic/spacing v1.0 (per MyCSS-Spacing-Tokens.md) — pure aliases to Tier-2 spacing
 SEMANTIC_SPACING = {
     "inset-none": "spacing-none", "inset-xs": "spacing-xs", "inset-sm": "spacing-md",
@@ -403,6 +414,7 @@ def build_tokens_css(data):
     # v2.16: one mode-selected threshold (the Figma variable); [data-density]
     # blocks re-declare it from canonical
     out.append(f"    {PREFIX}threshold: var({PREFIX}threshold-{DEFAULTS['density']});")
+    out.append(container_padding_line(DEFAULTS["density"]))
     out.append("    /* default theme: slate gray, base accent, comfortable, montserrat, soft depth */")
     for s in [f"semantic/gray-{DEFAULTS['gray']}", f"semantic/accent-{DEFAULTS['accent']}",
               f"semantic/typeface-{DEFAULTS['typeface']}"]:
@@ -428,6 +440,8 @@ def build_tokens_css(data):
             out.append(f'  {sel} {{')
             for s in theme_sets(data, group, t["name"]):
                 out += emit_set(res, s, "    ")
+            if attr == "density":
+                out.append(container_padding_line(key))
             out.append("  }")
     # depth blocks — composed shadows only (components stay token-side)
     for t in data["$themes"]:

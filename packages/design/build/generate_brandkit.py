@@ -278,6 +278,7 @@ def build_kit(kit, data, res):
     if density:
         for s in G.theme_sets(data, "Density", density.capitalize()):
             dens_lines += G.emit_set(res, s, "    ")
+        dens_lines.append(G.container_padding_line(density))
         if seeds:
             dens_lines = [l for l in dens_lines if "scale-base" not in l and "scale-ratio" not in l]
     if seeds:

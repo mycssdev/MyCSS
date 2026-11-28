@@ -90,7 +90,7 @@ $current: '[aria-current]:not([aria-current="false"])';
     gap: my.token(spacing-xl);
     box-sizing: border-box;
     padding-block: my.token(spacing-md);
-    padding-inline: my.knob(navbar-gutter, container-padding-comfortable);
+    padding-inline: my.knob(navbar-gutter, container-padding);
     border-block-end: 1px solid my.token(border-neutral-separator);
     background-color: my.token(surface-secondary);
 

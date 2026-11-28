@@ -114,9 +114,10 @@
     align-items: var(--my-cluster-align, center);
   }
   .c-center {
+    box-sizing: border-box;
     max-inline-size: var(--my-center-max, var(--my-container-max-width));
     margin-inline: auto;
-    padding-inline: var(--my-center-gutter, var(--my-container-padding-comfortable));
+    padding-inline: var(--my-center-gutter, var(--my-container-padding));
   }
   .c-sidebar {
     display: flex;
@@ -227,7 +228,7 @@
     max-inline-size: 100%;
   }
   .c-page {
-    --_page-gutter: var(--my-page-gutter, var(--my-container-padding-comfortable));
+    --_page-gutter: var(--my-page-gutter, var(--my-container-padding));
     --_page-content: min(var(--my-page-content, var(--my-width-lg)), 100% - var(--_page-gutter) * 2);
     --_page-popout: minmax(0, var(--my-page-popout, var(--my-gutter-lg)));
     --_page-feature: minmax(0, var(--my-page-feature, var(--my-width-3xs)));

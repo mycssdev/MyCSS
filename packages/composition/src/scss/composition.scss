@@ -78,10 +78,14 @@ $size-names: list.join(("xs",), map.keys(sizes.$sizes));
   }
 
   // ---- c-center — horizontally centered content column
+  // border-box, so --my-center-max is the width of the whole column INCLUDING
+  // its gutter (1280 by default), on every site whatever its own box-sizing
+  // is, and the same as the Figma `Center`. The gutter follows density.
   .c-center {
+    box-sizing: border-box;
     max-inline-size: my.knob(center-max, container-max-width);
     margin-inline: auto;
-    padding-inline: my.knob(center-gutter, container-padding-comfortable);
+    padding-inline: my.knob(center-gutter, container-padding);
   }
 
   // ---- c-sidebar — sidebar + content, folds when content gets narrow
@@ -257,7 +261,7 @@ $size-names: list.join(("xs",), map.keys(sizes.$sizes));
   //   --my-page-content · --my-page-popout · --my-page-feature · --my-page-gutter
   // A full band with data-subgrid hands the page's lines to its children.
   .c-page {
-    --_page-gutter: #{my.knob(page-gutter, container-padding-comfortable)};
+    --_page-gutter: #{my.knob(page-gutter, container-padding)};
     --_page-content: min(#{my.knob(page-content, width-lg)}, 100% - var(--_page-gutter) * 2);
     --_page-popout: minmax(0, #{my.knob(page-popout, gutter-lg)});
     --_page-feature: minmax(0, #{my.knob(page-feature, width-3xs)});

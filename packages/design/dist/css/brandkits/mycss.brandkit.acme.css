@@ -326,6 +326,7 @@
     --my-region-lg: var(--my-spacing-8xl);
     --my-region-xl: var(--my-spacing-9xl);
     --my-threshold: var(--my-width-xl);
+    --my-container-padding: var(--my-container-padding-comfortable);
     --my-scale-base: 17;
     --my-scale-ratio: 1.2;
   }

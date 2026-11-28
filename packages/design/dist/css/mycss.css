@@ -1,6 +1,6 @@
 @charset "UTF-8";
 @layer mycss.tokens, mycss.base, mycss.composition, mycss.blocks, mycss.utilities;
-/*! MyCSS tokens v0.1.0-alpha.1 — generated 2026-11-26 from tokens.all-in-one.json.
+/*! MyCSS tokens v0.1.0-alpha.1 — generated 2026-11-28 from tokens.all-in-one.json.
  *  Do not edit by hand; run packages/design/build/generate_css.py.
  *  Requires: CSS round(), light-dark() — Baseline 2024. */
 @layer mycss.tokens {
@@ -1987,6 +1987,7 @@
     --my-threshold-spacious: var(--my-width-2xl);
     --my-threshold-max: var(--my-container-max-width);
     --my-threshold: var(--my-threshold-comfortable);
+    --my-container-padding: var(--my-container-padding-comfortable);
     /* default theme: slate gray, base accent, comfortable, montserrat, soft depth */
     --my-neutral-1: var(--my-slate-1);
     --my-neutral-2: var(--my-slate-2);
@@ -3906,6 +3907,7 @@
     --my-region-lg: var(--my-spacing-8xl);
     --my-region-xl: var(--my-spacing-9xl);
     --my-threshold: var(--my-width-sm);
+    --my-container-padding: var(--my-container-padding-compact);
   }
   [data-density=comfortable] {
     --my-scale-base: 16;
@@ -3955,6 +3957,7 @@
     --my-region-lg: var(--my-spacing-8xl);
     --my-region-xl: var(--my-spacing-9xl);
     --my-threshold: var(--my-width-xl);
+    --my-container-padding: var(--my-container-padding-comfortable);
   }
   [data-density=spacious] {
     --my-scale-base: 18;
@@ -4004,6 +4007,7 @@
     --my-region-lg: var(--my-spacing-8xl);
     --my-region-xl: var(--my-spacing-9xl);
     --my-threshold: var(--my-width-2xl);
+    --my-container-padding: var(--my-container-padding-spacious);
   }
   [data-typeface=montserrat] {
     --my-family-primary: Montserrat, system-ui, -apple-system, 'Noto Sans JP', sans-serif;
@@ -6416,9 +6420,10 @@
     align-items: var(--my-cluster-align, center);
   }
   .c-center {
+    box-sizing: border-box;
     max-inline-size: var(--my-center-max, var(--my-container-max-width));
     margin-inline: auto;
-    padding-inline: var(--my-center-gutter, var(--my-container-padding-comfortable));
+    padding-inline: var(--my-center-gutter, var(--my-container-padding));
   }
   .c-sidebar {
     display: flex;
@@ -6529,7 +6534,7 @@
     max-inline-size: 100%;
   }
   .c-page {
-    --_page-gutter: var(--my-page-gutter, var(--my-container-padding-comfortable));
+    --_page-gutter: var(--my-page-gutter, var(--my-container-padding));
     --_page-content: min(var(--my-page-content, var(--my-width-lg)), 100% - var(--_page-gutter) * 2);
     --_page-popout: minmax(0, var(--my-page-popout, var(--my-gutter-lg)));
     --_page-feature: minmax(0, var(--my-page-feature, var(--my-width-3xs)));
@@ -8084,7 +8089,7 @@
     gap: var(--my-spacing-xl);
     box-sizing: border-box;
     padding-block: var(--my-spacing-md);
-    padding-inline: var(--my-navbar-gutter, var(--my-container-padding-comfortable));
+    padding-inline: var(--my-navbar-gutter, var(--my-container-padding));
     border-block-end: 1px solid var(--my-border-neutral-separator);
     background-color: var(--my-surface-secondary);
   }
